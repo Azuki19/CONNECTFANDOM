@@ -20,9 +20,9 @@ class AppContainer extends HTMLElement {
 			UserPostCard.setAttribute(Attribute.password, user.password);
 			UserPostCard.setAttribute(Attribute.info, user.info);
 			UserPostCard.setAttribute(Attribute.followers, String(user.followers));
-			UserPostCard.setAttribute(Attribute.TitlePost, user.Post1.TitlePost);
-			UserPostCard.setAttribute(Attribute.InfoPost, user.Post1.InfoPost);
-			UserPostCard.setAttribute(Attribute.TitlePost, user.Post1.TitlePost);
+			UserPostCard.setAttribute(Attribute.titlePost, user.post1.titlePost);
+			UserPostCard.setAttribute(Attribute.infoPost, user.post1.infoPost);
+			UserPostCard.setAttribute(Attribute.imagePost, user.post1.imagePost);
 
 			this.userposts.push(UserPostCard);
 		});

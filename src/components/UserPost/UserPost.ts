@@ -9,56 +9,40 @@ export enum Attribute {
 	'password' = 'password',
 	'info' = 'info',
 	'followers' = 'followers',
-	'TitlePost' = 'titlepost',
-	'InfoPost' = 'infopost',
-	'ImagePost' = 'imagepost',
+	'titlePost' = 'titlepost',
+	'infoPost' = 'infopost',
+	'imagePost' = 'imagepost',
 }
 
 class UserPost extends HTMLElement {
 	uid?: number;
-	name?: any;
+	name?: string;
 	image?: string;
-	username?: any;
-	email?: any;
-	password?: any;
-	info?: any;
+	username?: string;
+	email?: string;
+	password?: string;
+	info?: string;
 	followers?: number;
-	titlepost?: any;
-	infopost?: any;
+	titlepost?: string;
+	infopost?: string;
 	imagepost?: string;
 
 	static get observedAttributes() {
-		const attrs: Record<Attribute, null> = {
-			uid: null,
-			name: null,
-			image: null,
-			username: null,
-			email: null,
-			password: null,
-			info: null,
-			followers: null,
-			titlepost: null,
-			infopost: null,
-			imagepost: null,
-		};
-		return Object.keys(attrs);
+		return Object.values(Attribute);
 	}
 
-	attributeChangedCallback(propName: Attribute, oldValue: string | undefined, newValue: string | undefined) {
-		switch (propName) {
-			case Attribute.uid:
-				this.uid = newValue ? Number(newValue) : undefined;
-				break;
-
-			case Attribute.followers:
-				this.followers = newValue ? Number(newValue) : undefined;
-				break;
-
-			default:
-				this[propName] = newValue;
-				break;
+	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
+		if (newValue !== null) {
+			switch (propName) {
+				case Attribute.uid:
+				case Attribute.followers:
+					this[propName] = parseInt(newValue);
+					break;
+				default:
+					this[propName] = newValue;
+					break;
+			}
 		}
-
 		this.render();
 	}
 
@@ -74,28 +58,21 @@ class UserPost extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-
-          <section class= 'userPostComponent'>
-
-          <div class='userPostProfile>
-                <img class= 'card img' src="${this.image}"></img>
-
-              <div class='userPostProfileInfo>
-              <h4>${this.name}</h4><strong>
-              <h6>${this.username}<h6>
+          <section class='userPostComponent'>
+            <div class='userPostProfile'>
+              <img class='profileImg' src="${this.image}"></img>
+              <div class='userPostProfileInfo'>
+                <h4>${this.name}</h4>
+                <strong><h6>${this.username}</h6></strong>
               </div>
-
-          </div>
-          <div class='userPost'>
-
-            <img class= 'imagePost' src="${this.imagepost}"></img>
-
-            <div class= 'PostInfo>
-              <h5>${this.titlepost}<h5>
-              <p>${this.infopost}<p>
             </div>
-          </div>
-
+            <div class='userPost'>
+              <img class='imagePost' src="${this.imagepost}"></img>
+              <div class='PostInfo'>
+                <h5>${this.titlepost}</h5>
+                <p>${this.infopost}</p>
+              </div>
+            </div>
           </section>
           `;
 		}
