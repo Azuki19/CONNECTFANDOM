@@ -8,8 +8,8 @@ interface DataShape {
 	info: any;
 	followers: number;
 	Post1: {
-		TitlePost: string;
-		InfoPost: string;
+		TitlePost: any;
+		InfoPost: any;
 		ImagePost: string;
 	};
 }
