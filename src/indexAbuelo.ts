@@ -1,5 +1,6 @@
 import * as components from './components/indexPadre';
 import UserPost, { Attribute } from './components/UserPost/UserPost';
+import { data } from './data/data';
 
 class AppContainer extends HTMLElement {
 	userposts: UserPost[] = [];
