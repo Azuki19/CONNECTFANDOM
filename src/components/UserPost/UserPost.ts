@@ -59,7 +59,7 @@ class UserPost extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
           <section class='userPostComponent'>
-            <div class='userPostProfile'>
+            <div id='userPostProfile' class='userPostProfile'>
               <img class='profileImg' src="${this.image}"></img>
               <div class='userPostProfileInfo'>
                 <h4>${this.name}</h4>
