@@ -1,17 +1,17 @@
 interface DataShape {
 	id: number;
 	type: string;
-	name: any;
+	name: string;
 	image: string;
-	username: any;
-	email: any;
-	password: any;
-	info: any;
+	username: string;
+	email: string;
+	password: string;
+	info: string;
 	followers: number;
-	Post1: {
-		TitlePost: any;
-		InfoPost: any;
-		ImagePost: string;
+	post1: {
+		titlePost: string;
+		infoPost: string;
+		imagePost: string;
 	};
 }
 
@@ -20,80 +20,80 @@ export const data: DataShape[] = [
 		id: 1,
 		type: 'User',
 		name: 'Maria Lopez',
-		image: 'https://www.stereoboard.com/images/stories/2013/images/2021%20A-Z/W/when_we_were_young_js_141123.jpg',
+		image: 'https://i.pinimg.com/564x/d4/ae/a5/d4aea579422b62be8dbad4420779faf1.jpg',
 		username: 'PepitaAzul1',
 		email: 'MariaLopez12@gmail.com',
 		password: 'Octubre11CMR',
 		info: '1111111',
 		followers: 100,
-		Post1: {
-			TitlePost: 'Band CMR',
-			InfoPost: 'llll',
-			ImagePost: 'jasdjnasd',
+		post1: {
+			titlePost: 'Band CMR',
+			infoPost: 'llll',
+			imagePost: 'https://i.pinimg.com/564x/d4/ae/a5/d4aea579422b62be8dbad4420779faf1.jpg',
 		},
 	},
 	{
 		id: 2,
 		type: 'User',
 		name: 'Natalia Mora',
-		image: 'https://upload.wikimedia.org/wikipedia/commons/1/13/My_Chemical_Romance_rain.jpg',
+		image: 'https://i.pinimg.com/564x/51/fd/bc/51fdbcff0c67d57344d217f7630e5b65.jpg',
 		username: 'NatMo02',
 		email: 'NataliaMora@gmail.com',
 		password: 'Mora123',
 		info: '000000',
 		followers: 300,
-		Post1: {
-			TitlePost: 'Boy Band',
-			InfoPost: 'ssssss',
-			ImagePost: 'jasdjnasd',
+		post1: {
+			titlePost: 'Boy Band',
+			infoPost: 'ssssss',
+			imagePost: 'https://i.pinimg.com/564x/51/fd/bc/51fdbcff0c67d57344d217f7630e5b65.jpg',
 		},
 	},
 	{
 		id: 3,
 		type: 'User',
 		name: 'Jose Montoya',
-		image: 'https://cdns-images.dzcdn.net/images/artist/e34296360cda10a29f85c7170a60178d/500x500.jpg',
+		image: 'https://i.pinimg.com/564x/55/1c/6a/551c6a9cb66e0d6197278059a845f336.jpg',
 		username: 'MontoyaJ',
 		email: 'MontoyaJ11@gmail.com',
 		password: 'MontoyaFail2',
 		info: '2222222',
 		followers: 500,
-		Post1: {
-			TitlePost: 'Band*s',
-			InfoPost: 'Sslsdas',
-			ImagePost: 'jasdjnasd',
+		post1: {
+			titlePost: 'Band*s',
+			infoPost: 'Sslsdas',
+			imagePost: 'https://i.pinimg.com/564x/55/1c/6a/551c6a9cb66e0d6197278059a845f336.jpg',
 		},
 	},
 	{
 		id: 4,
 		type: 'User',
 		name: 'Ana Lucia',
-		image: 'https://townsquare.media/site/366/files/2022/07/attachment-my_chemical_romance_2005.jpg',
+		image: 'https://i.pinimg.com/564x/26/03/e7/2603e72dc4855f4ab01e5479d8adc1fb.jpg',
 		username: 'Azuki19',
 		email: 'AnaLuciaAzuki19@gmail.com',
 		password: 'Azuki19LOL',
 		info: '99999999',
 		followers: 1000,
-		Post1: {
-			TitlePost: 'MCR Band',
-			InfoPost: 'andjnasjd',
-			ImagePost: 'jaaknsdjsjd',
+		post1: {
+			titlePost: 'MCR Band',
+			infoPost: 'andjnasjd',
+			imagePost: 'https://i.pinimg.com/564x/26/03/e7/2603e72dc4855f4ab01e5479d8adc1fb.jpg',
 		},
 	},
 	{
 		id: 5,
 		type: 'User',
 		name: 'Cris Marin',
-		image: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
+		image: 'https://i.pinimg.com/564x/9b/8e/e7/9b8ee7fd2c384d74c4d9c95e730075d5.jpg',
 		username: 'Mona12',
 		email: 'Mona12Cris@gmail.com',
 		password: 'MCRmona12',
 		info: '5555555',
 		followers: 600,
-		Post1: {
-			TitlePost: 'MCR Band',
-			InfoPost: 'Loveeeeee',
-			ImagePost: 'akfksdnf',
+		post1: {
+			titlePost: 'MCR Band',
+			infoPost: 'Loveeeeee',
+			imagePost: 'https://i.pinimg.com/564x/9b/8e/e7/9b8ee7fd2c384d74c4d9c95e730075d5.jpg',
 		},
 	},
 	{
@@ -106,10 +106,10 @@ export const data: DataShape[] = [
 		password: 'gerardway100',
 		info: '00000000',
 		followers: 50.0,
-		Post1: {
-			TitlePost: 'MCR Band',
-			InfoPost: 'oojooooojjjj',
-			ImagePost: 'bubjbjbjj',
+		post1: {
+			titlePost: 'MCR Band',
+			infoPost: 'oojooooojjjj',
+			imagePost: 'bubjbjbjj',
 		},
 	},
 	{
@@ -122,10 +122,10 @@ export const data: DataShape[] = [
 		password: '500FrankIero',
 		info: '1111111',
 		followers: 90.0,
-		Post1: {
-			TitlePost: 'MCR Band',
-			InfoPost: 'NKNKMKM',
-			ImagePost: 'JNIKNKMKM',
+		post1: {
+			titlePost: 'MCR Band',
+			infoPost: 'NKNKMKM',
+			imagePost: 'JNIKNKMKM',
 		},
 	},
 	{
@@ -138,10 +138,10 @@ export const data: DataShape[] = [
 		password: '12MikeyWay',
 		info: '1222222',
 		followers: 60.0,
-		Post1: {
-			TitlePost: 'MCR Band',
-			InfoPost: 'NJNINKN',
-			ImagePost: 'HBJBKBNN',
+		post1: {
+			titlePost: 'MCR Band',
+			infoPost: 'NJNINKN',
+			imagePost: 'HBJBKBNN',
 		},
 	},
 	{
@@ -154,10 +154,10 @@ export const data: DataShape[] = [
 		password: 'RayToro123',
 		info: '13323233',
 		followers: 200.0,
-		Post1: {
-			TitlePost: 'MCR Band',
-			InfoPost: 'JASNDKANSDK',
-			ImagePost: 'ASKDOSJD',
+		post1: {
+			titlePost: 'MCR Band',
+			infoPost: 'JASNDKANSDK',
+			imagePost: 'ASKDOSJD',
 		},
 	},
 ];
