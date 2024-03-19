@@ -6,8 +6,8 @@
 }
 
 .imagePost {
-	width: 70px; /* Ajusta el tamaño según tus necesidades */
-	height: 70px; /* Ajusta el tamaño según tus necesidades */
+	width: 70px;
+	height: 70px;
 	margin-right: 15px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 #userPostProfile img {
-	border-radius: 50%; /* Aplicar el border-radius a la imagen de perfil */
+	border-radius: 50%;
 }
 
 .userPostComponent {
@@ -36,9 +36,9 @@
 }
 
 .userPostProfileInfo {
-	flex-grow: 1; /* Para que este div ocupe todo el espacio disponible */
+	flex-grow: 1;
 }
 
 .PostInfo {
-	flex-grow: 1; /* Para que este div ocupe todo el espacio disponible */
+	flex-grow: 1;
 }
