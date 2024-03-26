@@ -36,7 +36,7 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-			<header> CONNECT FANDOM </header>
+			<header> CONNECT FANDOOM </header>
             `;
 
 			this.userposts.forEach((userpost) => {
