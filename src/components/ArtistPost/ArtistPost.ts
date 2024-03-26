@@ -15,7 +15,7 @@ export enum Attribute {
 	'imagePost' = 'imagepost',
 }
 
-class UserPost extends HTMLElement {
+class ArtistPost extends HTMLElement {
 	uid?: number;
 	type;
 	name?: string;
