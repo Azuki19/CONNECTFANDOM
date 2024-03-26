@@ -2,6 +2,7 @@ import styles from './UserPost.css';
 
 export enum Attribute {
 	'uid' = 'uid',
+	'type' = 'type',
 	'name' = 'name',
 	'image' = 'image',
 	'username' = 'username',
@@ -16,6 +17,7 @@ export enum Attribute {
 
 class UserPost extends HTMLElement {
 	uid?: number;
+	type;
 	name?: string;
 	image?: string;
 	username?: string;

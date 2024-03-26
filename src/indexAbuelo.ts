@@ -13,6 +13,7 @@ class AppContainer extends HTMLElement {
 			const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
 
 			UserPostCard.setAttribute(Attribute.uid, String(user.id));
+			UserPostCard.setAttribute(Attribute.uid, String(user.type));
 			UserPostCard.setAttribute(Attribute.name, user.name);
 			UserPostCard.setAttribute(Attribute.image, user.image);
 			UserPostCard.setAttribute(Attribute.username, user.username);
@@ -35,6 +36,7 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+			<header> CONNECT FANDOM </header>
             `;
 
 			this.userposts.forEach((userpost) => {
