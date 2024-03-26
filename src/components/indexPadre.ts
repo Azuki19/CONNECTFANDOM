@@ -1,1 +1,1 @@
-export { default as Profile } from './UserPost/UserPost.js';
+export { default as UserPost } from './UserPost/UserPost.js';
