@@ -392,22 +392,24 @@
 									o.setAttribute(t.imagePost, e.post1.imagePost),
 									this.userpost.push(o);
 							}),
-						m.forEach((t) => {
-							const e = this.ownerDocument.createElement('artist-post');
-							e.setAttribute(a.uid, String(t.id)),
-								e.setAttribute(a.type, t.type),
-								e.setAttribute(a.name, t.name),
-								e.setAttribute(a.image, t.image),
-								e.setAttribute(a.username, t.username),
-								e.setAttribute(a.email, t.email),
-								e.setAttribute(a.password, t.password),
-								e.setAttribute(a.info, t.info),
-								e.setAttribute(a.followers, String(t.followers)),
-								e.setAttribute(a.titlePost, t.post1.titlePost),
-								e.setAttribute(a.infoPost, t.post1.infoPost),
-								e.setAttribute(a.imagePost, t.post1.imagePost),
-								this.artistpost.push(e);
-						}),
+						m
+							.filter((t) => 'Artist' === t.type)
+							.forEach((t) => {
+								const e = this.ownerDocument.createElement('artist-post');
+								e.setAttribute(a.uid, String(t.id)),
+									e.setAttribute(a.type, t.type),
+									e.setAttribute(a.name, t.name),
+									e.setAttribute(a.image, t.image),
+									e.setAttribute(a.username, t.username),
+									e.setAttribute(a.email, t.email),
+									e.setAttribute(a.password, t.password),
+									e.setAttribute(a.info, t.info),
+									e.setAttribute(a.followers, String(t.followers)),
+									e.setAttribute(a.titlePost, t.post1.titlePost),
+									e.setAttribute(a.infoPost, t.post1.infoPost),
+									e.setAttribute(a.imagePost, t.post1.imagePost),
+									this.artistpost.push(e);
+							}),
 						c.forEach((t) => {
 							const e = this.ownerDocument.createElement('more-about');
 							e.setAttribute(r.uid, String(t.id)),
