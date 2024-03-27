@@ -10,7 +10,6 @@ class AppContainer extends HTMLElement {
 	userpost: UserPost[] = [];
 	artistpost: ArtistPost[] = [];
 	moreabout: MoreAbout[] = [];
-	createpost: CreatePost[] = [];
 
 	constructor() {
 		super();
