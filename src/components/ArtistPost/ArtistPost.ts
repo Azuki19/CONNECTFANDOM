@@ -17,7 +17,7 @@ export enum Attribute {
 
 class ArtistPost extends HTMLElement {
 	uid?: number;
-	type;
+	type?: string;
 	name?: string;
 	image?: string;
 	username?: string;
@@ -75,5 +75,12 @@ class ArtistPost extends HTMLElement {
          </section>
          `;
 		}
+
+		const cssArtistPost = this.ownerDocument.createElement('style');
+		cssArtistPost.innerHTML = styles;
+		this.shadowRoot?.appendChild(cssArtistPost);
 	}
 }
+
+customElements.define('artist-post', ArtistPost);
+export default ArtistPost;
