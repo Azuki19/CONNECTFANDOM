@@ -1,6 +1,6 @@
 import styles from './MiniHeader.css';
 
-export default class MiniHeader extends HTMLElement {
+class MiniHeader extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
@@ -13,7 +13,11 @@ export default class MiniHeader extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-				<p>a card</p>
+      <section>
+      <p>FEED</p>
+      <p>artist/p>
+      </section>
+
 			`;
 
 			const cssMiniHeader = this.ownerDocument.createElement('style');
@@ -24,3 +28,4 @@ export default class MiniHeader extends HTMLElement {
 }
 
 customElements.define('mini-header', MiniHeader);
+export default MiniHeader;
