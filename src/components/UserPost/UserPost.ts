@@ -17,7 +17,7 @@ export enum Attribute {
 
 class UserPost extends HTMLElement {
 	uid?: number;
-	type;
+	type?: string;
 	name?: string;
 	image?: string;
 	username?: string;
