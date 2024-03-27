@@ -2,6 +2,7 @@ import * as components from './components/indexPadre';
 import UserPost, { Attribute } from './components/UserPost/UserPost';
 import ArtistPost, { ArtistAttribute } from './components/ArtistPost/ArtistPost';
 import MoreAbout, { MoreAboutAttribute } from './components/MoreAbout/MoreAbout';
+import CreatePost, { CreatePostAttribute } from './components/CreatePost/CreatePost';
 import { data } from './data/data';
 import { bandsdata } from './data/bandsData';
 
@@ -9,6 +10,7 @@ class AppContainer extends HTMLElement {
 	userpost: UserPost[] = [];
 	artistpost: ArtistPost[] = [];
 	moreabout: MoreAbout[] = [];
+	createpost: CreatePost[] = [];
 
 	constructor() {
 		super();
@@ -67,6 +69,18 @@ class AppContainer extends HTMLElement {
 
 			this.artistpost.push(MoreAboutCard);
 		}
+
+		const BannerCreatePost = data.find((post) => post.id === 1);
+
+		if (BannerCreatePost) {
+			const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
+
+			CreatePostCard.setAttribute(CreatePostAttribute.uid, String(BannerCreatePost.id));
+			CreatePostCard.setAttribute(CreatePostAttribute.image, BannerCreatePost.image);
+			CreatePostCard.setAttribute(CreatePostAttribute.type, BannerCreatePost.type);
+
+			this.artistpost.push(CreatePostCard);
+		}
 	}
 
 	connectedCallback() {
@@ -89,6 +103,10 @@ class AppContainer extends HTMLElement {
 
 			this.moreabout.forEach((moreabout) => {
 				this.shadowRoot?.appendChild(moreabout);
+			});
+
+			this.createpost.forEach((createpost) => {
+				this.shadowRoot?.appendChild(createpost);
 			});
 		}
 	}
