@@ -1,6 +1,6 @@
 import styles from './ArtistPost.css';
 
-export enum Attribute {
+export enum ArtistAttribute {
 	'uid' = 'uid',
 	'type' = 'type',
 	'name' = 'name',
@@ -30,14 +30,14 @@ class ArtistPost extends HTMLElement {
 	imagepost?: string;
 
 	static get observedAttributes() {
-		return Object.values(Attribute);
+		return Object.values(ArtistAttribute);
 	}
 
 	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
 		if (newValue !== null) {
 			switch (propName) {
-				case Attribute.uid:
-				case Attribute.followers:
+				case ArtistAttribute.uid:
+				case ArtistAttribute.followers:
 					this[propName] = parseInt(newValue);
 					break;
 				default:

@@ -1,9 +1,11 @@
 import * as components from './components/indexPadre';
 import UserPost, { Attribute } from './components/UserPost/UserPost';
+import ArtistPost, { ArtistAttribute } from './components/ArtistPost/ArtistPost';
 import { data } from './data/data';
 
 class AppContainer extends HTMLElement {
 	userposts: UserPost[] = [];
+	artistpost: ArtistPost[] = [];
 
 	constructor() {
 		super();
@@ -27,6 +29,25 @@ class AppContainer extends HTMLElement {
 
 			this.userposts.push(UserPostCard);
 		});
+
+		data.forEach((artist) => {
+			const ArtistPostCard = this.ownerDocument.createElement('artist-post') as ArtistPost;
+
+			ArtistPostCard.setAttribute(ArtistAttribute.uid, String(artist.id));
+			ArtistPostCard.setAttribute(ArtistAttribute.type, artist.type);
+			ArtistPostCard.setAttribute(ArtistAttribute.name, artist.name);
+			ArtistPostCard.setAttribute(ArtistAttribute.image, artist.image);
+			ArtistPostCard.setAttribute(ArtistAttribute.username, artist.username);
+			ArtistPostCard.setAttribute(ArtistAttribute.email, artist.email);
+			ArtistPostCard.setAttribute(ArtistAttribute.password, artist.password);
+			ArtistPostCard.setAttribute(ArtistAttribute.info, artist.info);
+			ArtistPostCard.setAttribute(ArtistAttribute.followers, String(artist.followers));
+			ArtistPostCard.setAttribute(ArtistAttribute.titlePost, artist.post1.titlePost);
+			ArtistPostCard.setAttribute(ArtistAttribute.infoPost, artist.post1.infoPost);
+			ArtistPostCard.setAttribute(ArtistAttribute.imagePost, artist.post1.imagePost);
+
+			this.artistpost.push(ArtistPostCard);
+		});
 	}
 
 	connectedCallback() {
@@ -38,6 +59,9 @@ class AppContainer extends HTMLElement {
 			this.shadowRoot.innerHTML = `
 			<header> CONNECT FANDOM </header>
             `;
+			this.artistpost.forEach((artistpost) => {
+				this.shadowRoot?.appendChild(artistpost);
+			});
 
 			this.userposts.forEach((userpost) => {
 				this.shadowRoot?.appendChild(userpost);
