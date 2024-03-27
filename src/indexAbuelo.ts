@@ -14,7 +14,7 @@ class AppContainer extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 
-		const UserData = data.filter((item) => item.id % 2 === 0);
+		const UserData = data.filter((user) => user.type === 'User');
 
 		UserData.forEach((user) => {
 			const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
@@ -35,7 +35,9 @@ class AppContainer extends HTMLElement {
 			this.userpost.push(UserPostCard);
 		});
 
-		data.forEach((artist) => {
+		const ArtistData = data.filter((user) => user.type === 'Artist');
+
+		ArtistData.forEach((artist) => {
 			const ArtistPostCard = this.ownerDocument.createElement('artist-post') as ArtistPost;
 
 			ArtistPostCard.setAttribute(ArtistAttribute.uid, String(artist.id));
