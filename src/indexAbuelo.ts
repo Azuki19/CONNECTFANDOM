@@ -14,8 +14,7 @@ class AppContainer extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 
-
-		const userData = data.filter((user) => user.type === 'User');
+		const UserData = data.filter((user) => user.type === 'User');
 
 		UserData.forEach((user) => {
 			const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
