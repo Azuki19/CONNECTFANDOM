@@ -13,7 +13,9 @@ class MiniHeader extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-			<p>a card</p>
+			<section class='sectionminiheader'>
+			<p>FANDOOOOOOOOOOM/p>
+			</section>
 		`;
 		}
 		const cssMiniHeader = this.ownerDocument.createElement('style');

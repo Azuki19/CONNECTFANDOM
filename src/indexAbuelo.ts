@@ -90,13 +90,16 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-			<mini-header></mini-header>
 			<header> CONNECT FANDOM </header>
+			<mini-header></mini-header>
+
             `;
 			this.artistpost.forEach((artistpost) => {
 				this.shadowRoot?.appendChild(artistpost);
 			});
-
+			`
+			<header> CONNECTT </header>
+            `;
 			this.userpost.forEach((userpost) => {
 				this.shadowRoot?.appendChild(userpost);
 			});
