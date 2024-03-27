@@ -1,0 +1,38 @@
+section {
+	display: flex;
+	flex-direction: column;
+	background-color: #aff7f7;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	margin-bottom: 20px;
+	padding: 20px;
+}
+
+section > div {
+	margin-right: 20px;
+}
+
+section > div img {
+	width: 70px;
+	height: 70px;
+	margin-right: 15px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+section > div h1 {
+	font-size: 20px;
+	margin: 5px 0;
+}
+
+section > div p {
+	margin: 1px 0;
+}
+
+section > div:last-child {
+	flex-grow: 1;
+}
+
+section > div:last-child p {
+	margin-bottom: 5px;
+}
