@@ -1,6 +1,6 @@
-import styles from './UserPost.css';
+import styles from './ArtistPost.css';
 
-export enum Attribute {
+export enum ArtistAttribute {
 	'uid' = 'uid',
 	'type' = 'type',
 	'name' = 'name',
@@ -15,7 +15,7 @@ export enum Attribute {
 	'imagePost' = 'imagepost',
 }
 
-class UserPost extends HTMLElement {
+class ArtistPost extends HTMLElement {
 	uid?: number;
 	type?: string;
 	name?: string;
@@ -30,14 +30,14 @@ class UserPost extends HTMLElement {
 	imagepost?: string;
 
 	static get observedAttributes() {
-		return Object.values(Attribute);
+		return Object.values(ArtistAttribute);
 	}
 
 	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
 		if (newValue !== null) {
 			switch (propName) {
-				case Attribute.uid:
-				case Attribute.followers:
+				case ArtistAttribute.uid:
+				case ArtistAttribute.followers:
 					this[propName] = parseInt(newValue);
 					break;
 				default:
@@ -60,29 +60,27 @@ class UserPost extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-          <section class='userPostComponent'>
-            <div id='userPostProfile' class='userPostProfile'>
-              <img class='profileImg' src="${this.image}"></img>
-              <div class='userPostProfileInfo'>
-                <h4>${this.name}</h4>
-                <strong><h6>${this.username}</h6></strong>
-              </div>
-            </div>
-            <div class='userPost'>
-              <img class='imagePost' src="${this.imagepost}"></img>
-              <div class='PostInfo'>
-                <h5>${this.titlepost}</h5>
+        <section>
+          <div>
+             <img src="${this.image}" alt="">
+             <h1>${this.name}</h1>
+             <p>${this.username}</p>
+          </div>
+
+             <div>
+                <p>${this.titlepost}</p>
                 <p>${this.infopost}</p>
-              </div>
-            </div>
-          </section>
-          `;
+                <p>${this.imagepost}</p>
+             </div>
+         </section>
+         `;
 		}
-		const cssUserPost = this.ownerDocument.createElement('style');
-		cssUserPost.innerHTML = styles;
-		this.shadowRoot?.appendChild(cssUserPost);
+
+		const cssArtistPost = this.ownerDocument.createElement('style');
+		cssArtistPost.innerHTML = styles;
+		this.shadowRoot?.appendChild(cssArtistPost);
 	}
 }
 
-customElements.define('user-post', UserPost);
-export default UserPost;
+customElements.define('artist-post', ArtistPost);
+export default ArtistPost;
