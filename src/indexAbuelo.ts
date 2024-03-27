@@ -35,7 +35,9 @@ class AppContainer extends HTMLElement {
 			this.userpost.push(UserPostCard);
 		});
 
-		data.forEach((artist) => {
+		const ArtistData = data.filter((user) => user.type === 'Artist');
+
+		ArtistData.forEach((artist) => {
 			const ArtistPostCard = this.ownerDocument.createElement('artist-post') as ArtistPost;
 
 			ArtistPostCard.setAttribute(ArtistAttribute.uid, String(artist.id));
