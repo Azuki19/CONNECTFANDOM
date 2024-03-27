@@ -56,15 +56,17 @@ class AppContainer extends HTMLElement {
 			this.artistpost.push(ArtistPostCard);
 		});
 
-		bandsdata.forEach((band) => {
+		const BannerBand = bandsdata.find((band) => band.id === 1);
+
+		if (BannerBand) {
 			const MoreAboutCard = this.ownerDocument.createElement('more-about') as MoreAbout;
 
-			MoreAboutCard.setAttribute(MoreAboutAttribute.uid, String(band.id));
-			MoreAboutCard.setAttribute(MoreAboutAttribute.bandName, band.bandName);
-			MoreAboutCard.setAttribute(MoreAboutAttribute.bandImage, band.bandImage);
+			MoreAboutCard.setAttribute(MoreAboutAttribute.uid, String(BannerBand.id));
+			MoreAboutCard.setAttribute(MoreAboutAttribute.bandName, BannerBand.bandName);
+			MoreAboutCard.setAttribute(MoreAboutAttribute.bandImage, BannerBand.bandImage);
 
 			this.artistpost.push(MoreAboutCard);
-		});
+		}
 	}
 
 	connectedCallback() {
@@ -74,6 +76,7 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+			<mini-header></mini-header>
 			<header> CONNECT FANDOM </header>
             `;
 			this.artistpost.forEach((artistpost) => {
