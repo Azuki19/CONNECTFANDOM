@@ -1,17 +1,22 @@
 import * as components from './components/indexPadre';
 import UserPost, { Attribute } from './components/UserPost/UserPost';
 import ArtistPost, { ArtistAttribute } from './components/ArtistPost/ArtistPost';
+import MoreAbout, { MoreAboutAttribute } from './components/MoreAbout/MoreAbout';
 import { data } from './data/data';
+import { bandsdata } from './data/bandsData';
 
 class AppContainer extends HTMLElement {
-	userposts: UserPost[] = [];
+	userpost: UserPost[] = [];
 	artistpost: ArtistPost[] = [];
+	moreabout: MoreAbout[] = [];
 
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
 
-		data.forEach((user) => {
+		const UserData = data.filter((item) => item.id % 2 === 0);
+
+		UserData.forEach((user) => {
 			const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
 
 			UserPostCard.setAttribute(Attribute.uid, String(user.id));
@@ -27,7 +32,7 @@ class AppContainer extends HTMLElement {
 			UserPostCard.setAttribute(Attribute.infoPost, user.post1.infoPost);
 			UserPostCard.setAttribute(Attribute.imagePost, user.post1.imagePost);
 
-			this.userposts.push(UserPostCard);
+			this.userpost.push(UserPostCard);
 		});
 
 		data.forEach((artist) => {
@@ -48,6 +53,16 @@ class AppContainer extends HTMLElement {
 
 			this.artistpost.push(ArtistPostCard);
 		});
+
+		bandsdata.forEach((band) => {
+			const MoreAboutCard = this.ownerDocument.createElement('more-about') as MoreAbout;
+
+			MoreAboutCard.setAttribute(MoreAboutAttribute.uid, String(band.id));
+			MoreAboutCard.setAttribute(MoreAboutAttribute.bandName, band.bandName);
+			MoreAboutCard.setAttribute(MoreAboutAttribute.bandImage, band.bandImage);
+
+			this.artistpost.push(MoreAboutCard);
+		});
 	}
 
 	connectedCallback() {
@@ -63,8 +78,12 @@ class AppContainer extends HTMLElement {
 				this.shadowRoot?.appendChild(artistpost);
 			});
 
-			this.userposts.forEach((userpost) => {
+			this.userpost.forEach((userpost) => {
 				this.shadowRoot?.appendChild(userpost);
+			});
+
+			this.moreabout.forEach((moreabout) => {
+				this.shadowRoot?.appendChild(moreabout);
 			});
 		}
 	}

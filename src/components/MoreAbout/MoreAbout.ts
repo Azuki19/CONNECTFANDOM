@@ -1,26 +1,26 @@
 import styles from './MoreAbout.css';
 
-export enum Attribute {
+export enum MoreAboutAttribute {
 	'uid' = 'uid',
 	'bandName' = 'bandname',
 	'bandImage' = 'bandimage',
 	'bandInfo' = 'bandinfo',
 }
 
-class UserPost extends HTMLElement {
+class MoreAbout extends HTMLElement {
 	uid?: number;
 	bandname?: string;
 	bandimage?: string;
 	bandinfo?: string;
 
 	static get observedAttributes() {
-		return Object.values(Attribute);
+		return Object.values(MoreAboutAttribute);
 	}
 
 	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
 		if (newValue !== null) {
 			switch (propName) {
-				case Attribute.uid:
+				case MoreAboutAttribute.uid:
 					this[propName] = parseInt(newValue);
 					break;
 				default:
@@ -60,5 +60,5 @@ class UserPost extends HTMLElement {
 	}
 }
 
-customElements.define('user-post', UserPost);
-export default UserPost;
+customElements.define('more-about', MoreAbout);
+export default MoreAbout;
