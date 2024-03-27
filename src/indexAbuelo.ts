@@ -2,6 +2,7 @@ import * as components from './components/indexPadre';
 import UserPost, { Attribute } from './components/UserPost/UserPost';
 import ArtistPost, { ArtistAttribute } from './components/ArtistPost/ArtistPost';
 import MoreAbout, { MoreAboutAttribute } from './components/MoreAbout/MoreAbout';
+import CreatePost, { CreatePostAttribute } from './components/CreatePost/CreatePost';
 import { data } from './data/data';
 import { bandsdata } from './data/bandsData';
 
@@ -9,6 +10,7 @@ class AppContainer extends HTMLElement {
 	userpost: UserPost[] = [];
 	artistpost: ArtistPost[] = [];
 	moreabout: MoreAbout[] = [];
+	createpost: CreatePost[] = [];
 
 	constructor() {
 		super();
@@ -56,15 +58,29 @@ class AppContainer extends HTMLElement {
 			this.artistpost.push(ArtistPostCard);
 		});
 
-		bandsdata.forEach((band) => {
+		const BannerBand = bandsdata.find((band) => band.id === 1);
+
+		if (BannerBand) {
 			const MoreAboutCard = this.ownerDocument.createElement('more-about') as MoreAbout;
 
-			MoreAboutCard.setAttribute(MoreAboutAttribute.uid, String(band.id));
-			MoreAboutCard.setAttribute(MoreAboutAttribute.bandName, band.bandName);
-			MoreAboutCard.setAttribute(MoreAboutAttribute.bandImage, band.bandImage);
+			MoreAboutCard.setAttribute(MoreAboutAttribute.uid, String(BannerBand.id));
+			MoreAboutCard.setAttribute(MoreAboutAttribute.bandName, BannerBand.bandName);
+			MoreAboutCard.setAttribute(MoreAboutAttribute.bandImage, BannerBand.bandImage);
 
 			this.artistpost.push(MoreAboutCard);
-		});
+		}
+
+		const BannerCreatePost = data.find((post) => post.id === 1);
+
+		if (BannerCreatePost) {
+			const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
+
+			CreatePostCard.setAttribute(CreatePostAttribute.uid, String(BannerCreatePost.id));
+			CreatePostCard.setAttribute(CreatePostAttribute.image, BannerCreatePost.image);
+			CreatePostCard.setAttribute(CreatePostAttribute.type, BannerCreatePost.type);
+
+			this.artistpost.push(CreatePostCard);
+		}
 	}
 
 	connectedCallback() {
@@ -74,8 +90,8 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-			<header> CONNECT FANDOM </header>
 			<mini-header></mini-header>
+			<header> CONNECT FANDOM </header>
             `;
 			this.artistpost.forEach((artistpost) => {
 				this.shadowRoot?.appendChild(artistpost);
@@ -87,6 +103,10 @@ class AppContainer extends HTMLElement {
 
 			this.moreabout.forEach((moreabout) => {
 				this.shadowRoot?.appendChild(moreabout);
+			});
+
+			this.createpost.forEach((createpost) => {
+				this.shadowRoot?.appendChild(createpost);
 			});
 		}
 	}
