@@ -4,7 +4,6 @@ import ArtistPost, { ArtistAttribute } from './components/ArtistPost/ArtistPost'
 import MoreAbout, { MoreAboutAttribute } from './components/MoreAbout/MoreAbout';
 import { data } from './data/data';
 import { bandsdata } from './data/bandsData';
-import CreatePost from './components/CreatePost/CreatePost';
 
 class AppContainer extends HTMLElement {
 	userpost: UserPost[] = [];
