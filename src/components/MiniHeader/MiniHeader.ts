@@ -13,17 +13,12 @@ class MiniHeader extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-      <section>
-      <p>FEED</p>
-      <p>artist/p>
-      </section>
-
-			`;
-
-			const cssMiniHeader = this.ownerDocument.createElement('style');
-			cssMiniHeader.innerHTML = styles;
-			this.shadowRoot.appendChild(cssMiniHeader);
+			<p>a card</p>
+		`;
 		}
+		const cssMiniHeader = this.ownerDocument.createElement('style');
+		cssMiniHeader.innerHTML = styles;
+		this.shadowRoot?.appendChild(cssMiniHeader);
 	}
 }
 
