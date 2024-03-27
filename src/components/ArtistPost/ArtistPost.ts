@@ -70,7 +70,6 @@ class ArtistPost extends HTMLElement {
              <div>
                 <p>${this.titlepost}</p>
                 <p>${this.infopost}</p>
-                <p>${this.imagepost}</p>
              </div>
          </section>
          `;

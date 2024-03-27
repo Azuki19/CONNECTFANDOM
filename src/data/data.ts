@@ -109,7 +109,7 @@ export const data: DataShape[] = [
 		post1: {
 			titlePost: 'MCR Band',
 			infoPost: 'oojooooojjjj',
-			imagePost: 'bubjbjbjj',
+			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
 	},
 	{
@@ -125,7 +125,7 @@ export const data: DataShape[] = [
 		post1: {
 			titlePost: 'MCR Band',
 			infoPost: 'NKNKMKM',
-			imagePost: 'JNIKNKMKM',
+			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
 	},
 	{
@@ -141,7 +141,7 @@ export const data: DataShape[] = [
 		post1: {
 			titlePost: 'MCR Band',
 			infoPost: 'NJNINKN',
-			imagePost: 'HBJBKBNN',
+			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
 	},
 	{
@@ -157,7 +157,7 @@ export const data: DataShape[] = [
 		post1: {
 			titlePost: 'MCR Band',
 			infoPost: 'JASNDKANSDK',
-			imagePost: 'ASKDOSJD',
+			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
 	},
 ];
