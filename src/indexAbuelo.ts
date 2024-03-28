@@ -91,15 +91,15 @@ class AppContainer extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
 			<header> CONNECT FANDOM </header>
-			<mini-header></mini-header>
 
             `;
+
+			this.shadowRoot?.appendChild(new components.MiniHeader());
+
 			this.artistpost.forEach((artistpost) => {
 				this.shadowRoot?.appendChild(artistpost);
 			});
-			`
-			<header> CONNECTT </header>
-            `;
+
 			this.userpost.forEach((userpost) => {
 				this.shadowRoot?.appendChild(userpost);
 			});
