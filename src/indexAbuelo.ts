@@ -5,6 +5,7 @@ import MoreAbout, { MoreAboutAttribute } from './components/MoreAbout/MoreAbout'
 import CreatePost, { CreatePostAttribute } from './components/CreatePost/CreatePost';
 import { data } from './data/data';
 import { bandsdata } from './data/bandsData';
+import style from './abuelo.css';
 
 class AppContainer extends HTMLElement {
 	userpost: UserPost[] = [];
@@ -67,7 +68,7 @@ class AppContainer extends HTMLElement {
 			MoreAboutCard.setAttribute(MoreAboutAttribute.bandName, BannerBand.bandName);
 			MoreAboutCard.setAttribute(MoreAboutAttribute.bandImage, BannerBand.bandImage);
 
-			this.artistpost.push(MoreAboutCard);
+			this.moreabout.push(MoreAboutCard);
 		}
 
 		const BannerCreatePost = data.find((post) => post.id === 1);
@@ -79,7 +80,7 @@ class AppContainer extends HTMLElement {
 			CreatePostCard.setAttribute(CreatePostAttribute.image, BannerCreatePost.image);
 			CreatePostCard.setAttribute(CreatePostAttribute.type, BannerCreatePost.type);
 
-			this.artistpost.push(CreatePostCard);
+			this.createpost.push(CreatePostCard);
 		}
 	}
 
@@ -87,7 +88,7 @@ class AppContainer extends HTMLElement {
 		this.render();
 	}
 
-	render() {
+	/* 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
 			<header> CONNECT FANDOM </header>
@@ -111,6 +112,55 @@ class AppContainer extends HTMLElement {
 			this.createpost.forEach((createpost) => {
 				this.shadowRoot?.appendChild(createpost);
 			});
+		}
+	} */
+
+	render() {
+		if (this.shadowRoot) {
+			this.shadowRoot.innerHTML = `
+            <header> CONNECT FANDOM </header>
+						<div id="mini-header-container"></div>
+            <section id="artist-posts-section">
+            </section>
+						<div id="a">
+						<section id="create-post-section">
+            </section>
+            <section id="user-posts-section">
+            </section>
+						</div>
+            <section id="more-about-section">
+            </section>
+        `;
+
+			const miniHeaderContainer = this.shadowRoot.getElementById('mini-header-container');
+			miniHeaderContainer.appendChild(new components.MiniHeader());
+
+			const artistPostsSection = this.shadowRoot.getElementById('artist-posts-section');
+			const userPostsSection = this.shadowRoot.getElementById('user-posts-section');
+			const moreAboutSection = this.shadowRoot.getElementById('more-about-section');
+			const createPostSection = this.shadowRoot.getElementById('create-post-section');
+
+			//Agarro las secciones del html, las volvio constantes o cajitas.Luego cojio los componentes de maaaaas arriba y las metió en estas cajitas
+
+			this.artistpost.forEach((artistpost) => {
+				artistPostsSection.appendChild(artistpost);
+			});
+
+			this.userpost.forEach((userpost) => {
+				userPostsSection.appendChild(userpost);
+			});
+
+			this.moreabout.forEach((moreabout) => {
+				moreAboutSection.appendChild(moreabout);
+			});
+
+			this.createpost.forEach((createpost) => {
+				createPostSection.appendChild(createpost);
+			});
+
+			const cssAbuelo = this.ownerDocument.createElement('style');
+			cssAbuelo.innerHTML = style;
+			this.shadowRoot?.appendChild(cssAbuelo);
 		}
 	}
 }
