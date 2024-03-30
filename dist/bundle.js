@@ -5,58 +5,80 @@
 				n.d(e, { A: () => r });
 				var o = n(601),
 					s = n.n(o),
-					i = n(314),
-					a = n.n(i)()(s());
-				a.push([
+					a = n(314),
+					i = n.n(a)()(s());
+				i.push([
 					t.id,
 					'section {\n\tdisplay: flex;\n\n\tbackground-color: #aff7f7;\n\tborder-radius: 8px;\n\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n\tmargin-bottom: 20px;\n\tpadding: 20px;\n\twidth: 500px;\n}\n\nsection > div {\n\tmargin-right: 20px;\n}\n\nsection > div img {\n\twidth: 70px;\n\theight: 70px;\n\tmargin-right: 15px;\n\tobject-fit: cover;\n\tborder-radius: 50%;\n}\n\nsection > div h1 {\n\tfont-size: 20px;\n\tmargin: 5px 0;\n}\n\nsection > div p {\n\tmargin: 1px 0;\n}\n\nsection > div:last-child {\n\tflex-grow: 1;\n}\n\nsection > div:last-child p {\n\tmargin-bottom: 5px;\n}\n',
 					'',
 				]);
-				const r = a;
+				const r = i;
 			},
 			181: (t, e, n) => {
 				n.d(e, { A: () => r });
 				var o = n(601),
 					s = n.n(o),
-					i = n(314),
-					a = n.n(i)()(s());
-				a.push([t.id, '', '']);
-				const r = a;
+					a = n(314),
+					i = n.n(a)()(s());
+				i.push([t.id, '', '']);
+				const r = i;
+			},
+			789: (t, e, n) => {
+				n.d(e, { A: () => r });
+				var o = n(601),
+					s = n.n(o),
+					a = n(314),
+					i = n.n(a)()(s());
+				i.push([t.id, '', '']);
+				const r = i;
 			},
 			409: (t, e, n) => {
 				n.d(e, { A: () => r });
 				var o = n(601),
 					s = n.n(o),
-					i = n(314),
-					a = n.n(i)()(s());
-				a.push([t.id, '', '']);
-				const r = a;
+					a = n(314),
+					i = n.n(a)()(s());
+				i.push([t.id, '', '']);
+				const r = i;
 			},
 			535: (t, e, n) => {
 				n.d(e, { A: () => r });
 				var o = n(601),
 					s = n.n(o),
-					i = n(314),
-					a = n.n(i)()(s());
-				a.push([
+					a = n(314),
+					i = n.n(a)()(s());
+				i.push([
 					t.id,
 					'.bandImg {\n\twidth: 70px;\n\theight: 70px;\n}\n\n.bandComponent {\n\twidth: 500px;\n\theight: 200px;\n}\n\n* {\n\tbackground-color: blueviolet;\n}\n',
 					'',
 				]);
-				const r = a;
+				const r = i;
 			},
 			691: (t, e, n) => {
 				n.d(e, { A: () => r });
 				var o = n(601),
 					s = n.n(o),
-					i = n(314),
-					a = n.n(i)()(s());
-				a.push([
+					a = n(314),
+					i = n.n(a)()(s());
+				i.push([
 					t.id,
 					'.profileImg {\n\twidth: 50px;\n\theight: 50px;\n\tborder-radius: 50%; /* Para hacer la imagen redonda */\n\tmargin-right: 15px;\n}\n\n.imagePost {\n\twidth: 70px;\n\theight: 70px;\n\tmargin-right: 15px;\n}\n\n.userPostProfile {\n\tdisplay: flex;\n\talign-items: center;\n}\n\n#userPostProfile img {\n\tborder-radius: 50%;\n}\n\n.userPostComponent {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: #b62034;\n\tborder-radius: 8px;\n\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n\tmargin-bottom: 20px;\n\tpadding: 20px;\n}\n\n.userPost {\n\tdisplay: flex;\n\tmargin-top: 15px;\n}\n\n.userPostProfileInfo {\n\tflex-grow: 1;\n}\n\n.PostInfo {\n\tflex-grow: 1;\n}\n',
 					'',
 				]);
-				const r = a;
+				const r = i;
+			},
+			647: (t, e, n) => {
+				n.d(e, { A: () => r });
+				var o = n(601),
+					s = n.n(o),
+					a = n(314),
+					i = n.n(a)()(s());
+				i.push([
+					t.id,
+					'#artist-posts-section {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: nowrap;\n\tjustify-content: space-around;\n\toverflow: auto; /* Esto hizo la scrollbar */\n}\n\n#a {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: #b62034;\n\tborder-radius: 8px;\n\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n\tmargin-bottom: 20px;\n\tpadding: 20px;\n}\n',
+					'',
+				]);
+				const r = i;
 			},
 			314: (t) => {
 				t.exports = function (t) {
@@ -78,27 +100,27 @@
 								);
 							}).join('');
 						}),
-						(e.i = function (t, n, o, s, i) {
+						(e.i = function (t, n, o, s, a) {
 							'string' == typeof t && (t = [[null, t, void 0]]);
-							var a = {};
+							var i = {};
 							if (o)
 								for (var r = 0; r < this.length; r++) {
 									var d = this[r][0];
-									null != d && (a[d] = !0);
+									null != d && (i[d] = !0);
 								}
 							for (var c = 0; c < t.length; c++) {
-								var m = [].concat(t[c]);
-								(o && a[m[0]]) ||
-									(void 0 !== i &&
-										(void 0 === m[5] ||
-											(m[1] = '@layer'.concat(m[5].length > 0 ? ' '.concat(m[5]) : '', ' {').concat(m[1], '}')),
-										(m[5] = i)),
-									n && (m[2] ? ((m[1] = '@media '.concat(m[2], ' {').concat(m[1], '}')), (m[2] = n)) : (m[2] = n)),
+								var l = [].concat(t[c]);
+								(o && i[l[0]]) ||
+									(void 0 !== a &&
+										(void 0 === l[5] ||
+											(l[1] = '@layer'.concat(l[5].length > 0 ? ' '.concat(l[5]) : '', ' {').concat(l[1], '}')),
+										(l[5] = a)),
+									n && (l[2] ? ((l[1] = '@media '.concat(l[2], ' {').concat(l[1], '}')), (l[2] = n)) : (l[2] = n)),
 									s &&
-										(m[4]
-											? ((m[1] = '@supports ('.concat(m[4], ') {').concat(m[1], '}')), (m[4] = s))
-											: (m[4] = ''.concat(s))),
-									e.push(m));
+										(l[4]
+											? ((l[1] = '@supports ('.concat(l[4], ') {').concat(l[1], '}')), (l[4] = s))
+											: (l[4] = ''.concat(s))),
+									e.push(l));
 							}
 						}),
 						e
@@ -115,8 +137,8 @@
 	function n(o) {
 		var s = e[o];
 		if (void 0 !== s) return s.exports;
-		var i = (e[o] = { id: o, exports: {} });
-		return t[o](i, i.exports, n), i.exports;
+		var a = (e[o] = { id: o, exports: {} });
+		return t[o](a, a.exports, n), a.exports;
 	}
 	(n.n = (t) => {
 		var e = t && t.__esModule ? () => t.default : () => t;
@@ -175,7 +197,7 @@
 			}
 			customElements.define('user-post', o);
 			var s,
-				i = n(51);
+				a = n(51);
 			!(function (t) {
 				(t.uid = 'uid'),
 					(t.type = 'type'),
@@ -190,7 +212,7 @@
 					(t.infoPost = 'infopost'),
 					(t.imagePost = 'imagepost');
 			})(s || (s = {}));
-			class a extends HTMLElement {
+			class i extends HTMLElement {
 				static get observedAttributes() {
 					return Object.values(s);
 				}
@@ -217,10 +239,10 @@
 					this.shadowRoot &&
 						(this.shadowRoot.innerHTML = `\n        <section>\n          <div>\n             <img src="${this.image}" alt="">\n             <h1>${this.name}</h1>\n             <p>${this.username}</p>\n          </div>\n\n          <div>\n              <p>${this.titlepost}</p>\n              <p>${this.infopost}</p>\n          </div>\n         </section>\n         `);
 					const e = this.ownerDocument.createElement('style');
-					(e.innerHTML = i.A), null === (t = this.shadowRoot) || void 0 === t || t.appendChild(e);
+					(e.innerHTML = a.A), null === (t = this.shadowRoot) || void 0 === t || t.appendChild(e);
 				}
 			}
-			customElements.define('artist-post', a);
+			customElements.define('artist-post', i);
 			var r,
 				d = n(535);
 			!(function (t) {
@@ -248,8 +270,8 @@
 				}
 			}
 			customElements.define('more-about', c);
-			var m = n(409);
-			class l extends HTMLElement {
+			var l = n(409);
+			class m extends HTMLElement {
 				constructor() {
 					super(), this.attachShadow({ mode: 'open' });
 				}
@@ -262,22 +284,41 @@
 						(this.shadowRoot.innerHTML =
 							"\n\t\t\t<section class='sectionminiheader'>\n\t\t\t<p>FANDOOOOOOOOOOM</p>\n\t\t\t</section>\n\t\t");
 					const e = this.ownerDocument.createElement('style');
-					(e.innerHTML = m.A), null === (t = this.shadowRoot) || void 0 === t || t.appendChild(e);
+					(e.innerHTML = l.A), null === (t = this.shadowRoot) || void 0 === t || t.appendChild(e);
 				}
 			}
-			customElements.define('mini-header', l);
-			const p = l;
-			var h,
-				u = n(181);
+			customElements.define('mini-header', m);
+			const p = m;
+			var h = n(789);
+			class u extends HTMLElement {
+				constructor() {
+					super(), this.attachShadow({ mode: 'open' });
+				}
+				connectedCallback() {
+					this.render();
+				}
+				render() {
+					var t;
+					this.shadowRoot &&
+						(this.shadowRoot.innerHTML =
+							"\n\t\t\t<section class='sectionmainheader'>\n        <div class='div1'>\n\t\t\t    <h1>CONNCET FANDOM</h1>\n        </div>\n        <div class='div2'>\n          <button> settings </button>\n          <button> profile </button>\n        </div>\n\t\t\t</section>\n\t\t");
+					const e = this.ownerDocument.createElement('style');
+					(e.innerHTML = h.A), null === (t = this.shadowRoot) || void 0 === t || t.appendChild(e);
+				}
+			}
+			customElements.define('main-header', u);
+			const g = u;
+			var f,
+				b = n(181);
 			!(function (t) {
 				(t.uid = 'uid'), (t.image = 'image'), (t.type = 'type');
-			})(h || (h = {}));
-			class g extends HTMLElement {
+			})(f || (f = {}));
+			class w extends HTMLElement {
 				static get observedAttributes() {
-					return Object.values(h);
+					return Object.values(f);
 				}
 				attributeChangedCallback(t, e, n) {
-					null !== n && (t === h.uid ? (this[t] = parseInt(n)) : (this[t] = n)), this.render();
+					null !== n && (t === f.uid ? (this[t] = parseInt(n)) : (this[t] = n)), this.render();
 				}
 				constructor() {
 					super(), this.attachShadow({ mode: 'open' });
@@ -290,11 +331,11 @@
 					this.shadowRoot &&
 						(this.shadowRoot.innerHTML = `\n      <section>\n        <div>\n           <img src="${this.image}" alt="">\n           <h2>Write a post on Connect Fandom!</h2>\n        </div>\n\n           <div>\n           <i class="fa-regular fa-image"></i>\n           </div>\n       </section>\n       `);
 					const e = this.ownerDocument.createElement('style');
-					(e.innerHTML = u.A), null === (t = this.shadowRoot) || void 0 === t || t.appendChild(e);
+					(e.innerHTML = b.A), null === (t = this.shadowRoot) || void 0 === t || t.appendChild(e);
 				}
 			}
-			customElements.define('create-post', g);
-			const f = [
+			customElements.define('create-post', w);
+			const v = [
 					{
 						id: 1,
 						type: 'User',
@@ -440,7 +481,7 @@
 						},
 					},
 				],
-				b = [
+				y = [
 					{
 						id: 1,
 						bandName: 'MY CHEMICAL ROMANCE',
@@ -468,7 +509,8 @@
 						},
 					},
 				];
-			class w extends HTMLElement {
+			var P = n(647);
+			class x extends HTMLElement {
 				constructor() {
 					super(),
 						(this.userpost = []),
@@ -476,7 +518,7 @@
 						(this.moreabout = []),
 						(this.createpost = []),
 						this.attachShadow({ mode: 'open' }),
-						f
+						v
 							.filter((t) => 'User' === t.type)
 							.forEach((e) => {
 								const n = this.ownerDocument.createElement('user-post');
@@ -494,7 +536,7 @@
 									n.setAttribute(t.imagePost, e.post1.imagePost),
 									this.userpost.push(n);
 							}),
-						f
+						v
 							.filter((t) => 'Artist' === t.type)
 							.forEach((t) => {
 								const e = this.ownerDocument.createElement('artist-post');
@@ -512,7 +554,7 @@
 									e.setAttribute(s.imagePost, t.post1.imagePost),
 									this.artistpost.push(e);
 							});
-					const e = b.find((t) => 1 === t.id);
+					const e = y.find((t) => 1 === t.id);
 					if (e) {
 						const t = this.ownerDocument.createElement('more-about');
 						t.setAttribute(r.uid, String(e.id)),
@@ -520,12 +562,12 @@
 							t.setAttribute(r.bandImage, e.bandImage),
 							this.moreabout.push(t);
 					}
-					const n = f.find((t) => 1 === t.id);
+					const n = v.find((t) => 1 === t.id);
 					if (n) {
 						const t = this.ownerDocument.createElement('create-post');
-						t.setAttribute(h.uid, String(n.id)),
-							t.setAttribute(h.image, n.image),
-							t.setAttribute(h.type, n.type),
+						t.setAttribute(f.uid, String(n.id)),
+							t.setAttribute(f.image, n.image),
+							t.setAttribute(f.type, n.type),
 							this.createpost.push(t);
 					}
 				}
@@ -533,16 +575,33 @@
 					this.render();
 				}
 				render() {
-					this.shadowRoot &&
-						((this.shadowRoot.innerHTML =
-							'\n            <header> CONNECT FANDOM </header>\n\t\t\t\t\t\t<div id="mini-header-container"></div>\n            <section id="artist-posts-section">\n            </section>\n\t\t\t\t\t\t<div id="a">\n\t\t\t\t\t\t<section id="create-post-section">\n            </section>\n            <section id="user-posts-section">\n            </section>\n\t\t\t\t\t\t</div>\n            <section id="more-about-section">\n            </section>\n        '),
-						this.shadowRoot.getElementById('mini-header-container').appendChild(new p()),
-						this.shadowRoot.getElementById('artist-posts-section'),
-						this.shadowRoot.getElementById('user-posts-section'),
-						this.shadowRoot.getElementById('more-about-section'),
-						this.shadowRoot.getElementById('create-post-section'));
+					var t;
+					if (this.shadowRoot) {
+						(this.shadowRoot.innerHTML =
+							'\n            <header id="main-header-container"></header>\n\t\t\t\t\t\t<div id="mini-header-container"></div>\n            <section id="artist-posts-section">\n            </section>\n\t\t\t\t\t\t<div id="a">\n\t\t\t\t\t\t<section id="create-post-section">\n            </section>\n            <section id="user-posts-section">\n            </section>\n\t\t\t\t\t\t</div>\n            <section id="more-about-section">\n            </section>\n        '),
+							this.shadowRoot.getElementById('main-header-container').appendChild(new g()),
+							this.shadowRoot.getElementById('mini-header-container').appendChild(new p());
+						const e = this.shadowRoot.getElementById('artist-posts-section'),
+							n = this.shadowRoot.getElementById('user-posts-section'),
+							o = this.shadowRoot.getElementById('more-about-section'),
+							s = this.shadowRoot.getElementById('create-post-section');
+						this.artistpost.forEach((t) => {
+							e.appendChild(t);
+						}),
+							this.userpost.forEach((t) => {
+								n.appendChild(t);
+							}),
+							this.moreabout.forEach((t) => {
+								o.appendChild(t);
+							}),
+							this.createpost.forEach((t) => {
+								s.appendChild(t);
+							});
+						const a = this.ownerDocument.createElement('style');
+						(a.innerHTML = P.A), null === (t = this.shadowRoot) || void 0 === t || t.appendChild(a);
+					}
 				}
 			}
-			customElements.define('app-container', w);
+			customElements.define('app-container', x);
 		})();
 })();
