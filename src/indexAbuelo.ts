@@ -91,7 +91,7 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-            <header> CONNECT FANDOM </header>
+            <header id="main-header-container"></header>
 						<div id="mini-header-container"></div>
             <section id="artist-posts-section">
             </section>
@@ -104,6 +104,9 @@ class AppContainer extends HTMLElement {
             <section id="more-about-section">
             </section>
         `;
+
+			const mainHeaderContainer = this.shadowRoot.getElementById('main-header-container');
+			mainHeaderContainer.appendChild(new components.MainHeader());
 
 			const miniHeaderContainer = this.shadowRoot.getElementById('mini-header-container');
 			miniHeaderContainer.appendChild(new components.MiniHeader());
