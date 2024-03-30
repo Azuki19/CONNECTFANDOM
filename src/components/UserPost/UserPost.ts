@@ -60,6 +60,7 @@ class UserPost extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
           <section class='userPostComponent'>
             <div id='userPostProfile' class='userPostProfile'>
               <img class='profileImg' src="${this.image}"></img>
@@ -70,10 +71,16 @@ class UserPost extends HTMLElement {
             </div>
             <div class='userPost'>
               <img class='imagePost' src="${this.imagepost}"></img>
-              <div class='PostInfo'>
+              <div class='Inner'>
+								<div class='PostInfo'>
                 <h5>${this.titlepost}</h5>
                 <p>${this.infopost}</p>
+								<div class='buttons'>
+								<button> like </button>
+								//<i class="fa-regular fa-heart" style="color: #ac084d;"></i>
+								<button> comment </button>
               </div>
+							</div>
             </div>
           </section>
           `;
