@@ -1,0 +1,44 @@
+.profileImg {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%; /* Para hacer la imagen redonda */
+	margin-right: 15px;
+}
+
+.imagePost {
+	width: 70px;
+	height: 70px;
+	margin-right: 15px;
+}
+
+.userPostProfile {
+	display: flex;
+	align-items: center;
+}
+
+#userPostProfile img {
+	border-radius: 50%;
+}
+
+.userPostComponent {
+	display: flex;
+	flex-direction: column;
+	background-color: #cbc5c6;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+	padding: 20px;
+}
+
+.userPost {
+	display: flex;
+	margin-top: 15px;
+}
+
+.userPostProfileInfo {
+	flex-grow: 1;
+}
+
+.PostInfo {
+	flex-grow: 1;
+}
