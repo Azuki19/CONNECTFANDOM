@@ -91,27 +91,29 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-			<header> CONNECT FANDOM </header>
+            <header> CONNECT FANDOM </header>
+						<div id="mini-header-container"></div>
+            <section id="artist-posts-section">
+            </section>
+						<div id="a">
+						<section id="create-post-section">
+            </section>
+            <section id="user-posts-section">
+            </section>
+						</div>
+            <section id="more-about-section">
+            </section>
+        `;
 
-            `;
+			const miniHeaderContainer = this.shadowRoot.getElementById('mini-header-container');
+			miniHeaderContainer.appendChild(new components.MiniHeader());
 
-			this.shadowRoot?.appendChild(new components.MiniHeader());
-
-			this.artistpost.forEach((artistpost) => {
-				this.shadowRoot?.appendChild(artistpost);
-			});
-
-			this.userpost.forEach((userpost) => {
-				this.shadowRoot?.appendChild(userpost);
-			});
-
-			this.moreabout.forEach((moreabout) => {
-				this.shadowRoot?.appendChild(moreabout);
-			});
-
-			this.createpost.forEach((createpost) => {
-				this.shadowRoot?.appendChild(createpost);
-			});
+			const artistPostsSection = this.shadowRoot.getElementById('artist-posts-section');
+			const userPostsSection = this.shadowRoot.getElementById('user-posts-section');
+			const moreAboutSection = this.shadowRoot.getElementById('more-about-section');
+			const createPostSection = this.shadowRoot.getElementById('create-post-section');
 		}
 	}
 }
+
+customElements.define('app-container', AppContainer);
