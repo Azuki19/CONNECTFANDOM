@@ -112,6 +112,28 @@ class AppContainer extends HTMLElement {
 			const userPostsSection = this.shadowRoot.getElementById('user-posts-section');
 			const moreAboutSection = this.shadowRoot.getElementById('more-about-section');
 			const createPostSection = this.shadowRoot.getElementById('create-post-section');
+
+			//Agarro las secciones del html, las volvio constantes o cajitas.Luego cojio los componentes de maaaaas arriba y las metió en estas cajitas
+
+			this.artistpost.forEach((artistpost) => {
+				artistPostsSection.appendChild(artistpost);
+			});
+
+			this.userpost.forEach((userpost) => {
+				userPostsSection.appendChild(userpost);
+			});
+
+			this.moreabout.forEach((moreabout) => {
+				moreAboutSection.appendChild(moreabout);
+			});
+
+			this.createpost.forEach((createpost) => {
+				createPostSection.appendChild(createpost);
+			});
+
+			const cssAbuelo = this.ownerDocument.createElement('style');
+			cssAbuelo.innerHTML = style;
+			this.shadowRoot?.appendChild(cssAbuelo);
 		}
 	}
 }
