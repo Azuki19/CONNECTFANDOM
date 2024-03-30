@@ -13,13 +13,16 @@ class MainHeader extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 			<section class='sectionmainheader'>
         <div class='div1'>
 			    <h1>CONNCET FANDOM</h1>
         </div>
         <div class='div2'>
-          <button> settings </button>
-          <button> profile </button>
+        <ion-icon name="settings-outline"></ion-icon>
+          <ion-icon name="person-circle-outline"></ion-icon>
         </div>
 			</section>
 		`;

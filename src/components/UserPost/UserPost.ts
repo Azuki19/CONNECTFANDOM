@@ -60,8 +60,11 @@ class UserPost extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-          <section class='userPostComponent'>
+
+			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+			<section class='userPostComponent'>
             <div id='userPostProfile' class='userPostProfile'>
               <img class='profileImg' src="${this.image}"></img>
               <div class='userPostProfileInfo'>
@@ -76,9 +79,8 @@ class UserPost extends HTMLElement {
                 <h5>${this.titlepost}</h5>
                 <p>${this.infopost}</p>
 								<div class='buttons'>
-								<button> like </button>
-								//<i class="fa-regular fa-heart" style="color: #ac084d;"></i>
-								<button> comment </button>
+								<ion-icon class='heart-outline' name="heart-outline"></ion-icon>
+								<ion-icon name="chatbubble-ellipses-outline"></ion-icon>
               </div>
 							</div>
             </div>
