@@ -41,6 +41,9 @@ class CreatePost extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
       <section>
         <div>
            <img src="${this.image}" alt="">
@@ -48,7 +51,7 @@ class CreatePost extends HTMLElement {
         </div>
 
            <div>
-           <i class="fa-regular fa-image"></i>
+           	<ion-icon class='image-outline' name="image-outline"></ion-icon>
            </div>
        </section>
        `;

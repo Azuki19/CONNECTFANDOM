@@ -23,7 +23,7 @@
 .userPostComponent {
 	display: flex;
 	flex-direction: column;
-	background-color: #b62034;
+	background-color: #cbc5c6;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	margin-bottom: 20px;
@@ -41,4 +41,8 @@
 
 .PostInfo {
 	flex-grow: 1;
+}
+
+.heart-outline {
+	color: rgb(167, 43, 6);
 }

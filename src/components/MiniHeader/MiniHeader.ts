@@ -14,7 +14,11 @@ class MiniHeader extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
 			<section class='sectionminiheader'>
-			<p>FANDOOOOOOOOOOM</p>
+			<p>FEED</p>
+			<p>ARTISTS</p>
+			<p>EVENTS</p>
+			<p>ABOUT THE BAND</p>
+
 			</section>
 		`;
 		}
