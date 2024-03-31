@@ -60,7 +60,11 @@ class UserPost extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-          <section class='userPostComponent'>
+
+			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+			<section class='userPostComponent'>
             <div id='userPostProfile' class='userPostProfile'>
               <img class='profileImg' src="${this.image}"></img>
               <div class='userPostProfileInfo'>
@@ -70,10 +74,15 @@ class UserPost extends HTMLElement {
             </div>
             <div class='userPost'>
               <img class='imagePost' src="${this.imagepost}"></img>
-              <div class='PostInfo'>
+              <div class='Inner'>
+								<div class='PostInfo'>
                 <h5>${this.titlepost}</h5>
                 <p>${this.infopost}</p>
+								<div class='buttons'>
+								<ion-icon class='heart-outline' name="heart-outline"></ion-icon>
+								<ion-icon name="chatbubble-ellipses-outline"></ion-icon>
               </div>
+							</div>
             </div>
           </section>
           `;
