@@ -1,0 +1,19 @@
+.sectionminiheader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 300px;
+	background-color: #ffffff;
+	color: #ac084d;
+}
+
+.sectionminiheader h4 {
+	margin: 0;
+	font-size: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.sectionminiheader h4:hover {
+	text-decoration: underline;
+}
