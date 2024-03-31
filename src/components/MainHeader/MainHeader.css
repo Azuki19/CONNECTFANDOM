@@ -1,0 +1,17 @@
+.sectionmainheader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #ac084d;
+	color: white;
+}
+
+.div1 {
+	flex-grow: 1;
+}
+
+.div2 ion-icon {
+	margin-left: 10px;
+	font-size: 24px;
+}
