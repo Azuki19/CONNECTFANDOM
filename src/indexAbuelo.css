@@ -16,11 +16,11 @@
 	flex-direction: column;
 	background-color: transparent;
 	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	margin-bottom: 20px;
+	margin-left: 50px;
 	padding: 20px;
-	width: 900px;
-	margin-left: 30px;
+	width: 800px;
+	margin-left: 20px;
 }
 
 #user-posts-section {
@@ -30,6 +30,9 @@
 #downpart {
 	display: flex;
 	flex-direction: row;
+	margin-right: 20px;
+	padding-right: 0;
+	justify-content: space-evenly;
 }
 
 .artist-posts-section {

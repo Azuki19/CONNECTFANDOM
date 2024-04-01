@@ -6,7 +6,7 @@
 }
 
 .imagePost {
-	width: 160px; /* Ancho fijo para la imagen */
+	width: 140px; /* Ancho fijo para la imagen */
 	height: auto; /* Altura automática para mantener la proporción */
 	border-top-left-radius: 50px; /* Borde redondo en la esquina superior izquierda */
 	border-bottom-left-radius: 50px; /* Borde redondo en la esquina inferior izquierda */
@@ -32,7 +32,10 @@
 
 .userPost {
 	display: flex;
-	margin-top: 15px;
+	margin-top: 0px;
+	margin-bottom: 0;
+	padding: 0px;
+	border: 0;
 }
 
 .userPostProfileInfo {
@@ -75,12 +78,12 @@
 }
 
 .name {
-	margin-bottom: 8px;
+	margin-bottom: 5px;
 	font-size: 18px;
 }
 
 .username {
-	margin-top: 2px;
+	margin-top: 0px;
 	font-size: 12px;
 	font-family: 'Red Hat Display', sans-serif;
 	opacity: 50%;
@@ -105,14 +108,26 @@
 }
 
 .linepost {
-	margin-top: 5px;
 	padding: 0;
 	border: 0;
+	margin-bottom: 0;
 }
 
 hr {
 	width: 880px;
 	margin-left: 5px;
 	margin-right: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 	opacity: 50%;
+}
+
+.title {
+	margin-bottom: 0;
+	font-size: 15px;
+}
+
+.text {
+	font-size: 15px;
+	margin-top: 10px;
 }
