@@ -61,6 +61,7 @@
 
 .heart-outline {
 	color: rgb(167, 43, 6);
+	font-size: 25px;
 }
 
 .up {
@@ -69,9 +70,15 @@
 }
 
 .language-outline {
-	margin-left: auto; /* Mueve el ícono "language-outline" hacia la derecha */
+	margin-left: auto;
+	font-size: 20px;
 }
 
 .username {
 	background-color: aqua;
+}
+
+.chatbubble-ellipses-outline {
+	font-size: 22px;
+	margin-left: 5px;
 }
