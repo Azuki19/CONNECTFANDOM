@@ -6,14 +6,16 @@
 }
 
 .imagePost {
-	width: 70px;
-	height: 70px;
-	margin-right: 15px;
+	width: 160px; /* Ancho fijo para la imagen */
+	height: auto; /* Altura automática para mantener la proporción */
+	border-top-left-radius: 8px; /* Borde redondo en la esquina superior izquierda */
+	border-bottom-left-radius: 8px; /* Borde redondo en la esquina inferior izquierda */
 }
 
 .userPostProfile {
 	display: flex;
 	align-items: center;
+	background-color: transparent; /* Fondo transparente */
 }
 
 #userPostProfile img {
@@ -23,11 +25,9 @@
 .userPostComponent {
 	display: flex;
 	flex-direction: column;
-	background-color: #cbc5c6;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	margin-bottom: 20px;
-	padding: 20px;
 }
 
 .userPost {
@@ -40,7 +40,22 @@
 }
 
 .PostInfo {
-	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	background-color: white; /* Fondo blanco */
+	border-radius: 0 8px 8px 0; /* Bordes redondos solo en la esquina superior derecha e inferior derecha */
+	padding: 15px; /* Espacio interno */
+	max-width: 800px; /* Ancho máximo */
+	overflow: auto; /* Mostrar barras de desplazamiento si el contenido excede el ancho máximo */
+}
+
+.PostInfo .Inner {
+	display: flex;
+	align-items: center;
+}
+
+.PostInfo .imagePost {
+	margin-right: 0; /* Para que la imagen del post esté pegada al margen izquierdo */
 }
 
 .heart-outline {

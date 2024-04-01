@@ -1,9 +1,15 @@
 section {
 	background-color: #ffffff;
-	border-radius: 10px;
+	border-radius: 50px;
 	padding: 20px;
 	display: flex;
 	margin-bottom: 20px;
+	height: 30px;
+	width: 850px;
+}
+
+h2 {
+	opacity: 40%;
 }
 
 section > div:nth-child(1) {
@@ -24,6 +30,7 @@ section > div:nth-child(1) h2 {
 
 section > div:nth-child(2) {
 	margin-left: auto;
+	margin-right: 20px;
 }
 
 .image-outline {

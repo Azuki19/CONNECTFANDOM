@@ -60,11 +60,13 @@ class UserPost extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+                <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            `;
+		}
 
-			<section class='userPostComponent'>
+		/* <section class='userPostComponent'>
             <div id='userPostProfile' class='userPostProfile'>
               <img class='profileImg' src="${this.image}"></img>
               <div class='userPostProfileInfo'>
@@ -84,12 +86,96 @@ class UserPost extends HTMLElement {
               </div>
 							</div>
             </div>
-          </section>
-          `;
-		}
+          </section>  */
+
+		// Crear la sección de usuario con sus elementos
+		const userPostSection = document.createElement('section');
+		userPostSection.classList.add('userPostComponent');
+
+		const userPostProfileDiv = document.createElement('div');
+		userPostProfileDiv.id = 'userPostProfile';
+		userPostProfileDiv.classList.add('userPostProfile');
+
+		const profileImg = document.createElement('img');
+		profileImg.classList.add('profileImg');
+		profileImg.src = this.image;
+
+		const userPostProfileInfoDiv = document.createElement('div');
+		userPostProfileInfoDiv.classList.add('userPostProfileInfo');
+
+		const nameHeading = document.createElement('h4');
+		nameHeading.textContent = this.name;
+
+		const usernameStrong = document.createElement('strong');
+		const usernameHeading = document.createElement('h6');
+		usernameHeading.textContent = this.username;
+		usernameStrong.appendChild(usernameHeading);
+
+		userPostProfileInfoDiv.appendChild(nameHeading);
+		userPostProfileInfoDiv.appendChild(usernameStrong);
+
+		userPostProfileDiv.appendChild(profileImg);
+		userPostProfileDiv.appendChild(userPostProfileInfoDiv);
+
+		const userPostDiv = document.createElement('div');
+		userPostDiv.classList.add('userPost');
+
+		const imagePost = document.createElement('img');
+		imagePost.classList.add('imagePost');
+		imagePost.id = 'imagePost';
+		imagePost.src = this.imagepost;
+
+		const innerDiv = document.createElement('div');
+		innerDiv.classList.add('Inner');
+
+		const postInfoDiv = document.createElement('div');
+		postInfoDiv.classList.add('PostInfo');
+
+		const titleHeading = document.createElement('h5');
+		titleHeading.textContent = this.titlepost;
+
+		const infoParagraph = document.createElement('p');
+		infoParagraph.textContent = this.infopost;
+
+		const buttonsDiv = document.createElement('div');
+		buttonsDiv.classList.add('buttons');
+
+		const heartIcon = document.createElement('ion-icon');
+		heartIcon.classList.add('heart-outline');
+		heartIcon.setAttribute('name', 'heart-outline');
+
+		const chatIcon = document.createElement('ion-icon');
+		chatIcon.setAttribute('name', 'chatbubble-ellipses-outline');
+
+		buttonsDiv.appendChild(heartIcon);
+		buttonsDiv.appendChild(chatIcon);
+
+		postInfoDiv.appendChild(titleHeading);
+		postInfoDiv.appendChild(infoParagraph);
+		postInfoDiv.appendChild(buttonsDiv);
+
+		innerDiv.appendChild(postInfoDiv);
+
+		userPostDiv.appendChild(imagePost);
+		userPostDiv.appendChild(innerDiv);
+
+		userPostSection.appendChild(userPostProfileDiv);
+		userPostSection.appendChild(userPostDiv);
+
+		this.shadowRoot.appendChild(userPostSection);
+
 		const cssUserPost = this.ownerDocument.createElement('style');
 		cssUserPost.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssUserPost);
+
+		heartIcon.addEventListener('click', () => {
+			const nameIcon = heartIcon.getAttribute('name');
+			if (nameIcon == 'heart') {
+				heartIcon.setAttribute('name', 'heart-outline');
+			} else {
+				heartIcon.setAttribute('name', 'heart');
+			}
+		});
 	}
 }
 

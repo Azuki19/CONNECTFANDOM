@@ -6,12 +6,19 @@
 	overflow: auto; /* Esto hizo la scrollbar */
 }
 
-#a {
+#postsContainer {
 	display: flex;
 	flex-direction: column;
-	background-color: #b62034;
+	background-color: transparent;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	margin-bottom: 20px;
 	padding: 20px;
+	width: 900px;
+}
+
+#downpart {
+	display: flex;
+	flex-direction: row;
+	background-color: #000000;
 }

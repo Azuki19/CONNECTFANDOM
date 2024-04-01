@@ -98,14 +98,16 @@ class AppContainer extends HTMLElement {
 						<div id="mini-header-container"></div>
             <section id="artist-posts-section">
             </section>
-						<div id="a">
-						<section id="create-post-section">
-            </section>
-            <section id="user-posts-section">
-            </section>
+						<div id='downpart'>
+						<div id="postsContainer">
+							<section id="create-post-section">
+            	</section>
+            	<section id="user-posts-section">
+            	</section>
 						</div>
             <section id="more-about-section">
             </section>
+						</div>
         `;
 
 			const mainHeaderContainer = this.shadowRoot.getElementById('main-header-container');
