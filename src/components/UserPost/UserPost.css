@@ -8,8 +8,8 @@
 .imagePost {
 	width: 160px; /* Ancho fijo para la imagen */
 	height: auto; /* Altura automática para mantener la proporción */
-	border-top-left-radius: 8px; /* Borde redondo en la esquina superior izquierda */
-	border-bottom-left-radius: 8px; /* Borde redondo en la esquina inferior izquierda */
+	border-top-left-radius: 50px; /* Borde redondo en la esquina superior izquierda */
+	border-bottom-left-radius: 50px; /* Borde redondo en la esquina inferior izquierda */
 }
 
 .userPostProfile {
@@ -25,9 +25,9 @@
 .userPostComponent {
 	display: flex;
 	flex-direction: column;
-	border-radius: 8px;
+	border-radius: 50px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 
 .userPost {
@@ -44,7 +44,7 @@
 	display: flex;
 	flex-direction: column;
 	background-color: white; /* Fondo blanco */
-	border-radius: 0 8px 8px 0; /* Bordes redondos solo en la esquina superior derecha e inferior derecha */
+	border-radius: 0 50px 50px 0; /* Bordes redondos solo en la esquina superior derecha e inferior derecha */
 	padding: 15px; /* Espacio interno */
 	max-width: 800px; /* Ancho máximo */
 	overflow: auto; /* Mostrar barras de desplazamiento si el contenido excede el ancho máximo */

@@ -1,6 +1,5 @@
 .artistContainer {
 	display: flex;
-
 	overflow-x: auto; /* Habilitar desplazamiento horizontal */
 	scroll-snap-type: x mandatory; /* Permitir desplazamiento suave entre los posts */
 	-webkit-overflow-scrolling: touch; /* Habilitar desplazamiento suave en dispositivos iOS */
@@ -40,7 +39,7 @@ section {
 
 .artistPost > div h1 {
 	font-size: 20px;
-	margin: 5px 0;
+	margin: 5px 0 10px; /* Ajustar el margen inferior */
 }
 
 .artistPost > div p {
@@ -65,4 +64,9 @@ section {
 .infoPost {
 	margin-top: 10px;
 	margin-left: 10px;
+	margin-bottom: 15px; /* Agregar un margen inferior de 25px */
+}
+
+#titlepost {
+	margin-bottom: 5px;
 }

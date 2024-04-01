@@ -29,7 +29,7 @@ export const data: DataShape[] = [
 		post1: {
 			titlePost: 'Band CMR',
 			infoPost:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
 			imagePost: 'https://i.pinimg.com/564x/d4/ae/a5/d4aea579422b62be8dbad4420779faf1.jpg',
 		},
 	},
@@ -45,8 +45,8 @@ export const data: DataShape[] = [
 		followers: 300,
 		post1: {
 			titlePost: 'Boy Band',
-			infoPost: '.',
-			imagePost: 'https://i.pinimg.com/564x/d4/ae/a5/d4aea579422b62be8dbad4420779faf1.jpg',
+			infoPost: 'Omg I love gerard way, he is soooo pretty >:3',
+			imagePost: 'https://i.pinimg.com/564x/c0/fd/69/c0fd6900759453ce876a112cb0027d5c.jpg',
 		},
 	},
 	{
@@ -62,7 +62,7 @@ export const data: DataShape[] = [
 		post1: {
 			titlePost: 'Band*s',
 			infoPost:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 			imagePost: 'https://i.pinimg.com/564x/55/1c/6a/551c6a9cb66e0d6197278059a845f336.jpg',
 		},
 	},
@@ -79,7 +79,7 @@ export const data: DataShape[] = [
 		post1: {
 			titlePost: 'MCR Band',
 			infoPost:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
 			imagePost: 'https://i.pinimg.com/564x/26/03/e7/2603e72dc4855f4ab01e5479d8adc1fb.jpg',
 		},
 	},
@@ -95,8 +95,7 @@ export const data: DataShape[] = [
 		followers: 600,
 		post1: {
 			titlePost: 'MCR Band',
-			infoPost:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			infoPost: 'I want to be frank ieros guitar',
 			imagePost: 'https://i.pinimg.com/564x/9b/8e/e7/9b8ee7fd2c384d74c4d9c95e730075d5.jpg',
 		},
 	},
@@ -143,7 +142,7 @@ export const data: DataShape[] = [
 		info: '1222222',
 		followers: 60.0,
 		post1: {
-			titlePost: 'MCR Band',
+			titlePost: '⚡',
 			infoPost: 'This has been a long time coming. Can’t wait to welcome you all to the world of Electric Century!⚡',
 			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
@@ -159,8 +158,8 @@ export const data: DataShape[] = [
 		info: '13323233',
 		followers: 200.0,
 		post1: {
-			titlePost: 'MCR Band',
-			infoPost: 'JASNDKANSDK',
+			titlePost: 'GRACIAS!',
+			infoPost: 'Gracias México! You made tonight so special for us. We’ll never forget it.',
 			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
 	},

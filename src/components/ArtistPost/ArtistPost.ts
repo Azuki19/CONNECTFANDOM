@@ -70,7 +70,7 @@ class ArtistPost extends HTMLElement {
           </div>
 
           <div class='infoPost'>
-            <p>${this.titlepost}</p>
+            <p id='titlepost' class='titlepost'>${this.titlepost}</p>
             <p>${this.infopost}</p>
           </div>
         </section>
