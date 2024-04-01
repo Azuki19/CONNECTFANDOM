@@ -1,13 +1,42 @@
-.bandImg {
-	width: 70px;
-	height: 70px;
-}
-
 .bandComponent {
-	width: 500px;
-	height: 200px;
+	position: sticky;
+	top: 20px; /* Ajusta la distancia desde la parte superior de la ventana */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background-color: #9e2956;
+	border-radius: 8px;
+	color: white;
+	max-width: 400px;
 }
 
-* {
-	background-color: rgb(134, 20, 41);
+.bandImg {
+	width: 100%; /* Ajusta la imagen al ancho del contenedor */
+	max-width: 300px; /* Ancho máximo de la imagen */
+	border-radius: 8px; /* Bordes redondeados */
+	margin-bottom: 20px; /* Espacio inferior */
+	position: relative; /* Establece posición relativa */
+}
+
+.bandImg::before {
+	content: '';
+	position: absolute; /* Establece posición absoluta */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)); /* Degradado */
+	border-radius: 8px; /* Bordes redondeados */
+}
+
+.moreAbout {
+	font-size: 14px; /* Tamaño de fuente más pequeño */
+	margin-bottom: 10px; /* Espacio inferior */
+}
+
+.textContainer h4 {
+	font-size: 28px; /* Tamaño de fuente más grande */
+	margin: 0; /* Elimina el margen */
 }
