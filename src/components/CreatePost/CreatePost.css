@@ -1,5 +1,5 @@
 section {
-	background-color: #ffffffe2;
+	background-color: #fbfbfbe2;
 	border-radius: 50px;
 	padding: 20px;
 	display: flex;
@@ -11,6 +11,7 @@ section {
 h2 {
 	opacity: 40%;
 	font-size: 20px;
+	font-weight: 100;
 }
 
 section > div:nth-child(1) {
