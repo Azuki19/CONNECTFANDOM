@@ -98,11 +98,24 @@ class AppContainer extends HTMLElement {
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 			<link href="https://fonts.googleapis.com/css2?family=Braah+One&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
+			<section id='background'>
 			<header id="main-header-container"></header>
 						<div id="mini-header-container"></div>
-            <section
-						class='artist-posts-section' id="artist-posts-section">
-            </section>
+
+						<div id='arrows'>
+							<div id='arrow1'>
+								<ion-icon id='chevron-back-outline'name="chevron-back-outline"></ion-icon>
+							</div>
+
+            		<section class='artist-posts-section' id="artist-posts-section">
+            		</section>
+
+								<div id='arrow2'>
+									<ion-icon id='chevron-forward-outline' name="chevron-forward-outline"></ion-icon>
+								</div>
+
+						</div>
+
 						<div id='downpart'>
 						<div id="postsContainer">
 							<section id="create-post-section">
@@ -113,6 +126,7 @@ class AppContainer extends HTMLElement {
             <section id="more-about-section">
             </section>
 						</div>
+						</section>
         `;
 
 			const mainHeaderContainer = this.shadowRoot.getElementById('main-header-container');
