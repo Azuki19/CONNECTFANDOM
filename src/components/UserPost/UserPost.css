@@ -43,7 +43,7 @@
 .PostInfo {
 	display: flex;
 	flex-direction: column;
-	background-color: white; /* Fondo blanco */
+	background-color: rgb(212, 212, 212); /* Fondo blanco */
 	border-radius: 0 35px 35px 0; /* Bordes redondos solo en la esquina superior derecha e inferior derecha */
 	padding: 15px; /* Espacio interno */
 	max-width: 800px; /* Ancho máximo */
@@ -74,11 +74,45 @@
 	font-size: 20px;
 }
 
+.name {
+	margin-bottom: 8px;
+	font-size: 18px;
+}
+
 .username {
-	background-color: aqua;
+	margin-top: 2px;
+	font-size: 12px;
+	font-family: 'Red Hat Display', sans-serif;
+	opacity: 50%;
 }
 
 .chatbubble-ellipses-outline {
 	font-size: 22px;
 	margin-left: 5px;
+}
+
+.braah-one-regular {
+	font-family: 'Braah One', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.red-hat {
+	font-family: 'Red Hat Display', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.linepost {
+	margin-top: 5px;
+	padding: 0;
+	border: 0;
+}
+
+hr {
+	width: 880px;
+	margin-left: 5px;
+	margin-right: 0;
+	opacity: 50%;
 }
