@@ -78,7 +78,10 @@ class UserPost extends HTMLElement {
               <img class='imagePost' src="${this.imagepost}"></img>
               <div class='Inner'>
 								<div class='PostInfo'>
-                <h5>${this.titlepost}</h5>
+								<div class='up'>
+                	<h5>${this.titlepost}</h5>
+									<ion-icon name="language-outline"></ion-icon>
+									</div>
                 <p>${this.infopost}</p>
 								<div class='buttons'>
 								<ion-icon class='heart-outline' name="heart-outline"></ion-icon>
@@ -87,11 +90,11 @@ class UserPost extends HTMLElement {
 							</div>
             </div>
           </section>  */
-
-		// Crear la sección de usuario con sus elementos
+		// Crear el contenedor principal 'userPostComponent'
 		const userPostSection = document.createElement('section');
 		userPostSection.classList.add('userPostComponent');
 
+		// Crear el contenedor 'userPostProfile' y sus elementos hijos
 		const userPostProfileDiv = document.createElement('div');
 		userPostProfileDiv.id = 'userPostProfile';
 		userPostProfileDiv.classList.add('userPostProfile');
@@ -117,6 +120,7 @@ class UserPost extends HTMLElement {
 		userPostProfileDiv.appendChild(profileImg);
 		userPostProfileDiv.appendChild(userPostProfileInfoDiv);
 
+		// Crear el contenedor 'userPost' y sus elementos hijos
 		const userPostDiv = document.createElement('div');
 		userPostDiv.classList.add('userPost');
 
@@ -131,8 +135,22 @@ class UserPost extends HTMLElement {
 		const postInfoDiv = document.createElement('div');
 		postInfoDiv.classList.add('PostInfo');
 
+		// Crear el contenedor 'up' y sus elementos hijos
+		const upDiv = document.createElement('div');
+		upDiv.classList.add('up');
+
 		const titleHeading = document.createElement('h5');
 		titleHeading.textContent = this.titlepost;
+
+		const languageIcon = document.createElement('ion-icon');
+		languageIcon.classList.add('language-outline');
+		languageIcon.setAttribute('name', 'language-outline');
+
+		upDiv.appendChild(titleHeading);
+		upDiv.appendChild(languageIcon);
+
+		// Agregar 'up' al contenedor de información del post
+		postInfoDiv.appendChild(upDiv);
 
 		const infoParagraph = document.createElement('p');
 		infoParagraph.textContent = this.infopost;
@@ -150,7 +168,6 @@ class UserPost extends HTMLElement {
 		buttonsDiv.appendChild(heartIcon);
 		buttonsDiv.appendChild(chatIcon);
 
-		postInfoDiv.appendChild(titleHeading);
 		postInfoDiv.appendChild(infoParagraph);
 		postInfoDiv.appendChild(buttonsDiv);
 
@@ -162,6 +179,7 @@ class UserPost extends HTMLElement {
 		userPostSection.appendChild(userPostProfileDiv);
 		userPostSection.appendChild(userPostDiv);
 
+		// Agregar el componente completo al Shadow DOM
 		this.shadowRoot.appendChild(userPostSection);
 
 		const cssUserPost = this.ownerDocument.createElement('style');

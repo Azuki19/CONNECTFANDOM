@@ -61,3 +61,12 @@
 .heart-outline {
 	color: rgb(167, 43, 6);
 }
+
+.up {
+	display: flex;
+	flex-direction: row;
+}
+
+.language-outline {
+	margin-left: auto; /* Mueve el ícono "language-outline" hacia la derecha */
+}

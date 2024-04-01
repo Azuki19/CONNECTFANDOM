@@ -112,7 +112,7 @@ export const data: DataShape[] = [
 		followers: 50.0,
 		post1: {
 			titlePost: 'MCR Band',
-			infoPost: 'oojooooojjjj',
+			infoPost: 'Love to you, eternally. You are all brave and brilliant. Goodnight for now.',
 			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
 	},
@@ -127,8 +127,8 @@ export const data: DataShape[] = [
 		info: '1111111',
 		followers: 90.0,
 		post1: {
-			titlePost: 'MCR Band',
-			infoPost: 'NKNKMKM',
+			titlePost: '🖤🖤🖤',
+			infoPost: 'Hell yeah!! “always a good idea to have a few microkorgs laying around!!!” 🖤 nice haul !',
 			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
 	},
@@ -144,7 +144,7 @@ export const data: DataShape[] = [
 		followers: 60.0,
 		post1: {
 			titlePost: 'MCR Band',
-			infoPost: 'NJNINKN',
+			infoPost: 'This has been a long time coming. Can’t wait to welcome you all to the world of Electric Century!⚡',
 			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
 	},

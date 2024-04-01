@@ -60,11 +60,13 @@ class ArtistPost extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-        <section>
-          <div>
-             <img src="${this.image}" alt="">
-             <h1>${this.name}</h1>
-             <p>${this.username}</p>
+        <section class='artistPost'>
+          <div class='profile'>
+             <img class='imgProfile' src="${this.image}" alt="">
+						 <div class='infoProfile'>
+             	<h1>${this.name}</h1>
+             	<p>${this.username}</p>
+						 </div>
           </div>
 
           <div>
