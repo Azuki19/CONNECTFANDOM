@@ -83,9 +83,25 @@ class AppContainer extends HTMLElement {
 			this.createpost.push(CreatePostCard);
 		}
 	}
-
 	connectedCallback() {
 		this.render();
+		this.setupScrollHandlers();
+	}
+
+	setupScrollHandlers() {
+		if (this.shadowRoot) {
+			const arrowBack = this.shadowRoot.getElementById('chevron-back-outline');
+			const arrowForward = this.shadowRoot.getElementById('chevron-forward-outline');
+			const artistPostsSection = this.shadowRoot.getElementById('artist-posts-section');
+
+			arrowBack?.addEventListener('click', () => {
+				artistPostsSection?.scrollBy({ left: -200, behavior: 'smooth' }); // Ajusta el valor de scroll como desees
+			});
+
+			arrowForward?.addEventListener('click', () => {
+				artistPostsSection?.scrollBy({ left: 200, behavior: 'smooth' }); // Ajusta el valor de scroll como desees
+			});
+		}
 	}
 
 	render() {
