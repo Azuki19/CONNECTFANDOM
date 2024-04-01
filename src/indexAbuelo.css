@@ -1,9 +1,9 @@
 #artist-posts-section {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 	flex-wrap: nowrap;
-	justify-content: space-around;
-	overflow: auto; /* Esto hizo la scrollbar */
+	overflow: auto;
 }
 
 #create-post-section {
@@ -30,11 +30,9 @@
 #downpart {
 	display: flex;
 	flex-direction: row;
-	background-color: #000000;
 }
 
 .artist-posts-section {
-	background-color: #000000;
 	font-family: 'Red Hat Display', sans-serif;
 }
 
@@ -49,4 +47,29 @@
 	font-optical-sizing: auto;
 	font-weight: 300;
 	font-style: normal;
+}
+
+#background {
+	background-image: url(https://pbs.twimg.com/media/GKFqLm7XwAAy2fy?format=jpg&name=large);
+	background-attachment: fixed; /* Fondo fijo */
+	background-repeat: no-repeat; /* No repetir */
+	background-size: cover; /* Ajustar el tamaño del fondo */
+}
+
+#chevron-back-outline {
+	color: #ac084d;
+	width: 3rem;
+	font-size: 60px;
+}
+
+#chevron-forward-outline {
+	color: #ac084d;
+	width: 3rem;
+	font-size: 60px;
+}
+#arrows {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
 }
