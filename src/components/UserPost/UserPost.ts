@@ -145,6 +145,7 @@ class UserPost extends HTMLElement {
 		titleHeading.textContent = this.titlepost || '';
 		const languageIcon = document.createElement('ion-icon');
 		languageIcon.setAttribute('name', 'language-outline');
+		languageIcon.classList.add('language-outline');
 		upDiv.appendChild(titleHeading);
 		upDiv.appendChild(languageIcon);
 
