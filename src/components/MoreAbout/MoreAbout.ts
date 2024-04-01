@@ -43,13 +43,17 @@ class MoreAbout extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Braah+One&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+
           <section class='bandComponent' id='bandComponent'>
               <img class='bandImg' src="${this.bandimage}"></img>
-              <div class='textContainer'>
-                <h6 class='moreAbout'>More About...</h6>
-                <div class='text'>
-                    <h4>${this.bandname}</h4>
-              </div>
+              		<div class='textContainer'>
+                		<h6 class='moreAbout'>More About...</h6>
+                    	<h4 class='text'>${this.bandname}</h4>
+							</div>
 
           </section>
           `;
