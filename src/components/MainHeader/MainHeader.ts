@@ -21,8 +21,8 @@ class MainHeader extends HTMLElement {
 			    <h1>CONNECT FANDOM</h1>
         </div>
         <div class='div2'>
-        <ion-icon name="settings-outline"></ion-icon>
-          <ion-icon name="person-circle-outline"></ion-icon>
+       		<ion-icon class='settings-outline' name="settings-outline"></ion-icon>
+          <ion-icon class='person-circle-outline' name="person-circle-outline"></ion-icon>
         </div>
 			</section>
 		`;
