@@ -3,7 +3,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	flex-wrap: nowrap;
-	overflow: auto;
+	overflow: hidden;
 }
 
 #create-post-section {
