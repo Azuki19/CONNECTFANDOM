@@ -62,19 +62,19 @@ class ArtistPost extends HTMLElement {
 			this.shadowRoot.innerHTML = `
         <section class='artistPost'>
           <div class='profile'>
-             <img class='imgProfile' src="${this.image}" alt="">
-						 <div class='infoProfile'>
-             	<h1>${this.name}</h1>
-             	<p>${this.username}</p>
-						 </div>
+            <img class='imgProfile' src="${this.image}" alt="">
+            <div class='infoProfile'>
+              <h1>${this.name}</h1>
+              <p>${this.username}</p>
+            </div>
           </div>
 
-          <div>
-              <p>${this.titlepost}</p>
-              <p>${this.infopost}</p>
+          <div class='infoPost'>
+            <p>${this.titlepost}</p>
+            <p>${this.infopost}</p>
           </div>
-         </section>
-         `;
+        </section>
+      `;
 		}
 
 		const cssArtistPost = this.ownerDocument.createElement('style');

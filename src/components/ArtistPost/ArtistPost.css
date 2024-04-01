@@ -1,19 +1,36 @@
-section {
+.artistContainer {
 	display: flex;
 
-	background-color: #5c2a33;
-	border-radius: 8px;
+	overflow-x: auto; /* Habilitar desplazamiento horizontal */
+	scroll-snap-type: x mandatory; /* Permitir desplazamiento suave entre los posts */
+	-webkit-overflow-scrolling: touch; /* Habilitar desplazamiento suave en dispositivos iOS */
+}
+
+.artistPost {
+	display: flex;
+	flex-direction: column;
+	margin-left: 11px;
+	margin-right: 10px;
+	flex: 0 0 auto; /* Permitir que los posts tengan un ancho flexible */
+	scroll-snap-align: start; /* Alinear los posts al principio del contenedor al desplazar */
+}
+
+section {
+	display: flex;
+	background-color: #e4e4e4;
+	border-radius: 70px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-	margin-bottom: 20px;
+	margin-bottom: 50px;
+	margin-top: 50px;
 	padding: 20px;
 	width: 500px;
 }
 
-section > div {
+.artistPost > div {
 	margin-right: 20px;
 }
 
-section > div img {
+.artistPost > div img {
 	width: 70px;
 	height: 70px;
 	margin-right: 15px;
@@ -21,19 +38,31 @@ section > div img {
 	border-radius: 50%;
 }
 
-section > div h1 {
+.artistPost > div h1 {
 	font-size: 20px;
 	margin: 5px 0;
 }
 
-section > div p {
+.artistPost > div p {
 	margin: 1px 0;
 }
 
-section > div:last-child {
+.artistPost:last-child {
 	flex-grow: 1;
+	margin-bottom: 5px;
 }
 
-section > div:last-child p {
-	margin-bottom: 5px;
+.profile {
+	display: flex;
+	flex-direction: row;
+}
+
+.infoProfile {
+	display: flex;
+	flex-direction: column;
+}
+
+.infoPost {
+	margin-top: 10px;
+	margin-left: 10px;
 }

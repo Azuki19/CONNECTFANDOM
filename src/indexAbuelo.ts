@@ -96,7 +96,8 @@ class AppContainer extends HTMLElement {
 
 			<header id="main-header-container"></header>
 						<div id="mini-header-container"></div>
-            <section id="artist-posts-section">
+            <section
+						class='artist-posts-section' id="artist-posts-section">
             </section>
 						<div id='downpart'>
 						<div id="postsContainer">
