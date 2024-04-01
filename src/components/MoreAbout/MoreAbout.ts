@@ -52,7 +52,10 @@ class MoreAbout extends HTMLElement {
               <img class='bandImg' src="${this.bandimage}"></img>
               		<div class='textContainer'>
                 		<h6 class='moreAbout'>More About...</h6>
+										<div class='ArrowDiv'>
                     	<h4 class='text'>${this.bandname}</h4>
+											<ion-icon id='chevron-forward-outline' name="chevron-forward-outline"></ion-icon>
+											</div>
 							</div>
 
           </section>
