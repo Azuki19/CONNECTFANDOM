@@ -17,7 +17,7 @@ class MiniHeader extends HTMLElement {
 			<h4>FEED</h4>
 			<h4>ARTISTS</h4>
 			<h4>EVENTS</h4>
-			<h4>ABAOUT THE BAND</h4>
+			<h4>ABOUT THE BAND</h4>
 			</section>
 		`;
 		}
