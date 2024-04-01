@@ -136,6 +136,11 @@ class AppContainer extends HTMLElement {
 						<div id="postsContainer">
 							<section id="create-post-section">
             	</section>
+
+							<div class='line1'>
+								<hr></hr>
+							</div>
+
             	<section id="user-posts-section">
             	</section>
 						</div>

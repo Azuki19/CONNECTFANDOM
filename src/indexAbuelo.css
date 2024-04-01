@@ -73,3 +73,15 @@
 	flex-wrap: nowrap;
 	align-items: center;
 }
+
+.line1 {
+	margin-top: 5px;
+	padding: 0;
+	border: 0;
+}
+
+hr {
+	width: 880px;
+	margin-left: 5px;
+	margin-right: 0;
+}

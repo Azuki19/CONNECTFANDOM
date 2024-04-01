@@ -19,9 +19,9 @@ export const data: DataShape[] = [
 	{
 		id: 1,
 		type: 'User',
-		name: 'Maria Lopez',
+		name: 'Ana ₊˚ ✧ | 🦇',
 		image: 'https://i.pinimg.com/564x/d4/ae/a5/d4aea579422b62be8dbad4420779faf1.jpg',
-		username: 'PepitaAzul1',
+		username: 'gerardwagod',
 		email: 'MariaLopez12@gmail.com',
 		password: 'Octubre11CMR',
 		info: '1111111',

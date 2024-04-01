@@ -63,13 +63,17 @@ class UserPost extends HTMLElement {
                 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
                 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
+								<link rel="preconnect" href="https://fonts.googleapis.com">
+								<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+								<link href="https://fonts.googleapis.com/css2?family=Braah+One&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
 								`;
 
 			/* <section class='userPostComponent'>
 								<div id='userPostProfile' class='userPostProfile'>
 									<img class='profileImg' src="${this.image}"></img>
 									<div class='userPostProfileInfo'>
-										<h4>${this.name}</h4>
+										<h4 class='name'>${this.name}</h4>
 										<strong><h6 class='username'>@ ${this.username}</h6></strong>
 									</div>
 								</div>
@@ -87,10 +91,13 @@ class UserPost extends HTMLElement {
 										<ion-icon name="chatbubble-ellipses-outline"></ion-icon>
 									</div>
 									</div>
+									  </section>
 
-									*/
+										<div class='line'>
+											<hr></hr>
+										</div>
+							*/
 		}
-
 		const userPostSection = document.createElement('section');
 		userPostSection.classList.add('userPostComponent');
 
@@ -137,7 +144,6 @@ class UserPost extends HTMLElement {
 		const titleHeading = document.createElement('h5');
 		titleHeading.textContent = this.titlepost || '';
 		const languageIcon = document.createElement('ion-icon');
-		languageIcon.classList.add('language-outline');
 		languageIcon.setAttribute('name', 'language-outline');
 		upDiv.appendChild(titleHeading);
 		upDiv.appendChild(languageIcon);
@@ -150,7 +156,6 @@ class UserPost extends HTMLElement {
 		heartIcon.setAttribute('name', 'heart-outline');
 
 		const chatIcon = document.createElement('ion-icon');
-		chatIcon.classList.add('chatbubble-ellipses-outline');
 		chatIcon.setAttribute('name', 'chatbubble-ellipses-outline');
 
 		postInfoDiv.appendChild(upDiv);
@@ -169,6 +174,13 @@ class UserPost extends HTMLElement {
 		userPostSection.appendChild(userPostDiv);
 
 		this.shadowRoot?.appendChild(userPostSection);
+
+		const lineDiv = document.createElement('div');
+		lineDiv.classList.add('linepost');
+		const hrElement = document.createElement('hr');
+
+		lineDiv.appendChild(hrElement);
+		this.shadowRoot?.appendChild(lineDiv);
 
 		const cssUserPost = this.ownerDocument.createElement('style');
 		cssUserPost.innerHTML = styles;
