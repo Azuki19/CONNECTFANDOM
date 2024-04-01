@@ -70,11 +70,14 @@
 	width: 3rem;
 	font-size: 60px;
 }
+
 #arrows {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .line1 {

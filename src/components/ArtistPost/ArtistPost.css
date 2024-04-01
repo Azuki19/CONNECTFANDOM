@@ -7,7 +7,9 @@
 	flex-direction: column;
 	margin-left: 11px;
 	margin-right: 10px;
-	flex: 0 0 auto; /* Permitir que los posts tengan un ancho flexible */
+	height: 160px;
+	width: 410px;
+	flex: 0 0 auto;
 }
 
 section {
@@ -50,6 +52,7 @@ section {
 .profile {
 	display: flex;
 	flex-direction: row;
+	height: 60px;
 }
 
 .infoProfile {
@@ -65,4 +68,5 @@ section {
 
 #titlepost {
 	margin-bottom: 5px;
+	margin-top: 20px;
 }
