@@ -1,12 +1,12 @@
 .bandComponent {
 	position: sticky;
-	top: 20px; /* Ajusta la distancia desde la parte superior de la ventana */
+	top: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding: 20px;
-	background-color: #9e2956;
+	background: linear-gradient(black, #ac084d);
 	border-radius: 50px;
 	color: white;
 	max-width: 400px;
@@ -15,11 +15,12 @@
 }
 
 .bandImg {
-	width: 100%; /* Ajusta la imagen al ancho del contenedor */
-	max-width: 300px; /* Ancho máximo de la imagen */
-	border-radius: 8px; /* Bordes redondeados */
-	margin-bottom: 20px; /* Espacio inferior */
-	position: relative; /* Establece posición relativa */
+	width: 100%;
+	max-width: 300px;
+	border-radius: 8px;
+	margin-bottom: 20px;
+	position: relative;
+	opacity: 56%;
 }
 
 .bandImg::before {
