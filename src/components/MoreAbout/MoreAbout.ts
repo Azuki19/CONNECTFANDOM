@@ -47,7 +47,7 @@ class MoreAbout extends HTMLElement {
               <img class='bandImg' src="${this.bandimage}"></img>
               <div class='textContainer'>
                 <h6 class='moreAbout'>More About...</h6>
-                <div class='textContainer'>
+                <div class='text'>
                     <h4>${this.bandname}</h4>
               </div>
 
