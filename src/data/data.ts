@@ -103,7 +103,7 @@ export const data: DataShape[] = [
 		id: 6,
 		type: 'Artist',
 		name: 'Gerard Way',
-		image: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
+		image: 'https://i.pinimg.com/564x/bf/ee/f6/bfeef61a8a0242fc7ff5db2ce8b5e40c.jpg',
 		username: 'Gerard-Way',
 		email: 'gerardwayMCR@gmail.com',
 		password: 'gerardway100',
