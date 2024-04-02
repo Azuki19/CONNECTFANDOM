@@ -113,10 +113,11 @@ class UserPost extends HTMLElement {
 		userPostProfileInfoDiv.classList.add('userPostProfileInfo');
 		const nameHeading = document.createElement('h4');
 		nameHeading.textContent = this.name || '';
+		nameHeading.classList.add('name');
 		const usernameStrong = document.createElement('strong');
 		const usernameHeading = document.createElement('h6');
 		usernameHeading.classList.add('username');
-		usernameHeading.textContent = `@ ${this.username}` || '';
+		usernameHeading.textContent = `@${this.username}` || '';
 		usernameStrong.appendChild(usernameHeading);
 		userPostProfileInfoDiv.appendChild(nameHeading);
 		userPostProfileInfoDiv.appendChild(usernameStrong);
@@ -138,11 +139,14 @@ class UserPost extends HTMLElement {
 		postInfoDiv.classList.add('PostInfo');
 		const infoParagraph = document.createElement('p');
 		infoParagraph.textContent = this.infopost || '';
+		infoParagraph.classList.add('text');
 
 		const upDiv = document.createElement('div');
 		upDiv.classList.add('up');
 		const titleHeading = document.createElement('h5');
 		titleHeading.textContent = this.titlepost || '';
+		titleHeading.classList.add('title');
+
 		const languageIcon = document.createElement('ion-icon');
 		languageIcon.setAttribute('name', 'language-outline');
 		languageIcon.classList.add('language-outline');
@@ -158,6 +162,7 @@ class UserPost extends HTMLElement {
 
 		const chatIcon = document.createElement('ion-icon');
 		chatIcon.setAttribute('name', 'chatbubble-ellipses-outline');
+		chatIcon.classList.add('chatbubble-ellipses-outline');
 
 		postInfoDiv.appendChild(upDiv);
 		postInfoDiv.appendChild(infoParagraph);

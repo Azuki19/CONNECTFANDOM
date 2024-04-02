@@ -6,7 +6,7 @@
 }
 
 .imagePost {
-	width: 160px; /* Ancho fijo para la imagen */
+	width: 140px; /* Ancho fijo para la imagen */
 	height: auto; /* Altura automática para mantener la proporción */
 	border-top-left-radius: 50px; /* Borde redondo en la esquina superior izquierda */
 	border-bottom-left-radius: 50px; /* Borde redondo en la esquina inferior izquierda */
@@ -32,7 +32,10 @@
 
 .userPost {
 	display: flex;
-	margin-top: 15px;
+	margin-top: 0px;
+	margin-bottom: 0;
+	padding: 0px;
+	border: 0;
 }
 
 .userPostProfileInfo {
@@ -43,11 +46,12 @@
 .PostInfo {
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(212, 212, 212); /* Fondo blanco */
-	border-radius: 0 35px 35px 0; /* Bordes redondos solo en la esquina superior derecha e inferior derecha */
-	padding: 15px; /* Espacio interno */
-	max-width: 800px; /* Ancho máximo */
-	overflow: auto; /* Mostrar barras de desplazamiento si el contenido excede el ancho máximo */
+	background-color: rgb(212, 212, 212);
+	border-radius: 0 35px 35px 0;
+	padding: 13px;
+	max-width: 800px;
+	padding-right: 25px;
+	overflow: auto;
 }
 
 .PostInfo .Inner {
@@ -60,7 +64,7 @@
 }
 
 .heart-outline {
-	color: rgb(167, 43, 6);
+	color: #ac084d;
 	font-size: 25px;
 }
 
@@ -75,15 +79,17 @@
 }
 
 .name {
-	margin-bottom: 8px;
+	margin-bottom: 5px;
 	font-size: 18px;
 }
 
 .username {
-	margin-top: 2px;
+	margin-top: 0px;
 	font-size: 12px;
 	font-family: 'Red Hat Display', sans-serif;
 	opacity: 50%;
+	font-style: italic;
+	font-weight: 100;
 }
 
 .chatbubble-ellipses-outline {
@@ -97,22 +103,36 @@
 	font-style: normal;
 }
 
-.red-hat {
-	font-family: 'Red Hat Display', sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 300;
-	font-style: normal;
-}
-
 .linepost {
-	margin-top: 5px;
 	padding: 0;
 	border: 0;
+	margin-bottom: 0;
 }
 
 hr {
 	width: 880px;
 	margin-left: 5px;
 	margin-right: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 	opacity: 50%;
+}
+
+.title {
+	margin-bottom: 0;
+	font-size: 15px;
+}
+
+.text {
+	font-size: 15px;
+	margin-top: 10px;
+	font-family: 'Red Hat Display', sans-serif;
+	font-weight: 200;
+}
+
+.red-hat {
+	font-family: 'Red Hat Display', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
 }
