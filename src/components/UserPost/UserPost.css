@@ -136,3 +136,149 @@ hr {
 	font-weight: 300;
 	font-style: normal;
 }
+
+@media (max-width: 431px) {
+	.profileImg {
+		width: 50px;
+		height: 50px;
+		border-radius: 35%; /* Para hacer la imagen redonda */
+		margin-right: 15px;
+	}
+
+	.imagePost {
+		width: 330px; /* Ancho fijo para la imagen */
+		height: auto; /* Altura automática para mantener la proporción */
+		border-top-left-radius: 50px; /* Borde redondo en la esquina superior izquierda */
+		border-top-right-radius: 50px; /* Borde redondo en la esquina inferior izquierda */
+		border-bottom-left-radius: 0px;
+	}
+
+	.userPostProfile {
+		display: flex;
+		align-items: center;
+		background-color: transparent; /* Fondo transparente */
+	}
+
+	#userPostProfile img {
+		border-radius: 50%;
+	}
+
+	.userPostComponent {
+		display: flex;
+		flex-direction: column;
+		border-radius: 3 5px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		margin-bottom: 50px;
+	}
+
+	.userPost {
+		display: flex;
+		margin-top: 0px;
+		margin-bottom: 0;
+		padding: 0px;
+		border: 0;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+	.userPostProfileInfo {
+		flex-grow: 1;
+		color: rgb(255, 255, 255);
+	}
+
+	.PostInfo {
+		display: flex;
+		flex-direction: column;
+		background-color: rgb(212, 212, 212);
+		border-bottom-left-radius: 35px;
+		border-bottom-right-radius: 35px;
+		border-top-right-radius: 0px;
+		padding: 13px;
+		max-width: 800px;
+		padding-right: 25px;
+		overflow: auto;
+	}
+
+	.PostInfo .Inner {
+		display: flex;
+		align-items: center;
+	}
+
+	.PostInfo .imagePost {
+		margin-right: 0; /* Para que la imagen del post esté pegada al margen izquierdo */
+	}
+
+	.heart-outline {
+		color: #ac084d;
+		font-size: 25px;
+	}
+
+	.up {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.language-outline {
+		margin-left: auto;
+		font-size: 20px;
+	}
+
+	.name {
+		margin-bottom: 5px;
+		font-size: 18px;
+	}
+
+	.username {
+		margin-top: 0px;
+		font-size: 12px;
+		font-family: 'Red Hat Display', sans-serif;
+		opacity: 50%;
+		font-style: italic;
+		font-weight: 100;
+	}
+
+	.chatbubble-ellipses-outline {
+		font-size: 22px;
+		margin-left: 5px;
+	}
+
+	.braah-one-regular {
+		font-family: 'Braah One', sans-serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.linepost {
+		padding: 0;
+		border: 0;
+		margin-bottom: 0;
+	}
+
+	hr {
+		width: 350px;
+		margin-left: 5px;
+		margin-right: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		opacity: 50%;
+	}
+
+	.title {
+		margin-bottom: 0;
+		font-size: 15px;
+	}
+
+	.text {
+		font-size: 15px;
+		margin-top: 10px;
+		font-family: 'Red Hat Display', sans-serif;
+		font-weight: 200;
+	}
+
+	.red-hat {
+		font-family: 'Red Hat Display', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 300;
+		font-style: normal;
+	}
+}

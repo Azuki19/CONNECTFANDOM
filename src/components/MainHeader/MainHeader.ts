@@ -18,7 +18,7 @@ class MainHeader extends HTMLElement {
 
 			<section class='sectionmainheader'>
         <div class='div1'>
-			    <h1>CONNECT FANDOM</h1>
+			    <h1>CONNECT FANDOM!</h1>
         </div>
         <div class='div2'>
        		<ion-icon class='settings-outline' name="settings-outline"></ion-icon>

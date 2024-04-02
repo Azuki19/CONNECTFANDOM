@@ -62,7 +62,7 @@ export const data: DataShape[] = [
 		post1: {
 			titlePost: 'Gerard ♡',
 			infoPost:
-				'Is Gerard Way actually the best fucking human in this planet we call the earth and inspired so many people at a point that he saved so many lives including mine or am i just insanely in love with him?',
+				'Is Gerard Way actually the best fucking human in this planet we call the earth and inspired so many people at a point that he saved so many lives including mine or am i just insanely in love with him? 🖤',
 			imagePost: 'https://i.pinimg.com/564x/ca/35/b6/ca35b64276c9f71c1363c477ab767973.jpg',
 		},
 	},

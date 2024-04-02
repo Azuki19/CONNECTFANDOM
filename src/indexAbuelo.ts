@@ -95,11 +95,11 @@ class AppContainer extends HTMLElement {
 			const artistPostsSection = this.shadowRoot.getElementById('artist-posts-section');
 
 			arrowBack?.addEventListener('click', () => {
-				artistPostsSection?.scrollBy({ left: -500, behavior: 'smooth' }); // Ajusta el valor de scroll como desees
+				artistPostsSection?.scrollBy({ left: -400, behavior: 'smooth' }); // Ajusta el valor de scroll como desees
 			});
 
 			arrowForward?.addEventListener('click', () => {
-				artistPostsSection?.scrollBy({ left: 500, behavior: 'smooth' }); // Ajusta el valor de scroll como desees
+				artistPostsSection?.scrollBy({ left: 400, behavior: 'smooth' }); // Ajusta el valor de scroll como desees
 			});
 		}
 	}
