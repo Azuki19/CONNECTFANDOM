@@ -8,11 +8,15 @@
 	font-family: 'Braah One', sans-serif;
 }
 
-.sectionminiheader h4 {
-	margin: 0;
-	font-size: 16px;
-	text-transform: uppercase;
-	cursor: pointer;
+.sectionminiheader {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 5px 300px;
+	background-color: #ffffff;
+	color: #ac084d;
+	font-family: 'Braah One', sans-serif;
+	height: 25px;
 }
 
 .sectionminiheader h4:hover {
