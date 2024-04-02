@@ -83,7 +83,7 @@ class UserPost extends HTMLElement {
 										<div class='PostInfo'>
 										<div class='up'>
 											<h5>${this.titlepost}</h5>
-											<ion-icon name="language-outline"></ion-icon>
+											<ion-icon name="ellipsis-vertical-outline"></ion-icon>
 											</div>
 										<p>${this.infopost}</p>
 										<div class='buttons'>
@@ -147,11 +147,11 @@ class UserPost extends HTMLElement {
 		titleHeading.textContent = this.titlepost || '';
 		titleHeading.classList.add('title');
 
-		const languageIcon = document.createElement('ion-icon');
-		languageIcon.setAttribute('name', 'language-outline');
-		languageIcon.classList.add('language-outline');
+		const ellipsisIcon = document.createElement('ion-icon');
+		ellipsisIcon.setAttribute('name', 'ellipsis-vertical-outline');
+		ellipsisIcon.classList.add('ellipsis-vertical-outline');
 		upDiv.appendChild(titleHeading);
-		upDiv.appendChild(languageIcon);
+		upDiv.appendChild(ellipsisIcon);
 
 		const buttonsDiv = document.createElement('div');
 		buttonsDiv.classList.add('buttons');
