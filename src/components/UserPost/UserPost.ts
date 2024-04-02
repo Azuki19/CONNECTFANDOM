@@ -147,11 +147,7 @@ class UserPost extends HTMLElement {
 		titleHeading.textContent = this.titlepost || '';
 		titleHeading.classList.add('title');
 
-		const ellipsisIcon = document.createElement('ion-icon');
-		ellipsisIcon.setAttribute('name', 'ellipsis-vertical-outline');
-		ellipsisIcon.classList.add('ellipsis-vertical-outline');
 		upDiv.appendChild(titleHeading);
-		upDiv.appendChild(ellipsisIcon);
 
 		const buttonsDiv = document.createElement('div');
 		buttonsDiv.classList.add('buttons');
