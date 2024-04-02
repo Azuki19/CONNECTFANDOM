@@ -1,0 +1,68 @@
+.artistContainer {
+	display: flex;
+}
+
+.artistPost {
+	display: flex;
+	flex-direction: column;
+	margin-left: 11px;
+	margin-right: 10px;
+	flex: 0 0 auto; /* Permitir que los posts tengan un ancho flexible */
+}
+
+section {
+	display: flex;
+	background: linear-gradient(rgb(255, 255, 255), #76767632);
+	border-radius: 70px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	margin-bottom: 50px;
+	margin-top: 50px;
+	padding: 20px;
+	width: 500px;
+}
+
+.artistPost > div {
+	margin-right: 20px;
+}
+
+.artistPost > div img {
+	width: 70px;
+	height: 70px;
+	margin-right: 15px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.artistPost > div h1 {
+	font-size: 20px;
+	margin: 5px 0 10px; /* Ajustar el margen inferior */
+}
+
+.artistPost > div p {
+	margin: 1px 0;
+}
+
+.artistPost:last-child {
+	flex-grow: 1;
+	margin-bottom: 5px;
+}
+
+.profile {
+	display: flex;
+	flex-direction: row;
+}
+
+.infoProfile {
+	display: flex;
+	flex-direction: column;
+}
+
+.infoPost {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 18px; /* Agregar un margen inferior de 25px */
+}
+
+#titlepost {
+	margin-bottom: 5px;
+}

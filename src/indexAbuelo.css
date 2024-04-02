@@ -1,0 +1,87 @@
+#artist-posts-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	overflow: hidden;
+}
+
+#create-post-section {
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 15px;
+}
+
+#postsContainer {
+	display: flex;
+	flex-direction: column;
+	background-color: transparent;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+	padding: 20px;
+	width: 900px;
+	margin-left: 30px;
+}
+
+#user-posts-section {
+	font-family: 'Red Hat Display', sans-serif;
+}
+
+#downpart {
+	display: flex;
+	flex-direction: row;
+}
+
+.artist-posts-section {
+	font-family: 'Red Hat Display', sans-serif;
+}
+
+.braah-one-regular {
+	font-family: 'Braah One', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.red-hat {
+	font-family: 'Red Hat Display', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
+}
+
+#background {
+	background-image: url(https://pbs.twimg.com/media/GKFqLm7XwAAy2fy?format=jpg&name=large);
+	background-attachment: fixed; /* Fondo fijo */
+	background-repeat: no-repeat; /* No repetir */
+	background-size: cover; /* Ajustar el tamaño del fondo */
+}
+
+#chevron-back-outline {
+	color: #ac084d;
+	width: 3rem;
+	font-size: 60px;
+}
+
+#chevron-forward-outline {
+	color: #ac084d;
+	width: 3rem;
+	font-size: 60px;
+}
+#arrows {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.line1 {
+	margin-top: 5px;
+	padding: 0;
+	border: 0;
+}
+
+hr {
+	width: 880px;
+	margin-left: 5px;
+	margin-right: 0;
+}
