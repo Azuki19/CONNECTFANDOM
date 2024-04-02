@@ -1,4 +1,5 @@
 import styles from './UserPost.css';
+import './i18n';
 
 export enum Attribute {
 	'uid' = 'uid',
