@@ -64,14 +64,14 @@ class ArtistPost extends HTMLElement {
           <div class='profile'>
             <img class='imgProfile' src="${this.image}" alt="">
             <div class='infoProfile'>
-              <h1>${this.name}</h1>
-              <p>${this.username}</p>
+              <h1 class='name'>${this.name}</h1>
+              <p class='username'>@${this.username}</p>
             </div>
           </div>
 
           <div class='infoPost'>
             <strong><p id='titlepost' class='titlepost'>${this.titlepost}</p></strong>
-            <p>${this.infopost}</p>
+            <p class='infoPost'>${this.infopost}</p>
           </div>
 
         </section>

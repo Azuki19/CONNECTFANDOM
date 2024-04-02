@@ -7,7 +7,9 @@
 	flex-direction: column;
 	margin-left: 11px;
 	margin-right: 10px;
-	flex: 0 0 auto; /* Permitir que los posts tengan un ancho flexible */
+	height: 163px;
+	width: 403px;
+	flex: 0 0 auto;
 }
 
 section {
@@ -26,19 +28,24 @@ section {
 }
 
 .artistPost > div img {
-	width: 70px;
-	height: 70px;
-	margin-right: 15px;
+	width: 60px;
+	height: 60px;
+	margin-right: 11px;
 	object-fit: cover;
 	border-radius: 50%;
+	margin-left: 15px;
 }
 
-.artistPost > div h1 {
+.name {
 	font-size: 20px;
-	margin: 5px 0 10px; /* Ajustar el margen inferior */
+	margin: 5px 0 5px; /* Ajustar el margen inferior */
 }
 
-.artistPost > div p {
+.username {
+	margin: 0;
+}
+
+.infoPost {
 	margin: 1px 0;
 }
 
@@ -50,6 +57,7 @@ section {
 .profile {
 	display: flex;
 	flex-direction: row;
+	height: 60px;
 }
 
 .infoProfile {
@@ -65,4 +73,5 @@ section {
 
 #titlepost {
 	margin-bottom: 5px;
+	margin-top: 6px;
 }
