@@ -15,7 +15,7 @@ interface DataShape {
 	};
 }
 
-export const data: DataShape[] = [
+export const MyChemicalRomanceData: DataShape[] = [
 	{
 		id: 1,
 		type: 'User',

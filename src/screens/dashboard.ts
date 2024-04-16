@@ -3,7 +3,7 @@ import UserPost, { Attribute } from '../components/UserPost/UserPost';
 import ArtistPost, { ArtistAttribute } from '../components/ArtistPost/ArtistPost';
 import MoreAbout, { MoreAboutAttribute } from '../components/MoreAbout/MoreAbout';
 import CreatePost, { CreatePostAttribute } from '../components/CreatePost/CreatePost';
-import { data } from '../data/data';
+import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import { bandsdata } from '../data/bandsData';
 import style from './dashboard.css';
 class AppDashboard extends HTMLElement {
@@ -16,7 +16,7 @@ class AppDashboard extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 
-		const UserData = data.filter((user) => user.type === 'User');
+		const UserData = MyChemicalRomanceData.filter((user) => user.type === 'User');
 
 		UserData.forEach((user) => {
 			const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
@@ -37,7 +37,7 @@ class AppDashboard extends HTMLElement {
 			this.userpost.push(UserPostCard);
 		});
 
-		const ArtistData = data.filter((user) => user.type === 'Artist');
+		const ArtistData = MyChemicalRomanceData.filter((user) => user.type === 'Artist');
 
 		ArtistData.forEach((artist) => {
 			const ArtistPostCard = this.ownerDocument.createElement('artist-post') as ArtistPost;
@@ -70,7 +70,7 @@ class AppDashboard extends HTMLElement {
 			this.moreabout.push(MoreAboutCard);
 		}
 
-		const BannerCreatePost = data.find((post) => post.id === 1);
+		const BannerCreatePost = MyChemicalRomanceData.find((post) => post.id === 1);
 
 		if (BannerCreatePost) {
 			const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
