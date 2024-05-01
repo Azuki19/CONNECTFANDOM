@@ -36,6 +36,10 @@ class BandGallery extends HTMLElement {
 		return Object.keys(attrs);
 	}
 
+	connectedCallback() {
+		this.render();
+	}
+
 	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | undefined) {
 		switch (propName) {
 			/*case Attribute.uid:
@@ -63,7 +67,7 @@ class BandGallery extends HTMLElement {
           <!-- Slide-start -->
           <div class="swiper-slide tranding-slide">
             <div class="tranding-slide-img">
-              <img src="images/tranding-food-1.png" alt="Tranding">
+              <img src="${this.photo1}">
             </div>
             <div class="tranding-slide-content">
               <h1 class="food-price">$20</h1>
@@ -88,7 +92,7 @@ class BandGallery extends HTMLElement {
           <!-- Slide-start -->
           <div class="swiper-slide tranding-slide">
             <div class="tranding-slide-img">
-              <img src="$">
+              <img src="${this.photo2}">
             </div>
             <div class="tranding-slide-content">
               <h1 class="food-price">$20</h1>
@@ -113,7 +117,7 @@ class BandGallery extends HTMLElement {
           <!-- Slide-start -->
           <div class="swiper-slide tranding-slide">
             <div class="tranding-slide-img">
-              <img src="images/tranding-food-3.png" alt="Tranding">
+              <img src="${this.photo3}">
             </div>
             <div class="tranding-slide-content">
               <h1 class="food-price">$40</h1>
@@ -138,7 +142,7 @@ class BandGallery extends HTMLElement {
           <!-- Slide-start -->
           <div class="swiper-slide tranding-slide">
             <div class="tranding-slide-img">
-              <img src="images/tranding-food-4.png" alt="Tranding">
+              <img src="${this.photo4}">
             </div>
             <div class="tranding-slide-content">
               <h1 class="food-price">$15</h1>
@@ -163,7 +167,7 @@ class BandGallery extends HTMLElement {
           <!-- Slide-start -->
           <div class="swiper-slide tranding-slide">
             <div class="tranding-slide-img">
-              <img src="images/tranding-food-5.png" alt="Tranding">
+              <img src="${this.photo5}">
             </div>
             <div class="tranding-slide-content">
               <h1 class="food-price">$15</h1>
@@ -188,7 +192,7 @@ class BandGallery extends HTMLElement {
           <!-- Slide-start -->
           <div class="swiper-slide tranding-slide">
             <div class="tranding-slide-img">
-              <img src="images/tranding-food-6.png" alt="Tranding">
+              <img src="${this.photo6}">
             </div>
             <div class="tranding-slide-content">
               <h1 class="food-price">$20</h1>
@@ -213,7 +217,7 @@ class BandGallery extends HTMLElement {
           <!-- Slide-start -->
           <div class="swiper-slide tranding-slide">
             <div class="tranding-slide-img">
-              <img src="images/tranding-food-7.png" alt="Tranding">
+              <img src="${this.photo7}">
             </div>
             <div class="tranding-slide-content">
               <h1 class="food-price">$8</h1>
