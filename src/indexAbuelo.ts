@@ -1,30 +1,10 @@
-import * as components from './components/indexPadre';
-import { bandsdata } from './data/bandsData';
-import BandGallery, { BandGalleryAttributtes } from './components/BandGallery/BandGallery';
+import './screens/aboutTheBand';
+import './components/indexPadre';
 
-class AppAboutTheBand extends HTMLElement {
-	bandgallerys: BandGallery[] = [];
-
+class AppContainer extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
-
-		const PhotosData = bandsdata.filter((band) => band.bandName === 'MY CHEMICAL ROMANCE');
-
-		PhotosData.forEach((band) => {
-			const bandGalleryCard = document.createElement('band-gallery') as BandGallery;
-
-			// Set attributes for each photo
-			bandGalleryCard.setAttribute('photo1', band.bandGallery.photo1);
-			bandGalleryCard.setAttribute('photo2', band.bandGallery.photo2);
-			bandGalleryCard.setAttribute('photo3', band.bandGallery.photo3);
-			bandGalleryCard.setAttribute('photo4', band.bandGallery.photo4);
-			bandGalleryCard.setAttribute('photo5', band.bandGallery.photo5);
-			bandGalleryCard.setAttribute('photo6', band.bandGallery.photo6);
-			bandGalleryCard.setAttribute('photo7', band.bandGallery.photo7);
-
-			this.bandgallerys.push(bandGalleryCard);
-		});
 	}
 
 	connectedCallback() {
@@ -32,12 +12,9 @@ class AppAboutTheBand extends HTMLElement {
 	}
 
 	render() {
-		if (this.shadowRoot) {
-			this.bandgallerys.forEach((bandgallery) => {
-				this.shadowRoot?.appendChild(bandgallery);
-			});
-		}
+		const something = this.ownerDocument.createElement('app-about-the-band');
+		this.shadowRoot?.appendChild(something);
 	}
 }
 
-customElements.define('app-about-the-band', AppAboutTheBand);
+customElements.define('app-container', AppContainer);
