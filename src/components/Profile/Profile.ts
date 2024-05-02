@@ -45,4 +45,26 @@ class ProfileAtt extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 	}
+	connectedCallback() {
+		this.render();
+	}
+
+	render() {
+		if (this.shadowRoot) {
+			this.shadowRoot.innerHTML = `
+        <section class='Cajon-Profile'>
+          <div class='profile'>
+            <img class='imgProfile' src="${this.imagProfile}" alt="">
+            <div class='infoProfile'>
+              <h1 class='name'>${this.name}</h1>
+              <p class='username'>@${this.username}</p>
+							<p class='followers'>@${this.followers}</p>
+							<p class='info'>@${this.info}</p>
+            </div>
+          </div>
+
+					</section>
+				`;
+		}
+	}
 }
