@@ -53,7 +53,7 @@ class ProfileEditAtt extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
         <section class='Cajon-Profile'>
-          <div class='profile'>
+          <div class='Edit profile'>
             <img class='imgProfile' src="${this.imagProfile}" alt="">
             <div class='infoProfile'>
               <h1 class='name'>${this.name}</h1>
