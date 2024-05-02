@@ -23,17 +23,17 @@ export const bandsdata: DataShape[] = [
 			'Formed in NJ, My Chemical Romance made its debut in 2002 with the independently released album I Brought You My Bullets, You Brought Me Your Love. The band signed to Reprise Records the following year and made its major label debut with 2004’s Three Cheers for Sweet Revenge, now 3x certified Platinum. The album contained the Platinum hit "Im Not Okay (I Promise)," the Gold-certified "Helena," and "The Ghost of You." Rolling Stone hailed the 3x Platinum The Black Parade as one of the top albums of 2006.Lead single “Welcome to the Black Parade” topped both Billboard’s Alternative Songs tally and the UK Official Singles chart and is now 3x Platinum.',
 		bandGallery: {
 			photo1: 'https://www.billboard.com/wp-content/uploads/stylus/500264-my_chemical_romance_617_409.jpg?w=617',
-			photo2:
-				'https://cms.kerrang.com/images/_1200x630_crop_center-center_82_none/My-Chemical-Romance-Danger-Days-promo-3.jpg?mtime=1573469727',
+			photo2: 'https://www.billboard.com/wp-content/uploads/media/my-chemical-romance-2011-xbv-billboard-1548.jpg',
 			photo3:
 				'https://punkeando.com.mx/wp-content/webpc-passthru.php?src=https://punkeando.com.mx/wp-content/uploads/2022/05/my-chemical-romance-top-10.jpg&nocache=1',
 			photo4:
 				'https://portalpopline.com.br/wp-content/uploads/2022/05/my-chemical-romance-The-Foundations-of-Decay-single.jpg',
 			photo5:
-				'https://www.nacionrex.com/__export/1572556814750/sites/debate/img/2019/10/31/my-chemical-romance-regresa_crop1572556749434.jpg_673822677.jpg',
+				'https://media2.citybeat.com/citybeat/imager/mcr/u/zoom/13752614/mychemicalromance_brittanythornton_07.png?cb=1693337128',
 			photo6:
-				'https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/ap101201125099.jpg?crop=1.00xw:0.846xh;0,0.0782xh&resize=900:*',
-			photo7: 'https://www.altwire.net/wp-content/uploads/2022/02/MCRTBP.jpeg',
+				'https://ca-times.brightspotcdn.com/dims4/default/6988f0a/2147483647/strip/true/crop/600x400+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F78%2F93%2F92b6a06f78a8c0f3c57f45272116%2Fla-162257-ca-1121-mychemicalromance-220101121',
+			photo7:
+				'https://qtxasset.com/cdn-cgi/image/w=850,h=478,g=0.5x0.5,f=auto,fit=crop/https://qtxasset.com/quartz/qcloud4/2022-11/MCR-JVO-00009-1000.jpg?VersionId=JfuLR54G6M.xFN23KcJHL7vT2P41NnBO',
 		},
 	},
 	{

@@ -18,6 +18,8 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
-		"css-loader": "^6.10.0"
+		"@types/swiper": "^6.0.0",
+		"css-loader": "^6.10.0",
+		"swiper": "^11.1.1"
 	}
 }

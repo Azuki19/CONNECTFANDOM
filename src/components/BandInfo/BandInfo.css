@@ -1,0 +1,32 @@
+.container {
+	width: 1300px;
+	margin: 20px;
+	margin-left: 60px;
+	height: 250px;
+	color: aliceblue;
+}
+
+h1 {
+	font-size: 40px;
+	font-family: 'Braah One', sans-serif;
+	margin-bottom: 5px;
+}
+
+p {
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 22px;
+	margin-top: 5px;
+	font-style: medium;
+}
+.red-hat {
+	font-family: 'Red Hat Display', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.braah-one-regular {
+	font-family: 'Braah One', sans-serif;
+	font-weight: 200;
+	font-style: light;
+}

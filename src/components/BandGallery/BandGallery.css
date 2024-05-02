@@ -1,0 +1,38 @@
+.container {
+	position: relative;
+	max-width: 900px;
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+.image {
+	width: 700px;
+	height: 500px;
+	display: block;
+	border-radius: 25px;
+}
+.prev,
+.next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	font-size: 18px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	border-radius: 50%;
+	user-select: none;
+	width: 30px; /* Ajusta este valor según tus preferencias */
+	height: 30px; /* Ajusta este valor según tus preferencias */
+	line-height: 30px; /* Ajusta este valor según tus preferencias */
+	text-align: center;
+}
+
+.prev {
+	left: 10px;
+}
+
+.next {
+	right: 10px;
+}
