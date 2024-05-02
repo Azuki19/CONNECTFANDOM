@@ -22,4 +22,27 @@ class ProfileAtt extends HTMLElement {
 	type?: string;
 	email?: string;
 	password?: string;
+
+	static get observedAttributes() {
+		return Object.values(ProfileAttribute);
+	}
+
+	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
+		if (newValue !== null) {
+			switch (propName) {
+				case ProfileAttribute.uid:
+				case ProfileAttribute.followers:
+					this[propName] = parseInt(newValue);
+					break;
+				default:
+					this[propName] = newValue;
+					break;
+			}
+		}
+		this.render();
+	}
+	constructor() {
+		super();
+		this.attachShadow({ mode: 'open' });
+	}
 }
