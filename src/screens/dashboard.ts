@@ -114,8 +114,8 @@ class AppDashboard extends HTMLElement {
 			<link href="https://fonts.googleapis.com/css2?family=Braah+One&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
 			<section id='background'>
-			<header id="main-header-container"></header>
-						<div id="mini-header-container"></div>
+				<header id="main-header-container"></header>
+				<div id="mini-header-container"></div>
 
 						<div id='arrows'>
 							<div id='arrow1'>
@@ -131,7 +131,7 @@ class AppDashboard extends HTMLElement {
 
 						</div>
 
-						<div id='downpart'>
+					<div id='downpart'>
 						<div id="postsContainer">
 							<section id="create-post-section">
             	</section>
@@ -145,8 +145,8 @@ class AppDashboard extends HTMLElement {
 						</div>
             <section id="more-about-section">
             </section>
-						</div>
-						</section>
+					</div>
+			</section>
         `;
 
 			const mainHeaderContainer = this.shadowRoot.getElementById('main-header-container');
