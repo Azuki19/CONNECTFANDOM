@@ -11,252 +11,65 @@ export enum BandGalleryAttributtes {
 }
 
 class BandGallery extends HTMLElement {
-	photo1?: string;
-	photo2?: string;
-	photo3?: string;
-	photo4?: string;
-	photo5?: string;
-	photo6?: string;
-	photo7?: string;
+	private currentIndex: number = 0;
+	private photos: string[] = [];
 
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
 	}
+
 	static get observedAttributes() {
-		const attrs: Record<BandGalleryAttributtes, null> = {
-			photo1: null,
-			photo2: null,
-			photo3: null,
-			photo4: null,
-			photo5: null,
-			photo6: null,
-			photo7: null,
-		};
-		return Object.keys(attrs);
+		return Object.values(BandGalleryAttributtes);
 	}
 
 	connectedCallback() {
 		this.render();
 	}
 
-	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | undefined) {
-		switch (propName) {
-			/*case Attribute.uid:
-				this.uid = newValue ? Number(newValue) : undefined;
-				break;*/
-
-			default:
-				this[propName] = newValue;
-				break;
+	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
+		if (oldValue !== newValue) {
+			this[propName] = newValue;
+			this.photos = Object.values(this.attributes)
+				.map((attr) => attr?.value)
+				.filter((value) => value && value.startsWith('http')); // Filtramos solo las URLs válidas
+			this.render();
 		}
+	}
+
+	//FLECHAS
+
+	private next() {
+		this.currentIndex = (this.currentIndex + 1) % this.photos.length;
 		this.render();
 	}
 
-	render() {
+	private prev() {
+		this.currentIndex = (this.currentIndex - 1 + this.photos.length) % this.photos.length;
+		this.render();
+	}
+
+	//RENDER
+
+	private render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+                <div class="container">
+                    <img class="image" src="${this.photos[this.currentIndex]}" alt="Photo ${this.currentIndex + 1}">
+                    <div class="prev">&#10094;</div>
+                    <div class="next">&#10095;</div>
+                </div>
+            `;
 
-      <div class="container">
-      <h3 class="text-center section-subheading">- popular Delivery -</h3>
-      <h1 class="text-center section-heading">Tranding food</h1>
-    </div>
-    <div class="container">
-      <div class="swiper tranding-slider">
-        <div class="swiper-wrapper">
-          <!-- Slide-start -->
-          <div class="swiper-slide tranding-slide">
-            <div class="tranding-slide-img">
-              <img src="${this.photo1}">
-            </div>
-            <div class="tranding-slide-content">
-              <h1 class="food-price">$20</h1>
-              <div class="tranding-slide-content-bottom">
-                <h2 class="food-name">
-                  Special Pizza
-                </h2>
-                <h3 class="food-rating">
-                  <span>4.5</span>
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <!-- Slide-end -->
-          <!-- Slide-start -->
-          <div class="swiper-slide tranding-slide">
-            <div class="tranding-slide-img">
-              <img src="${this.photo2}">
-            </div>
-            <div class="tranding-slide-content">
-              <h1 class="food-price">$20</h1>
-              <div class="tranding-slide-content-bottom">
-                <h2 class="food-name">
-                  Meat Ball
-                </h2>
-                <h3 class="food-rating">
-                  <span>4.5</span>
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <!-- Slide-end -->
-          <!-- Slide-start -->
-          <div class="swiper-slide tranding-slide">
-            <div class="tranding-slide-img">
-              <img src="${this.photo3}">
-            </div>
-            <div class="tranding-slide-content">
-              <h1 class="food-price">$40</h1>
-              <div class="tranding-slide-content-bottom">
-                <h2 class="food-name">
-                  Burger
-                </h2>
-                <h3 class="food-rating">
-                  <span>4.5</span>
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <!-- Slide-end -->
-          <!-- Slide-start -->
-          <div class="swiper-slide tranding-slide">
-            <div class="tranding-slide-img">
-              <img src="${this.photo4}">
-            </div>
-            <div class="tranding-slide-content">
-              <h1 class="food-price">$15</h1>
-              <div class="tranding-slide-content-bottom">
-                <h2 class="food-name">
-                  Frish Curry
-                </h2>
-                <h3 class="food-rating">
-                  <span>4.5</span>
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <!-- Slide-end -->
-          <!-- Slide-start -->
-          <div class="swiper-slide tranding-slide">
-            <div class="tranding-slide-img">
-              <img src="${this.photo5}">
-            </div>
-            <div class="tranding-slide-content">
-              <h1 class="food-price">$15</h1>
-              <div class="tranding-slide-content-bottom">
-                <h2 class="food-name">
-                  Pane Cake
-                </h2>
-                <h3 class="food-rating">
-                  <span>4.5</span>
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <!-- Slide-end -->
-          <!-- Slide-start -->
-          <div class="swiper-slide tranding-slide">
-            <div class="tranding-slide-img">
-              <img src="${this.photo6}">
-            </div>
-            <div class="tranding-slide-content">
-              <h1 class="food-price">$20</h1>
-              <div class="tranding-slide-content-bottom">
-                <h2 class="food-name">
-                  Vanilla cake
-                </h2>
-                <h3 class="food-rating">
-                  <span>4.5</span>
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <!-- Slide-end -->
-          <!-- Slide-start -->
-          <div class="swiper-slide tranding-slide">
-            <div class="tranding-slide-img">
-              <img src="${this.photo7}">
-            </div>
-            <div class="tranding-slide-content">
-              <h1 class="food-price">$8</h1>
-              <div class="tranding-slide-content-bottom">
-                <h2 class="food-name">
-                  Straw Cake
-                </h2>
-                <h3 class="food-rating">
-                  <span>4.5</span>
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <!-- Slide-end -->
-        </div>
+			const prevElement = this.shadowRoot.querySelector('.prev');
+			if (prevElement) {
+				prevElement.addEventListener('click', () => this.prev());
+			}
 
-        <div class="tranding-slider-control">
-          <div class="swiper-button-prev slider-arrow">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-          </div>
-          <div class="swiper-button-next slider-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-      `;
+			const nextElement = this.shadowRoot.querySelector('.next');
+			if (nextElement) {
+				nextElement.addEventListener('click', () => this.next());
+			}
 		}
 
 		const cssBandGallery = this.ownerDocument.createElement('style');
