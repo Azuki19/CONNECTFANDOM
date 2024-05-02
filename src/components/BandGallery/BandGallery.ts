@@ -11,64 +11,65 @@ export enum BandGalleryAttributtes {
 }
 
 class BandGallery extends HTMLElement {
-	photo1?: string;
-	photo2?: string;
-	photo3?: string;
-	photo4?: string;
-	photo5?: string;
-	photo6?: string;
-	photo7?: string;
+	private currentIndex: number = 0;
+	private photos: string[] = [];
 
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
 	}
+
 	static get observedAttributes() {
-		const attrs: Record<BandGalleryAttributtes, null> = {
-			photo1: null,
-			photo2: null,
-			photo3: null,
-			photo4: null,
-			photo5: null,
-			photo6: null,
-			photo7: null,
-		};
-		return Object.keys(attrs);
+		return Object.values(BandGalleryAttributtes);
 	}
 
 	connectedCallback() {
 		this.render();
 	}
 
-	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | undefined) {
-		switch (propName) {
-			/*case Attribute.uid:
-				this.uid = newValue ? Number(newValue) : undefined;
-				break;*/
-
-			default:
-				this[propName] = newValue;
-				break;
+	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
+		if (oldValue !== newValue) {
+			this[propName] = newValue;
+			this.photos = Object.values(this.attributes)
+				.map((attr) => attr?.value)
+				.filter((value) => value && value.startsWith('http')); // Filtramos solo las URLs válidas
+			this.render();
 		}
+	}
+
+	//FLECHAS
+
+	private next() {
+		this.currentIndex = (this.currentIndex + 1) % this.photos.length;
 		this.render();
 	}
 
-	render() {
+	private prev() {
+		this.currentIndex = (this.currentIndex - 1 + this.photos.length) % this.photos.length;
+		this.render();
+	}
+
+	//RENDER
+
+	private render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+                <div class="container">
+                    <img class="image" src="${this.photos[this.currentIndex]}" alt="Photo ${this.currentIndex + 1}">
+                    <div class="prev">&#10094;</div>
+                    <div class="next">&#10095;</div>
+                </div>
+            `;
 
-    <div class="container">
-      <img src="${this.photo1}">
-      <img src="${this.photo2}">
-      <img src="${this.photo3}">
-      <img src="${this.photo4}">
-      <img src="${this.photo5}">
-      <img src="${this.photo6}">
-      <img src="${this.photo7}">
+			const prevElement = this.shadowRoot.querySelector('.prev');
+			if (prevElement) {
+				prevElement.addEventListener('click', () => this.prev());
+			}
 
-    </div>
-
-      `;
+			const nextElement = this.shadowRoot.querySelector('.next');
+			if (nextElement) {
+				nextElement.addEventListener('click', () => this.next());
+			}
 		}
 
 		const cssBandGallery = this.ownerDocument.createElement('style');
