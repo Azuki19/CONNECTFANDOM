@@ -1,6 +1,6 @@
 import styles from './Profile.css';
 
-export enum ProfileAttribute {
+export enum EditProfileAttribute {
 	'uid' = 'uid',
 	'imagProfile' = 'imagProfile',
 	'name' = 'name',
@@ -12,7 +12,7 @@ export enum ProfileAttribute {
 	'password' = 'password',
 }
 
-class ProfileAtt extends HTMLElement {
+class ProfileEditAtt extends HTMLElement {
 	uid?: number;
 	imagProfile?: string;
 	name?: string;
@@ -24,14 +24,14 @@ class ProfileAtt extends HTMLElement {
 	password?: string;
 
 	static get observedAttributes() {
-		return Object.values(ProfileAttribute);
+		return Object.values(EditProfileAttribute);
 	}
 
 	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
 		if (newValue !== null) {
 			switch (propName) {
-				case ProfileAttribute.uid:
-				case ProfileAttribute.followers:
+				case EditProfileAttribute.uid:
+				case EditProfileAttribute.followers:
 					this[propName] = parseInt(newValue);
 					break;
 				default:
@@ -72,5 +72,5 @@ class ProfileAtt extends HTMLElement {
 	}
 }
 
-customElements.define('profile-att', ProfileAtt);
-export default ProfileAtt;
+customElements.define('profile-edit-att', ProfileEditAtt);
+export default ProfileEditAtt;
