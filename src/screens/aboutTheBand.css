@@ -1,0 +1,37 @@
+.background {
+	background-image: url(https://pbs.twimg.com/media/GKFqLm7XwAAy2fy?format=jpg&name=large);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.title {
+	font-size: 35px;
+	color: white;
+	font-family: 'Braah One', sans-serif;
+	text-align: center;
+}
+
+.up {
+	display: flex; /* Agrega un contenedor flex */
+	flex-direction: row; /* Establece la dirección de los elementos hijos */
+	justify-content: center; /* Centra los elementos horizontalmente */ /* Centra los elementos verticalmente */
+	gap: 140px; /* Espacio entre elementos */
+}
+
+#members-container {
+	color: rgb(206, 206, 206);
+	margin-top: 10px;
+	align-items: center;
+	justify-content: center;
+	width: 500px;
+	display: flex; /* Agrega un contenedor flex */
+	flex-direction: row;
+	flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas */
+	gap: 40px; /* Espacio entre elementos */
+}
+
+#info-container {
+	color: antiquewhite;
+	height: 500px;
+}
