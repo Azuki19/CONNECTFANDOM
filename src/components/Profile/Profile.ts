@@ -66,5 +66,11 @@ class ProfileAtt extends HTMLElement {
 					</section>
 				`;
 		}
+		const cssProfile = this.ownerDocument.createElement('style');
+		cssProfile.innerHTML = styles;
+		this.shadowRoot?.appendChild(cssProfile);
 	}
 }
+
+customElements.define('profile-att', ProfileAtt);
+export default ProfileAtt;
