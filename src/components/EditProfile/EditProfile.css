@@ -1,0 +1,15 @@
+.Cajon-Profile {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: cadetblue;
+	width: 500px;
+}
+
+.infoProfile {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
