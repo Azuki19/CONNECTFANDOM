@@ -12,7 +12,7 @@ export enum EditProfileAttribute {
 	'password' = 'password',
 }
 
-class ProfileEditAtt extends HTMLElement {
+class EditProfile extends HTMLElement {
 	uid?: number;
 	imagProfile?: string;
 	name?: string;
@@ -72,5 +72,5 @@ class ProfileEditAtt extends HTMLElement {
 	}
 }
 
-customElements.define('profile-edit-att', ProfileEditAtt);
-export default ProfileEditAtt;
+customElements.define('profile-edit-att', EditProfile);
+export default EditProfile;
