@@ -10,7 +10,8 @@ class AppEditProfile extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 
-		const EditProfileData = MyChemicalRomanceData.filter((user) => user.type === 'User');
+		const EditProfileData = MyChemicalRomanceData.filter((user) => user.id === 1);
+
 		EditProfileData.forEach((user) => {
 			const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
 			EditProfileCard.setAttribute('uid', String(user.id));
