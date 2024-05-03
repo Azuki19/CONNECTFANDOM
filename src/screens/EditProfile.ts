@@ -46,9 +46,6 @@ class AppEditProfile extends HTMLElement {
 			title.classList.add('title');
 			title.textContent = 'ACCOUNT SETTINGS';
 
-			const EditContainer = document.createElement('label');
-			EditContainer.id = 'edit-container';
-
 			const EditProfileContainer = document.createElement('label');
 			EditProfileContainer.id = 'edit-profile-container';
 
@@ -56,7 +53,6 @@ class AppEditProfile extends HTMLElement {
 			section.appendChild(mainHeaderContainer);
 			section.appendChild(miniHeaderContainer);
 			section.appendChild(title);
-			section.appendChild(EditContainer);
 			section.appendChild(EditProfileContainer);
 
 			this.editprofile.forEach((user) => {
