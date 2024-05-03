@@ -13,6 +13,11 @@ interface DataShape {
 		infoPost: string;
 		imagePost: string;
 	};
+	post2?: {
+		titlePost2: string;
+		infoPost2: string;
+		imagePost2: string;
+	};
 }
 
 export const MyChemicalRomanceData: DataShape[] = [
@@ -114,6 +119,12 @@ export const MyChemicalRomanceData: DataShape[] = [
 			infoPost: 'Love to you, eternally. You are all brave and brilliant. Goodnight for now.',
 			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
 		},
+		post2: {
+			titlePost2: 'New Music?',
+			infoPost2:
+				'I am continuing to make music, though I have a lot of writing to do. I still have sessions and write songs. Doing smaller releases.',
+			imagePost2: 'https://pbs.twimg.com/media/CgIZIV4UAAAnCiK?format=jpg&name=large',
+		},
 	},
 	{
 		id: 7,
@@ -130,6 +141,12 @@ export const MyChemicalRomanceData: DataShape[] = [
 			infoPost: 'Hell yeah!! “always a good idea to have a few microkorgs laying around!!!” 🖤 nice haul !',
 			imagePost: 'https://rollingstone.uol.com.br/media/_versions/frank_iero_cred_mitchell_wojcik_widelg.jpg',
 		},
+		post2: {
+			titlePost2: 'Reverb Store!',
+			infoPost2:
+				'My Official Reverb Store opens tomorrow at 10am cst!!! Thank you for having me! I can’t wait to see what you all grab! Happy hunting frendz! KTF 🖤 xofrnk.',
+			imagePost2: 'https://pbs.twimg.com/media/FzqUufCXgAIpPtQ?format=jpg&name=900x900',
+		},
 	},
 	{
 		id: 8,
@@ -144,7 +161,12 @@ export const MyChemicalRomanceData: DataShape[] = [
 		post1: {
 			titlePost: '⚡',
 			infoPost: 'This has been a long time coming. Can’t wait to welcome you all to the world of Electric Century!⚡',
-			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
+			imagePost: 'https://pbs.twimg.com/media/ExGY6M0VkAELAzA?format=jpg&name=large',
+		},
+		post2: {
+			titlePost2: 'Frankenstyle',
+			infoPost2: 'Rowan calls Frankenstein -“Frankenstyle”, and I’m never correcting her because it rules',
+			imagePost2: '.',
 		},
 	},
 	{
@@ -160,7 +182,13 @@ export const MyChemicalRomanceData: DataShape[] = [
 		post1: {
 			titlePost: 'GRACIAS!',
 			infoPost: 'Gracias México! You made tonight so special for us. We’ll never forget it.',
-			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
+			imagePost: '.',
+		},
+		post2: {
+			titlePost2: 'Special Moment🖤',
+			infoPost2:
+				'This is such a beautiful photo. Thank you for capturing this special moment, and being so respectful!',
+			imagePost2: 'https://pbs.twimg.com/media/FfYpslWXkAAGFjA?format=jpg&name=medium',
 		},
 	},
 ];
