@@ -31,9 +31,9 @@ class AppDashboard extends HTMLElement {
 			UserPostCard.setAttribute(Attribute.password, user.password);
 			UserPostCard.setAttribute(Attribute.info, user.info);
 			UserPostCard.setAttribute(Attribute.followers, String(user.followers));
-			UserPostCard.setAttribute(Attribute.titlePost, user.post1.titlePost);
-			UserPostCard.setAttribute(Attribute.infoPost, user.post1.infoPost);
-			UserPostCard.setAttribute(Attribute.imagePost, user.post1.imagePost);
+			UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
+			UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
+			UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
 
 			this.userpost.push(UserPostCard);
 		});
@@ -52,9 +52,9 @@ class AppDashboard extends HTMLElement {
 			ArtistPostCard.setAttribute(ArtistAttribute.password, artist.password);
 			ArtistPostCard.setAttribute(ArtistAttribute.info, artist.info);
 			ArtistPostCard.setAttribute(ArtistAttribute.followers, String(artist.followers));
-			ArtistPostCard.setAttribute(ArtistAttribute.titlePost, artist.post1.titlePost);
-			ArtistPostCard.setAttribute(ArtistAttribute.infoPost, artist.post1.infoPost);
-			ArtistPostCard.setAttribute(ArtistAttribute.imagePost, artist.post1.imagePost);
+			ArtistPostCard.setAttribute(ArtistAttribute.titlePost, artist.posts.post1.titlePost);
+			ArtistPostCard.setAttribute(ArtistAttribute.infoPost, artist.posts.post1.infoPost);
+			ArtistPostCard.setAttribute(ArtistAttribute.imagePost, artist.posts.post1.imagePost);
 
 			this.artistpost.push(ArtistPostCard);
 		});
