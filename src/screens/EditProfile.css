@@ -5,13 +5,18 @@
 	background-size: cover;
 }
 
+.title {
+	font-size: 35px;
+	color: white;
+	font-family: 'Braah One', sans-serif;
+	text-align: center;
+}
+
 #edit-profile-container {
-	height: 500px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 100px;
-	margin-bottom: 100px;
+	margin-top: 50px;
 	width: 100%;
-	height: 100%;
+	height: 800px;
 }

@@ -4,7 +4,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: rgb(255, 255, 255);
+	background: linear-gradient(rgb(255, 255, 255), #767676ad);
 	width: 500px;
 }
 
@@ -13,6 +13,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 80px;
 }
 
 .Edit-profile {
