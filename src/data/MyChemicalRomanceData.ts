@@ -8,15 +8,17 @@ interface DataShape {
 	password: string;
 	info: string;
 	followers: number;
-	post1: {
-		titlePost: string;
-		infoPost: string;
-		imagePost: string;
-	};
-	post2?: {
-		titlePost2: string;
-		infoPost2: string;
-		imagePost2: string;
+	posts: {
+		post1?: {
+			titlePost: string;
+			infoPost: string;
+			imagePost: string;
+		};
+		post2?: {
+			titlePost2: string;
+			infoPost2: string;
+			imagePost2: string;
+		};
 	};
 }
 
@@ -31,11 +33,13 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: '123456ana',
 		info: 'Hi! im Ana. gerard way enthusiast ♡',
 		followers: 100,
-		post1: {
-			titlePost: 'Gee b-day!!🎉🎂',
-			infoPost:
-				'Since gerards birthday is really soon, I wanted to share this silly little drawing I made. ❤️ ❤️ Here are all the funny Gerards through the time! keep an eye on the cake lol !! ^-^',
-			imagePost: 'https://i.pinimg.com/564x/fd/e2/2e/fde22ef455c55d897ba1ae585f69e618.jpg',
+		posts: {
+			post1: {
+				titlePost: 'Gee b-day!!🎉🎂',
+				infoPost:
+					'Since gerards birthday is really soon, I wanted to share this silly little drawing I made. ❤️ ❤️ Here are all the funny Gerards through the time! keep an eye on the cake lol !! ^-^',
+				imagePost: 'https://i.pinimg.com/564x/fd/e2/2e/fde22ef455c55d897ba1ae585f69e618.jpg',
+			},
 		},
 	},
 	{
@@ -48,10 +52,12 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: 'Mora123',
 		info: 'I love mcr. Black Parade Best Album!! 4ever',
 		followers: 300,
-		post1: {
-			titlePost: 'frankie performance',
-			infoPost: 'I reaaaaally loved the new frank performance🎸🎸',
-			imagePost: 'https://i.pinimg.com/564x/08/88/2a/08882a8ce06cbd4319362e624119c691.jpg',
+		posts: {
+			post1: {
+				titlePost: 'frankie performance',
+				infoPost: 'I reaaaaally loved the new frank performance🎸🎸',
+				imagePost: 'https://i.pinimg.com/564x/08/88/2a/08882a8ce06cbd4319362e624119c691.jpg',
+			},
 		},
 	},
 	{
@@ -64,11 +70,13 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: 'MariaFail2',
 		info: '2222222',
 		followers: 500,
-		post1: {
-			titlePost: 'Gerard ♡',
-			infoPost:
-				'Is Gerard Way actually the best fucking human in this planet we call the earth and inspired so many people at a point that he saved so many lives including mine or am i just insanely in love with him? 🖤',
-			imagePost: 'https://i.pinimg.com/564x/ca/35/b6/ca35b64276c9f71c1363c477ab767973.jpg',
+		posts: {
+			post1: {
+				titlePost: 'Gerard ♡',
+				infoPost:
+					'Is Gerard Way actually the best fucking human in this planet we call the earth and inspired so many people at a point that he saved so many lives including mine or am i just insanely in love with him? 🖤',
+				imagePost: 'https://i.pinimg.com/564x/ca/35/b6/ca35b64276c9f71c1363c477ab767973.jpg',
+			},
 		},
 	},
 	{
@@ -81,11 +89,13 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: 'josejose12345',
 		info: '99999999',
 		followers: 1000,
-		post1: {
-			titlePost: 'WHY????',
-			infoPost:
-				'Lets be honest, they DO NOT HAVE a single song where they NEEDED to use a FLAMETHROWER, LIKE??!! OHMYGOOOOD???',
-			imagePost: 'https://i.pinimg.com/564x/49/5d/5e/495d5ea8192f0805ee931372cf559dbc.jpg',
+		posts: {
+			post1: {
+				titlePost: 'WHY????',
+				infoPost:
+					'Lets be honest, they DO NOT HAVE a single song where they NEEDED to use a FLAMETHROWER, LIKE??!! OHMYGOOOOD???',
+				imagePost: 'https://i.pinimg.com/564x/49/5d/5e/495d5ea8192f0805ee931372cf559dbc.jpg',
+			},
 		},
 	},
 	{
@@ -98,10 +108,12 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: 'MCRmona12',
 		info: '5555555',
 		followers: 600,
-		post1: {
-			titlePost: 'Gee and Mikey photo',
-			infoPost: 'Look at the new pic, they are soo cute 🥹♡ im gonna cry',
-			imagePost: 'https://i.pinimg.com/564x/5c/63/b7/5c63b77e465be04e0960b239f6db9db3.jpg',
+		posts: {
+			post1: {
+				titlePost: 'Gee and Mikey photo',
+				infoPost: 'Look at the new pic, they are soo cute 🥹♡ im gonna cry',
+				imagePost: 'https://i.pinimg.com/564x/5c/63/b7/5c63b77e465be04e0960b239f6db9db3.jpg',
+			},
 		},
 	},
 	{
@@ -114,16 +126,18 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: 'gerardway100',
 		info: '00000000',
 		followers: 50.0,
-		post1: {
-			titlePost: 'Goodnight',
-			infoPost: 'Love to you, eternally. You are all brave and brilliant. Goodnight for now.',
-			imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
-		},
-		post2: {
-			titlePost2: 'New Music?',
-			infoPost2:
-				'I am continuing to make music, though I have a lot of writing to do. I still have sessions and write songs. Doing smaller releases.',
-			imagePost2: 'https://pbs.twimg.com/media/CgIZIV4UAAAnCiK?format=jpg&name=large',
+		posts: {
+			post1: {
+				titlePost: 'Goodnight',
+				infoPost: 'Love to you, eternally. You are all brave and brilliant. Goodnight for now.',
+				imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
+			},
+			post2: {
+				titlePost2: 'New Music?',
+				infoPost2:
+					'I am continuing to make music, though I have a lot of writing to do. I still have sessions and write songs. Doing smaller releases.',
+				imagePost2: 'https://pbs.twimg.com/media/CgIZIV4UAAAnCiK?format=jpg&name=large',
+			},
 		},
 	},
 	{
@@ -136,16 +150,18 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: '500FrankIero',
 		info: '1111111',
 		followers: 90.0,
-		post1: {
-			titlePost: '🖤🖤🖤',
-			infoPost: 'Hell yeah!! “always a good idea to have a few microkorgs laying around!!!” 🖤 nice haul !',
-			imagePost: 'https://rollingstone.uol.com.br/media/_versions/frank_iero_cred_mitchell_wojcik_widelg.jpg',
-		},
-		post2: {
-			titlePost2: 'Reverb Store!',
-			infoPost2:
-				'My Official Reverb Store opens tomorrow at 10am cst!!! Thank you for having me! I can’t wait to see what you all grab! Happy hunting frendz! KTF 🖤 xofrnk.',
-			imagePost2: 'https://pbs.twimg.com/media/FzqUufCXgAIpPtQ?format=jpg&name=900x900',
+		posts: {
+			post1: {
+				titlePost: '🖤🖤🖤',
+				infoPost: 'Hell yeah!! “always a good idea to have a few microkorgs laying around!!!” 🖤 nice haul !',
+				imagePost: 'https://rollingstone.uol.com.br/media/_versions/frank_iero_cred_mitchell_wojcik_widelg.jpg',
+			},
+			post2: {
+				titlePost2: 'Reverb Store!',
+				infoPost2:
+					'My Official Reverb Store opens tomorrow at 10am cst!!! Thank you for having me! I can’t wait to see what you all grab! Happy hunting frendz! KTF 🖤 xofrnk.',
+				imagePost2: 'https://pbs.twimg.com/media/FzqUufCXgAIpPtQ?format=jpg&name=900x900',
+			},
 		},
 	},
 	{
@@ -158,15 +174,17 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: '12MikeyWay',
 		info: '1222222',
 		followers: 60.0,
-		post1: {
-			titlePost: '⚡',
-			infoPost: 'This has been a long time coming. Can’t wait to welcome you all to the world of Electric Century!⚡',
-			imagePost: 'https://pbs.twimg.com/media/ExGY6M0VkAELAzA?format=jpg&name=large',
-		},
-		post2: {
-			titlePost2: 'Frankenstyle',
-			infoPost2: 'Rowan calls Frankenstein -“Frankenstyle”, and I’m never correcting her because it rules',
-			imagePost2: '.',
+		posts: {
+			post1: {
+				titlePost: '⚡',
+				infoPost: 'This has been a long time coming. Can’t wait to welcome you all to the world of Electric Century!⚡',
+				imagePost: 'https://pbs.twimg.com/media/ExGY6M0VkAELAzA?format=jpg&name=large',
+			},
+			post2: {
+				titlePost2: 'Frankenstyle',
+				infoPost2: 'Rowan calls Frankenstein -“Frankenstyle”, and I’m never correcting her because it rules',
+				imagePost2: '.',
+			},
 		},
 	},
 	{
@@ -179,16 +197,18 @@ export const MyChemicalRomanceData: DataShape[] = [
 		password: 'RayToro123',
 		info: '13323233',
 		followers: 200.0,
-		post1: {
-			titlePost: 'GRACIAS!',
-			infoPost: 'Gracias México! You made tonight so special for us. We’ll never forget it.',
-			imagePost: '.',
-		},
-		post2: {
-			titlePost2: 'Special Moment🖤',
-			infoPost2:
-				'This is such a beautiful photo. Thank you for capturing this special moment, and being so respectful!',
-			imagePost2: 'https://pbs.twimg.com/media/FfYpslWXkAAGFjA?format=jpg&name=medium',
+		posts: {
+			post1: {
+				titlePost: 'GRACIAS!',
+				infoPost: 'Gracias México! You made tonight so special for us. We’ll never forget it.',
+				imagePost: '.',
+			},
+			post2: {
+				titlePost2: 'Special Moment🖤',
+				infoPost2:
+					'This is such a beautiful photo. Thank you for capturing this special moment, and being so respectful!',
+				imagePost2: 'https://pbs.twimg.com/media/FfYpslWXkAAGFjA?format=jpg&name=medium',
+			},
 		},
 	},
 ];
