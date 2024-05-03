@@ -1,9 +1,10 @@
 .Cajon-Profile {
+	border-radius: 55px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: cadetblue;
+	background-color: rgb(255, 255, 255);
 	width: 500px;
 }
 
@@ -15,4 +16,39 @@
 }
 
 .Edit-profile {
+	margin-top: 20px;
+}
+
+.imgProfile {
+	border-radius: 250px;
+	width: 200px;
+	height: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	object-fit: cover;
+	object-position: center;
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.433), 0 6px 20px 0 rgba(0, 0, 0, 0.428);
+}
+
+.name {
+	color: rgb(146, 3, 67);
+	margin-top: 2px;
+}
+
+.username {
+	color: rgba(0, 0, 0, 0.597);
+	margin-top: 2px;
+}
+
+.followers {
+	color: rgba(0, 0, 0, 0.597);
+	margin-top: 2px;
+}
+
+.info {
+	color: rgba(0, 0, 0, 0.597);
+	margin-top: 2px;
 }
