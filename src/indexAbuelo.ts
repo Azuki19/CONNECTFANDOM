@@ -1,4 +1,4 @@
-import './screens/aboutTheBand';
+import './screens/EditProfile';
 import './components/indexPadre';
 
 class AppContainer extends HTMLElement {
@@ -12,7 +12,7 @@ class AppContainer extends HTMLElement {
 	}
 
 	render() {
-		const something = this.ownerDocument.createElement('app-about-the-band');
+		const something = this.ownerDocument.createElement('app-edit-profile');
 		this.shadowRoot?.appendChild(something);
 	}
 }
