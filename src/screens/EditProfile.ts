@@ -1,10 +1,10 @@
 import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import * as components from '../components/indexPadre';
-import { EditProfileAtt } from '../components/indexPadre';
+import { EditProfile } from '../components/indexPadre';
 import style from './editProfile.css';
 
 class AppEditProfile extends HTMLElement {
-	editprofile: EditProfileAtt[] = [];
+	editprofile: EditProfile[] = [];
 
 	constructor() {
 		super();
@@ -12,7 +12,7 @@ class AppEditProfile extends HTMLElement {
 
 		const EditProfileData = MyChemicalRomanceData.filter((user) => user.type === 'User');
 		EditProfileData.forEach((user) => {
-			const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfileAtt;
+			const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
 			EditProfileCard.setAttribute('uid', String(user.id));
 			EditProfileCard.setAttribute('type', user.type);
 			EditProfileCard.setAttribute('name', user.name);
@@ -48,6 +48,10 @@ class AppEditProfile extends HTMLElement {
 			const EditProfileContainer = document.createElement('label');
 			EditProfileContainer.id = 'edit-profile-container';
 
+			this.shadowRoot.appendChild(section);
+			section.appendChild(mainHeaderContainer);
+			section.appendChild(miniHeaderContainer);
+			section.appendChild(title);
 			section.appendChild(EditProfileContainer);
 
 			this.editprofile.forEach((user) => {
