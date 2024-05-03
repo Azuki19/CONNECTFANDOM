@@ -6,6 +6,7 @@ import CreatePost, { CreatePostAttribute } from '../components/CreatePost/Create
 import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import { bandsdata } from '../data/bandsData';
 import style from './dashboard.css';
+
 class AppDashboard extends HTMLElement {
 	userpost: UserPost[] = [];
 	artistpost: ArtistPost[] = [];

@@ -19,7 +19,7 @@
 	},
 	"dependencies": {
 		"@types/swiper": "^6.0.0",
-		"css-loader": "^6.10.0",
+		"css-loader": "^6.11.0",
 		"swiper": "^11.1.1"
 	}
 }
