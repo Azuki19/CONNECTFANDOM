@@ -2,7 +2,7 @@ import styles from './EditProfile.css';
 
 export enum EditProfileAttribute {
 	'uid' = 'uid',
-	'imagProfile' = 'imagProfile',
+	'image' = 'image',
 	'name' = 'name',
 	'username' = 'username',
 	'followers' = 'followers',
@@ -12,9 +12,9 @@ export enum EditProfileAttribute {
 	'password' = 'password',
 }
 
-class ProfileEditAtt extends HTMLElement {
+class EditProfile extends HTMLElement {
 	uid?: number;
-	imagProfile?: string;
+	image?: string;
 	name?: string;
 	username?: string;
 	followers?: number;
@@ -53,8 +53,8 @@ class ProfileEditAtt extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
         <section class='Cajon-Profile'>
-          <div class='Edit profile'>
-            <img class='imgProfile' src="${this.imagProfile}" alt="">
+          <div class='Edit-profile'>
+            <img class='imgProfile' src="${this.image}" alt="">
             <div class='infoProfile'>
               <h1 class='name'>${this.name}</h1>
               <p class='username'>@${this.username}</p>
@@ -72,5 +72,5 @@ class ProfileEditAtt extends HTMLElement {
 	}
 }
 
-customElements.define('profile-edit-att', ProfileEditAtt);
-export default ProfileEditAtt;
+customElements.define('edit-profile', EditProfile);
+export default EditProfile;
