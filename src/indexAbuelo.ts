@@ -1,4 +1,4 @@
-import './screens/EditProfile';
+import './screens/mainDashboard';
 import './components/indexPadre';
 
 class AppContainer extends HTMLElement {
@@ -12,7 +12,7 @@ class AppContainer extends HTMLElement {
 	}
 
 	render() {
-		const something = this.ownerDocument.createElement('app-edit-profile');
+		const something = this.ownerDocument.createElement('app-main-dashboard');
 		this.shadowRoot?.appendChild(something);
 	}
 }

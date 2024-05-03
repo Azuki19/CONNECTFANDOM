@@ -7,4 +7,5 @@ export { default as MoreAbout } from './MoreAbout/MoreAbout';
 export { default as MiniHeader } from './MiniHeader/MiniHeader';
 export { default as MainHeader } from './MainHeader/MainHeader';
 export { default as CreatePost } from './CreatePost/CreatePost';
-export { default as EditProfileAtt } from './EditProfile/EditProfile';
+export { default as EditProfile } from './EditProfile/EditProfile';
+export { default as MainArtistPost } from './MainArtistPost/MainArtistPost';
