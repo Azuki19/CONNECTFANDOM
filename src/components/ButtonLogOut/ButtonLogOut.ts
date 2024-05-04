@@ -22,6 +22,8 @@ class ButtonLogOut extends HTMLElement {
 
 		`;
 		}
+		//query del botón hacer la acción
+
 		const cssLogOut = this.ownerDocument.createElement('style');
 		cssLogOut.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssLogOut);
