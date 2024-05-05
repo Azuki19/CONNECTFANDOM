@@ -4,9 +4,11 @@ import MoreAbout, { MoreAboutAttribute } from '../components/MoreAbout/MoreAbout
 import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import { bandsdata } from '../data/bandsData';
 import style from './dashboard.css';
+import MiniProfile, { MiniProfileAttribute } from '../components/miniProfile/miniProfile';
 
 class AppMainDashboard extends HTMLElement {
 	mainartistpost: MainArtistPost[] = [];
+	miniprofile: MiniProfile[] = [];
 	moreabout: MoreAbout[] = [];
 
 	constructor() {
@@ -30,6 +32,19 @@ class AppMainDashboard extends HTMLElement {
 			this.mainartistpost.push(UserPostCard);
 		});
 
+		const miniData = MyChemicalRomanceData.filter((mini) => mini.id === 1);
+		miniData.forEach((mini) => {
+			const miniCard = this.ownerDocument.createElement('mini-profile') as MiniProfile;
+
+			miniCard.setAttribute(MiniProfileAttribute.uid, String(mini.id));
+			miniCard.setAttribute(MiniProfileAttribute.username, mini.username);
+			miniCard.setAttribute(MiniProfileAttribute.name, mini.name);
+			miniCard.setAttribute(MiniProfileAttribute.image, mini.image);
+			miniCard.setAttribute(MiniProfileAttribute.followers, String(mini.followers));
+
+			this.miniprofile.push(miniCard);
+		});
+
 		const BannerBand = bandsdata.find((band) => band.id === 1);
 
 		if (BannerBand) {
@@ -44,23 +59,6 @@ class AppMainDashboard extends HTMLElement {
 	}
 	connectedCallback() {
 		this.render();
-		this.setupScrollHandlers();
-	}
-
-	setupScrollHandlers() {
-		if (this.shadowRoot) {
-			const arrowBack = this.shadowRoot.getElementById('chevron-back-outline');
-			const arrowForward = this.shadowRoot.getElementById('chevron-forward-outline');
-			const artistPostsSection = this.shadowRoot.getElementById('artist-posts-section');
-
-			arrowBack?.addEventListener('click', () => {
-				artistPostsSection?.scrollBy({ left: -400, behavior: 'smooth' });
-			});
-
-			arrowForward?.addEventListener('click', () => {
-				artistPostsSection?.scrollBy({ left: 400, behavior: 'smooth' });
-			});
-		}
 	}
 
 	render() {
@@ -89,6 +87,9 @@ class AppMainDashboard extends HTMLElement {
             	<section id="user-posts-section">
             	</section>
 						</div>
+
+            <section id="mini-profile-section">
+            </section>
             <section id="more-about-section">
             </section>
 					</div>
@@ -101,15 +102,20 @@ class AppMainDashboard extends HTMLElement {
 			const miniHeaderContainer = this.shadowRoot.getElementById('mini-header-container');
 			miniHeaderContainer.appendChild(new components.MiniHeader());
 
-			const artistPostsSection = this.shadowRoot.getElementById('artist-posts-section');
 			const userPostsSection = this.shadowRoot.getElementById('user-posts-section');
+
+			const miniProfileSection = this.shadowRoot.getElementById('mini-profile-section');
+
 			const moreAboutSection = this.shadowRoot.getElementById('more-about-section');
-			const createPostSection = this.shadowRoot.getElementById('create-post-section');
 
 			//Agarro las secciones del html, las volvio constantes o cajitas.Luego cojio los componentes de maaaaas arriba y las metió en estas cajitas
 
 			this.mainartistpost.forEach((mainartistpost) => {
 				userPostsSection.appendChild(mainartistpost);
+			});
+
+			this.miniprofile.forEach((miniprofile) => {
+				miniProfileSection.appendChild(miniprofile);
 			});
 
 			this.moreabout.forEach((moreabout) => {
