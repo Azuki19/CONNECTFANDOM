@@ -9,3 +9,4 @@ export { default as MainHeader } from './MainHeader/MainHeader';
 export { default as CreatePost } from './CreatePost/CreatePost';
 export { default as EditProfile } from './EditProfile/EditProfile';
 export { default as MainArtistPost } from './MainArtistPost/MainArtistPost';
+export { default as MiniProfile } from './miniProfile/miniProfile';
