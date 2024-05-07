@@ -9,10 +9,10 @@ interface DataShape {
 	info: string;
 	followers: number;
 	posts: {
-		post1?: {
+		post1: {
 			titlePost: string;
 			infoPost: string;
-			imagePost: string;
+			imagePost?: string;
 		};
 		post2?: {
 			titlePost2: string;
@@ -130,7 +130,7 @@ export const MyChemicalRomanceData: DataShape[] = [
 			post1: {
 				titlePost: 'Goodnight',
 				infoPost: 'Love to you, eternally. You are all brave and brilliant. Goodnight for now.',
-				imagePost: 'https://www.sopitas.com/wp-content/uploads/2020/04/my-chemical-romance-destacada.jpg',
+				imagePost: 'no image',
 			},
 			post2: {
 				titlePost2: 'New Music?',
@@ -154,7 +154,7 @@ export const MyChemicalRomanceData: DataShape[] = [
 			post1: {
 				titlePost: '🖤🖤🖤',
 				infoPost: 'Hell yeah!! “always a good idea to have a few microkorgs laying around!!!” 🖤 nice haul !',
-				imagePost: 'https://rollingstone.uol.com.br/media/_versions/frank_iero_cred_mitchell_wojcik_widelg.jpg',
+				imagePost: 'no image',
 			},
 			post2: {
 				titlePost2: 'Reverb Store!',
@@ -183,7 +183,7 @@ export const MyChemicalRomanceData: DataShape[] = [
 			post2: {
 				titlePost2: 'Frankenstyle',
 				infoPost2: 'Rowan calls Frankenstein -“Frankenstyle”, and I’m never correcting her because it rules',
-				imagePost2: '.',
+				imagePost2: 'no image',
 			},
 		},
 	},
@@ -201,7 +201,7 @@ export const MyChemicalRomanceData: DataShape[] = [
 			post1: {
 				titlePost: 'GRACIAS!',
 				infoPost: 'Gracias México! You made tonight so special for us. We’ll never forget it.',
-				imagePost: '.',
+				imagePost: 'no image',
 			},
 			post2: {
 				titlePost2: 'Special Moment🖤',
