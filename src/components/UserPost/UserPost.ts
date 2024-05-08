@@ -68,36 +68,8 @@ class UserPost extends HTMLElement {
 								<link href="https://fonts.googleapis.com/css2?family=Braah+One&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
 								`;
-
-			/* <section class='userPostComponent'>
-								<div id='userPostProfile' class='userPostProfile'>
-									<img class='profileImg' src="${this.image}"></img>
-									<div class='userPostProfileInfo'>
-										<h4 class='name'>${this.name}</h4>
-										<strong><h6 class='username'>@ ${this.username}</h6></strong>
-									</div>
-								</div>
-								<div class='userPost'>
-									<img class='imagePost' src="${this.imagepost}"></img>
-									<div class='Inner'>
-										<div class='PostInfo'>
-										<div class='up'>
-											<h5>${this.titlepost}</h5>
-											<ion-icon name="ellipsis-vertical-outline"></ion-icon>
-											</div>
-										<p>${this.infopost}</p>
-										<div class='buttons'>
-										<ion-icon class='heart-outline' name="heart-outline"></ion-icon>
-										<ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-									</div>
-									</div>
-									  </section>
-
-										<div class='line'>
-											<hr></hr>
-										</div>
-							*/
 		}
+
 		const userPostSection = document.createElement('section');
 		userPostSection.classList.add('userPostComponent');
 
@@ -125,8 +97,15 @@ class UserPost extends HTMLElement {
 		userPostProfileDiv.appendChild(profileImg);
 		userPostProfileDiv.appendChild(userPostProfileInfoDiv);
 
+		// PARA CUANDO NO HAY IMAGEN
 		const userPostDiv = document.createElement('div');
 		userPostDiv.classList.add('userPost');
+
+		if (!this.imagepost) {
+			userPostDiv.classList.add('no-image');
+		}
+
+		//
 
 		const imagePost = document.createElement('img');
 		imagePost.classList.add('imagePost');
