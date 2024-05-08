@@ -124,3 +124,4 @@ class AppAboutTheBand extends HTMLElement {
 }
 
 customElements.define('app-about-the-band', AppAboutTheBand);
+export default AppAboutTheBand;
