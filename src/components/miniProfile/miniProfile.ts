@@ -50,7 +50,7 @@ class MiniProfile extends HTMLElement {
             <div class='infoProfile'>
               <h1 class='name'>${this.name}</h1>
               <p class='username'>@${this.username}</p>
-							<p class='followers'>@${this.followers}</p>
+							<p class='followers'>${this.followers} followers</p>
             </div>
           </div>
 
