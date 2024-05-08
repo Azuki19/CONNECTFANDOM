@@ -3,7 +3,7 @@ import MainArtistPost, { Attribute } from '../components/MainArtistPost/MainArti
 import MoreAbout, { MoreAboutAttribute } from '../components/MoreAbout/MoreAbout';
 import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import { bandsdata } from '../data/bandsData';
-import style from './dashboard.css';
+import style from './artistDashboard.css';
 import MiniProfile, { MiniProfileAttribute } from '../components/miniProfile/miniProfile';
 
 class AppArtistDashboard extends HTMLElement {
@@ -16,7 +16,6 @@ class AppArtistDashboard extends HTMLElement {
 		this.attachShadow({ mode: 'open' });
 
 		const UserData = MyChemicalRomanceData.filter((user) => user.type === 'Artist');
-
 		UserData.forEach((user) => {
 			const UserPostCard = this.ownerDocument.createElement('main-artist-post') as MainArtistPost;
 
@@ -28,6 +27,12 @@ class AppArtistDashboard extends HTMLElement {
 			UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
 			UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
 			UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
+
+			if (user.posts.post2) {
+				UserPostCard.setAttribute(Attribute.titlePost2, user.posts.post2.titlePost2);
+				UserPostCard.setAttribute(Attribute.infoPost2, user.posts.post2.infoPost2);
+				UserPostCard.setAttribute(Attribute.imagePost2, user.posts.post2.imagePost2);
+			}
 
 			this.mainartistpost.push(UserPostCard);
 		});
@@ -87,11 +92,12 @@ class AppArtistDashboard extends HTMLElement {
             	<section id="user-posts-section">
             	</section>
 						</div>
-
+					  <div id="second-part" class='second-part'>
             <section id="mini-profile-section">
             </section>
             <section id="more-about-section">
             </section>
+						</div>
 					</div>
 			</section>
         `;
@@ -108,10 +114,16 @@ class AppArtistDashboard extends HTMLElement {
 
 			const moreAboutSection = this.shadowRoot.getElementById('more-about-section');
 
+			const secondPart = this.shadowRoot.getElementById('second-part');
+
 			//Agarro las secciones del html, las volvio constantes o cajitas.Luego cojio los componentes de maaaaas arriba y las metió en estas cajitas
 
 			this.mainartistpost.forEach((mainartistpost) => {
 				userPostsSection.appendChild(mainartistpost);
+			});
+
+			this.miniprofile.forEach((miniprofile) => {
+				miniProfileSection.appendChild(miniprofile);
 			});
 
 			this.moreabout.forEach((moreabout) => {
