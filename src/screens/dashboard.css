@@ -11,6 +11,10 @@
 	font-size: 15px;
 }
 
+#more-about-section {
+	margin-left: 40px;
+}
+
 #postsContainer {
 	display: flex;
 	flex-direction: column;
