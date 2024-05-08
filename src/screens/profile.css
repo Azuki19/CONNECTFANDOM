@@ -1,15 +1,25 @@
 #container {
 	position: relative;
 }
+
 .title {
 	font-size: 35px;
 	color: white;
 	font-family: 'Braah One', sans-serif;
 	text-align: center;
 }
+
+#edit-profile-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+	width: 100%;
+	height: 800px;
+}
+
 #second-part {
 	margin-left: 70px;
-	background-color: aquamarine;
 	display: flex;
 	align-items: center;
 	justify-content: center;

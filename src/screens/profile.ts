@@ -1,77 +1,65 @@
 import * as components from '../components/indexPadre';
-import MainArtistPost, { Attribute } from '../components/MainArtistPost/MainArtistPost';
-import MoreAbout, { MoreAboutAttribute } from '../components/MoreAbout/MoreAbout';
-import CreatePost, { CreatePostAttribute } from '../components/CreatePost/CreatePost';
+import UserPost, { Attribute } from '../components/UserPost/UserPost';
+import { CreatePost } from '../components/indexPadre';
 import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
-import { bandsdata } from '../data/bandsData';
+import { EditProfile } from '../components/indexPadre';
 import style from './profile.css';
-import MiniProfile, { MiniProfileAttribute } from '../components/miniProfile/miniProfile';
+import { ButtonSettings } from '../components/indexPadre';
 
 class ProfileDashboard extends HTMLElement {
-	mainartistpost: MainArtistPost[] = [];
-	miniprofile: MiniProfile[] = [];
-	moreabout: MoreAbout[] = [];
+	userpost: UserPost[] = [];
 	createpost: CreatePost[] = [];
+	editprofile: EditProfile[] = [];
 
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
 
-		const UserData = MyChemicalRomanceData.filter((user) => user.type === 'Artist');
+		const UserData = MyChemicalRomanceData.filter((user) => user.id === 1);
+
 		UserData.forEach((user) => {
-			const UserPostCard = this.ownerDocument.createElement('main-artist-post') as MainArtistPost;
+			const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
 
 			UserPostCard.setAttribute(Attribute.uid, String(user.id));
 			UserPostCard.setAttribute(Attribute.type, user.type);
 			UserPostCard.setAttribute(Attribute.name, user.name);
 			UserPostCard.setAttribute(Attribute.image, user.image);
 			UserPostCard.setAttribute(Attribute.username, user.username);
+			UserPostCard.setAttribute(Attribute.email, user.email);
+			UserPostCard.setAttribute(Attribute.password, user.password);
+			UserPostCard.setAttribute(Attribute.info, user.info);
+			UserPostCard.setAttribute(Attribute.followers, String(user.followers));
 			UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
 			UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
 			UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
 
-			if (user.posts.post2) {
-				UserPostCard.setAttribute(Attribute.titlePost2, user.posts.post2.titlePost2);
-				UserPostCard.setAttribute(Attribute.infoPost2, user.posts.post2.infoPost2);
-				UserPostCard.setAttribute(Attribute.imagePost2, user.posts.post2.imagePost2);
-			}
-
-			this.mainartistpost.push(UserPostCard);
+			this.userpost.push(UserPostCard);
 		});
 
-		const miniData = MyChemicalRomanceData.filter((mini) => mini.id === 1);
-		miniData.forEach((mini) => {
-			const miniCard = this.ownerDocument.createElement('mini-profile') as MiniProfile;
+		const EditProfileData = MyChemicalRomanceData.filter((user) => user.id === 1);
 
-			miniCard.setAttribute(MiniProfileAttribute.uid, String(mini.id));
-			miniCard.setAttribute(MiniProfileAttribute.username, mini.username);
-			miniCard.setAttribute(MiniProfileAttribute.name, mini.name);
-			miniCard.setAttribute(MiniProfileAttribute.image, mini.image);
-			miniCard.setAttribute(MiniProfileAttribute.followers, String(mini.followers));
+		EditProfileData.forEach((user) => {
+			const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
+			EditProfileCard.setAttribute('uid', String(user.id));
+			EditProfileCard.setAttribute('type', user.type);
+			EditProfileCard.setAttribute('name', user.name);
+			EditProfileCard.setAttribute('image', user.image);
+			EditProfileCard.setAttribute('username', user.username);
+			EditProfileCard.setAttribute('email', user.email);
+			EditProfileCard.setAttribute('info', user.info);
+			EditProfileCard.setAttribute('followers', String(user.followers));
 
-			this.miniprofile.push(miniCard);
+			this.editprofile.push(EditProfileCard);
 		});
-
-		const BannerBand = bandsdata.find((band) => band.id === 1);
-
-		if (BannerBand) {
-			const MoreAboutCard = this.ownerDocument.createElement('more-about') as MoreAbout;
-
-			MoreAboutCard.setAttribute(MoreAboutAttribute.uid, String(BannerBand.id));
-			MoreAboutCard.setAttribute(MoreAboutAttribute.bandName, BannerBand.bandName);
-			MoreAboutCard.setAttribute(MoreAboutAttribute.bandImage, BannerBand.bandImage);
-
-			this.moreabout.push(MoreAboutCard);
-		}
 
 		const BannerCreatePost = MyChemicalRomanceData.find((post) => post.id === 1);
 
 		if (BannerCreatePost) {
 			const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
 
-			CreatePostCard.setAttribute(CreatePostAttribute.uid, String(BannerCreatePost.id));
-			CreatePostCard.setAttribute(CreatePostAttribute.image, BannerCreatePost.image);
-			CreatePostCard.setAttribute(CreatePostAttribute.type, BannerCreatePost.type);
+			CreatePostCard.setAttribute('uid', String(BannerCreatePost.id));
+			CreatePostCard.setAttribute('image', BannerCreatePost.image);
+			CreatePostCard.setAttribute('type', BannerCreatePost.type);
 
 			this.createpost.push(CreatePostCard);
 		}
@@ -112,9 +100,12 @@ class ProfileDashboard extends HTMLElement {
               </div>
 						</div>
 					  <div id="second-part" class='second-part'>
-            <section id="mini-profile-section">
-            </section>
-            <section id="more-about-section">
+    				<label id="edit-profile-container"></label>
+						<section id='button-settings-section'></section>
+
+</section>
+
+
             </section>
 						</div>
 					</div>
@@ -130,28 +121,24 @@ class ProfileDashboard extends HTMLElement {
 			const createPostSection = this.shadowRoot.getElementById('create-post-section');
 			const userPostsSection = this.shadowRoot.getElementById('user-posts-section');
 
-			const miniProfileSection = this.shadowRoot.getElementById('mini-profile-section');
+			const EditProfileContainer = this.shadowRoot.getElementById('edit-profile-container');
 
-			const moreAboutSection = this.shadowRoot.getElementById('more-about-section');
+			const ButtonSettings = this.shadowRoot.getElementById('button-settings-section');
 
 			const secondPart = this.shadowRoot.getElementById('second-part');
 
 			//Agarro las secciones del html, las volvio constantes o cajitas.Luego cojio los componentes de maaaaas arriba y las metió en estas cajitas
 
-			this.mainartistpost.forEach((mainartistpost) => {
-				userPostsSection.appendChild(mainartistpost);
-			});
-
-			this.miniprofile.forEach((miniprofile) => {
-				miniProfileSection.appendChild(miniprofile);
-			});
-
-			this.moreabout.forEach((moreabout) => {
-				moreAboutSection.appendChild(moreabout);
+			this.userpost.forEach((userpost) => {
+				userPostsSection.appendChild(userpost);
 			});
 
 			this.createpost.forEach((createpost) => {
 				createPostSection.appendChild(createpost);
+			});
+
+			this.editprofile.forEach((user) => {
+				EditProfileContainer.appendChild(user);
 			});
 
 			const cssAbuelo = this.ownerDocument.createElement('style');
@@ -162,3 +149,4 @@ class ProfileDashboard extends HTMLElement {
 }
 
 customElements.define('profile-dashboard', ProfileDashboard);
+export default ProfileDashboard;
