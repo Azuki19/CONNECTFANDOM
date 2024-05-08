@@ -138,3 +138,4 @@ class AppArtistDashboard extends HTMLElement {
 }
 
 customElements.define('app-artist-dashboard', AppArtistDashboard);
+export default AppArtistDashboard;
