@@ -9,9 +9,9 @@ export enum Attribute {
 	'titlePost' = 'titlepost',
 	'infoPost' = 'infopost',
 	'imagePost' = 'imagepost',
-	'titlePost2' = 'titlePost2',
-	'infoPost2' = 'infoPost2',
-	'imagePost2' = 'imagePost2',
+	'titlePost2' = 'titlepost2',
+	'infoPost2' = 'infopost2',
+	'imagePost2' = 'imagepost2',
 }
 
 class MainArtistPost extends HTMLElement {
@@ -112,14 +112,17 @@ class MainArtistPost extends HTMLElement {
 
 		const userPostProfileInfoDiv = document.createElement('div');
 		userPostProfileInfoDiv.classList.add('userPostProfileInfo');
+
 		const nameHeading = document.createElement('h4');
 		nameHeading.textContent = this.name || '';
 		nameHeading.classList.add('name');
+
 		const usernameStrong = document.createElement('strong');
 		const usernameHeading = document.createElement('h6');
 		usernameHeading.classList.add('username');
 		usernameHeading.textContent = `@${this.username}` || '';
 		usernameStrong.appendChild(usernameHeading);
+
 		userPostProfileInfoDiv.appendChild(nameHeading);
 		userPostProfileInfoDiv.appendChild(usernameStrong);
 
@@ -138,12 +141,14 @@ class MainArtistPost extends HTMLElement {
 
 		const postInfoDiv = document.createElement('div');
 		postInfoDiv.classList.add('PostInfo');
+
 		const infoParagraph = document.createElement('p');
 		infoParagraph.textContent = this.infopost || '';
 		infoParagraph.classList.add('text');
 
 		const upDiv = document.createElement('div');
 		upDiv.classList.add('up');
+
 		const titleHeading = document.createElement('h5');
 		titleHeading.textContent = this.titlepost || '';
 		titleHeading.classList.add('title');
@@ -195,6 +200,106 @@ class MainArtistPost extends HTMLElement {
 				heartIcon.setAttribute('name', 'heart-outline');
 			} else {
 				heartIcon.setAttribute('name', 'heart');
+			}
+		});
+
+		const userPostSection2 = document.createElement('section');
+		userPostSection2.classList.add('userPostComponent');
+
+		const userPostProfileDiv2 = document.createElement('div');
+		userPostProfileDiv2.id = 'userPostProfile';
+		userPostProfileDiv2.classList.add('userPostProfile');
+
+		const profileImg2 = document.createElement('img');
+		profileImg2.classList.add('profileImg');
+		profileImg2.src = this.image || '';
+
+		const userPostProfileInfoDiv2 = document.createElement('div');
+		userPostProfileInfoDiv2.classList.add('userPostProfileInfo');
+
+		const nameHeading2 = document.createElement('h4');
+		nameHeading2.textContent = this.name || '';
+		nameHeading2.classList.add('name');
+
+		const usernameStrong2 = document.createElement('strong');
+		const usernameHeading2 = document.createElement('h6');
+		usernameHeading2.classList.add('username');
+		usernameHeading2.textContent = `@${this.username}` || '';
+		usernameStrong2.appendChild(usernameHeading2);
+
+		userPostProfileInfoDiv2.appendChild(nameHeading2);
+		userPostProfileInfoDiv2.appendChild(usernameStrong2);
+
+		userPostProfileDiv2.appendChild(profileImg2);
+		userPostProfileDiv2.appendChild(userPostProfileInfoDiv2);
+
+		const userPostDiv2 = document.createElement('div');
+		userPostDiv2.classList.add('userPost');
+
+		const imagePost2 = document.createElement('img');
+		imagePost2.classList.add('imagePost');
+		imagePost2.src = this.imagepost2 || '';
+
+		const innerDiv2 = document.createElement('div');
+		innerDiv2.classList.add('Inner');
+
+		const postInfoDiv2 = document.createElement('div');
+		postInfoDiv2.classList.add('PostInfo');
+
+		const infoParagraph2 = document.createElement('p');
+		infoParagraph2.textContent = this.infopost2 || '';
+		infoParagraph2.classList.add('text');
+
+		const upDiv2 = document.createElement('div');
+		upDiv2.classList.add('up');
+
+		const titleHeading2 = document.createElement('h5');
+		titleHeading2.textContent = this.titlepost2 || '';
+		titleHeading2.classList.add('title');
+
+		upDiv2.appendChild(titleHeading2);
+
+		const buttonsDiv2 = document.createElement('div');
+		buttonsDiv2.classList.add('buttons');
+
+		const heartIcon2 = document.createElement('ion-icon');
+		heartIcon2.classList.add('heart-outline');
+		heartIcon2.setAttribute('name', 'heart-outline');
+
+		const chatIcon2 = document.createElement('ion-icon');
+		chatIcon2.setAttribute('name', 'chatbubble-ellipses-outline');
+		chatIcon2.classList.add('chatbubble-ellipses-outline');
+
+		postInfoDiv2.appendChild(upDiv2);
+		postInfoDiv2.appendChild(infoParagraph2);
+		postInfoDiv2.appendChild(buttonsDiv2);
+
+		buttonsDiv2.appendChild(heartIcon2);
+		buttonsDiv2.appendChild(chatIcon2);
+
+		innerDiv2.appendChild(postInfoDiv2);
+
+		userPostDiv2.appendChild(imagePost2);
+		userPostDiv2.appendChild(innerDiv2);
+
+		userPostSection2.appendChild(userPostProfileDiv2);
+		userPostSection2.appendChild(userPostDiv2);
+
+		this.shadowRoot?.appendChild(userPostSection2);
+
+		const lineDiv2 = document.createElement('div');
+		lineDiv2.classList.add('linepost');
+		const hrElement2 = document.createElement('hr');
+
+		lineDiv2.appendChild(hrElement2);
+		this.shadowRoot?.appendChild(lineDiv2);
+
+		heartIcon2.addEventListener('click', () => {
+			const nameIcon2 = heartIcon2.getAttribute('name');
+			if (nameIcon2 == 'heart') {
+				heartIcon2.setAttribute('name', 'heart-outline');
+			} else {
+				heartIcon2.setAttribute('name', 'heart');
 			}
 		});
 	}
