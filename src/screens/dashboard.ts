@@ -187,3 +187,4 @@ class AppDashboard extends HTMLElement {
 }
 
 customElements.define('app-dashboard', AppDashboard);
+export default AppDashboard;
