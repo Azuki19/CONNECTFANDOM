@@ -5,6 +5,16 @@
 	margin-right: 15px;
 }
 
+/* CSS para manejar el caso cuando no hay imagen */
+.userPostComponent.no-image .imagePost {
+	display: none; /* Oculta la imagen cuando no hay imagen */
+}
+
+.userPostComponent.no-image .PostInfo {
+	border-radius: 35px; /* Aplica el borde redondeado completo si no hay imagen */
+	max-width: calc(100% - 50px); /* Ajusta el ancho máximo del contenedor cuando no hay imagen */
+}
+
 .imagePost {
 	width: 200px; /* Ancho del contenedor */
 	height: 175px;
