@@ -1,5 +1,5 @@
 .background {
-	background-image: url(https://pbs.twimg.com/media/GKFqLm7XwAAy2fy?format=jpg&name=large);
+	background-image: url(https://pbs.twimg.com/media/GNB8i2NXsAArgdl?format=jpg&name=large);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -18,4 +18,8 @@
 	align-items: center;
 	margin-top: 50px;
 	width: 100%;
+}
+
+#button-log-out-container {
+	height: 150px;
 }

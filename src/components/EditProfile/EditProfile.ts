@@ -58,8 +58,8 @@ class EditProfile extends HTMLElement {
             <div class='infoProfile'>
               <h1 class='name'>${this.name}</h1>
               <p class='username'>@${this.username}</p>
-							<p class='followers'>@${this.followers}</p>
-							<p class='info'>@${this.info}</p>
+							<p class='followers'><strong class='strong'>${this.followers} </strong>followers</p>
+							<p class='info'>${this.info}</p>
             </div>
           </div>
 

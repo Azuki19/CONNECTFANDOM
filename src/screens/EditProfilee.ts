@@ -1,7 +1,7 @@
 import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import * as components from '../components/indexPadre';
 import { EditProfile } from '../components/indexPadre';
-import { ButtonLogOut } from '../components/indexPadre';
+
 import style from './editProfilee.css';
 
 class AppEditProfile extends HTMLElement {

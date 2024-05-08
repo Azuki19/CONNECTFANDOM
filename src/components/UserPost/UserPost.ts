@@ -101,9 +101,7 @@ class UserPost extends HTMLElement {
 		const userPostDiv = document.createElement('div');
 		userPostDiv.classList.add('userPost');
 
-		if (!this.imagepost) {
-			userPostDiv.classList.add('no-image');
-		}
+		// s
 
 		//
 
