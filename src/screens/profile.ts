@@ -4,7 +4,6 @@ import { CreatePost } from '../components/indexPadre';
 import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import { EditProfile } from '../components/indexPadre';
 import style from './profile.css';
-import { ButtonSettings } from '../components/indexPadre';
 
 class ProfileDashboard extends HTMLElement {
 	userpost: UserPost[] = [];
@@ -102,6 +101,7 @@ class ProfileDashboard extends HTMLElement {
 					  <div id="second-part" class='second-part'>
     				<label id="edit-profile-container"></label>
 						<section id='button-settings-section'></section>
+						<section id='button-logout-section''></section>
 
 </section>
 
@@ -124,6 +124,10 @@ class ProfileDashboard extends HTMLElement {
 			const EditProfileContainer = this.shadowRoot.getElementById('edit-profile-container');
 
 			const ButtonSettings = this.shadowRoot.getElementById('button-settings-section');
+			ButtonSettings.appendChild(new components.ButtonSettings());
+
+			const ButtonLogOut = this.shadowRoot.getElementById('button-logout-section');
+			ButtonLogOut.appendChild(new components.ButtonLogOut());
 
 			const secondPart = this.shadowRoot.getElementById('second-part');
 
