@@ -38,6 +38,7 @@ class LoginForm extends HTMLElement {
 		const passwordInput = document.createElement('input');
 		passwordInput.type = 'password';
 		passwordInput.id = 'password';
+
 		// Create the login button
 		const loginButton = document.createElement('button');
 		loginButton.classList.add('button');
@@ -48,7 +49,7 @@ class LoginForm extends HTMLElement {
 		const rememberCheckbox = document.createElement('input');
 		rememberCheckbox.type = 'checkbox';
 		const rememberLabel = document.createElement('label');
-		rememberLabel.textContent = 'Remember your password';
+		rememberLabel.textContent = 'Remember me';
 		rememberLabel.id = 'remember';
 
 		// Create the 'Forgot password' link
@@ -57,6 +58,10 @@ class LoginForm extends HTMLElement {
 		forgotPasswordLink.href = '#'; // You can set the actual link here
 		forgotPasswordLink.id = 'forgot';
 
+		// Create the 'down-part' div
+		const downPartDiv = document.createElement('div');
+		downPartDiv.id = 'down-part';
+
 		// Append the elements to build the structure
 		inputsDiv.appendChild(emailLabel);
 		inputsDiv.appendChild(emailInput);
@@ -64,11 +69,13 @@ class LoginForm extends HTMLElement {
 		inputsDiv.appendChild(passwordInput);
 		inputsDiv.appendChild(loginButton);
 
+		downPartDiv.appendChild(rememberCheckbox);
+		downPartDiv.appendChild(rememberLabel);
+		downPartDiv.appendChild(forgotPasswordLink);
+
 		// Append the 'Remember your password' checkbox and 'Forgot password' link
 		generalDiv.appendChild(inputsDiv);
-		generalDiv.appendChild(rememberCheckbox);
-		generalDiv.appendChild(rememberLabel);
-		generalDiv.appendChild(forgotPasswordLink);
+		generalDiv.appendChild(downPartDiv);
 
 		this.shadowRoot?.appendChild(generalDiv);
 
