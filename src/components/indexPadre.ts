@@ -12,3 +12,7 @@ export { default as MiniProfile } from './miniProfile/miniProfile';
 export { default as EditProfile } from './EditProfile/EditProfile';
 export { default as ButtonLogOut } from './Buttons/ButtonLogOut/ButtonLogOut';
 export { default as ButtonSettings } from './Buttons/ButtonSettings/ButtonSettings';
+export { default as EventDate } from './Eventss/EventDate/EventDate';
+export { default as EventImage } from './Eventss/EventImage/EventImage';
+export { default as EventName } from './Eventss/EventName/EventName';
+export { default as InfoEvent } from './Eventss/InfoEvent/InfoEvent';
