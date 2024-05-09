@@ -1,12 +1,24 @@
 #general {
 	background-color: white;
 	padding: 20px;
-	border-radius: 10px;
-	width: 500px;
+	border-radius: 40px;
+	width: 350px;
 	font-family: 'Red Hat Display', sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 300;
 	font-style: normal;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#down-part {
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 #inputs {
@@ -20,10 +32,10 @@
 }
 
 #inputs input {
-	background-color: #f2f2f2;
+	background-color: #e0e0e0;
 	border: none;
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: 15px;
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -51,9 +63,8 @@
 	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 #remember {
-	display: flex;
-	align-items: center;
-	margin-bottom: 10px; /* Espacio entre los elementos */
+	margin: 5px;
+	margin-right: 10px;
 }
 
 #remember label {
@@ -68,7 +79,8 @@
 #forgot {
 	font-family: 'Poppins', sans-serif;
 	color: rgb(198, 10, 82);
-	margin-top: 10px; /* Espacio encima del enlace */
+	margin: 5px;
+	margin-left: 10px;
 }
 
 #forgot a {
