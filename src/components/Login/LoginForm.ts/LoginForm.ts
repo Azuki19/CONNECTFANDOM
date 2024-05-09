@@ -24,7 +24,8 @@ class LoginForm extends HTMLElement {
 		// Create the email label and input
 		const emailLabel = document.createElement('label');
 		emailLabel.setAttribute('for', 'email');
-		emailLabel.textContent = 'Email address or user name';
+		emailLabel.id = 'text';
+		emailLabel.textContent = 'Login with your account';
 
 		const emailInput = document.createElement('input');
 		emailInput.type = 'email';
@@ -33,6 +34,7 @@ class LoginForm extends HTMLElement {
 		// Create the password label, input, and button
 		const passwordLabel = document.createElement('label');
 		passwordLabel.setAttribute('for', 'Password');
+		passwordLabel.id = 'text';
 		passwordLabel.textContent = 'Password';
 
 		const passwordInput = document.createElement('input');
@@ -43,7 +45,6 @@ class LoginForm extends HTMLElement {
 		const loginButton = document.createElement('button');
 		loginButton.classList.add('button');
 		loginButton.textContent = 'login';
-		loginButton.style.fontFamily = 'Poppins, sans-serif';
 
 		// Create the 'Remember your password' checkbox
 		const rememberCheckbox = document.createElement('input');
