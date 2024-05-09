@@ -1,5 +1,5 @@
-import { default as AppEditProfile } from './EditProfilee';
-import { default as AppAboutTheBand } from './aboutTheBand';
-import { default as AppDashboard } from './dashboard';
-import { default as AppArtistDashboard } from './artistDashboard';
-import { default as ProfileDashboard } from './profile';
+export { default as AppEditProfile } from './EditProfilee';
+export { default as AppAboutTheBand } from './aboutTheBand';
+export { default as AppDashboard } from './dashboard';
+export { default as AppArtistDashboard } from './artistDashboard';
+export { default as ProfileDashboard } from './profile';
