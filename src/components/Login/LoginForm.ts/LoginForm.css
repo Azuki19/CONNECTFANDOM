@@ -1,0 +1,81 @@
+#general {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	width: 500px;
+	font-family: 'Red Hat Display', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
+}
+
+#inputs {
+	display: flex;
+	flex-direction: column;
+}
+
+#inputs label {
+	font-family: 'Poppins', sans-serif;
+	color: #333;
+}
+
+#inputs input {
+	background-color: #f2f2f2;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.button {
+	background-color: #ac084d; /* Magenta */
+	color: #fff; /* Letras blancas */
+	width: 200px;
+	height: 50px;
+
+	margin: 20px;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+
+	transition: all 0.3s ease;
+}
+
+.button:hover {
+	background-color: #ac084d; /* Magenta más oscuro al pasar el cursor */
+	box-shadow: 0 0 20px rgb(175, 25, 145);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+#remember {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px; /* Espacio entre los elementos */
+}
+
+#remember label {
+	font-family: 'Red Hat Display', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
+	color: rgb(198, 10, 82);
+	margin-right: 10px; /* Espacio entre el texto y la casilla */
+}
+
+#forgot {
+	font-family: 'Poppins', sans-serif;
+	color: rgb(198, 10, 82);
+	margin-top: 10px; /* Espacio encima del enlace */
+}
+
+#forgot a {
+	color: rgb(198, 10, 82); /* Cambia el color del enlace */
+	text-decoration: none; /* Elimina el subrayado predeterminado */
+}
+
+#forgot a:hover {
+	text-decoration: underline; /* Agrega subrayado al pasar el cursor */
+}
