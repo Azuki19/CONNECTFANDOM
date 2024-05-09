@@ -20,9 +20,22 @@ interface DataShape {
 			infoEvents: string;
 			dateEvents: string;
 		};
+		event2?: {
+			eventName: string;
+			slideImage: string;
+			infoImage: string;
+			infoEvents: string;
+			dateEvents: string;
+		};
+		event3?: {
+			eventName: string;
+			slideImage: string;
+			infoImage: string;
+			infoEvents: string;
+			dateEvents: string;
+		};
 	};
 }
-
 export const bandsdata: DataShape[] = [
 	{
 		id: 1,
@@ -54,6 +67,15 @@ export const bandsdata: DataShape[] = [
 				infoEvents:
 					'Each General Admission ticket includes admittance to Las Vegas Festival Grounds for When We Were Young on October 20, 2024, plus the following: - Performances all day on multiple stages at Las Vegas Festival Grounds. - Food choices for purchase from regional and local vendors. -Bars, concessions, official band merch, festival merch, free water stations, and more. All tiers are the same ticket type. Please select the lowest tier for the best available price. Prices include all fees. Any applicable taxes and shipping will be added at checkout. Tickets are first come, first served, not guaranteed.',
 				dateEvents: 'October 19 & 20, 2024',
+			},
+
+			event2: {
+				eventName: 'MY CHEMICAL ROMANCE',
+				slideImage: 'https://pbs.twimg.com/media/FE6fvOHWYAc5Vpb?format=jpg&name=large',
+				infoImage: 'https://s1.ticketm.net/dam/a/23b/99d97755-48ac-4438-90df-2f9a1e3f523b_RETINA_PORTRAIT_16_9.jpg',
+				infoEvents:
+					'Each General Admission ticket includes admittance to Las Vegas Festival Grounds for When We Were Young on October 20, 2024, plus the following: - Performances all day on multiple stages at Las Vegas Festival Grounds. - Food choices for purchase from regional and local vendors. -Bars, concessions, official band merch, festival merch, free water stations, and more. All tiers are the same ticket type. Please select the lowest tier for the best available price. Prices include all fees. Any applicable taxes and shipping will be added at checkout. Tickets are first come, first served, not guaranteed.',
+				dateEvents: 'March 11 - 19, 2023',
 			},
 		},
 	},
