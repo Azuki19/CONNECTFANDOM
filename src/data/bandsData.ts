@@ -12,8 +12,30 @@ interface DataShape {
 		photo6: string;
 		photo7: string;
 	};
+	events?: {
+		event1?: {
+			eventName: string;
+			slideImage: string;
+			infoImage: string;
+			infoEvents: string;
+			dateEvents: string;
+		};
+		event2?: {
+			eventName: string;
+			slideImage: string;
+			infoImage: string;
+			infoEvents: string;
+			dateEvents: string;
+		};
+		event3?: {
+			eventName: string;
+			slideImage: string;
+			infoImage: string;
+			infoEvents: string;
+			dateEvents: string;
+		};
+	};
 }
-
 export const bandsdata: DataShape[] = [
 	{
 		id: 1,
@@ -34,6 +56,36 @@ export const bandsdata: DataShape[] = [
 				'https://ca-times.brightspotcdn.com/dims4/default/6988f0a/2147483647/strip/true/crop/600x400+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F78%2F93%2F92b6a06f78a8c0f3c57f45272116%2Fla-162257-ca-1121-mychemicalromance-220101121',
 			photo7:
 				'https://qtxasset.com/cdn-cgi/image/w=850,h=478,g=0.5x0.5,f=auto,fit=crop/https://qtxasset.com/quartz/qcloud4/2022-11/MCR-JVO-00009-1000.jpg?VersionId=JfuLR54G6M.xFN23KcJHL7vT2P41NnBO',
+		},
+
+		events: {
+			event1: {
+				eventName: 'WHEN WE WERE YOUNG',
+				slideImage:
+					'https://assets-global.website-files.com/61d462885e62e9104aba522b/65a82fe24bf269615f89182e_WWWY%2024%20S%20(1).jpg',
+				infoImage: 'https://s1.ticketm.net/dam/a/23b/99d97755-48ac-4438-90df-2f9a1e3f523b_RETINA_PORTRAIT_16_9.jpg',
+				infoEvents:
+					'Each General Admission ticket includes admittance to Las Vegas Festival Grounds for When We Were Young on October 20, 2024, plus the following: - Performances all day on multiple stages at Las Vegas Festival Grounds. - Food choices for purchase from regional and local vendors. -Bars, concessions, official band merch, festival merch, free water stations, and more. All tiers are the same ticket type. Please select the lowest tier for the best available price. Prices include all fees. Any applicable taxes and shipping will be added at checkout. Tickets are first come, first served, not guaranteed.',
+				dateEvents: 'October 19 & 20, 2024',
+			},
+
+			event2: {
+				eventName: 'MY CHEMICAL ROMANCE',
+				slideImage: 'https://pbs.twimg.com/media/FE6fvOHWYAc5Vpb?format=jpg&name=large',
+				infoImage: 'https://s1.ticketm.net/dam/a/23b/99d97755-48ac-4438-90df-2f9a1e3f523b_RETINA_PORTRAIT_16_9.jpg',
+				infoEvents:
+					'Each General Admission ticket includes admittance to Las Vegas Festival Grounds for When We Were Young on October 20, 2024, plus the following: - Performances all day on multiple stages at Las Vegas Festival Grounds. - Food choices for purchase from regional and local vendors. -Bars, concessions, official band merch, festival merch, free water stations, and more. All tiers are the same ticket type. Please select the lowest tier for the best available price. Prices include all fees. Any applicable taxes and shipping will be added at checkout. Tickets are first come, first served, not guaranteed.',
+				dateEvents: 'March 11 - 19, 2023',
+			},
+
+			event3: {
+				eventName: 'MY CHEMICAL ROMANCE "WITH VERY SPECIAL GUESTS: GAYLE - STARCRAWLER"',
+				slideImage: 'https://lastfm.freetls.fastly.net/i/u/ar0/2f7765c235f73331399508d85d24e38e',
+				infoImage: 'https://s1.ticketm.net/dam/a/23b/99d97755-48ac-4438-90df-2f9a1e3f523b_RETINA_PORTRAIT_16_9.jpg',
+				infoEvents:
+					'Each General Admission ticket includes admittance to Las Vegas Festival Grounds for When We Were Young on October 20, 2024, plus the following: - Performances all day on multiple stages at Las Vegas Festival Grounds. - Food choices for purchase from regional and local vendors. -Bars, concessions, official band merch, festival merch, free water stations, and more. All tiers are the same ticket type. Please select the lowest tier for the best available price. Prices include all fees. Any applicable taxes and shipping will be added at checkout. Tickets are first come, first served, not guaranteed.',
+				dateEvents: 'May 24 & 25, 2022',
+			},
 		},
 	},
 	{
