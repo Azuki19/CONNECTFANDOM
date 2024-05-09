@@ -77,6 +77,15 @@ export const bandsdata: DataShape[] = [
 					'Each General Admission ticket includes admittance to Las Vegas Festival Grounds for When We Were Young on October 20, 2024, plus the following: - Performances all day on multiple stages at Las Vegas Festival Grounds. - Food choices for purchase from regional and local vendors. -Bars, concessions, official band merch, festival merch, free water stations, and more. All tiers are the same ticket type. Please select the lowest tier for the best available price. Prices include all fees. Any applicable taxes and shipping will be added at checkout. Tickets are first come, first served, not guaranteed.',
 				dateEvents: 'March 11 - 19, 2023',
 			},
+
+			event3: {
+				eventName: 'MY CHEMICAL ROMANCE "WITH VERY SPECIAL GUESTS: GAYLE - STARCRAWLER"',
+				slideImage: 'https://lastfm.freetls.fastly.net/i/u/ar0/2f7765c235f73331399508d85d24e38e',
+				infoImage: 'https://s1.ticketm.net/dam/a/23b/99d97755-48ac-4438-90df-2f9a1e3f523b_RETINA_PORTRAIT_16_9.jpg',
+				infoEvents:
+					'Each General Admission ticket includes admittance to Las Vegas Festival Grounds for When We Were Young on October 20, 2024, plus the following: - Performances all day on multiple stages at Las Vegas Festival Grounds. - Food choices for purchase from regional and local vendors. -Bars, concessions, official band merch, festival merch, free water stations, and more. All tiers are the same ticket type. Please select the lowest tier for the best available price. Prices include all fees. Any applicable taxes and shipping will be added at checkout. Tickets are first come, first served, not guaranteed.',
+				dateEvents: 'May 24 & 25, 2022',
+			},
 		},
 	},
 	{
