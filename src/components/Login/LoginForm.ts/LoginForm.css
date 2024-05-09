@@ -44,29 +44,6 @@
 	font-family: 'Poppins', sans-serif;
 }
 
-.button {
-	background-color: #ac084d; /* Magenta */
-	color: #fff; /* Letras blancas */
-	width: 200px;
-	height: 50px;
-
-	margin: 20px;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 50px;
-	font-size: 20px;
-	font-weight: bold;
-	cursor: pointer;
-	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-
-	transition: all 0.3s ease;
-}
-
-.button:hover {
-	background-color: #ac084d; /* Magenta más oscuro al pasar el cursor */
-	box-shadow: 0 0 20px rgb(175, 25, 145);
-	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-}
 #remember {
 	margin: 5px;
 	margin-right: 10px;
