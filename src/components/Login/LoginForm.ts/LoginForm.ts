@@ -1,4 +1,5 @@
 import styles from './LoginForm.css';
+import * as components from '../../indexPadre';
 
 class LoginForm extends HTMLElement {
 	constructor() {
@@ -41,10 +42,26 @@ class LoginForm extends HTMLElement {
 		passwordInput.type = 'password';
 		passwordInput.id = 'password';
 
+
+
+
+
+
+		
+
 		// Create the login button
-		const loginButton = document.createElement('button');
+		const loginButton = document.createElement('section');
 		loginButton.classList.add('button');
-		loginButton.textContent = 'login';
+		loginButton.appendChild(new components.ButtonLogin());
+
+
+
+
+
+
+
+
+
 
 		// Create the 'Remember your password' checkbox
 		const rememberCheckbox = document.createElement('input');
