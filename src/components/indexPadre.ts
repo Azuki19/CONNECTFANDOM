@@ -18,5 +18,4 @@ export { default as EventDate } from './Eventss/EventDate/EventDate';
 export { default as EventImage } from './Eventss/EventImage/EventImage';
 export { default as EventName } from './Eventss/EventName/EventName';
 export { default as InfoEvent } from './Eventss/InfoEvent/InfoEvent';
-
-
+export { default as ButtonLogin } from './Buttons/ButtonLogin/ButtonLogin';
