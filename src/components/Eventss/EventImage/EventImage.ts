@@ -41,9 +41,9 @@ class EventImage extends HTMLElement {
 					</section>
 				`;
 		}
-		const cssSlider = this.ownerDocument.createElement('style');
-		cssSlider.innerHTML = styles;
-		this.shadowRoot?.appendChild(cssSlider);
+		const cssImage = this.ownerDocument.createElement('style');
+		cssImage.innerHTML = styles;
+		this.shadowRoot?.appendChild(cssImage);
 	}
 }
 
