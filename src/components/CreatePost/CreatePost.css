@@ -95,6 +95,50 @@ section > div:nth-child(2) {
 	color: #333; /* Color de texto oscuro para mejor legibilidad */
 	font-size: 16px; /* Tamaño de letra adecuado */
 	line-height: 1.5; /* Espaciado de línea para mejor lectura */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#MCR {
+	width: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #0202021b;
+}
+
+#MCRtext {
+	font-family: 'Red Hat Display', sans-serif;
+	font-style: normal;
+	color: #000000;
+	align-self: center;
+	font-size: 9px;
+}
+
+#titlee {
+	width: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #cc00001b;
+}
+#title-c {
+	font-family: 'Red Hat Display', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 1000;
+	font-style: normal;
+	color: #ac084d;
+	align-self: center;
+	letter-spacing: 2px;
+}
+
+#downpop {
+	background-color: aqua;
+}
+#postTitle {
+	background-color: #cc0000;
 }
 
 /* Estilo para la X de cierre */
@@ -108,7 +152,7 @@ section > div:nth-child(2) {
 	font-size: 16px;
 	text-align: center; /* Centrar el texto horizontalmente */
 	color: #ffffff; /* Texto blanco */
-	background-color: #ff0000; /* Fondo rojo */
+	background-color: #cc0000; /* Fondo rojo */
 	border-radius: 50%; /* Circular */
 	cursor: pointer; /* Cursor de mano para indicar interactividad */
 }
