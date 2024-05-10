@@ -11,6 +11,48 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	height: fit-content;
+}
+
+.sign-in-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.sign-in-section span:last-child {
+	margin-top: 10px; /* Ajusta el margen superior del último span */
+}
+
+#not-fandom {
+	color: #000000;
+	font-family: 'Red Hat Display', sans-serif;
+	font-weight: 300;
+}
+
+#inner-div {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#not-fandom-div {
+	width: 310px;
+	display: flex;
+	flex-direction: column;
+}
+
+#sign-in-text {
+	text-decoration: underline;
+	color: #ac084d;
+	font-family: 'Braah One', sans-serif;
+	height: 25px;
+	cursor: pointer; /* Agregamos esta línea para cambiar el cursor */
+}
+
+#sign-in-text:hover {
+	text-decoration: underline;
 }
 
 #text-container {
@@ -58,6 +100,20 @@
 #remember {
 	margin: 5px;
 	margin-right: 10px;
+}
+
+#hr-dive {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+hr {
+	width: 250px;
+	border: none;
+	background-color: #ac084d;
+	height: 2px;
 }
 
 #remember label {

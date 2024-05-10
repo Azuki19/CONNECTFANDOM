@@ -1,14 +1,25 @@
 import styles from './LoginForm.css';
 import * as components from '../../indexPadre';
+import { dispatch } from '../../../store';
+import { navigate } from '../../../store/action';
+import { addObserver } from '../../../store';
 
 class LoginForm extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
+
+		this.onButtonClicked = this.onButtonClicked.bind(this);
+		addObserver(this);
 	}
 
 	connectedCallback() {
+		this.mount();
+	}
+
+	mount() {
 		this.render();
+		this.addListeners();
 	}
 
 	render() {
@@ -58,18 +69,11 @@ class LoginForm extends HTMLElement {
 		passwordInput.type = 'password';
 		passwordInput.id = 'password';
 
-
-
 		// Create the login button
 		const loginButton = document.createElement('section');
 		loginButton.classList.add('button');
 		loginButton.appendChild(new components.ButtonLogin());
 
-
-
-
-
-		
 		// Create the 'Remember your password' checkbox
 		const rememberCheckbox = document.createElement('input');
 		rememberCheckbox.type = 'checkbox';
@@ -93,21 +97,63 @@ class LoginForm extends HTMLElement {
 		inputsDiv.appendChild(emailInput);
 		inputsDiv.appendChild(passwordLabel);
 		inputsDiv.appendChild(passwordInput);
-		inputsDiv.appendChild(loginButton);
 
 		downPartDiv.appendChild(rememberCheckbox);
 		downPartDiv.appendChild(rememberLabel);
 		downPartDiv.appendChild(forgotPasswordLink);
 
+		inputsDiv.appendChild(loginButton);
 		// Append the 'Remember your password' checkbox and 'Forgot password' link
 		generalDiv.appendChild(inputsDiv);
 		generalDiv.appendChild(downPartDiv);
+
+		// Create the div for "Not a part of Connect Fandom" and "Sign in"
+		const notFandomDiv = document.createElement('div');
+		notFandomDiv.id = 'not-fandom-div';
+
+		const bubblecontainerDiv = document.createElement('div');
+		bubblecontainerDiv.id = 'bubblecontainer-div';
+		bubblecontainerDiv.appendChild(new components.BubblesLogin());
+
+		notFandomDiv.appendChild(bubblecontainerDiv);
+
+		const hrDiv = document.createElement('div');
+		hrDiv.id = 'hr-div';
+		const hr = document.createElement('hr');
+		hrDiv.appendChild(hr);
+		notFandomDiv.appendChild(hrDiv);
+
+		const InnerDiv = document.createElement('div');
+		InnerDiv.id = 'inner-div';
+		// Create the 'Not a part of Connect Fandom' text
+		const notFandomText = document.createElement('span');
+		notFandomText.textContent = '¿Not a part of Connect Fandom?';
+		notFandomText.id = 'not-fandom';
+
+		// Create the 'Sign in' text
+		const signInText = document.createElement('span');
+		signInText.textContent = 'Sign in';
+		signInText.id = 'sign-in-text';
+
+		InnerDiv.appendChild(notFandomText);
+		InnerDiv.appendChild(signInText);
+
+		notFandomDiv.appendChild(InnerDiv);
+		generalDiv.appendChild(notFandomDiv);
 
 		this.shadowRoot?.appendChild(generalDiv);
 
 		const cssMiniHeader = this.ownerDocument.createElement('style');
 		cssMiniHeader.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssMiniHeader);
+	}
+	addListeners() {
+		this.shadowRoot.querySelector('#sign-in-text')?.addEventListener('click', this.onButtonClicked);
+	}
+
+	onButtonClicked() {
+		console.log('holaaa');
+		dispatch(navigate('REGISTER'));
 	}
 }
 
