@@ -30,6 +30,18 @@
 		background-color: #ffffff;
 		color: #ac084d;
 		font-family: 'Braah One', sans-serif;
-		height: 25px;
+		height: 50px;
+	}
+
+	.sectionminiheader h4 {
+		text-decoration: underline;
+		color: #ac084d;
+		font-family: 'Braah One', sans-serif;
+		cursor: pointer; /* Agregamos esta línea para cambiar el cursor */
+		font-size: 18px;
+	}
+
+	.sectionminiheader h4:hover {
+		text-decoration: underline;
 	}
 }
