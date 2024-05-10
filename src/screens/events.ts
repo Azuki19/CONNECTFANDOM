@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import * as components from '../components/indexPadre';
 import { bandsdata } from '../data/bandsData';
 import style from './events.css';
@@ -8,11 +9,20 @@ class AppAboutTheBand extends HTMLElement {
 	eventsname: EventName[] = [];
 	eventsslider: EventSlider[] = [];
 	infoevents: InfoEvents[] = [];
+=======
+import { bandsdata } from '../data/bandsData';
+import DateEvents from '../components/Eventss/EventDate/EventDate';
+import style from './events.css';
+
+class AppEvents extends HTMLElement {
+	dateventss: DateEvents[] = [];
+>>>>>>> 234082921cc229d7717c4848e2d664760f4dfaf4
 
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
 
+<<<<<<< HEAD
 		const EventsData = bandsdata.filter((date) => date.type === 'Date');
 		EventsData.forEach((date) => {
 			const EventDateCard = this.ownerDocument.createElement('event-date') as EventDate;
@@ -46,3 +56,43 @@ class AppAboutTheBand extends HTMLElement {
 		});
 	}
 }
+=======
+		const eventDateData = bandsdata.filter((band) => band.bandName === 'MY CHEMICAL ROMANCE');
+
+		eventDateData.forEach((band) => {
+			const eventDateCard = document.createElement('date-events') as DateEvents;
+
+			eventDateCard.setAttribute('dateEvents', band.events.event1.dateEvents || '');
+
+			this.dateventss.push(eventDateCard);
+		});
+	}
+
+	connectedCallback() {
+		this.render();
+	}
+
+	render() {
+		if (this.shadowRoot) {
+			const section = document.createElement('section');
+			section.classList.add('EventDate');
+
+			const eventDateContainer = document.createElement('div');
+			eventDateContainer.classList.add('EventDateContainer');
+
+			section.appendChild(eventDateContainer);
+
+			this.dateventss.forEach((events) => {
+				eventDateContainer.appendChild(events);
+			});
+
+			const cssAbuelo = this.ownerDocument.createElement('style');
+			cssAbuelo.innerHTML = style;
+			this.shadowRoot.appendChild(cssAbuelo);
+		}
+	}
+}
+
+customElements.define('app-events', AppEvents);
+export default AppEvents;
+>>>>>>> 234082921cc229d7717c4848e2d664760f4dfaf4
