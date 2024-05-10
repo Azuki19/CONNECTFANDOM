@@ -17,6 +17,7 @@
 	padding-top: 0;
 	margin-top: 120px;
 	position: relative;
+	cursor: pointer;
 }
 
 .bandImg {
@@ -25,6 +26,7 @@
 	margin-right: 0%;
 	opacity: 56%;
 	z-index: 0;
+	cursor: pointer;
 }
 
 .textContainer {
@@ -41,12 +43,14 @@
 	position: sticky;
 	top: 20px;
 	z-index: 100;
+	cursor: pointer;
 }
 .text {
 	font-size: 35px;
 	text-align: center;
 	width: 271px;
 	scroll-margin-right: 0;
+	cursor: pointer;
 }
 
 .moreAbout {
@@ -57,6 +61,7 @@
 	align-items: center;
 	opacity: 60%;
 	font-weight: 200;
+	cursor: pointer;
 }
 
 .braah-one-regular {
@@ -69,6 +74,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	cursor: pointer;
 }
 
 #chevron-forward-outline {
