@@ -74,3 +74,71 @@ section > div:nth-child(2) {
 		margin-top: 6px;
 	}
 }
+
+/* Estilo para el fondo del popup y la disposición general */
+#popup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff; /* Fondo blanco */
+	width: 80%; /* O ajusta al tamaño deseado */
+	max-width: 600px; /* Ancho máximo para que no sea demasiado grande */
+	padding: 40px; /* Padding generoso para dar espacio */
+	border-radius: 15px; /* Bordes redondeados suaves */
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra suave para un efecto elevado */
+	z-index: 9999;
+}
+
+/* Estilo para el contenedor interno donde se escribe el post */
+#popupContent {
+	color: #333; /* Color de texto oscuro para mejor legibilidad */
+	font-size: 16px; /* Tamaño de letra adecuado */
+	line-height: 1.5; /* Espaciado de línea para mejor lectura */
+}
+
+/* Estilo para la X de cierre */
+#close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 32px; /* Tamaño más grande para fácil clic */
+	height: 32px;
+	line-height: 32px; /* Centrar el texto verticalmente */
+	font-size: 16px;
+	text-align: center; /* Centrar el texto horizontalmente */
+	color: #ffffff; /* Texto blanco */
+	background-color: #ff0000; /* Fondo rojo */
+	border-radius: 50%; /* Circular */
+	cursor: pointer; /* Cursor de mano para indicar interactividad */
+}
+
+#close:hover {
+	background-color: #cc0000; /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Estilos adicionales para el textarea */
+textarea {
+	width: 100%; /* Usa todo el ancho disponible */
+	height: 150px; /* Altura adecuada para escribir varios renglones */
+	padding: 10px; /* Padding interno */
+	border: 1px solid #ccc; /* Bordes sutiles */
+	border-radius: 8px; /* Bordes ligeramente redondeados */
+	box-sizing: border-box; /* El padding y border cuentan dentro del width/height */
+}
+
+/* Botón de enviar */
+button {
+	background-color: #4caf50; /* Verde vibrante */
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 20px; /* Espacio sobre el botón */
+}
+
+button:hover {
+	background-color: #45a049; /* Verde oscuro al pasar el ratón */
+}
