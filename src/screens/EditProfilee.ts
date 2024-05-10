@@ -1,8 +1,7 @@
-import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import * as components from '../components/indexPadre';
 import { EditProfile } from '../components/indexPadre';
-
 import style from './editProfilee.css';
+import { getPosts, getBands } from '../utils/firebase';
 
 class AppEditProfile extends HTMLElement {
 	editprofile: EditProfile[] = [];
@@ -10,26 +9,33 @@ class AppEditProfile extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
-
-		const EditProfileData = MyChemicalRomanceData.filter((user) => user.id === 1);
-
-		EditProfileData.forEach((user) => {
-			const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
-			EditProfileCard.setAttribute('uid', String(user.id));
-			EditProfileCard.setAttribute('type', user.type);
-			EditProfileCard.setAttribute('name', user.name);
-			EditProfileCard.setAttribute('image', user.image);
-			EditProfileCard.setAttribute('username', user.username);
-			EditProfileCard.setAttribute('email', user.email);
-			EditProfileCard.setAttribute('info', user.info);
-			EditProfileCard.setAttribute('followers', String(user.followers));
-
-			this.editprofile.push(EditProfileCard);
-		});
+		this.initializeData();
 	}
 
-	connectedCallback() {
-		this.render();
+	async initializeData() {
+		try {
+			const [posts, bands] = await Promise.all([getPosts(), getBands()]);
+
+			const EditProfileData = posts.filter((user) => user.id === 1);
+
+			EditProfileData.forEach((user) => {
+				const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
+				EditProfileCard.setAttribute('uid', String(user.id));
+				EditProfileCard.setAttribute('type', user.type);
+				EditProfileCard.setAttribute('name', user.name);
+				EditProfileCard.setAttribute('image', user.image);
+				EditProfileCard.setAttribute('username', user.username);
+				EditProfileCard.setAttribute('email', user.email);
+				EditProfileCard.setAttribute('info', user.info);
+				EditProfileCard.setAttribute('followers', String(user.followers));
+
+				this.editprofile.push(EditProfileCard);
+			});
+
+			this.render();
+		} catch (error) {
+			console.error('Error fetching data from Firebase:', error);
+		}
 	}
 
 	render() {
