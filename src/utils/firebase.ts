@@ -13,4 +13,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
-const songDocuments = collection(db, 'songs');
+const songDocuments = collection(db, 'bands');
+
+export const getPosts = async () => {
+	const querySnapshot = await getDocs(collection(db, 'MyChemicalRomanceData'));
+	const postdata: Array<any> = [];
+	querySnapshot.forEach((doc: any) => {
+		postdata.push(doc.data());
+	});
+	return postdata;
+};
