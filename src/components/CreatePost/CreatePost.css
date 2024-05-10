@@ -123,6 +123,7 @@ section > div:nth-child(2) {
 	align-items: center;
 	justify-content: center;
 	background-color: #cc00001b;
+	margin: 5px;
 }
 #title-c {
 	font-family: 'Red Hat Display', sans-serif;
@@ -134,11 +135,33 @@ section > div:nth-child(2) {
 	letter-spacing: 2px;
 }
 
-#downpop {
-	background-color: aqua;
-}
 #postTitle {
-	background-color: #cc0000;
+	background-color: #d8f9e7;
+	width: 550px; /* Usa todo el ancho disponible */
+	height: 15px; /* Altura adecuada para escribir varios renglones */
+	padding: 5px; /* Padding interno */
+	margin: 7px;
+	border: 0.5px solid #00000000;
+	border-radius: 5px;
+}
+#postInput {
+	background-color: #ffe53e;
+	width: 550px; /* Usa todo el ancho disponible */
+	height: 60px; /* Altura adecuada para escribir varios renglones */
+	padding: 5px; /* Padding interno */
+	margin: 7px;
+	border: 0.3px solid #00000000;
+	border-radius: 5px;
+}
+
+#postURL {
+	background-color: #ffdcdc;
+	width: 550px; /* Usa todo el ancho disponible */
+	height: 30px; /* Altura adecuada para escribir varios renglones */
+	padding: 5px; /* Padding interno */
+	margin: 7px;
+	border: 0.5px solid #00000000;
+	border-radius: 5px;
 }
 
 /* Estilo para la X de cierre */
@@ -152,37 +175,11 @@ section > div:nth-child(2) {
 	font-size: 16px;
 	text-align: center; /* Centrar el texto horizontalmente */
 	color: #ffffff; /* Texto blanco */
-	background-color: #cc0000; /* Fondo rojo */
+	background-color: #ac084d; /* Fondo rojo */
 	border-radius: 50%; /* Circular */
 	cursor: pointer; /* Cursor de mano para indicar interactividad */
 }
 
 #close:hover {
-	background-color: #cc0000; /* Rojo más oscuro al pasar el ratón */
-}
-
-/* Estilos adicionales para el textarea */
-textarea {
-	width: 100%; /* Usa todo el ancho disponible */
-	height: 150px; /* Altura adecuada para escribir varios renglones */
-	padding: 10px; /* Padding interno */
-	border: 1px solid #ccc; /* Bordes sutiles */
-	border-radius: 8px; /* Bordes ligeramente redondeados */
-	box-sizing: border-box; /* El padding y border cuentan dentro del width/height */
-}
-
-/* Botón de enviar */
-button {
-	background-color: #4caf50; /* Verde vibrante */
-	color: white;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 16px;
-	margin-top: 20px; /* Espacio sobre el botón */
-}
-
-button:hover {
-	background-color: #45a049; /* Verde oscuro al pasar el ratón */
+	background-color: #d80e62; /* Rojo más oscuro al pasar el ratón */
 }

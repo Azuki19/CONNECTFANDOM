@@ -110,6 +110,15 @@ hr {
 }
 
 @media (max-width: 431px) {
+	#second-part {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		margin-top: 120px;
+		width: 200px;
+		height: 1000px;
+		position: sticky;
+	}
 	#downpart {
 		display: flex;
 		flex-direction: column;
@@ -137,6 +146,13 @@ hr {
 	#create-post-section {
 		font-family: 'Red Hat Display', sans-serif;
 		font-size: 15px;
+	}
+
+	#mini-profile-section {
+		width: 100px; /* Reducir el ancho para que se ajuste mejor */
+		/* Establecer un ancho máximo */
+		height: auto; /* Permitir que la altura se ajuste automáticamente */
+		margin-left: 0;
 	}
 
 	#postsContainer {

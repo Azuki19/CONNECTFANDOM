@@ -57,8 +57,8 @@ class CreatePost extends HTMLElement {
 							</div>
 							<div id=¨downpop¨>
                 <input type="text" placeholder="Title" id="postTitle" /> <!-- Input para el título del post -->
-                <textarea placeholder="Share your thoughts on Connect Fandom!"></textarea>
-                <input type="text" placeholder="Image URL" id="postTags" /> <!-- Input para etiquetas -->
+                <input type="text" placeholder="Share your thoughts on Connect Fandom!" id="postInput" />
+                <input type="text" placeholder="Image URL" id="postURL" /> <!-- Input para etiquetas -->
                 <div id="close">X</div>
 								</div>
             </div>

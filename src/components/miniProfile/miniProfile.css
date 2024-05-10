@@ -63,3 +63,71 @@
 	color: rgba(0, 0, 0, 0.597);
 	margin-top: 2px;
 }
+
+@media (max-width: 431px) {
+	.Cajon-Profile {
+		border-radius: 55px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(rgb(255, 255, 255), #767676ad);
+		width: 300px;
+		margin-left: 0;
+		font-family: 'Red Hat Display', sans-serif;
+	}
+
+	.infoProfile {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 40px;
+	}
+
+	.Edit-profile {
+		margin-top: 20px;
+	}
+
+	.imgProfile {
+		border-radius: 250px;
+		width: 100px;
+		height: 100px;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
+		object-fit: cover;
+		object-position: center;
+		background-color: #fff;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.619), 0 6px 20px 0 rgba(0, 0, 0, 0.428);
+		transition: transform 0.3s ease; /* Agrega una transición suave */
+	}
+
+	.imgProfile:hover {
+		transform: scale(1.05); /* Aumenta el tamaño de la imagen en un 10% */
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6), 0 12px 40px 0 rgba(0, 0, 0, 0.6); /* Aumenta la sombra */
+	}
+
+	.name {
+		color: rgb(146, 3, 67);
+		margin-top: 2px;
+	}
+
+	.username {
+		color: rgba(0, 0, 0, 0.597);
+		margin-top: 2px;
+		font-family: 'Red Hat Display', sans-serif;
+		font-weight: bold;
+	}
+
+	.followers {
+		color: rgba(0, 0, 0, 0.597);
+		margin-top: 2px;
+	}
+
+	.info {
+		color: rgba(0, 0, 0, 0.597);
+		margin-top: 2px;
+	}
+}
