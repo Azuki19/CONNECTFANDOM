@@ -19,6 +19,13 @@
 	height: 25px;
 }
 
+.h4 {
+	text-decoration: underline;
+	color: #ac084d;
+	font-family: 'Braah One', sans-serif;
+	height: 25px;
+}
+
 .sectionminiheader h4:hover {
 	text-decoration: underline;
 }
