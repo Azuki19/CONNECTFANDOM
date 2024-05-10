@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"moduleResolution": "node",
+		"moduleResolution": "node10",
 		/* Visit https://aka.ms/tsconfig to read more about this file */
 
 		/* Projects */
