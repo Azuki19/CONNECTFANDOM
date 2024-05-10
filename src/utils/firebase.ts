@@ -29,4 +29,5 @@ export const getBands = async () => {
 	querySnapshot.forEach((doc: any) => {
 		bandsdata.push(doc.data());
 	});
+	return bandsdata;
 };
