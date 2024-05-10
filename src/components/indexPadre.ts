@@ -19,3 +19,4 @@ export { default as EventImage } from './Eventss/EventImage/EventImage';
 export { default as EventName } from './Eventss/EventName/EventName';
 export { default as InfoEvent } from './Eventss/InfoEvent/InfoEvent';
 export { default as ButtonLogin } from './Buttons/ButtonLogin/ButtonLogin';
+export { default as inputEdit } from './InputProfilePicture/InputProfilePicture';
