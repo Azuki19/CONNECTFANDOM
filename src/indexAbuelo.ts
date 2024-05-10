@@ -53,10 +53,10 @@ class AppContainer extends HTMLElement {
 				this.shadowRoot?.appendChild(profile);
 				break;
 
-			// case 'BANDEVENTS':
-			// 	const bandevents = this.ownerDocument.createElement('app-band-events');
-			// 	this.shadowRoot?.appendChild(bandevents);
-			// 	break;
+			case 'BANDEVENTS':
+			const bandevents = this.ownerDocument.createElement('app-band-events');
+			this.shadowRoot?.appendChild(bandevents);
+			break;
 
 			default:
 				break;
