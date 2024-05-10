@@ -45,7 +45,6 @@ class CreatePost extends HTMLElement {
 	}
 
 	handleClick() {
-		// Verifica si el popup ya existe para evitar duplicados
 		if (!this.shadowRoot.querySelector('#popup')) {
 			const popup = document.createElement('div');
 			popup.innerHTML = `
@@ -59,15 +58,12 @@ class CreatePost extends HTMLElement {
 			popup.id = 'popup';
 			this.shadowRoot.appendChild(popup);
 
-			// Añade el manejador de eventos para el botón de cierre
 			const closeButton = this.shadowRoot.querySelector('#close');
 			closeButton.addEventListener('click', (event) => {
-				// Detiene la propagación para evitar que se active el evento del overlay
 				event.stopPropagation();
 				this.shadowRoot.removeChild(popup);
 			});
 
-			// Añade el manejador de eventos para el overlay
 			const overlay = this.shadowRoot.querySelector('#overlay');
 			overlay.addEventListener('click', () => {
 				this.shadowRoot.removeChild(popup);
