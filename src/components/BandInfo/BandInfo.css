@@ -30,3 +30,40 @@ p {
 	font-weight: 200;
 	font-style: light;
 }
+
+@media (max-width: 431px) {
+	.container {
+		width: 220px;
+		height: 640px;
+		color: aliceblue;
+	}
+	h1 {
+		font-size: 30px;
+		font-family: 'Braah One', sans-serif;
+		margin-bottom: 5px;
+	}
+
+	p {
+		font-family: 'Red Hat Display', sans-serif;
+		font-size: 20px;
+		margin-top: 5px;
+		font-style: medium;
+	}
+
+	.info {
+		width: 320px;
+	}
+
+	.red-hat {
+		font-family: 'Red Hat Display', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 300;
+		font-style: normal;
+	}
+
+	.braah-one-regular {
+		font-family: 'Braah One', sans-serif;
+		font-weight: 200;
+		font-style: light;
+	}
+}
