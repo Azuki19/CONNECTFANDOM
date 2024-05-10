@@ -34,11 +34,7 @@ class DateEvents extends HTMLElement {
 			this.shadowRoot.innerHTML = `
         <section class='EventDate'>
           <div class='Edit-EventDate'>
-<<<<<<< HEAD
-					<h1 class='Date'>${this.EventDate}</h1>
-=======
             <h1 class='Date'>${this.dateevents} </h1>
->>>>>>> 234082921cc229d7717c4848e2d664760f4dfaf4
             </div>
           </div>
 					</section>
