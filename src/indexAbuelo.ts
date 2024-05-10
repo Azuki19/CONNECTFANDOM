@@ -1,4 +1,4 @@
-import './screens/profile';
+import './screens/login';
 import './components/indexPadre';
 
 class AppContainer extends HTMLElement {
@@ -12,7 +12,7 @@ class AppContainer extends HTMLElement {
 	}
 
 	render() {
-		const something = this.ownerDocument.createElement('profile-dashboard');
+		const something = this.ownerDocument.createElement('app-login');
 		this.shadowRoot?.appendChild(something);
 	}
 }

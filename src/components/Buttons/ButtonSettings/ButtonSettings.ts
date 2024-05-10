@@ -13,15 +13,12 @@ class ButtonSettings extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-
-
-			<section class='Button-Log-Out'>
-        <button class='Log-Out'>SETTINGS</button>
+			<section class='Button-Settings'>
+        <button class='Settings'>SETTINGS</button>
 			</section>
 
 		`;
 		}
-		//query del botón hacer la acción
 
 		const cssSettinngs = this.ownerDocument.createElement('style');
 		cssSettinngs.innerHTML = styles;
