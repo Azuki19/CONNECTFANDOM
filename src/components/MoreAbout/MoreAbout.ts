@@ -1,4 +1,7 @@
 import styles from './MoreAbout.css';
+import { dispatch } from '../../store';
+import { navigate } from '../../store/action';
+import { addObserver } from '../../store';
 
 export enum MoreAboutAttribute {
 	'uid' = 'uid',
@@ -34,10 +37,18 @@ class MoreAbout extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
+
+		this.onButtonClicked = this.onButtonClicked.bind(this);
+		addObserver(this);
 	}
 
 	connectedCallback() {
+		this.mount();
+	}
+
+	mount() {
 		this.render();
+		this.addListeners();
 	}
 
 	render() {
@@ -64,6 +75,14 @@ class MoreAbout extends HTMLElement {
 		const cssMoreAbout = this.ownerDocument.createElement('style');
 		cssMoreAbout.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssMoreAbout);
+	}
+	addListeners() {
+		this.shadowRoot.querySelector('.bandComponent')?.addEventListener('click', this.onButtonClicked);
+	}
+
+	onButtonClicked() {
+		console.log('holaaa');
+		dispatch(navigate('ABOUTTHEBAND'));
 	}
 }
 
