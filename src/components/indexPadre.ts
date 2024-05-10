@@ -21,3 +21,4 @@ export { default as RegisterForm } from './Register/RegisterForm';
 export { default as BubblesLogin } from './BubblesLogin/BubblesLogin';
 export { default as ButtonRegister } from './Buttons/ButtonRegister/ButtonRegister';
 export { default as SlideImage } from './Eventss/InfoImage/SlideImage';
+export { default as ButtonSend } from './Buttons/ButtonSend/ButtonSend';

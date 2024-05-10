@@ -132,7 +132,35 @@ hr {
 		padding-right: 0;
 		justify-content: space-evenly;
 		align-items: center;
+		margin-bottom: 20px;
 	}
+
+	#edit-profile-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-self: center;
+		margin-left: 20px;
+	}
+
+	#second-part {
+		margin-right: 5px;
+		margin-top: 0;
+		top: 0;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		position: sticky;
+		left: 0;
+		height: 940px;
+		position: sticky;
+		margin-left: 0;
+		margin-right: 0;
+		width: 200px;
+		height: 850px;
+		position: sticky;
+	}
+
 	.title {
 		font-size: 35px;
 		color: white;
@@ -165,7 +193,7 @@ hr {
 		background-color: transparent;
 		border-radius: 8px;
 		padding: 0;
-		width: 415px;
+		width: 375px;
 	}
 
 	#user-posts-section {
@@ -174,6 +202,14 @@ hr {
 		display: flex;
 		flex-direction: column;
 		margin: auto;
+	}
+
+	#button-settings-section {
+		margin-left: 20px;
+	}
+
+	#button-logout-section {
+		margin-left: 20px;
 	}
 
 	.artist-posts-section {

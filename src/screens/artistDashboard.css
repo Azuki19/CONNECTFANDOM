@@ -114,7 +114,9 @@ hr {
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
-		margin-top: 120px;
+		margin-top: 0px;
+		margin-left: 0;
+		margin-right: 0;
 		width: 200px;
 		height: 1000px;
 		position: sticky;
@@ -149,8 +151,6 @@ hr {
 	}
 
 	#mini-profile-section {
-		width: 100px; /* Reducir el ancho para que se ajuste mejor */
-		/* Establecer un ancho máximo */
 		height: auto; /* Permitir que la altura se ajuste automáticamente */
 		margin-left: 0;
 	}

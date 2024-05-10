@@ -1,4 +1,7 @@
 import styles from './CreatePost.css';
+import { dispatch } from '../../store';
+import { navigate } from '../../store/action';
+import { addObserver } from '../../store';
 
 export enum CreatePostAttribute {
 	'uid' = 'uid',
@@ -32,19 +35,27 @@ class CreatePost extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
-		this.handleClick = this.handleClick.bind(this);
+
+		this.onButtonClicked = this.onButtonClicked.bind(this);
+		addObserver(this);
 	}
 
 	connectedCallback() {
 		this.render();
 		this.shadowRoot?.addEventListener('click', this.handleClick);
+		this.mount();
 	}
 
 	disconnectedCallback() {
 		this.shadowRoot?.removeEventListener('click', this.handleClick);
 	}
 
-	handleClick() {
+	mount() {
+		this.render();
+		this.addListeners();
+	}
+
+	handleClick = () => {
 		if (!this.shadowRoot.querySelector('#popup')) {
 			const popup = document.createElement('div');
 			popup.innerHTML = `
@@ -55,15 +66,23 @@ class CreatePost extends HTMLElement {
 							<div id="MCR">
 							<h3 id="MCRtext"> My Chemical Romance</h3>
 							</div>
-							<div id=¨downpop¨>
+							<div id="downpop">
                 <input type="text" placeholder="Title" id="postTitle" /> <!-- Input para el título del post -->
                 <input type="text" placeholder="Share your thoughts on Connect Fandom!" id="postInput" />
                 <input type="text" placeholder="Image URL" id="postURL" /> <!-- Input para etiquetas -->
                 <div id="close">X</div>
-								</div>
+                <section id="button-container"></section>
+              </div>
             </div>
             <div id="overlay"></div>
         `;
+
+			const buttonContainer = popup.querySelector('#button-container');
+			const sendButton = document.createElement('button');
+			sendButton.textContent = 'Send';
+			sendButton.addEventListener('click', this.onButtonClicked);
+			buttonContainer?.appendChild(sendButton);
+
 			popup.id = 'popup';
 			this.shadowRoot.appendChild(popup);
 
@@ -78,7 +97,7 @@ class CreatePost extends HTMLElement {
 				this.shadowRoot.removeChild(popup);
 			});
 		}
-	}
+	};
 
 	render() {
 		if (this.shadowRoot) {
@@ -108,6 +127,15 @@ class CreatePost extends HTMLElement {
 		const cssCreatePost = this.ownerDocument.createElement('style');
 		cssCreatePost.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssCreatePost);
+	}
+
+	addListeners() {
+		this.shadowRoot.querySelector('#button-container')?.addEventListener('click', this.onButtonClicked);
+	}
+
+	onButtonClicked() {
+		console.log('holaaa');
+		dispatch(navigate('DASHBOARD'));
 	}
 }
 
