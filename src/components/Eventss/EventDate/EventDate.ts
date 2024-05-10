@@ -34,7 +34,7 @@ class EventDate extends HTMLElement {
 			this.shadowRoot.innerHTML = `
         <section class='EventDate'>
           <div class='Edit-EventDate'>
-            <img class='Date' src="${this.EventDate}" alt="">
+					<h1 class='Date'>${this.EventDate}</h1>
             </div>
           </div>
 
