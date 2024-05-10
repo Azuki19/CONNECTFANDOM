@@ -1,9 +1,10 @@
-import * as components from '../components/indexPadre';
+.import * as components from '../components/indexPadre';
 import UserPost, { Attribute } from '../components/UserPost/UserPost';
 import { CreatePost } from '../components/indexPadre';
-import { MyChemicalRomanceData } from '../data/MyChemicalRomanceData';
 import { EditProfile } from '../components/indexPadre';
 import style from './profile.css';
+
+import { getPosts, getBands } from '../utils/firebase';
 
 class ProfileDashboard extends HTMLElement {
 	userpost: UserPost[] = [];
@@ -13,58 +14,64 @@ class ProfileDashboard extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
-
-		const UserData = MyChemicalRomanceData.filter((user) => user.id === 1);
-
-		UserData.forEach((user) => {
-			const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
-
-			UserPostCard.setAttribute(Attribute.uid, String(user.id));
-			UserPostCard.setAttribute(Attribute.type, user.type);
-			UserPostCard.setAttribute(Attribute.name, user.name);
-			UserPostCard.setAttribute(Attribute.image, user.image);
-			UserPostCard.setAttribute(Attribute.username, user.username);
-			UserPostCard.setAttribute(Attribute.email, user.email);
-			UserPostCard.setAttribute(Attribute.password, user.password);
-			UserPostCard.setAttribute(Attribute.info, user.info);
-			UserPostCard.setAttribute(Attribute.followers, String(user.followers));
-			UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
-			UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
-			UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
-
-			this.userpost.push(UserPostCard);
-		});
-
-		const EditProfileData = MyChemicalRomanceData.filter((user) => user.id === 1);
-
-		EditProfileData.forEach((user) => {
-			const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
-			EditProfileCard.setAttribute('uid', String(user.id));
-			EditProfileCard.setAttribute('type', user.type);
-			EditProfileCard.setAttribute('name', user.name);
-			EditProfileCard.setAttribute('image', user.image);
-			EditProfileCard.setAttribute('username', user.username);
-			EditProfileCard.setAttribute('email', user.email);
-			EditProfileCard.setAttribute('info', user.info);
-			EditProfileCard.setAttribute('followers', String(user.followers));
-
-			this.editprofile.push(EditProfileCard);
-		});
-
-		const BannerCreatePost = MyChemicalRomanceData.find((post) => post.id === 1);
-
-		if (BannerCreatePost) {
-			const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
-
-			CreatePostCard.setAttribute('uid', String(BannerCreatePost.id));
-			CreatePostCard.setAttribute('image', BannerCreatePost.image);
-			CreatePostCard.setAttribute('type', BannerCreatePost.type);
-
-			this.createpost.push(CreatePostCard);
-		}
+		this.initializeData();
 	}
-	connectedCallback() {
-		this.render();
+
+	async initializeData() {
+		try {
+			const [posts] = await Promise.all([getPosts(), getBands()]);
+
+			const UserData = posts.filter((user) => user.id === 1);
+			UserData.forEach((user) => {
+				const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
+
+				UserPostCard.setAttribute(Attribute.uid, String(user.id));
+				UserPostCard.setAttribute(Attribute.type, user.type);
+				UserPostCard.setAttribute(Attribute.name, user.name);
+				UserPostCard.setAttribute(Attribute.image, user.image);
+				UserPostCard.setAttribute(Attribute.username, user.username);
+				UserPostCard.setAttribute(Attribute.email, user.email);
+				UserPostCard.setAttribute(Attribute.password, user.password);
+				UserPostCard.setAttribute(Attribute.info, user.info);
+				UserPostCard.setAttribute(Attribute.followers, String(user.followers));
+				UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
+				UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
+				UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
+
+				this.userpost.push(UserPostCard);
+			});
+
+			const EditProfileData = posts.filter((user) => user.id === 1);
+
+			EditProfileData.forEach((user) => {
+				const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
+				EditProfileCard.setAttribute('uid', String(user.id));
+				EditProfileCard.setAttribute('type', user.type);
+				EditProfileCard.setAttribute('name', user.name);
+				EditProfileCard.setAttribute('image', user.image);
+				EditProfileCard.setAttribute('username', user.username);
+				EditProfileCard.setAttribute('email', user.email);
+				EditProfileCard.setAttribute('info', user.info);
+				EditProfileCard.setAttribute('followers', String(user.followers));
+
+				this.editprofile.push(EditProfileCard);
+			});
+
+			const BannerCreatePost = posts.find((post) => post.id === 1);
+
+			if (BannerCreatePost) {
+				const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
+
+				CreatePostCard.setAttribute('uid', String(BannerCreatePost.id));
+				CreatePostCard.setAttribute('image', BannerCreatePost.image);
+				CreatePostCard.setAttribute('type', BannerCreatePost.type);
+
+				this.createpost.push(CreatePostCard);
+			}
+			this.render();
+		} catch (error) {
+			console.error('Error fetching data from Firebase:', error);
+		}
 	}
 
 	render() {
