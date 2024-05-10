@@ -34,6 +34,7 @@
 	background-color: #fff;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.619), 0 6px 20px 0 rgba(0, 0, 0, 0.428);
 	transition: transform 0.3s ease; /* Agrega una transición suave */
+	cursor: pointer;
 }
 
 .imgProfile:hover {
