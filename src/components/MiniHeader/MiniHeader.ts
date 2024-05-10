@@ -49,7 +49,7 @@ class MiniHeader extends HTMLElement {
 				dispatch(navigate('ARTISTDASHBOARD'));
 				break;
 			case 'events':
-				dispatch(navigate('EVENTS'));
+				dispatch(navigate('BANDEVENTS'));
 				break;
 			case 'about-the-band':
 				dispatch(navigate('ABOUTTHEBAND'));
