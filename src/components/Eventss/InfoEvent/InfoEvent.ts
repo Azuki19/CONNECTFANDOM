@@ -34,7 +34,7 @@ class InfoEvent extends HTMLElement {
 			this.shadowRoot.innerHTML = `
         <section class='InfoEvent'>
           <div class='Edit-InfoEvent'>
-					<h1 class='info'>${this.infoEvents}</h1>
+            <img class='EventInfo' src="${this.infoEvents}" alt="">
             </div>
           </div>
 
