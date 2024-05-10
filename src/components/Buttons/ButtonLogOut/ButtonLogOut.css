@@ -5,8 +5,8 @@
 }
 
 .Log-Out {
-	background-color: #ac084d; /* Magenta */
-	color: #fff; /* Letras blancas */
+	background-color: #ac084d;
+	color: #fff;
 	width: 200px;
 	height: 50px;
 	padding: 10px 20px;
@@ -16,8 +16,9 @@
 	font-weight: bold;
 	cursor: pointer;
 	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-
 	transition: all 0.3s ease;
+	margin-top: -9rem;
+	margin-left: -35rem;
 }
 
 .Log-Out:hover {
