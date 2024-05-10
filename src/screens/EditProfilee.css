@@ -24,3 +24,21 @@
 	height: 150px;
 }
 
+@media (max-width: 431px) {
+	#edit-profile-container {
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+		align-items: center;
+		margin-top: 50px;
+		width: 340px;
+		margin-left: 30px;
+	}
+
+	#input-profile {
+		display: flex;
+		flex-direction: column;
+		width: 100px;
+		height: 900px;
+	}
+}
