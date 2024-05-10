@@ -32,30 +32,74 @@ class CreatePost extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	connectedCallback() {
 		this.render();
+		this.shadowRoot?.addEventListener('click', this.handleClick);
+	}
+
+	disconnectedCallback() {
+		this.shadowRoot?.removeEventListener('click', this.handleClick);
+	}
+
+	handleClick() {
+		// Verifica si el popup ya existe para evitar duplicados
+		if (!this.shadowRoot.querySelector('#popup')) {
+			const popup = document.createElement('div');
+			popup.innerHTML = `
+            <div id="popupContent">
+                <h2>Write a post on Connect Fandom!</h2>
+                <textarea placeholder="Write your post here..."></textarea>
+                <div id="close">X</div>
+            </div>
+            <div id="overlay"></div>
+        `;
+			popup.id = 'popup';
+			this.shadowRoot.appendChild(popup);
+
+			// Añade el manejador de eventos para el botón de cierre
+			const closeButton = this.shadowRoot.querySelector('#close');
+			closeButton.addEventListener('click', (event) => {
+				// Detiene la propagación para evitar que se active el evento del overlay
+				event.stopPropagation();
+				this.shadowRoot.removeChild(popup);
+			});
+
+			// Añade el manejador de eventos para el overlay
+			const overlay = this.shadowRoot.querySelector('#overlay');
+			overlay.addEventListener('click', () => {
+				this.shadowRoot.removeChild(popup);
+			});
+		}
 	}
 
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+                <style>
+                    /* Estilos para el contenedor section */
+                    section {
+                        background-color: #fbfbfb;
+                        border-radius: 10px;
+                        padding: 20px;
+                        cursor: pointer;
+                    }
 
-      <section>
-        <div>
-           <img src="${this.image}" alt="">
-           <h2>Write a post on Connect Fandom!</h2>
-        </div>
-
-           <div>
-           	<ion-icon class='image-outline' name="image-outline"></ion-icon>
-           </div>
-       </section>
-       `;
+                </style>
+                <section>
+                    <div>
+                        <img src="${this.image}" alt="">
+                        <h2>Write a post on Connect Fandom!</h2>
+                    </div>
+                    <div>
+                        <ion-icon class='image-outline' name="image-outline"></ion-icon>
+                    </div>
+                </section>
+            `;
 		}
+
 		const cssCreatePost = this.ownerDocument.createElement('style');
 		cssCreatePost.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssCreatePost);
