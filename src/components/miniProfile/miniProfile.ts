@@ -1,4 +1,7 @@
 import styles from './miniProfile.css';
+import { dispatch } from '../../store';
+import { navigate } from '../../store/action';
+import { addObserver } from '../../store';
 
 export enum MiniProfileAttribute {
 	'uid' = 'uid',
@@ -33,12 +36,17 @@ class MiniProfile extends HTMLElement {
 		}
 		this.render();
 	}
+
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
+		this.onButtonClicked = this.onButtonClicked.bind(this);
+		addObserver(this);
 	}
+
 	connectedCallback() {
 		this.render();
+		this.addListeners();
 	}
 
 	render() {
@@ -61,7 +69,14 @@ class MiniProfile extends HTMLElement {
 		cssProfile.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssProfile);
 	}
-}
+	addListeners() {
+		this.shadowRoot.querySelector('.Cajon-Profile')?.addEventListener('click', this.onButtonClicked);
+	}
 
+	onButtonClicked() {
+		console.log('holaaa');
+		dispatch(navigate('PROFILE'));
+	}
+}
 customElements.define('mini-profile', MiniProfile);
 export default MiniProfile;

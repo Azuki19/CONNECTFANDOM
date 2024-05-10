@@ -6,17 +6,15 @@
 	background-color: #ffffff;
 	color: #ac084d;
 	font-family: 'Braah One', sans-serif;
+	font-size: 20px;
 }
 
-.sectionminiheader {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding: 5px 300px;
-	background-color: #ffffff;
+.sectionminiheader h4 {
+	text-decoration: underline;
 	color: #ac084d;
 	font-family: 'Braah One', sans-serif;
 	height: 25px;
+	cursor: pointer; /* Agregamos esta línea para cambiar el cursor */
 }
 
 .sectionminiheader h4:hover {

@@ -18,6 +18,22 @@ class LoginForm extends HTMLElement {
 		const generalDiv = document.createElement('div');
 		generalDiv.id = 'general';
 
+		// Contenedor para los textos
+		const textContainer = document.createElement('div');
+		textContainer.id = 'text-container';
+
+		// Texto 1: Welcome to
+		const welcomeText = document.createElement('span');
+		welcomeText.textContent = 'Welcome to ';
+
+		// Texto 2: CONNECT FANDOM!
+		const fandomText = document.createElement('span');
+		fandomText.textContent = 'CONNECT FANDOM!';
+
+		// Agregar textos al contenedor
+		textContainer.appendChild(welcomeText);
+		textContainer.appendChild(fandomText);
+
 		// Create the inputs div
 		const inputsDiv = document.createElement('div');
 		inputsDiv.id = 'inputs';
@@ -44,11 +60,6 @@ class LoginForm extends HTMLElement {
 
 
 
-
-
-
-		
-
 		// Create the login button
 		const loginButton = document.createElement('section');
 		loginButton.classList.add('button');
@@ -58,11 +69,7 @@ class LoginForm extends HTMLElement {
 
 
 
-
-
-
-
-
+		
 		// Create the 'Remember your password' checkbox
 		const rememberCheckbox = document.createElement('input');
 		rememberCheckbox.type = 'checkbox';
@@ -81,6 +88,7 @@ class LoginForm extends HTMLElement {
 		downPartDiv.id = 'down-part';
 
 		// Append the elements to build the structure
+		generalDiv.appendChild(textContainer); // Agregar contenedor de texto
 		inputsDiv.appendChild(emailLabel);
 		inputsDiv.appendChild(emailInput);
 		inputsDiv.appendChild(passwordLabel);

@@ -1,4 +1,7 @@
 import styles from './EditProfile.css';
+import { dispatch } from '../../store';
+import { navigate } from '../../store/action';
+import { addObserver } from '../../store';
 
 export enum EditProfileAttribute {
 	'uid' = 'uid',
@@ -44,9 +47,18 @@ class EditProfile extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
+
+		this.onButtonClicked = this.onButtonClicked.bind(this);
+		addObserver(this);
 	}
+
 	connectedCallback() {
+		this.mount();
+	}
+
+	mount() {
 		this.render();
+		this.addListeners();
 	}
 
 	render() {
@@ -70,7 +82,14 @@ class EditProfile extends HTMLElement {
 		cssProfile.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssProfile);
 	}
-}
+	addListeners() {
+		this.shadowRoot.querySelector('.imgProfile')?.addEventListener('click', this.onButtonClicked);
+	}
 
+	onButtonClicked() {
+		console.log('holaaa');
+		dispatch(navigate('PROFILE'));
+	}
+}
 customElements.define('edit-profile', EditProfile);
 export default EditProfile;
