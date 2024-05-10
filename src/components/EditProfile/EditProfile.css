@@ -34,10 +34,11 @@
 	background-color: #fff;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.619), 0 6px 20px 0 rgba(0, 0, 0, 0.428);
 	transition: transform 0.3s ease; /* Agrega una transición suave */
+	cursor: pointer;
 }
 
 .imgProfile:hover {
-	transform: scale(1.1); /* Aumenta el tamaño de la imagen en un 10% */
+	transform: scale(1.05); /* Aumenta el tamaño de la imagen en un 10% */
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6), 0 12px 40px 0 rgba(0, 0, 0, 0.6); /* Aumenta la sombra */
 }
 
