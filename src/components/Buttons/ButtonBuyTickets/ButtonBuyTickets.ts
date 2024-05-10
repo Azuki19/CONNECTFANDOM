@@ -25,8 +25,8 @@ class ButtonBuyTickets extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-				<section class="Button-Send">
-					<button class="Send">LOG OUT</button>
+				<section class="Button-Buy-Tickets">
+					<button class="Buy-Tickets">BUY TICKETS</button>
 				</section>
 			`;
 		}
@@ -36,7 +36,7 @@ class ButtonBuyTickets extends HTMLElement {
 		this.shadowRoot?.appendChild(cssLogOut);
 	}
 	addListeners() {
-		this.shadowRoot.querySelector('.Button-Send')?.addEventListener('click', this.onButtonClicked);
+		this.shadowRoot.querySelector('.Button-Buy-Tickets')?.addEventListener('click', this.onButtonClicked);
 	}
 
 	onButtonClicked() {
@@ -45,5 +45,5 @@ class ButtonBuyTickets extends HTMLElement {
 	}
 }
 
-customElements.define('button-send', ButtonSend);
-export default ButtonSend;
+customElements.define('button-buy-tickets', ButtonBuyTickets);
+export default ButtonBuyTickets;
