@@ -1,0 +1,22 @@
+#background {
+	background-image: url(https://pbs.twimg.com/media/GNHmYzjXYAAE6R4?format=jpg&name=large);
+	background-attachment: fixed; /* Fondo fijo */
+	background-repeat: no-repeat; /* No repetir */
+	background-size: cover; /* Ajustar el tamaño del fondo */
+	width: 1475px;
+	height: 800px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#container {
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	height: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
