@@ -6,6 +6,14 @@ section {
 	margin-bottom: 20px;
 	height: 30px;
 	width: 850px;
+	cursor: pointer;
+
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Agregar una transición suave */
+}
+
+section:hover {
+	transform: scale(1.05); /* Reducir el tamaño en un 5% */
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6), 0 12px 40px 0 rgba(0, 0, 0, 0.6); /* Aumentar la sombra */
 }
 
 h2 {
