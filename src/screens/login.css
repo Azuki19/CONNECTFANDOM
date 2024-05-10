@@ -20,3 +20,32 @@
 	justify-content: center;
 	align-items: center;
 }
+
+@media (max-width: 431px) {
+	#background {
+		background-image: url(https://pbs.twimg.com/media/GNHmYzjXYAAE6R4?format=jpg&name=large);
+		background-attachment: fixed; /* Fondo fijo */
+		background-repeat: no-repeat; /* No repetir */
+		background-size: cover; /* Ajustar el tamaño del fondo */
+		width: fit-content;
+		height: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#container {
+		width: 430px;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+	}
+	#login-form-container {
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
+	#image-login-container {
+		margin-top: 100px;
+	}
+}
