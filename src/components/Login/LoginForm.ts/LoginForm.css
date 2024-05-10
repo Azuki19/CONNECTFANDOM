@@ -11,6 +11,48 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	height: fit-content;
+}
+
+.sign-in-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.sign-in-section span:last-child {
+	margin-top: 10px; /* Ajusta el margen superior del último span */
+}
+
+#not-fandom {
+	color: #000000;
+	font-family: 'Red Hat Display', sans-serif;
+	font-weight: 300;
+}
+
+#inner-div {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#not-fandom-div {
+	width: 310px;
+	display: flex;
+	flex-direction: column;
+}
+
+#sign-in-text {
+	text-decoration: underline;
+	color: #ac084d;
+	font-family: 'Braah One', sans-serif;
+	height: 25px;
+	cursor: pointer; /* Agregamos esta línea para cambiar el cursor */
+}
+
+#sign-in-text:hover {
+	text-decoration: underline;
 }
 
 #text-container {
@@ -60,6 +102,20 @@
 	margin-right: 10px;
 }
 
+#hr-dive {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+hr {
+	width: 250px;
+	border: none;
+	background-color: #ac084d;
+	height: 2px;
+}
+
 #remember label {
 	font-family: 'Red Hat Display', sans-serif;
 	font-optical-sizing: auto;
@@ -83,4 +139,149 @@
 
 #forgot a:hover {
 	text-decoration: underline; /* Agrega subrayado al pasar el cursor */
+}
+
+@media (max-width: 431px) {
+	#general {
+		background-color: white;
+		padding: 20px;
+		border-radius: 40px;
+		width: 300px;
+		font-family: 'Red Hat Display', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 300;
+		font-style: normal;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		height: fit-content;
+	}
+
+	.sign-in-section {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.sign-in-section span:last-child {
+		margin-top: 10px; /* Ajusta el margen superior del último span */
+	}
+
+	#not-fandom {
+		color: #000000;
+		font-family: 'Red Hat Display', sans-serif;
+		font-weight: 300;
+	}
+
+	#inner-div {
+		margin-top: 15px;
+		margin-bottom: 15px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	#not-fandom-div {
+		width: 310px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#sign-in-text {
+		text-decoration: underline;
+		color: #ac084d;
+		font-family: 'Braah One', sans-serif;
+		height: 25px;
+		cursor: pointer; /* Agregamos esta línea para cambiar el cursor */
+	}
+
+	#sign-in-text:hover {
+		text-decoration: underline;
+	}
+
+	#text-container {
+		font-family: 'Braah One', sans-serif;
+		color: #ac084d;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-size: 25px;
+		margin-bottom: 5px;
+	}
+	#text {
+		font-size: 15px;
+		margin: 5px;
+	}
+
+	#down-part {
+		width: 300px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+
+	#inputs {
+		display: flex;
+		width: 300px;
+		flex-direction: column;
+	}
+
+	#inputs label {
+		font-family: 'Poppins', sans-serif;
+		color: #333;
+	}
+
+	#inputs input {
+		background-color: #e0e0e0;
+		border: none;
+		padding: 10px;
+		border-radius: 15px;
+		font-family: 'Poppins', sans-serif;
+	}
+
+	#remember {
+		margin: 5px;
+		margin-right: 10px;
+	}
+
+	#hr-dive {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	hr {
+		width: 250px;
+		border: none;
+		background-color: #ac084d;
+		height: 2px;
+	}
+
+	#remember label {
+		font-family: 'Red Hat Display', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 300;
+		font-style: normal;
+		color: rgb(198, 10, 82);
+		margin-right: 10px; /* Espacio entre el texto y la casilla */
+	}
+
+	#forgot {
+		font-family: 'Poppins', sans-serif;
+		color: rgb(198, 10, 82);
+		margin: 5px;
+		margin-left: 10px;
+	}
+
+	#forgot a {
+		color: rgb(198, 10, 82); /* Cambia el color del enlace */
+		text-decoration: none; /* Elimina el subrayado predeterminado */
+	}
+
+	#forgot a:hover {
+		text-decoration: underline; /* Agrega subrayado al pasar el cursor */
+	}
 }
