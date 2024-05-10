@@ -100,9 +100,9 @@ class AppArtistDashboard extends HTMLElement {
             	</section>
 						</div>
 					  <div id="second-part" class='second-part'>
-            <section id="mini-profile-section">
-            </section>
-            <section id="more-about-section">
+            	<section id="mini-profile-section">
+            	</section>
+            	<section id="more-about-section">
             </section>
 						</div>
 					</div>
@@ -120,8 +120,6 @@ class AppArtistDashboard extends HTMLElement {
 			const miniProfileSection = this.shadowRoot.getElementById('mini-profile-section');
 
 			const moreAboutSection = this.shadowRoot.getElementById('more-about-section');
-
-			const secondPart = this.shadowRoot.getElementById('second-part');
 
 			//Agarro las secciones del html, las volvio constantes o cajitas.Luego cojio los componentes de maaaaas arriba y las metió en estas cajitas
 
