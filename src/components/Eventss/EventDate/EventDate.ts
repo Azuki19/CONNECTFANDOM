@@ -1,11 +1,11 @@
 import styles from './EventDate.css';
 
 export enum EventDateAttribute {
-	'EventDate' = 'EventDate',
+	'dateEvents' = 'dateevents',
 }
 
-class EventDate extends HTMLElement {
-	EventDate?: string;
+class DateEvents extends HTMLElement {
+	dateevents?: string;
 
 	static get observedAttributes() {
 		return Object.values(EventDateAttribute);
@@ -34,10 +34,13 @@ class EventDate extends HTMLElement {
 			this.shadowRoot.innerHTML = `
         <section class='EventDate'>
           <div class='Edit-EventDate'>
+<<<<<<< HEAD
 					<h1 class='Date'>${this.EventDate}</h1>
+=======
+            <h1 class='Date'>${this.dateevents} </h1>
+>>>>>>> 234082921cc229d7717c4848e2d664760f4dfaf4
             </div>
           </div>
-
 					</section>
 				`;
 		}
@@ -47,5 +50,5 @@ class EventDate extends HTMLElement {
 	}
 }
 
-customElements.define('event-date', EventDate);
-export default EventDate;
+customElements.define('date-event', DateEvents);
+export default DateEvents;
