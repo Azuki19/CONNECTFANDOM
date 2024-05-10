@@ -49,9 +49,18 @@ class CreatePost extends HTMLElement {
 			const popup = document.createElement('div');
 			popup.innerHTML = `
             <div id="popupContent">
-                <h2>Write a post on Connect Fandom!</h2>
-                <textarea placeholder="Write your post here..."></textarea>
+							<div id="titlee">
+                <h2 id="title-c">WRITE A POST</h2>
+							</div>
+							<div id="MCR">
+							<h3 id="MCRtext"> My Chemical Romance</h3>
+							</div>
+							<div id=¨downpop¨>
+                <input type="text" placeholder="Title" id="postTitle" /> <!-- Input para el título del post -->
+                <textarea placeholder="Share your thoughts on Connect Fandom!"></textarea>
+                <input type="text" placeholder="Image URL" id="postTags" /> <!-- Input para etiquetas -->
                 <div id="close">X</div>
+								</div>
             </div>
             <div id="overlay"></div>
         `;
