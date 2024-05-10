@@ -17,6 +17,7 @@ export { default as ImageLogin } from './Login/ImageLogin/ImageLogin';
 export { default as DateEvents } from './Eventss/DateEvents/DateEvents';
 export { default as InfoEvent } from './Eventss/InfoEvent/InfoEvent';
 export { default as ButtonLogin } from './Buttons/ButtonLogin/ButtonLogin';
+export { default as inputEdit } from './InputProfilePicture/InputProfilePicture';
 export { default as RegisterForm } from './Register/RegisterForm';
 export { default as BubblesLogin } from './BubblesLogin/BubblesLogin';
 export { default as ButtonRegister } from './Buttons/ButtonRegister/ButtonRegister';
