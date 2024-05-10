@@ -45,29 +45,34 @@ class CreatePost extends HTMLElement {
 	}
 
 	handleClick() {
-		// Verifica si el popup ya existe para evitar duplicados
 		if (!this.shadowRoot.querySelector('#popup')) {
 			const popup = document.createElement('div');
 			popup.innerHTML = `
             <div id="popupContent">
-                <h2>Write a post on Connect Fandom!</h2>
-                <textarea placeholder="Write your post here..."></textarea>
+							<div id="titlee">
+                <h2 id="title-c">WRITE A POST</h2>
+							</div>
+							<div id="MCR">
+							<h3 id="MCRtext"> My Chemical Romance</h3>
+							</div>
+							<div id=¨downpop¨>
+                <input type="text" placeholder="Title" id="postTitle" /> <!-- Input para el título del post -->
+                <textarea placeholder="Share your thoughts on Connect Fandom!"></textarea>
+                <input type="text" placeholder="Image URL" id="postTags" /> <!-- Input para etiquetas -->
                 <div id="close">X</div>
+								</div>
             </div>
             <div id="overlay"></div>
         `;
 			popup.id = 'popup';
 			this.shadowRoot.appendChild(popup);
 
-			// Añade el manejador de eventos para el botón de cierre
 			const closeButton = this.shadowRoot.querySelector('#close');
 			closeButton.addEventListener('click', (event) => {
-				// Detiene la propagación para evitar que se active el evento del overlay
 				event.stopPropagation();
 				this.shadowRoot.removeChild(popup);
 			});
 
-			// Añade el manejador de eventos para el overlay
 			const overlay = this.shadowRoot.querySelector('#overlay');
 			overlay.addEventListener('click', () => {
 				this.shadowRoot.removeChild(popup);
