@@ -23,3 +23,10 @@ export const getPosts = async () => {
 	});
 	return postdata;
 };
+export const getBands = async () => {
+	const querySnapshot = await getDocs(collection(db, 'bandsdata'));
+	const bandsdata: Array<any> = [];
+	querySnapshot.forEach((doc: any) => {
+		bandsdata.push(doc.data());
+	});
+};
