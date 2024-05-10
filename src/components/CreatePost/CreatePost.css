@@ -17,7 +17,6 @@ section:hover {
 }
 
 h2 {
-	opacity: 40%;
 	font-size: 20px;
 	font-weight: 100;
 }
@@ -79,7 +78,6 @@ section > div:nth-child(2) {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #0202021b;
 }
 
 #MCRtext {
@@ -87,7 +85,7 @@ section > div:nth-child(2) {
 	font-style: normal;
 	color: #000000;
 	align-self: center;
-	font-size: 9px;
+	font-size: 15px;
 }
 
 #titlee {
@@ -198,7 +196,6 @@ button {
 	}
 
 	h2 {
-		opacity: 40%;
 		font-size: 20px;
 		font-weight: 100;
 		width: 200px;
@@ -214,7 +211,7 @@ button {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		background-color: #ffffff; /* Fondo blanco */
+		background-color: #ffffff89; /* Fondo blanco */
 		width: 80%; /* O ajusta al tamaño deseado */
 		max-width: 330px; /* Ancho máximo para que no sea demasiado grande */
 		padding: 40px; /* Padding generoso para dar espacio */
@@ -239,7 +236,6 @@ button {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: #0202021b;
 	}
 
 	#MCRtext {
@@ -247,7 +243,7 @@ button {
 		font-style: normal;
 		color: #000000;
 		align-self: center;
-		font-size: 9px;
+		font-size: 22px;
 	}
 
 	#titlee {

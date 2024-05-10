@@ -59,6 +59,7 @@ class CreatePost extends HTMLElement {
 		if (!this.shadowRoot.querySelector('#popup')) {
 			const popup = document.createElement('div');
 			popup.innerHTML = `
+
             <div id="popupContent">
 							<div id="titlee">
                 <h2 id="title-c">WRITE A POST</h2>
@@ -75,6 +76,7 @@ class CreatePost extends HTMLElement {
               </div>
             </div>
             <div id="overlay"></div>
+
         `;
 
 			const buttonContainer = popup.querySelector('#button-container');
