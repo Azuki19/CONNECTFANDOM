@@ -66,6 +66,9 @@ class AppEditProfile extends HTMLElement {
 				EditProfileContainer.appendChild(user);
 			});
 
+			const something = this.ownerDocument.createElement('input-profile');
+			EditProfileContainer.appendChild(something);
+
 			const ButtonLogOutContainer = document.createElement('div');
 			ButtonLogOutContainer.id = 'button-log-out-container';
 
