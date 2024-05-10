@@ -35,3 +35,49 @@
 	color: antiquewhite;
 	height: 500px;
 }
+
+@media (max-width: 431px) {
+	.background {
+		background-image: url(https://pbs.twimg.com/media/GKFqLm7XwAAy2fy?format=jpg&name=large);
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.band-gallery-container {
+		width: 500px;
+	}
+	.title {
+		font-size: 28px; /* Ajuste del tamaño de la fuente */
+		color: white;
+		font-family: 'Braah One', sans-serif;
+		text-align: center;
+		margin-top: 20px; /* Ajuste del margen superior */
+	}
+
+	.up {
+		display: flex;
+		flex-direction: column; /* Cambio de dirección a columna para dispositivos móviles */
+		align-items: center; /* Centra los elementos horizontalmente */
+		gap: 20px; /* Ajuste del espacio entre elementos */
+		margin-top: 20px; /* Ajuste del margen superior */
+	}
+
+	#members-container {
+		color: rgb(206, 206, 206);
+		margin-top: 10px;
+		align-items: center;
+		justify-content: center;
+		width: max-content; /* Ajuste de ancho */
+		display: flex;
+		flex-direction: column; /* Cambio de dirección a columna para dispositivos móviles */
+		gap: 20px; /* Ajuste del espacio entre elementos */
+	}
+
+	#info-container {
+		color: antiquewhite;
+		width: 20px;
+		height: 700px;
+		background-color: brown;
+	}
+}
