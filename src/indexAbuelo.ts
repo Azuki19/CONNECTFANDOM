@@ -2,11 +2,6 @@ import './screens/login';
 import './components/indexPadre';
 import './screens/indexPadreScreens';
 import { addObserver, appState } from './store';
-import AppDashboard from './screens/dashboard';
-import AppLogin from './screens/login';
-import { AppAboutTheBand, AppEditProfile, AppEvents, ProfileDashboard } from './screens/indexPadreScreens';
-import { AppArtistDashboard } from './screens/indexPadreScreens';
-
 class AppContainer extends HTMLElement {
 	constructor() {
 		super();
@@ -23,6 +18,11 @@ class AppContainer extends HTMLElement {
 			this.shadowRoot.innerHTML = ``;
 		}
 		switch (appState.screen) {
+			case 'REGISTER':
+				const register = this.ownerDocument.createElement('app-register');
+				this.shadowRoot?.appendChild(register);
+				break;
+
 			case 'LOGIN':
 				const login = this.ownerDocument.createElement('app-login');
 				this.shadowRoot?.appendChild(login);
@@ -52,6 +52,11 @@ class AppContainer extends HTMLElement {
 				const profile = this.ownerDocument.createElement('profile-dashboard');
 				this.shadowRoot?.appendChild(profile);
 				break;
+
+			case 'BANDEVENTS':
+			const bandevents = this.ownerDocument.createElement('app-band-events');
+			this.shadowRoot?.appendChild(bandevents);
+			break;
 
 			default:
 				break;
