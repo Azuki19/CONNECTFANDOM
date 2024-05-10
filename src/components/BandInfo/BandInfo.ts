@@ -46,7 +46,7 @@ class BandInfo extends HTMLElement {
 
     <section class="container">
 			<h1 class='name'>${this.bandname}</h1>
-			<p class='username'>${this.bandinfo}</p>
+			<p class='info'>${this.bandinfo}</p>
     </section>
 
       `;
