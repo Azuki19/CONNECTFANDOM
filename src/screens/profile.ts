@@ -1,4 +1,4 @@
-.import * as components from '../components/indexPadre';
+import * as components from '../components/indexPadre';
 import UserPost, { Attribute } from '../components/UserPost/UserPost';
 import { CreatePost } from '../components/indexPadre';
 import { EditProfile } from '../components/indexPadre';
