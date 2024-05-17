@@ -3,7 +3,10 @@ import MainArtistPost, { Attribute } from '../components/MainArtistPost/MainArti
 import MoreAbout, { MoreAboutAttribute } from '../components/MoreAbout/MoreAbout';
 import style from './artistDashboard.css';
 import MiniProfile, { MiniProfileAttribute } from '../components/miniProfile/miniProfile';
-import { getPosts, getBands } from '../utils/firebase';
+
+import { addObserver, appState, dispatch } from '../store';
+import { getPostsAction } from '../store/action';
+import { getBandsAction } from '../store/action';
 
 class AppArtistDashboard extends HTMLElement {
 	mainartistpost: MainArtistPost[] = [];
@@ -14,13 +17,21 @@ class AppArtistDashboard extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 		this.initializeData();
+		addObserver(this);
+	}
+
+	async connectedCallback() {
+		if (appState.posts.length === 0) {
+			const action = await getPostsAction();
+			dispatch(action);
+			const action2 = await getBandsAction();
+			dispatch(action2);
+		}
 	}
 
 	async initializeData() {
 		try {
-			const [posts, bands] = await Promise.all([getPosts(), getBands()]);
-
-			const UserData = posts.filter((user) => user.type === 'Artist');
+			const UserData = appState.posts.filter((user) => user.type === 'Artist');
 			UserData.forEach((user) => {
 				const UserPostCard = this.ownerDocument.createElement('main-artist-post') as MainArtistPost;
 
@@ -42,7 +53,7 @@ class AppArtistDashboard extends HTMLElement {
 				this.mainartistpost.push(UserPostCard);
 			});
 
-			const miniData = posts.filter((mini) => mini.id === 1);
+			const miniData = appState.posts.filter((mini) => mini.id === 1);
 			miniData.forEach((mini) => {
 				const miniCard = this.ownerDocument.createElement('mini-profile') as MiniProfile;
 
@@ -55,7 +66,7 @@ class AppArtistDashboard extends HTMLElement {
 				this.miniprofile.push(miniCard);
 			});
 
-			const BannerBand = bands.find((band) => band.id === 1);
+			const BannerBand = appState.bands.find((band) => band.id === 1);
 
 			if (BannerBand) {
 				const MoreAboutCard = this.ownerDocument.createElement('more-about') as MoreAbout;
