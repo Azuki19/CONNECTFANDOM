@@ -7,7 +7,6 @@
 	background: linear-gradient(rgb(255, 255, 255), #767676ad);
 	width: 400px;
 	font-family: 'Red Hat Display', sans-serif;
-	margin-left: -30rem;
 }
 
 .infoProfile {
@@ -69,4 +68,17 @@
 .info {
 	color: rgba(0, 0, 0, 0.597);
 	margin-top: 2px;
+}
+
+@media (max-width: 431px) {
+	.Cajon-Profile {
+		border-radius: 55px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(rgb(255, 255, 255), #767676ad);
+		width: 353px;
+		font-family: 'Red Hat Display', sans-serif;
+	}
 }

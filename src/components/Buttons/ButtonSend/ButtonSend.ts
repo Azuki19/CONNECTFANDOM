@@ -1,4 +1,4 @@
-import styles from './ButtonLogOut.css';
+import styles from './ButtonSend.css';
 
 import { dispatch } from '../../../store';
 import { navigate } from '../../../store/action';
@@ -26,7 +26,7 @@ class ButtonSend extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
 				<section class="Button-Send">
-					<button class="Send">LOG OUT</button>
+					<button class="Send">SEND</button>
 				</section>
 			`;
 		}
@@ -35,6 +35,7 @@ class ButtonSend extends HTMLElement {
 		cssLogOut.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssLogOut);
 	}
+  
 	addListeners() {
 		this.shadowRoot.querySelector('.Button-Send')?.addEventListener('click', this.onButtonClicked);
 	}
