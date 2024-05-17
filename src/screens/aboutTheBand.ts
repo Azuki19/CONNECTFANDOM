@@ -1,9 +1,12 @@
 import * as components from '../components/indexPadre';
-import { getPosts, getBands } from '../utils/firebase';
 import { BandGallery } from '../components/indexPadre';
 import { Members } from '../components/indexPadre';
 import { BandInfo } from '../components/indexPadre';
 import style from './aboutTheBand.css';
+
+import { addObserver, appState, dispatch } from '../store';
+import { getPostsAction } from '../store/action';
+import { getBandsAction } from '../store/action';
 
 class AppAboutTheBand extends HTMLElement {
 	bandgallerys: BandGallery[] = [];
@@ -14,13 +17,21 @@ class AppAboutTheBand extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 		this.initializeData();
+		addObserver(this);
+	}
+
+	async connectedCallback() {
+		if (appState.posts.length === 0) {
+			const action = await getPostsAction();
+			dispatch(action);
+			const action2 = await getBandsAction();
+			dispatch(action2);
+		}
 	}
 
 	async initializeData() {
 		try {
-			const [posts, bands] = await Promise.all([getPosts(), getBands()]);
-
-			const PhotosData = bands.filter((band) => band.bandName === 'MY CHEMICAL ROMANCE');
+			const PhotosData = appState.bands.filter((band) => band.bandName === 'MY CHEMICAL ROMANCE');
 			PhotosData.forEach((band) => {
 				const bandGalleryCard = document.createElement('band-gallery') as BandGallery;
 
@@ -35,7 +46,7 @@ class AppAboutTheBand extends HTMLElement {
 				this.bandgallerys.push(bandGalleryCard);
 			});
 
-			const MemberData = posts.filter((artist) => artist.type === 'Artist');
+			const MemberData = appState.posts.filter((artist) => artist.type === 'Artist');
 			MemberData.forEach((artist) => {
 				const MemberCard = document.createElement('members-app') as Members;
 
@@ -45,7 +56,7 @@ class AppAboutTheBand extends HTMLElement {
 				this.members.push(MemberCard);
 			});
 
-			const InfoData = bands.filter((info) => info.bandName === 'MY CHEMICAL ROMANCE');
+			const InfoData = appState.bands.filter((info) => info.bandName === 'MY CHEMICAL ROMANCE');
 			InfoData.forEach((info) => {
 				const InfoCard = document.createElement('band-info') as BandInfo;
 				InfoCard.setAttribute('uid', String(info.id));
