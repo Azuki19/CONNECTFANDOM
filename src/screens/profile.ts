@@ -4,7 +4,9 @@ import { CreatePost } from '../components/indexPadre';
 import { EditProfile } from '../components/indexPadre';
 import style from './profile.css';
 
-import { getPosts, getBands } from '../utils/firebase';
+import { addObserver, appState, dispatch } from '../store';
+import { getPostsAction } from '../store/action';
+import { getBandsAction } from '../store/action';
 
 class ProfileDashboard extends HTMLElement {
 	userpost: UserPost[] = [];
@@ -15,13 +17,21 @@ class ProfileDashboard extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 		this.initializeData();
+		addObserver(this);
+	}
+
+	async connectedCallback() {
+		if (appState.posts.length === 0) {
+			const action = await getPostsAction();
+			dispatch(action);
+			const action2 = await getBandsAction();
+			dispatch(action2);
+		}
 	}
 
 	async initializeData() {
 		try {
-			const [posts] = await Promise.all([getPosts(), getBands()]);
-
-			const UserData = posts.filter((user) => user.id === 1);
+			const UserData = appState.posts.filter((user) => user.id === 1);
 			UserData.forEach((user) => {
 				const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
 
@@ -41,7 +51,7 @@ class ProfileDashboard extends HTMLElement {
 				this.userpost.push(UserPostCard);
 			});
 
-			const EditProfileData = posts.filter((user) => user.id === 1);
+			const EditProfileData = appState.posts.filter((user) => user.id === 1);
 
 			EditProfileData.forEach((user) => {
 				const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
@@ -57,7 +67,7 @@ class ProfileDashboard extends HTMLElement {
 				this.editprofile.push(EditProfileCard);
 			});
 
-			const BannerCreatePost = posts.find((post) => post.id === 1);
+			const BannerCreatePost = appState.posts.find((post) => post.id === 1);
 
 			if (BannerCreatePost) {
 				const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
