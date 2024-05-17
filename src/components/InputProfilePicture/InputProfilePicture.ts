@@ -2,7 +2,7 @@ import styles from './InputProfilePicture.css';
 import { dispatch } from '../../store';
 import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
-import { Screens } from '../../types/trips';
+import { Screens } from '../../types/navigation';
 
 class inputEdit extends HTMLElement {
 	constructor() {
