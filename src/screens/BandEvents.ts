@@ -1,7 +1,10 @@
 import style from './BandEvents.css';
-import { getPosts, getBands } from '../utils/firebase';
 import SlideImage from '../components/Eventss/InfoImage/SlideImage';
 import '../components/indexPadre';
+
+import { addObserver, appState, dispatch } from '../store';
+import { getPostsAction } from '../store/action';
+import { getBandsAction } from '../store/action';
 
 class AppBandEvents extends HTMLElement {
 	slideimage: SlideImage[] = [];
@@ -10,15 +13,24 @@ class AppBandEvents extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 		this.initializeData();
+		addObserver(this);
+	}
+
+	async connectedCallback() {
+		if (appState.posts.length === 0) {
+			const action = await getPostsAction();
+			dispatch(action);
+			const action2 = await getBandsAction();
+			dispatch(action2);
+		}
 	}
 
 	async initializeData() {
 		try {
-			const [bands] = await Promise.all([getPosts(), getBands()]);
+			const eventData = appState.bands.filter((bandaa) => bandaa.bandName === 'MY CHEMICAL ROMANCE');
+			console.log(eventData[0].events);
 
-			const eventDateData = bands.filter((bandaa) => bandaa.bandName === 'MY CHEMICAL ROMANCE');
-
-			eventDateData.forEach((bandaa) => {
+			eventData.forEach((bandaa) => {
 				console.log('Slide Image:', bandaa.events.event1.slideImage);
 				const infoImageCard = document.createElement('slide-image') as SlideImage;
 				infoImageCard.setAttribute('slideimage', bandaa.events.event1.slideImage);
@@ -35,17 +47,13 @@ class AppBandEvents extends HTMLElement {
 		console.log('Rendering AppBandEvents...');
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = ``;
-			const section = document.createElement('section');
-			section.classList.add('info-oooImage');
 
-			const InfoImageContainer = document.createElement('div');
+			const InfoImageContainer = document.createElement('section');
 			InfoImageContainer.classList.add('infoImageContainer');
 
 			this.slideimage.forEach((img) => {
 				InfoImageContainer.appendChild(img);
 			});
-			section.appendChild(InfoImageContainer);
-			this.shadowRoot?.appendChild(section);
 
 			const cssAbuelo = this.ownerDocument.createElement('style');
 			cssAbuelo.innerHTML = style;
