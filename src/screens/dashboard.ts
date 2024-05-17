@@ -4,8 +4,9 @@ import ArtistPost, { ArtistAttribute } from '../components/ArtistPost/ArtistPost
 import MoreAbout, { MoreAboutAttribute } from '../components/MoreAbout/MoreAbout';
 import CreatePost, { CreatePostAttribute } from '../components/CreatePost/CreatePost';
 import style from './dashboard.css';
-
-import { getPosts, getBands } from '../utils/firebase';
+import { addObserver, appState, dispatch } from '../store';
+import { getPostsAction } from '../store/action';
+import { getBandsAction } from '../store/action';
 
 class AppDashboard extends HTMLElement {
 	userpost: UserPost[] = [];
@@ -17,13 +18,23 @@ class AppDashboard extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 		this.initializeData();
+		addObserver(this);
+	}
+
+	async connectedCallback() {
+		if (appState.posts.length === 0) {
+			const action = await getPostsAction();
+			dispatch(action);
+			const action2 = await getBandsAction();
+			dispatch(action2);
+		} else {
+			this.setupScrollHandlers();
+		}
 	}
 
 	async initializeData() {
 		try {
-			const [posts, bands] = await Promise.all([getPosts(), getBands()]);
-
-			const UserData = posts.filter((user) => user.type === 'User');
+			const UserData = appState.posts.filter((user) => user.type === 'User');
 			UserData.forEach((user) => {
 				const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
 				UserPostCard.setAttribute(Attribute.uid, String(user.id));
@@ -41,7 +52,7 @@ class AppDashboard extends HTMLElement {
 				this.userpost.push(UserPostCard);
 			});
 
-			const ArtistData = posts.filter((user) => user.type === 'Artist');
+			const ArtistData = appState.posts.filter((user) => user.type === 'Artist');
 			ArtistData.forEach((artist) => {
 				const ArtistPostCard = this.ownerDocument.createElement('artist-post') as ArtistPost;
 				ArtistPostCard.setAttribute(ArtistAttribute.uid, String(artist.id));
@@ -59,7 +70,7 @@ class AppDashboard extends HTMLElement {
 				this.artistpost.push(ArtistPostCard);
 			});
 
-			const BannerCreatePost = posts.find((post) => post.id === 1);
+			const BannerCreatePost = appState.posts.find((post) => post.id === 1);
 			if (BannerCreatePost) {
 				const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
 				CreatePostCard.setAttribute(CreatePostAttribute.uid, String(BannerCreatePost.id));
@@ -68,7 +79,7 @@ class AppDashboard extends HTMLElement {
 				this.createpost.push(CreatePostCard);
 			}
 
-			const BannerBand = bands.find((band) => band.id === 1);
+			const BannerBand = appState.bands.find((band) => band.id === 1);
 			if (BannerBand) {
 				const MoreAboutCard = this.ownerDocument.createElement('more-about') as MoreAbout;
 				MoreAboutCard.setAttribute(MoreAboutAttribute.uid, String(BannerBand.id));
@@ -83,11 +94,6 @@ class AppDashboard extends HTMLElement {
 		} catch (error) {
 			console.error('Error fetching data from Firebase:', error);
 		}
-	}
-
-	connectedCallback() {
-		this.render();
-		this.setupScrollHandlers();
 	}
 
 	setupScrollHandlers() {
