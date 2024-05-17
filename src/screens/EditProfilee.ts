@@ -1,7 +1,10 @@
 import * as components from '../components/indexPadre';
 import { EditProfile } from '../components/indexPadre';
 import style from './editProfilee.css';
-import { getPosts, getBands } from '../utils/firebase';
+
+import { addObserver, appState, dispatch } from '../store';
+import { getPostsAction } from '../store/action';
+import { getBandsAction } from '../store/action';
 
 class AppEditProfile extends HTMLElement {
 	editprofile: EditProfile[] = [];
@@ -10,13 +13,21 @@ class AppEditProfile extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 		this.initializeData();
+		addObserver(this);
+	}
+
+	async connectedCallback() {
+		if (appState.posts.length === 0) {
+			const action = await getPostsAction();
+			dispatch(action);
+			const action2 = await getBandsAction();
+			dispatch(action2);
+		}
 	}
 
 	async initializeData() {
 		try {
-			const [posts, bands] = await Promise.all([getPosts(), getBands()]);
-
-			const EditProfileData = posts.filter((user) => user.id === 1);
+			const EditProfileData = appState.posts.filter((user) => user.id === 1);
 
 			EditProfileData.forEach((user) => {
 				const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
