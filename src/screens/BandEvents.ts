@@ -3,11 +3,10 @@ import SlideImage from '../components/Eventss/InfoImage/SlideImage';
 import '../components/indexPadre';
 
 import { addObserver, appState, dispatch } from '../store';
-import { getPostsAction } from '../store/action';
 import { getBandsAction } from '../store/action';
 
 class AppBandEvents extends HTMLElement {
-	slideimage: SlideImage[] = [];
+	slideImages: SlideImage[] = [];
 
 	constructor() {
 		super();
@@ -17,25 +16,28 @@ class AppBandEvents extends HTMLElement {
 	}
 
 	async connectedCallback() {
-		if (appState.posts.length === 0) {
-			const action = await getPostsAction();
+		if (appState.bands.length === 0) {
+			const action = await getBandsAction();
 			dispatch(action);
-			const action2 = await getBandsAction();
-			dispatch(action2);
 		}
 	}
 
 	async initializeData() {
 		try {
-			const eventData = appState.bands.filter((bandaa) => bandaa.bandName === 'MY CHEMICAL ROMANCE');
-			console.log(eventData[0].events);
+			const bandData = appState.bands.find((band) => band.bandName === 'MY CHEMICAL ROMANCE');
+			if (bandData && bandData.events) {
+				const { event1, event2, event3 } = bandData.events;
 
-			eventData.forEach((bandaa) => {
-				console.log('Slide Image:', bandaa.events.event1.slideImage);
-				const infoImageCard = document.createElement('slide-image') as SlideImage;
-				infoImageCard.setAttribute('slideimage', bandaa.events.event1.slideImage);
-				this.slideimage.push(infoImageCard);
-			});
+				const eventList = [event1, event2, event3];
+
+				eventList.forEach((event) => {
+					if (event && event.slideImage) {
+						const slideImageElement = document.createElement('slide-image') as SlideImage;
+						slideImageElement.setAttribute('slideimage', event.slideImage);
+						this.slideImages.push(slideImageElement);
+					}
+				});
+			}
 
 			this.render();
 		} catch (error) {
@@ -48,17 +50,17 @@ class AppBandEvents extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = ``;
 
-			const InfoImageContainer = document.createElement('section');
-			InfoImageContainer.classList.add('infoImageContainer');
+			const infoImageContainer = document.createElement('section');
+			infoImageContainer.classList.add('infoImageContainer');
 
-			this.slideimage.forEach((img) => {
-				InfoImageContainer.appendChild(img);
+			this.slideImages.forEach((img) => {
+				infoImageContainer.appendChild(img);
 			});
 
 			const cssAbuelo = this.ownerDocument.createElement('style');
 			cssAbuelo.innerHTML = style;
-			console.log('Adding CSS...');
-			this.shadowRoot?.appendChild(cssAbuelo);
+			this.shadowRoot.appendChild(cssAbuelo);
+			this.shadowRoot.appendChild(infoImageContainer);
 		}
 	}
 }
