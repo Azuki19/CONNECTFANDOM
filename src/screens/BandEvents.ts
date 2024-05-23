@@ -1,6 +1,6 @@
 import style from './BandEvents.css';
 import SlideImage from '../components/Eventss/InfoImage/SlideImage';
-import '../components/indexPadre';
+import * as components from '../components/indexPadre';
 
 import { addObserver, appState, dispatch } from '../store';
 import { getBandsAction } from '../store/action';
@@ -69,6 +69,12 @@ class AppBandEvents extends HTMLElement {
 			const backgroundSection = document.createElement('section');
 			backgroundSection.classList.add('background');
 
+			const mainHeaderContainer = document.createElement('header');
+			mainHeaderContainer.id = 'main-header-container';
+
+			const miniHeaderContainer = document.createElement('div');
+			miniHeaderContainer.id = 'mini-header-container';
+
 			const sliderContainer = document.createElement('section');
 			sliderContainer.classList.add('slider-container');
 
@@ -92,6 +98,8 @@ class AppBandEvents extends HTMLElement {
 			nextButton.classList.add('nav-button', 'next');
 			nextButton.addEventListener('click', () => this.nextSlide());
 
+			backgroundSection.appendChild(mainHeaderContainer);
+			backgroundSection.appendChild(miniHeaderContainer);
 			sliderContainer.appendChild(slideTrack);
 			backgroundSection.appendChild(sliderContainer);
 			backgroundSection.appendChild(prevButton);
@@ -102,6 +110,9 @@ class AppBandEvents extends HTMLElement {
 			const cssAbuelo = this.ownerDocument.createElement('style');
 			cssAbuelo.innerHTML = style;
 			this.shadowRoot.appendChild(cssAbuelo);
+
+			mainHeaderContainer.appendChild(new components.MainHeader());
+			miniHeaderContainer.appendChild(new components.MiniHeader());
 
 			this.updateSlider();
 		}
