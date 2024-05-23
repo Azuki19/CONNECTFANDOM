@@ -7,13 +7,10 @@ class BubblesLogin extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
-		this.onButtonClicked = this.onButtonClicked.bind(this);
-		addObserver(this);
 	}
 
 	connectedCallback() {
 		this.render();
-		this.addListeners();
 	}
 
 	render() {
@@ -45,35 +42,6 @@ class BubblesLogin extends HTMLElement {
 		const cssMainHeader = this.ownerDocument.createElement('style');
 		cssMainHeader.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssMainHeader);
-	}
-
-	addListeners() {
-		// Escuchar eventos de clic en el h1 y los iconos
-		this.shadowRoot.querySelector('#logo-google').addEventListener('click', this.onButtonClicked);
-		this.shadowRoot.querySelector('#logo-apple').addEventListener('click', this.onButtonClicked);
-		this.shadowRoot.querySelector('#logo-facebook').addEventListener('click', this.onButtonClicked);
-		this.shadowRoot.querySelector('#logo-twitter').addEventListener('click', this.onButtonClicked);
-	}
-
-	onButtonClicked(event) {
-		// Determinar el destino en función del elemento clickeado
-		const target = event.target.id;
-		switch (target) {
-			case 'logo-google':
-				dispatch(navigate('DASHBOARD')); // Cambiar a la página de inicio, por ejemplo
-				break;
-			case 'logo-apple':
-				dispatch(navigate('DASHBOARD')); // Cambiar a la página de inicio, por ejemplo
-				break;
-			case 'logo-facebook':
-				dispatch(navigate('DASHBOARD')); // Cambiar a la página de inicio, por ejemplo
-				break;
-			case 'logo-twitter':
-				dispatch(navigate('DASHBOARD')); // Cambiar a la página de inicio, por ejemplo
-				break;
-			default:
-				break;
-		}
 	}
 }
 
