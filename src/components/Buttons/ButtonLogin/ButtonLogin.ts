@@ -3,6 +3,8 @@ import styles from './ButtonLogin.css';
 import { dispatch } from '../../../store';
 import { navigate } from '../../../store/action';
 import { addObserver } from '../../../store';
+import { iniciarSesion } from '../../../utils/firebase';
+import { logindata } from '../../Login/LoginForm.ts/logindata';
 
 class ButtonLogin extends HTMLElement {
 	constructor() {
@@ -27,6 +29,7 @@ class ButtonLogin extends HTMLElement {
 			this.shadowRoot.innerHTML = `
 				<section class="Button-Log-In">
 					<button class="Log-In">LOG IN</button>
+					<p class="error-message" style="display: none; color: red;">Incorrect Email or Password</p>
 				</section>
 			`;
 		}
@@ -37,12 +40,21 @@ class ButtonLogin extends HTMLElement {
 	}
 
 	addListeners() {
-		this.shadowRoot.querySelector('.Button-Log-In')?.addEventListener('click', this.onButtonClicked);
+		this.shadowRoot.querySelector('.Log-In')?.addEventListener('click', this.onButtonClicked);
 	}
 
-	onButtonClicked() {
+	async onButtonClicked() {
 		console.log('holaaa');
-		dispatch(navigate('DASHBOARD'));
+		const respuesta = await iniciarSesion(logindata.username, logindata.password);
+		const errorMessage = this.shadowRoot?.querySelector('.error-message') as HTMLElement;
+
+		if (respuesta === true) {
+			dispatch(navigate('DASHBOARD'));
+		} else {
+			if (errorMessage) {
+				errorMessage.style.display = 'block';
+			}
+		}
 	}
 }
 
