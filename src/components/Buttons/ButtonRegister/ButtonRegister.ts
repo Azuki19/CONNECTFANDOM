@@ -1,8 +1,9 @@
 import styles from './ButtonRegister.css';
-
 import { dispatch } from '../../../store';
 import { navigate } from '../../../store/action';
 import { addObserver } from '../../../store';
+import { registrarUsuario } from '../../../utils/firebase';
+import { registerData } from '../../../utils/registerData';
 
 class ButtonRegister extends HTMLElement {
 	constructor() {
@@ -42,6 +43,7 @@ class ButtonRegister extends HTMLElement {
 
 	onButtonClicked() {
 		console.log('holaaa');
+		registrarUsuario(registerData.name, registerData.username, registerData.email, registerData.password);
 		dispatch(navigate('EDITPROFILE'));
 	}
 }
