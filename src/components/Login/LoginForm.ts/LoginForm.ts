@@ -3,6 +3,7 @@ import * as components from '../../indexPadre';
 import { dispatch } from '../../../store';
 import { navigate } from '../../../store/action';
 import { addObserver } from '../../../store';
+import { logindata } from './logindata';
 
 class LoginForm extends HTMLElement {
 	constructor() {
@@ -53,21 +54,28 @@ class LoginForm extends HTMLElement {
 		const emailLabel = document.createElement('label');
 		emailLabel.setAttribute('for', 'email');
 		emailLabel.id = 'text';
-		emailLabel.textContent = 'Login with your account';
+		emailLabel.textContent = 'Login with your email';
 
 		const emailInput = document.createElement('input');
 		emailInput.type = 'email';
 		emailInput.classList.add('email');
+		emailInput.addEventListener('change', () => {
+			logindata.username = emailInput.value;
+		});
 
 		// Create the password label, input, and button
 		const passwordLabel = document.createElement('label');
-		passwordLabel.setAttribute('for', 'Password');
+		passwordLabel.setAttribute('for', 'password');
 		passwordLabel.id = 'text';
 		passwordLabel.textContent = 'Password';
 
 		const passwordInput = document.createElement('input');
 		passwordInput.type = 'password';
 		passwordInput.id = 'password';
+		passwordInput.addEventListener('change', () => {
+			logindata.password = passwordInput.value;
+		});
+		console.log(logindata);
 
 		// Create the login button
 		const loginButton = document.createElement('section');
