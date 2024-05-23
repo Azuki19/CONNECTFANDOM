@@ -4,6 +4,8 @@ import * as components from '..//indexPadre';
 import { dispatch } from '../../store';
 import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
+import { registrarUsuario } from '../../utils/firebase';
+import { registerData } from '../../utils/registerData';
 
 class RegisterForm extends HTMLElement {
 	constructor() {
@@ -57,6 +59,10 @@ class RegisterForm extends HTMLElement {
 		nameInput.classList.add('name');
 		nameInput.id = 'innnput';
 
+		nameInput.addEventListener('change', () => {
+			registerData.name = nameInput.value;
+		});
+
 		// Create username input
 		const usernameInput = document.createElement('input');
 		usernameInput.type = 'text';
@@ -64,17 +70,30 @@ class RegisterForm extends HTMLElement {
 		usernameInput.classList.add('username');
 		usernameInput.id = 'innnput';
 
+		usernameInput.addEventListener('change', () => {
+			registerData.username = usernameInput.value;
+		});
+
 		const emailInput = document.createElement('input');
 		emailInput.type = 'email';
 		emailInput.placeholder = 'Email';
 		emailInput.classList.add('email');
 		emailInput.id = 'innnput';
 
+		emailInput.addEventListener('change', () => {
+			registerData.email = emailInput.value;
+		});
+
 		const passwordInput = document.createElement('input');
 		passwordInput.type = 'password';
 		passwordInput.placeholder = 'Password';
 		passwordInput.id = 'password';
 		passwordInput.id = 'innnput';
+
+		passwordInput.addEventListener('change', () => {
+			registerData.password = passwordInput.value;
+			console.log(registerData);
+		});
 
 		// Create the login button
 		const loginButton = document.createElement('section');
@@ -125,6 +144,15 @@ class RegisterForm extends HTMLElement {
 	}
 	addListeners() {
 		this.shadowRoot.querySelector('#sign-in-text')?.addEventListener('click', this.onButtonClicked);
+		this.shadowRoot.querySelector('.Button-Register')?.addEventListener('click', async () => {
+			// const userId = await registrarUsuario(
+			// 	nameInput.value,
+			// 	UsernameInput.value,
+			// 	emailInput.value,
+			// 	passwordInput.value
+			// );
+			//alert(`Usuario registrado con id: ${userId}`);
+		});
 	}
 
 	onButtonClicked() {
