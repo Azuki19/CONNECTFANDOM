@@ -13,11 +13,7 @@ class SlideImage extends HTMLElement {
 
 	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
 		if (newValue !== null) {
-			switch (propName) {
-				default:
-					this[propName] = newValue;
-					break;
-			}
+			this[propName] = newValue;
 		}
 		this.render();
 	}
@@ -36,10 +32,11 @@ class SlideImage extends HTMLElement {
             <img class='EventImg' src="${this.slideimage}" alt=""/>
 					</section>
 				`;
+
+			const cssImage = this.ownerDocument.createElement('style');
+			cssImage.innerHTML = styles;
+			this.shadowRoot.appendChild(cssImage);
 		}
-		const cssImage = this.ownerDocument.createElement('style');
-		cssImage.innerHTML = styles;
-		this.shadowRoot?.appendChild(cssImage);
 	}
 }
 
