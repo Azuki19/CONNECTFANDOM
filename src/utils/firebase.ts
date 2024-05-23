@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { addDoc, collection, doc, getDocs, getFirestore, setDoc } from 'firebase/firestore';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { addDoc, collection, doc, getDocs, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -14,6 +15,26 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 const songDocuments = collection(db, 'bands');
+const auth = getAuth(app);
+
+export const iniciarSesion = async (username: string, password: string) => {
+	let authUser: any = '';
+
+	const respuesta = await signInWithEmailAndPassword(auth, username, password)
+		.then((userCredential) => {
+			// Signed in
+			authUser = userCredential.user;
+			console.log(authUser);
+			return true
+		})
+		.catch((error) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			console.log(error)
+		});
+
+		return respuesta
+};
 
 export const getPosts = async () => {
 	const querySnapshot = await getDocs(collection(db, 'MyChemicalRomanceData'));
@@ -31,3 +52,6 @@ export const getBands = async () => {
 	});
 	return bandsdata;
 };
+function signInWithUsernameAndPassword(auth: any, username: string, password: string) {
+	throw new Error('Function not implemented.');
+}
