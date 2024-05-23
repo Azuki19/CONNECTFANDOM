@@ -1,46 +1,49 @@
-.slider {
-	position: relative;
-	width: 100%;
-	max-width: 1000px;
-	margin: auto;
-	overflow: hidden;
+.background {
+	background-image: url(https://pbs.twimg.com/media/GNHKSQgWIAAfz4V?format=jpg&name=large);
+	background-attachment: fixed; /* Fondo fijo */
+	background-repeat: no-repeat; /* No repetir */
+	background-size: cover; /* Ajustar el tamaño del fondo */
 }
 
-.slides {
+.slider-container {
+	overflow: hidden;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+}
+
+.slide-track {
 	display: flex;
-	transition: transform 0.5s ease-in-out;
+	transition: transform 0.5s ease;
 }
 
 .slide {
 	min-width: 100%;
 	box-sizing: border-box;
-	display: none;
-}
-
-.slide.active {
-	display: block;
-}
-
-.controls {
-	position: absolute;
-	width: 100%;
-	top: 50%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+}
+
+.nav-button {
+	height: 50px;
+	width: 50px;
+	font-size: 25px;
+	border-radius: 50%;
+	position: absolute;
+	top: 30%;
 	transform: translateY(-50%);
-}
-
-.prev,
-.next {
-	cursor: pointer;
 	background-color: rgba(0, 0, 0, 0.5);
-	border: none;
 	color: white;
-	font-size: 2em;
-	padding: 0.5em;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	z-index: 1;
 }
 
-.prev:hover,
-.next:hover {
-	background-color: rgba(0, 0, 0, 0.8);
+.prev {
+	left: 320px;
+}
+
+.next {
+	right: 320px;
 }

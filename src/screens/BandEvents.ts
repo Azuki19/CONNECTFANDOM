@@ -7,6 +7,7 @@ import { getBandsAction } from '../store/action';
 
 class AppBandEvents extends HTMLElement {
 	slideImages: SlideImage[] = [];
+	currentIndex: number = 0;
 
 	constructor() {
 		super();
@@ -45,22 +46,64 @@ class AppBandEvents extends HTMLElement {
 		}
 	}
 
+	nextSlide() {
+		this.currentIndex = (this.currentIndex + 1) % this.slideImages.length;
+		this.updateSlider();
+	}
+
+	prevSlide() {
+		this.currentIndex = (this.currentIndex - 1 + this.slideImages.length) % this.slideImages.length;
+		this.updateSlider();
+	}
+
+	updateSlider() {
+		const slideTrack = this.shadowRoot?.querySelector('.slide-track') as HTMLElement;
+		slideTrack.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+	}
+
 	render() {
 		console.log('Rendering AppBandEvents...');
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = ``;
 
-			const infoImageContainer = document.createElement('section');
-			infoImageContainer.classList.add('infoImageContainer');
+			const backgroundSection = document.createElement('section');
+			backgroundSection.classList.add('background');
+
+			const sliderContainer = document.createElement('section');
+			sliderContainer.classList.add('slider-container');
+
+			const slideTrack = document.createElement('div');
+			slideTrack.classList.add('slide-track');
 
 			this.slideImages.forEach((img) => {
-				infoImageContainer.appendChild(img);
+				const slide = document.createElement('div');
+				slide.classList.add('slide');
+				slide.appendChild(img);
+				slideTrack.appendChild(slide);
 			});
+
+			const prevButton = document.createElement('button');
+			prevButton.textContent = '<';
+			prevButton.classList.add('nav-button', 'prev');
+			prevButton.addEventListener('click', () => this.prevSlide());
+
+			const nextButton = document.createElement('button');
+			nextButton.textContent = '>';
+			nextButton.classList.add('nav-button', 'next');
+			nextButton.addEventListener('click', () => this.nextSlide());
+
+			sliderContainer.appendChild(slideTrack);
+			backgroundSection.appendChild(sliderContainer);
+			backgroundSection.appendChild(prevButton);
+			backgroundSection.appendChild(nextButton);
+
+			this.shadowRoot.appendChild(backgroundSection);
 
 			const cssAbuelo = this.ownerDocument.createElement('style');
 			cssAbuelo.innerHTML = style;
 			this.shadowRoot.appendChild(cssAbuelo);
-			this.shadowRoot.appendChild(infoImageContainer);
+
+			this.updateSlider();
 		}
 	}
 }
