@@ -1,3 +1,46 @@
-/* * {
-	background-color: aquamarine;
-} */
+.slider {
+	position: relative;
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slides {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+	min-width: 100%;
+	box-sizing: border-box;
+	display: none;
+}
+
+.slide.active {
+	display: block;
+}
+
+.controls {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	display: flex;
+	justify-content: space-between;
+	transform: translateY(-50%);
+}
+
+.prev,
+.next {
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: none;
+	color: white;
+	font-size: 2em;
+	padding: 0.5em;
+}
+
+.prev:hover,
+.next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
