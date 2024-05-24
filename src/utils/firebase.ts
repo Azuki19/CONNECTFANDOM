@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc, collection, doc, getDocs, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -25,17 +26,64 @@ export const iniciarSesion = async (username: string, password: string) => {
 			// Signed in
 			authUser = userCredential.user;
 			console.log(authUser);
-			return true
+			return true;
 		})
 		.catch((error) => {
 			const errorCode = error.code;
 			const errorMessage = error.message;
-			console.log(error)
+			console.log(error);
 		});
 
-		return respuesta
+	return respuesta;
 };
 
+//Funciones para Registrarme y loguearme
+export const registrarUsuario = async (Name: string, Username: string, email: string, password: string) => {
+	await createUserWithEmailAndPassword(auth, email, password)
+		.then(async (userCredential) => {
+			// Signed up
+			const userCredentials = userCredential.user.uid;
+
+			console.log(userCredentials);
+
+			const docRef = await addDoc(collection(db, 'users'), {
+				Name: Name,
+				Username: Username,
+				email: email,
+				password: password,
+				authCredentials: userCredentials,
+			});
+			//console.log("Document written with ID: ", docRef.id);
+			await updateDoc(docRef, {
+				firebaseID: docRef.id,
+			});
+
+			return docRef.id;
+		})
+		.catch((error) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			alert(errorMessage);
+			// ..
+		});
+};
+
+//Funciones para loguearme y registrarme
+
+export const createUser = (email: string, password: string) => {
+	createUserWithEmailAndPassword(auth, email, password)
+		.then((userCredential) => {
+			const user = userCredential.user;
+			console.log(user);
+		})
+		.catch((error: any) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			console.log(errorCode, errorMessage);
+		});
+};
+
+//Funciones para agregar y obtener posts
 export const getPosts = async () => {
 	const querySnapshot = await getDocs(collection(db, 'MyChemicalRomanceData'));
 	const postdata: Array<any> = [];
