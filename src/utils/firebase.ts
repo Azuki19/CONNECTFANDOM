@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
-
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { addDoc, collection, doc, getDocs, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, getDocs, getFirestore, updateDoc, query, where } from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -15,7 +14,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
-const songDocuments = collection(db, 'bands');
 const auth = getAuth(app);
 
 export const iniciarSesion = async (username: string, password: string) => {
@@ -32,14 +30,15 @@ export const iniciarSesion = async (username: string, password: string) => {
 			const errorCode = error.code;
 			const errorMessage = error.message;
 			console.log(error);
+			return false; // Añadir retorno false en caso de error
 		});
 
 	return respuesta;
 };
 
-//Funciones para Registrarme y loguearme
+// Funciones para Registrarme y loguearme
 export const registrarUsuario = async (Name: string, Username: string, email: string, password: string) => {
-	await createUserWithEmailAndPassword(auth, email, password)
+	const respuesta = await createUserWithEmailAndPassword(auth, email, password)
 		.then(async (userCredential) => {
 			// Signed up
 			const userCredentials = userCredential.user.uid;
@@ -58,18 +57,33 @@ export const registrarUsuario = async (Name: string, Username: string, email: st
 				firebaseID: docRef.id,
 			});
 
-			return docRef.id;
+			return true; // Devolver true si el registro fue exitoso
 		})
 		.catch((error) => {
 			const errorCode = error.code;
 			const errorMessage = error.message;
 			alert(errorMessage);
-			// ..
+			return false; // Devolver false en caso de error
 		});
+
+	return respuesta;
 };
 
-//Funciones para loguearme y registrarme
+export async function checkUsernameExists(username: string) {
+	// Lógica para verificar si el nombre de usuario ya existe
+	const q = query(collection(db, 'users'), where('Username', '==', username));
+	const querySnapshot = await getDocs(q);
+	return !querySnapshot.empty;
+}
 
+export async function checkEmailExists(email: string) {
+	// Lógica para verificar si el correo electrónico ya existe
+	const q = query(collection(db, 'users'), where('email', '==', email));
+	const querySnapshot = await getDocs(q);
+	return !querySnapshot.empty;
+}
+
+// Funciones para loguearme y registrarme
 export const createUser = (email: string, password: string) => {
 	createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
@@ -83,7 +97,7 @@ export const createUser = (email: string, password: string) => {
 		});
 };
 
-//Funciones para agregar y obtener posts
+// Funciones para agregar y obtener posts
 export const getPosts = async () => {
 	const querySnapshot = await getDocs(collection(db, 'MyChemicalRomanceData'));
 	const postdata: Array<any> = [];
@@ -92,6 +106,7 @@ export const getPosts = async () => {
 	});
 	return postdata;
 };
+
 export const getBands = async () => {
 	const querySnapshot = await getDocs(collection(db, 'bandsdata'));
 	const bandsdata: Array<any> = [];
@@ -100,6 +115,3 @@ export const getBands = async () => {
 	});
 	return bandsdata;
 };
-function signInWithUsernameAndPassword(auth: any, username: string, password: string) {
-	throw new Error('Function not implemented.');
-}
