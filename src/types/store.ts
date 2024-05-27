@@ -4,6 +4,7 @@ export type AppState = {
 	screen: string;
 	posts: any[];
 	bands: any[];
+	users: userType;
 };
 
 export enum ScreenActions {
@@ -12,3 +13,9 @@ export enum ScreenActions {
 }
 
 export type Actions = ScreenActions;
+
+interface userType {
+	name: string;
+	username: string;
+	email: string;
+}

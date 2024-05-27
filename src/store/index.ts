@@ -5,6 +5,12 @@ import { Screens } from '../types/navigation';
 
 const emptyState = {
 	screen: Screens.LOGIN,
+	user: {},
+	userdata: {
+		Name: '',
+		Username: '',
+		email: '',
+	},
 	posts: [],
 	bands: [],
 };

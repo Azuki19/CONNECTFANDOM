@@ -7,6 +7,7 @@ import style from './profile.css';
 import { addObserver, appState, dispatch } from '../store';
 import { getPostsAction } from '../store/action';
 import { getBandsAction } from '../store/action';
+import { getUserDataAction } from '../store/action';
 
 class ProfileDashboard extends HTMLElement {
 	userpost: UserPost[] = [];
@@ -21,11 +22,11 @@ class ProfileDashboard extends HTMLElement {
 	}
 
 	async connectedCallback() {
-		if (appState.posts.length === 0) {
-			const action = await getPostsAction();
+		if (appState.userdata.Name === '' || Object.keys(appState.userdata).length === 0) {
+			const action = await getUserDataAction(String(appState.user));
 			dispatch(action);
-			const action2 = await getBandsAction();
-			dispatch(action2);
+		} else {
+			this.render();
 		}
 	}
 

@@ -23,3 +23,5 @@ export { default as BubblesLogin } from './BubblesLogin/BubblesLogin';
 export { default as ButtonRegister } from './Buttons/ButtonRegister/ButtonRegister';
 export { default as SlideImage } from './Eventss/InfoImage/SlideImage';
 export { default as ButtonSend } from './Buttons/ButtonSend/ButtonSend';
+export { default as ButtonUsername } from './Buttons/BUTTONSINPUT/ButtonUsername/ButtonUsername';
+export { default as ButtonInfo } from './Buttons/BUTTONSINPUT/ButtonInfo/ButtonInfo';

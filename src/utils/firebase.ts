@@ -1,6 +1,17 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { addDoc, collection, getDocs, getFirestore, updateDoc, query, where } from 'firebase/firestore';
+import {
+	addDoc,
+	collection,
+	getDocs,
+	getFirestore,
+	updateDoc,
+	query,
+	where,
+	doc,
+	setDoc,
+	getDoc,
+} from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -69,6 +80,40 @@ export const registrarUsuario = async (Name: string, Username: string, email: st
 	return respuesta;
 };
 
+export const ViewUser = (Username: string, Name: string, email: string, password: string) => {
+	createUserWithEmailAndPassword(auth, email, password)
+		.then(async (userCredential) => {
+			const firebaseUser = userCredential.user;
+			console.log(firebaseUser.uid);
+
+			try {
+				const userDocRef = doc(db, 'users', firebaseUser.uid);
+				const data = {
+					Name: Name,
+					Username: Username,
+					email: email,
+					password: password,
+				};
+				await setDoc(userDocRef, data);
+				alert('Se creó el usuario');
+			} catch (error) {
+				console.error('Error writing document: ', error);
+			}
+		})
+		.catch((error) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			console.error(errorCode, errorMessage);
+		});
+};
+
+export const getUserByid = async (id: string) => {
+  const docRef  = doc(db, "users", id)
+  const docsnap = await getDoc(docRef)
+  return docsnap.data()
+}
+
+
 export async function checkUsernameExists(username: string) {
 	// Lógica para verificar si el nombre de usuario ya existe
 	const q = query(collection(db, 'users'), where('Username', '==', username));
@@ -114,4 +159,17 @@ export const getBands = async () => {
 		bandsdata.push(doc.data());
 	});
 	return bandsdata;
+};
+export const getData = async () => {
+  try {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      console.log("Hola")
+      console.log(data);
+
+    });
+  } catch (error) {
+    console.error("Error getting documents: ", error);
+  }
 };

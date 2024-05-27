@@ -11,6 +11,13 @@ class ButtonLogOut extends HTMLElement {
 
 		this.onButtonClicked = this.onButtonClicked.bind(this);
 		addObserver(this);
+
+		this.logout() {
+			indexedDB.deleteDatabase('firebase-heartbeat-database');
+			indexedDB.deleteDatabase('firebaseLocalStorageDb');
+			window.location.reload();
+		}
+
 	}
 
 	connectedCallback() {
@@ -25,11 +32,18 @@ class ButtonLogOut extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-				<section class="Button-Log-Out">
-					<button class="Log-Out">LOG OUT</button>
-				</section>
 			`;
 		}
+		const section = document.createElement('section');
+		section.classList.add('Button-Log-Out');
+
+		const logoutBtn = document.createElement('button');
+		logoutBtn.classList.add('Log-Out');
+		logoutBtn.textContent = 'LOG OUT';
+		logoutBtn.addEventListener('click', this.logout);
+
+		section.appendChild(logoutBtn);
+		this.shadowRoot?.appendChild(section);
 
 		const cssLogOut = this.ownerDocument.createElement('style');
 		cssLogOut.innerHTML = styles;
@@ -42,6 +56,12 @@ class ButtonLogOut extends HTMLElement {
 	onButtonClicked() {
 		console.log('holaaa');
 		dispatch(navigate('LOGIN'));
+	}
+
+	logout() {
+		indexedDB.deleteDatabase('firebase-heartbeat-database');
+		indexedDB.deleteDatabase('firebaseLocalStorageDb');
+		window.location.reload();
 	}
 }
 

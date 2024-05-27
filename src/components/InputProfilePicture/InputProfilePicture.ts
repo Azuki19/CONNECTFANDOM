@@ -3,6 +3,7 @@ import { dispatch } from '../../store';
 import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
 import { Screens } from '../../types/navigation';
+import * as components from '../indexPadre';
 
 class inputEdit extends HTMLElement {
 	constructor() {
@@ -32,6 +33,40 @@ class inputEdit extends HTMLElement {
 			const inputsDiv = document.createElement('div');
 			inputsDiv.id = 'inputs';
 
+			const UsernameSection = document.createElement('section');
+			UsernameSection.classList.add('username-section');
+
+			const InputUsernameSection = document.createElement('section');
+			InputUsernameSection.classList.add('input-username-section');
+
+			const userLabel = document.createElement('label');
+			userLabel.textContent = 'UserName';
+
+			const userInput = document.createElement('input');
+			userInput.type = 'text';
+			userInput.id = 'user';
+
+			const UsernameButton = document.createElement('section');
+			UsernameButton.classList.add('button-username');
+			UsernameButton.appendChild(new components.ButtonUsername());
+
+			const InfoSection = document.createElement('section');
+			InfoSection.classList.add('info-section');
+
+			const InputInfoSection = document.createElement('section');
+			InputInfoSection.classList.add('input-info-section');
+
+			const InfoLabel = document.createElement('label');
+			InfoLabel.textContent = 'Info';
+
+			const InfoInput = document.createElement('input');
+			InfoInput.type = 'text';
+			InfoInput.id = 'info';
+
+			const InfoButton = document.createElement('section');
+			InfoButton.classList.add('button-info');
+			InfoButton.appendChild(new components.ButtonInfo());
+
 			// Create the email label and input
 			const emailLabel = document.createElement('label');
 			emailLabel.setAttribute('for', 'email');
@@ -50,20 +85,6 @@ class inputEdit extends HTMLElement {
 			passwordInput.type = 'password';
 			passwordInput.id = 'password';
 
-			const userLabel = document.createElement('label');
-			userLabel.textContent = 'UserName';
-
-			const userInput = document.createElement('input');
-			userInput.type = 'text';
-			userInput.id = 'user';
-
-			const ageLabel = document.createElement('label');
-			ageLabel.textContent = 'Info';
-
-			const InfoInput = document.createElement('input');
-			InfoInput.type = 'text';
-			InfoInput.id = 'Info';
-
 			const NameLabel = document.createElement('label');
 			NameLabel.textContent = 'Name';
 
@@ -78,31 +99,22 @@ class inputEdit extends HTMLElement {
 			ProfilePictureInput.type = 'text';
 			ProfilePictureInput.id = 'ProfilePicture';
 
-			// Create the login button
-			const createButton = document.createElement('button');
-			createButton.classList.add('button');
-			createButton.textContent = 'Delete';
-
-			// Agregar evento de clic al botón de "crear cuenta"
-			createButton.addEventListener('click', this.handleCreatButton);
-			console.log('Se hizo clic en el botón de "crear cuenta"');
-
-			const deleteButton = document.createElement('button');
-			deleteButton.classList.add('button');
-			deleteButton.textContent = 'Edit';
-
-			// Agregar evento de clic al botón de "crear cuenta"
-			deleteButton.addEventListener('click', this.handleCreatButton);
-			console.log('Se hizo clic en el botón de "crear cuenta"');
-
 			// Add the general div to the document body
 			document.body.appendChild(general);
 			this.shadowRoot.appendChild(general);
 
-			inputsDiv.appendChild(userLabel);
-			inputsDiv.appendChild(userInput);
-			inputsDiv.appendChild(ageLabel);
-			inputsDiv.appendChild(InfoInput);
+			InputUsernameSection.appendChild(userLabel);
+			InputUsernameSection.appendChild(userInput);
+			UsernameSection.appendChild(InputUsernameSection);
+			UsernameSection.appendChild(UsernameButton);
+			general.appendChild(UsernameSection);
+
+			InputInfoSection.appendChild(InfoLabel);
+			InputInfoSection.appendChild(InfoInput);
+			InfoSection.appendChild(InputInfoSection);
+			InfoSection.appendChild(InfoButton);
+			general.appendChild(InfoSection);
+
 			inputsDiv.appendChild(NameLabel);
 			inputsDiv.appendChild(NameInput);
 			inputsDiv.appendChild(ProfilePictureLabel);
@@ -111,8 +123,6 @@ class inputEdit extends HTMLElement {
 			inputsDiv.appendChild(emailInput);
 			inputsDiv.appendChild(passwordLabel);
 			inputsDiv.appendChild(passwordInput);
-			inputsDiv.appendChild(createButton);
-			inputsDiv.appendChild(deleteButton);
 			general.appendChild(inputsDiv);
 		}
 

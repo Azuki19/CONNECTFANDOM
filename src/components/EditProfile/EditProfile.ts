@@ -1,7 +1,9 @@
 import styles from './EditProfile.css';
-import { dispatch } from '../../store';
+import { appState, dispatch } from '../../store';
 import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
+
+import * as components from '..//indexPadre';
 
 export enum EditProfileAttribute {
 	'uid' = 'uid',
@@ -72,15 +74,26 @@ class EditProfile extends HTMLElement {
               <p class='username'>@${this.username}</p>
 							<p class='followers'><strong class='strong'>${this.followers} </strong>followers</p>
 							<p class='info'>${this.info}</p>
+							<p class='info'>${appState.userdata}</p>
             </div>
           </div>
+
+					<div>
+						<section id='section-button-logout' class='section-button-logout'></section>
+					</div>
 
 					</section>
 				`;
 		}
+
+		console.log('aaaaaaaaaaaaaaaaaaa', appState.userdata);
+
 		const cssProfile = this.ownerDocument.createElement('style');
 		cssProfile.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssProfile);
+
+		const sectionButtonLogout = this.shadowRoot.getElementById('section-button-logout');
+		sectionButtonLogout.appendChild(new components.ButtonLogOut());
 	}
 	addListeners() {
 		this.shadowRoot.querySelector('.imgProfile')?.addEventListener('click', this.onButtonClicked);
