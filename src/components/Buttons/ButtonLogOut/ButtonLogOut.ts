@@ -12,12 +12,11 @@ class ButtonLogOut extends HTMLElement {
 		this.onButtonClicked = this.onButtonClicked.bind(this);
 		addObserver(this);
 
-		this.logout() {
+		this.logout = () => {
 			indexedDB.deleteDatabase('firebase-heartbeat-database');
 			indexedDB.deleteDatabase('firebaseLocalStorageDb');
 			window.location.reload();
-		}
-
+		};
 	}
 
 	connectedCallback() {

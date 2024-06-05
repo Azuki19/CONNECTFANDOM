@@ -15,11 +15,11 @@ const emptyState = {
 	bands: [],
 };
 
-export let appState = Storage.get<AppState>({
-	key: PersistanceKeys.STORE,
-	defaultValue: emptyState,
-});
-
+// export let appState = Storage.get<AppState>({
+// 	key: PersistanceKeys.STORE,
+// 	defaultValue: emptyState,
+// });
+export let appState = emptyState;
 let observers: Observer[] = [];
 
 const persistStore = (state: AppState) => Storage.set({ key: PersistanceKeys.STORE, value: state });
