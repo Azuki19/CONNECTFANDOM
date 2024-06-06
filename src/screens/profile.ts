@@ -21,17 +21,15 @@ class ProfileDashboard extends HTMLElement {
 		addObserver(this);
 	}
 
-
-
-	// ERROR ???????? nose
-	async connectedCallback() {
-		if (appState.user.name === '' || Object.keys(appState.user).length === 0) {
-			const action = await getUserDataAction(String(appState.user));
-			dispatch(action);
-		} else {
-			this.render();
-		}
-	}
+	// // ERROR ???????? nose
+	// async connectedCallback() {
+	// 	if (appState.user.name === '' || Object.keys(appState.user).length === 0) {
+	// 		const action = await getUserDataAction(String(appState.user));
+	// 		dispatch(action);
+	// 	} else {
+	// 		this.render();
+	// 	}
+	// }
 
 	async initializeData() {
 		try {

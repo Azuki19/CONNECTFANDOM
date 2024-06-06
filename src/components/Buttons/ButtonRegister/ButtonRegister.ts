@@ -100,23 +100,24 @@ class ButtonRegister extends HTMLElement {
 			return;
 		}
 
-		// Register the user
-		const respuesta = await registrarUsuario(
-			registerData.name,
-			registerData.username,
-			registerData.email,
-			registerData.password
-		);
-		if (respuesta) {
-			dispatch(navigate(Screens.EDITPROFILE));
-		} else {
-			if (errorMessage) {
+
+			const userData = await registrarUsuario(
+				registerData.name,
+				registerData.username,
+				registerData.email,
+				registerData.password
+			);
+			if (userData) {
+				dispatch({
+					action: 'SET_USER',
+					payload: userData,
+				});
+				dispatch(navigate(Screens.EDITPROFILE));
+			} else {
+				const errorMessage = this.shadowRoot?.querySelector('.error-message') as HTMLElement;
 				errorMessage.textContent = 'There was an error, please try again.';
 				errorMessage.style.display = 'block';
-			}
-		}
-	}
-}
+			}}}
 
 customElements.define('button-register', ButtonRegister);
 export default ButtonRegister;

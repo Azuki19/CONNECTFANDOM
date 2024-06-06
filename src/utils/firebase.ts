@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import {
 	addDoc,
 	collection,
@@ -26,42 +26,30 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 const auth = getAuth(app);
 
 export const iniciarSesion = async (username: string, password: string) => {
-	let authUser: any = '';
-
-	const respuesta = await signInWithEmailAndPassword(auth, username, password)
-		.then((userCredential) => {
-			// Signed in
-			authUser = userCredential.user;
-			console.log(authUser);
-			return true;
-		})
-		.catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			console.log(error);
-			return false; // Añadir retorno false en caso de error
-		});
-
-	return respuesta;
+	try {
+		const userCredential = await signInWithEmailAndPassword(auth, username, password);
+		const authUser = userCredential.user;
+		const userData = await getUserByUid(authUser.uid);
+		console.log(userData);
+		return userData;
+	} catch (error) {
+		console.error('Error during sign-in:', error);
+		return false;
+	}
 };
 
-// Funciones para Registrarme y loguearme
-export const registrarUsuario = async (Name: string, Username: string, email: string, password: string) => {
-	const respuesta = await createUserWithEmailAndPassword(auth, email, password);
-
-	const userCredentials = respuesta.user.uid;
-
-	console.log(userCredentials);
-
+export const registrarUsuario = async (name: string, username: string, email: string, password: string) => {
 	try {
+		const respuesta = await createUserWithEmailAndPassword(auth, email, password);
+		const userCredentials = respuesta.user.uid;
+
 		const docRef = await addDoc(collection(db, 'users'), {
-			Name: Name,
-			Username: Username,
+			name: name,
+			username: username,
 			email: email,
 			password: password,
 			authCredentials: userCredentials,
@@ -70,41 +58,37 @@ export const registrarUsuario = async (Name: string, Username: string, email: st
 		await updateDoc(docRef, {
 			firebaseID: docRef.id,
 		});
+
+		const userData = await getUserByUid(userCredentials);
+		console.log(userData);
+		return userData;
 	} catch (error) {
-		const errorMessage = error.message;
-		alert(errorMessage);
+		console.error('Error during registration:', error);
 		return false;
 	}
-
-	return respuesta;
 };
 
+export const getUserByUid = async (uid: string) => {
+	const q = query(collection(db, 'users'), where('authCredentials', '==', uid));
+	const querySnapshot = await getDocs(q);
+	if (!querySnapshot.empty) {
+		const userData = querySnapshot.docs[0].data() as userType;
+		console.log('Fetched user data:', userData); // Verifica los datos obtenidos
+		return userData;
+	}
+	return null;
+};
 
-
-//llama el usaurio logeado
-export const getUserByid = async (id: string) => {
-	//forma 1 con authcredential
-	const q = query(collection(db, 'users'));
-	const allUsers: userType[] = [];
-
-	/*onSnapshot(q, (querySnapshot) => {
-		querySnapshot.forEach((doc) => {
-			allUsers.push({
-				name: doc.data().Name,
-				username: doc.data().Username,
-				email: doc.data().email,
-				password: doc.data().password,
-				firebaseID: doc.data().firebaseID,
-				authCredentials: doc.data().authCredentials,
-			});
-		});
-	});*/
-
-	const user = allUsers.find((user) => user.authCredentials === id);
-
-	console.log(user);
-
-	return user;
+export const setupAuthListener = (callback: (user: userType | null) => void) => {
+	onAuthStateChanged(auth, async (user) => {
+		if (user) {
+			const userData = await getUserByUid(user.uid);
+			console.log('User data from Firebase:', userData); // Verifica los datos obtenidos
+			callback(userData);
+		} else {
+			callback(null);
+		}
+	});
 };
 
 export async function checkUsernameExists(username: string) {

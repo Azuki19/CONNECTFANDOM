@@ -21,4 +21,7 @@ export interface userType {
 	password: string;
 	authCredentials: string;
 	firebaseID: string;
+	info: string;
+	image: string;
+	type: string;
 }

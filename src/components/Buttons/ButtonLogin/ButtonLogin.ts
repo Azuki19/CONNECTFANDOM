@@ -60,15 +60,18 @@ class ButtonLogin extends HTMLElement {
 			return;
 		}
 
-		const respuesta = await iniciarSesion(logindata.username, logindata.password);
+		const userData = await iniciarSesion(logindata.username, logindata.password);
 
-		if (respuesta === true) {
+		if (userData) {
+			dispatch({
+				action: 'SET_USER',
+				payload: userData,
+			});
 			dispatch(navigate('DASHBOARD'));
 		} else {
-			if (errorMessage) {
-				errorMessage.textContent = 'Incorrect Email or Password.';
-				errorMessage.style.display = 'block';
-			}
+			const errorMessage = this.shadowRoot?.querySelector('.error-message') as HTMLElement;
+			errorMessage.textContent = 'Incorrect Email or Password.';
+			errorMessage.style.display = 'block';
 		}
 	}
 }

@@ -2,8 +2,7 @@ import styles from './EditProfile.css';
 import { appState, dispatch } from '../../store';
 import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
-
-import * as components from '..//indexPadre';
+import * as components from '../indexPadre';
 
 export enum EditProfileAttribute {
 	'uid' = 'uid',
@@ -46,6 +45,7 @@ class EditProfile extends HTMLElement {
 		}
 		this.render();
 	}
+
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
@@ -66,35 +66,32 @@ class EditProfile extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-        <section class='Cajon-Profile'>
-          <div class='Edit-profile'>
-            <img class='imgProfile' src="${this.image}" alt="">
-            <div class='infoProfile'>
-              <h1 class='name'>${this.name}</h1>
-              <p class='username'>@${this.username}</p>
-							<p class='followers'><strong class='strong'>${this.followers} </strong>followers</p>
-							<p class='info'>${this.info}</p>
-							<p class='info'>${appState.user.email}</p>
-            </div>
-          </div>
+            <section class='Cajon-Profile'>
+                <div class='Edit-profile'>
+                    <img class='imgProfile' src="${appState.user.image}" alt="">
+                    <div class='infoProfile'>
+                        <h1 class='name'>${appState.user.name || 'nofunciono'}</h1>
+                        <p class='username'>@${appState.user.username || 'nofunciono'}</p>
+                        <p class='followers'><strong class='strong'>${this.followers} </strong>followers</p>
+                        <p class='info'>${appState.user.info}</p>
+                        <p class='email'>${appState.user.email}</p>
+                    </div>
+                </div>
+                <div>
+                    <section id='section-button-logout' class='section-button-logout'></section>
+                </div>
+            </section>
+        `;
 
-					<div>
-						<section id='section-button-logout' class='section-button-logout'></section>
-					</div>
+			const cssProfile = this.ownerDocument.createElement('style');
+			cssProfile.innerHTML = styles;
+			this.shadowRoot?.appendChild(cssProfile);
 
-					</section>
-				`;
+			const sectionButtonLogout = this.shadowRoot.getElementById('section-button-logout');
+			sectionButtonLogout.appendChild(new components.ButtonLogOut());
 		}
-
-		console.log('aaaaaaaaaaaaaaaaaaa', appState.user.email);
-
-		const cssProfile = this.ownerDocument.createElement('style');
-		cssProfile.innerHTML = styles;
-		this.shadowRoot?.appendChild(cssProfile);
-
-		const sectionButtonLogout = this.shadowRoot.getElementById('section-button-logout');
-		sectionButtonLogout.appendChild(new components.ButtonLogOut());
 	}
+
 	addListeners() {
 		this.shadowRoot.querySelector('.imgProfile')?.addEventListener('click', this.onButtonClicked);
 	}
@@ -104,5 +101,6 @@ class EditProfile extends HTMLElement {
 		dispatch(navigate('PROFILE'));
 	}
 }
+
 customElements.define('edit-profile', EditProfile);
 export default EditProfile;

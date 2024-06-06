@@ -158,7 +158,7 @@ class RegisterForm extends HTMLElement {
 
 	onButtonClicked() {
 		console.log('holaaa');
-		
+
 		dispatch(navigate(Screens.LOGIN));
 	}
 }
