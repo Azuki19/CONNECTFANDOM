@@ -11,7 +11,10 @@ import {
 	doc,
 	setDoc,
 	getDoc,
+	onSnapshot,
 } from 'firebase/firestore';
+import { emptyState } from '../store';
+import { userType } from '../types/store';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -49,70 +52,60 @@ export const iniciarSesion = async (username: string, password: string) => {
 
 // Funciones para Registrarme y loguearme
 export const registrarUsuario = async (Name: string, Username: string, email: string, password: string) => {
-	const respuesta = await createUserWithEmailAndPassword(auth, email, password)
-		.then(async (userCredential) => {
-			// Signed up
-			const userCredentials = userCredential.user.uid;
+	const respuesta = await createUserWithEmailAndPassword(auth, email, password);
 
-			console.log(userCredentials);
+	const userCredentials = respuesta.user.uid;
 
-			const docRef = await addDoc(collection(db, 'users'), {
-				Name: Name,
-				Username: Username,
-				email: email,
-				password: password,
-				authCredentials: userCredentials,
-			});
-			//console.log("Document written with ID: ", docRef.id);
-			await updateDoc(docRef, {
-				firebaseID: docRef.id,
-			});
+	console.log(userCredentials);
 
-			return true; // Devolver true si el registro fue exitoso
-		})
-		.catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			alert(errorMessage);
-			return false; // Devolver false en caso de error
+	try {
+		const docRef = await addDoc(collection(db, 'users'), {
+			Name: Name,
+			Username: Username,
+			email: email,
+			password: password,
+			authCredentials: userCredentials,
 		});
+
+		await updateDoc(docRef, {
+			firebaseID: docRef.id,
+		});
+	} catch (error) {
+		const errorMessage = error.message;
+		alert(errorMessage);
+		return false;
+	}
 
 	return respuesta;
 };
 
-export const ViewUser = (Username: string, Name: string, email: string, password: string) => {
-	createUserWithEmailAndPassword(auth, email, password)
-		.then(async (userCredential) => {
-			const firebaseUser = userCredential.user;
-			console.log(firebaseUser.uid);
 
-			try {
-				const userDocRef = doc(db, 'users', firebaseUser.uid);
-				const data = {
-					Name: Name,
-					Username: Username,
-					email: email,
-					password: password,
-				};
-				await setDoc(userDocRef, data);
-				alert('Se creó el usuario');
-			} catch (error) {
-				console.error('Error writing document: ', error);
-			}
-		})
-		.catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			console.error(errorCode, errorMessage);
-		});
-};
 
+//llama el usaurio logeado
 export const getUserByid = async (id: string) => {
-  const docRef  = doc(db, "users", id)
-  const docsnap = await getDoc(docRef)
-  return docsnap.data()
-}
+	//forma 1 con authcredential
+	const q = query(collection(db, 'users'));
+	const allUsers: userType[] = [];
 
+	/*onSnapshot(q, (querySnapshot) => {
+		querySnapshot.forEach((doc) => {
+			allUsers.push({
+				name: doc.data().Name,
+				username: doc.data().Username,
+				email: doc.data().email,
+				password: doc.data().password,
+				firebaseID: doc.data().firebaseID,
+				authCredentials: doc.data().authCredentials,
+			});
+		});
+	});*/
+
+	const user = allUsers.find((user) => user.authCredentials === id);
+
+	console.log(user);
+
+	return user;
+};
 
 export async function checkUsernameExists(username: string) {
 	// Lógica para verificar si el nombre de usuario ya existe
@@ -127,20 +120,6 @@ export async function checkEmailExists(email: string) {
 	const querySnapshot = await getDocs(q);
 	return !querySnapshot.empty;
 }
-
-// Funciones para loguearme y registrarme
-export const createUser = (email: string, password: string) => {
-	createUserWithEmailAndPassword(auth, email, password)
-		.then((userCredential) => {
-			const user = userCredential.user;
-			console.log(user);
-		})
-		.catch((error: any) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			console.log(errorCode, errorMessage);
-		});
-};
 
 // Funciones para agregar y obtener posts
 export const getPosts = async () => {
@@ -161,15 +140,14 @@ export const getBands = async () => {
 	return bandsdata;
 };
 export const getData = async () => {
-  try {
-    const querySnapshot = await getDocs(collection(db, "users"));
-    querySnapshot.forEach((doc) => {
-      const data = doc.data();
-      console.log("Hola")
-      console.log(data);
-
-    });
-  } catch (error) {
-    console.error("Error getting documents: ", error);
-  }
+	try {
+		const querySnapshot = await getDocs(collection(db, 'users'));
+		querySnapshot.forEach((doc) => {
+			const data = doc.data();
+			console.log('Hola');
+			console.log(data);
+		});
+	} catch (error) {
+		console.error('Error getting documents: ', error);
+	}
 };

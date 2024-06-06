@@ -21,8 +21,11 @@ class ProfileDashboard extends HTMLElement {
 		addObserver(this);
 	}
 
+
+
+	// ERROR ???????? nose
 	async connectedCallback() {
-		if (appState.userdata.Name === '' || Object.keys(appState.userdata).length === 0) {
+		if (appState.user.name === '' || Object.keys(appState.user).length === 0) {
 			const action = await getUserDataAction(String(appState.user));
 			dispatch(action);
 		} else {
@@ -143,9 +146,6 @@ class ProfileDashboard extends HTMLElement {
 
 			const ButtonSettings = this.shadowRoot.getElementById('button-settings-section');
 			ButtonSettings.appendChild(new components.ButtonSettings());
-
-			const ButtonLogOut = this.shadowRoot.getElementById('button-logout-section');
-			ButtonLogOut.appendChild(new components.ButtonLogOut());
 
 			const secondPart = this.shadowRoot.getElementById('second-part');
 

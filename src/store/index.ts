@@ -3,23 +3,25 @@ import { Actions, AppState, Observer } from '../types/store';
 import { reducer } from './reducer';
 import { Screens } from '../types/navigation';
 
-const emptyState = {
+export const emptyState: AppState = {
 	screen: Screens.LOGIN,
-	user: {},
-	userdata: {
-		Name: '',
-		Username: '',
+	user: {
+		name: '',
+		username: '',
 		email: '',
+		password: '',
+		authCredentials: '',
+		firebaseID: '',
 	},
 	posts: [],
 	bands: [],
 };
 
-// export let appState = Storage.get<AppState>({
-// 	key: PersistanceKeys.STORE,
-// 	defaultValue: emptyState,
-// });
-export let appState = emptyState;
+export let appState = Storage.get<AppState>({
+	key: PersistanceKeys.STORE,
+	defaultValue: emptyState,
+});
+
 let observers: Observer[] = [];
 
 const persistStore = (state: AppState) => Storage.set({ key: PersistanceKeys.STORE, value: state });

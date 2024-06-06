@@ -74,7 +74,7 @@ class EditProfile extends HTMLElement {
               <p class='username'>@${this.username}</p>
 							<p class='followers'><strong class='strong'>${this.followers} </strong>followers</p>
 							<p class='info'>${this.info}</p>
-							<p class='info'>${appState.userdata}</p>
+							<p class='info'>${appState.user.email}</p>
             </div>
           </div>
 
@@ -86,7 +86,7 @@ class EditProfile extends HTMLElement {
 				`;
 		}
 
-		console.log('aaaaaaaaaaaaaaaaaaa', appState.userdata);
+		console.log('aaaaaaaaaaaaaaaaaaa', appState.user.email);
 
 		const cssProfile = this.ownerDocument.createElement('style');
 		cssProfile.innerHTML = styles;

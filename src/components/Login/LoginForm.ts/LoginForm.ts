@@ -4,6 +4,7 @@ import { dispatch } from '../../../store';
 import { navigate } from '../../../store/action';
 import { addObserver } from '../../../store';
 import { logindata } from './logindata';
+import { Screens } from '../../../types/navigation';
 
 class LoginForm extends HTMLElement {
 	constructor() {
@@ -161,7 +162,7 @@ class LoginForm extends HTMLElement {
 
 	onButtonClicked() {
 		console.log('holaaa');
-		dispatch(navigate('REGISTER'));
+		dispatch(navigate(Screens.REGISTER));
 	}
 }
 

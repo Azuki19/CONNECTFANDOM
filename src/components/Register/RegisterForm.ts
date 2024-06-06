@@ -6,6 +6,7 @@ import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
 import { registrarUsuario } from '../../utils/firebase';
 import { registerData } from '../../utils/registerData';
+import { Screens } from '../../types/navigation';
 
 class RegisterForm extends HTMLElement {
 	constructor() {
@@ -157,7 +158,8 @@ class RegisterForm extends HTMLElement {
 
 	onButtonClicked() {
 		console.log('holaaa');
-		dispatch(navigate('LOGIN'));
+		
+		dispatch(navigate(Screens.LOGIN));
 	}
 }
 

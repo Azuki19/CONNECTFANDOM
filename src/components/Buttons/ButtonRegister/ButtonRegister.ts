@@ -4,6 +4,7 @@ import { navigate } from '../../../store/action';
 import { addObserver } from '../../../store';
 import { registrarUsuario, checkUsernameExists, checkEmailExists } from '../../../utils/firebase';
 import { registerData } from '../../../utils/registerData';
+import { Screens } from '../../../types/navigation';
 
 class ButtonRegister extends HTMLElement {
 	constructor() {
@@ -107,7 +108,7 @@ class ButtonRegister extends HTMLElement {
 			registerData.password
 		);
 		if (respuesta) {
-			dispatch(navigate('EDITPROFILE'));
+			dispatch(navigate(Screens.EDITPROFILE));
 		} else {
 			if (errorMessage) {
 				errorMessage.textContent = 'There was an error, please try again.';
