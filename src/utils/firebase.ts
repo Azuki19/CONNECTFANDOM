@@ -1,19 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import {
-	addDoc,
-	collection,
-	getDocs,
-	getFirestore,
-	updateDoc,
-	query,
-	where,
-	doc,
-	setDoc,
-	getDoc,
-	onSnapshot,
-} from 'firebase/firestore';
-import { emptyState } from '../store';
+import { collection, getDocs, getFirestore, query, where, doc, setDoc, updateDoc } from 'firebase/firestore';
 import { userType } from '../types/store';
 
 const firebaseConfig = {
@@ -47,24 +34,30 @@ export const registrarUsuario = async (name: string, username: string, email: st
 		const respuesta = await createUserWithEmailAndPassword(auth, email, password);
 		const userCredentials = respuesta.user.uid;
 
-		const docRef = await addDoc(collection(db, 'users'), {
-			name: name,
-			username: username,
-			email: email,
-			password: password,
+		const userData = {
+			name,
+			username,
+			email,
+			password,
 			authCredentials: userCredentials,
+			info: '',
+			image: '',
+			type: '',
+		};
+
+		const userRef = doc(db, 'users', userCredentials); // Obtener referencia del documento
+		await setDoc(userRef, userData); // Establecer datos iniciales
+
+		// Agregar firebaseID después de la creación del documento
+		await updateDoc(userRef, {
+			firebaseID: userCredentials,
 		});
 
-		await updateDoc(docRef, {
-			firebaseID: docRef.id,
-		});
-
-		const userData = await getUserByUid(userCredentials);
-		console.log(userData);
+		console.log('User registered with data:', userData); // Verifica los datos almacenados
 		return userData;
 	} catch (error) {
 		console.error('Error during registration:', error);
-		return false;
+		return null;
 	}
 };
 
@@ -76,6 +69,7 @@ export const getUserByUid = async (uid: string) => {
 		console.log('Fetched user data:', userData); // Verifica los datos obtenidos
 		return userData;
 	}
+	console.log('No user data found for UID:', uid);
 	return null;
 };
 
@@ -105,6 +99,37 @@ export async function checkEmailExists(email: string) {
 	return !querySnapshot.empty;
 }
 
+// export const actualizarDatosUsuarioConImagen = async (
+// 	name: string,
+// 	username: string,
+// 	email: string,
+// 	password: string,
+// 	authCredentials: string,
+// 	firebaseID: '',
+// 	info: string,
+// 	image: string,
+// 	type: string,
+// 	followers: string
+// ) => {
+// 	console.log('actualizarDatosUsuarioConImagen');
+// 	const userRef = doc(db, 'users', appState.user);
+
+// 	const imageURL = await subirImagen(img);
+
+// 	await updateDoc(userRef, {
+// 		name: name,
+// 		username: username,
+// 		email: email,
+// 		password: password,
+// 		authCredentials: authCredentials,
+// 		firebaseID: firebaseID,
+// 		info: info,
+// 		image: image,
+// 		type: type,
+// 		followers: followers,
+// 	});
+// };
+
 // Funciones para agregar y obtener posts
 export const getPosts = async () => {
 	const querySnapshot = await getDocs(collection(db, 'MyChemicalRomanceData'));
@@ -123,6 +148,7 @@ export const getBands = async () => {
 	});
 	return bandsdata;
 };
+
 export const getData = async () => {
 	try {
 		const querySnapshot = await getDocs(collection(db, 'users'));
@@ -132,6 +158,6 @@ export const getData = async () => {
 			console.log(data);
 		});
 	} catch (error) {
-		console.error('Error getting documents: ', error);
+		console.error('Error getting documents:', error);
 	}
 };
