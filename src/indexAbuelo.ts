@@ -58,6 +58,11 @@ class AppContainer extends HTMLElement {
 				this.shadowRoot?.appendChild(bandevents);
 				break;
 
+			case 'BANDASINICIO':
+				const bandasinicio = this.ownerDocument.createElement('app-main-dashboard');
+				this.shadowRoot?.appendChild(bandasinicio);
+				break;
+
 			default:
 				break;
 		}

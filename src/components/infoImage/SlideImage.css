@@ -1,0 +1,60 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.EventImg {
+	height: 500px;
+	width: auto;
+	border-radius: 50px;
+}
+
+.one {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px;
+}
+
+.infocomponent {
+	background-color: rgb(255, 255, 234);
+	display: flex;
+	flex-direction: row;
+	width: 1000px;
+	border-radius: 20px;
+}
+h6 {
+	margin: 0;
+	font-family: 'Braah One', sans-serif;
+	font-size: 30px;
+}
+
+img {
+	width: 500px;
+	border-radius: 20px;
+}
+
+.two {
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	margin: 20px;
+}
+
+h2 {
+	margin-top: 40px;
+	font-family: 'Braah One', sans-serif;
+	font-size: 30px;
+	color: #ac084d;
+}
+
+p {
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 18px;
+	margin-top: 5px;
+	font-style: medium;
+}

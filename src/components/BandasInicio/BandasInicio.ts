@@ -81,5 +81,5 @@ class BandasInicio extends HTMLElement {
 	}
 }
 
-customElements.define('banda-info', BandasInicio);
+customElements.define('banda-inicio', BandasInicio);
 export default BandasInicio;
