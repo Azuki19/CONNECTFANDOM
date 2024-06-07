@@ -200,6 +200,7 @@
 // customElements.define('create-post', CreatePost);
 // export default CreatePost;
 
+//AQUI EMPIEZA EL NUEVO QUE SI FUNCIONA
 import styles from './CreatePost.css';
 import { dispatch } from '../../store';
 import { getPostsAction, navigate } from '../../store/action';
