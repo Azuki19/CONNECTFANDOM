@@ -383,15 +383,15 @@ class CreatePost extends HTMLElement {
 		this.shadowRoot.querySelector('#button-container')?.addEventListener('click', this.onButtonClicked);
 	}
 
-	onButtonClicked = async (form: any) => {
+	onButtonClicked = async (formpost: any) => {
 		try {
 			const auth = getAuth();
 			const user = auth.currentUser;
 			if (user) {
-				form.userId = user.uid; // Añadir el UID del usuario autenticado
+				formpost.userId = user.uid; // Añadir el UID del usuario autenticado
 			}
-			console.log('Adding post...', form);
-			await addPost(form); // Espera a que se agregue el post
+			console.log('Adding post...', formpost);
+			await addPost(formpost); // Espera a que se agregue el post
 			const action = await getPostsAction(); // Obtiene los posts actualizados
 			dispatch(action); // Despacha la acción para actualizar el estado con los posts
 			dispatch(navigate('DASHBOARD')); // Navega al dashboard
