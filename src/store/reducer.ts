@@ -1,4 +1,5 @@
 export const reducer = (currentAction: any, currentState: any) => {
+	console.log(currentAction);
 	const { action, payload } = currentAction;
 
 	switch (action) {
@@ -19,6 +20,14 @@ export const reducer = (currentAction: any, currentState: any) => {
 			break;
 
 		case 'SET_USER':
+			currentState.user = payload;
+			break;
+
+		case 'EDITPROFILE':
+			currentState.editprofile = payload;
+			break;
+
+		case 'GETUSERDATA':
 			currentState.user = payload;
 			break;
 	}
