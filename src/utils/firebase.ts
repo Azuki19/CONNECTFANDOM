@@ -117,9 +117,13 @@ export const setupAuthListener = (callback: (user: userType | null) => void) => 
 	});
 };
 // Nueva función para agregar posts
-export const addPost = async (post: Omit<PostAdd, 'id'>) => {
+export const addPost = async (post: Omit<PostAdd, 'id'> & { userId: string }) => {
 	try {
-		const docRef = await addDoc(collection(db, 'posts'), post);
+		const postWithUserId = {
+			...post,
+			userId: post.userId,
+		};
+		const docRef = await addDoc(collection(db, 'posts'), postWithUserId);
 		console.log('Post added with ID: ', docRef.id);
 		return docRef.id;
 	} catch (e) {
