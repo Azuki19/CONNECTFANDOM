@@ -83,7 +83,7 @@ class BandasInicio extends HTMLElement {
 
 	onButtonClicked() {
 		console.log('holaaa');
-		dispatch(navigate('DASHBOARD'));
+		dispatch(navigate(''));
 	}
 }
 

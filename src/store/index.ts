@@ -8,8 +8,8 @@ import { navigate } from './action';
 setupAuthListener((user) => {
 	if (user) {
 		const userData = {
-			name: user.name || 'nofunciono',
-			username: user.username || 'nofunciono',
+			name: user.name || '',
+			username: user.username || '',
 			email: user.email || '',
 			password: '', // Esto probablemente no debe ser almacenado directamente
 			authCredentials: user.authCredentials || '',
