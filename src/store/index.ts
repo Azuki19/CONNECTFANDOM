@@ -45,6 +45,14 @@ export const emptyState: AppState = {
 	},
 	posts: [],
 	bands: [],
+	editprofile: {
+		NameInput: '',
+		userInput: '',
+		emailInput: '',
+		ProfilePictureInput: '',
+		passwordInput: '',
+		InfoInput: '',
+	},
 };
 
 export let appState = Storage.get<AppState>({

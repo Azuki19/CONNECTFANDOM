@@ -5,6 +5,14 @@ export type AppState = {
 	posts: any[];
 	bands: any[];
 	user: userType;
+	editprofile: {
+		NameInput: string;
+		userInput: string;
+		emailInput: string;
+		ProfilePictureInput: string;
+		passwordInput: string;
+		InfoInput: string;
+	};
 };
 
 export enum ScreenActions {
@@ -25,4 +33,13 @@ export interface userType {
 	image: string;
 	type: string;
 	followers: string;
+}
+
+export interface editprofileinputs {
+	NameInput: string;
+	userInput: string;
+	emailInput: string;
+	ProfilePictureInput: string;
+	passwordInput: string;
+	InfoInput: string;
 }

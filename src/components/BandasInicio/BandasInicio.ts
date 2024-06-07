@@ -1,5 +1,5 @@
 import styles from './BandasInicio.css';
-import { dispatch } from '../../store';
+import { appState, dispatch } from '../../store';
 import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
 
@@ -33,10 +33,12 @@ class BandasInicio extends HTMLElement {
 		}
 		this.render();
 	}
-
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
+
+		this.onButtonClicked = this.onButtonClicked.bind(this);
+		addObserver(this);
 	}
 
 	connectedCallback() {
@@ -54,7 +56,6 @@ class BandasInicio extends HTMLElement {
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Braah+One&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-
             <section class='bandComponent' id='bandComponent'>
                 <img class='bandImg' src="${this.bandimage}"></img>
                 <div class='textContainer'>
@@ -65,7 +66,7 @@ class BandasInicio extends HTMLElement {
                     </div>
                 </div>
             </section>
-            `;
+        `;
 
 			const cssMoreAbout = this.ownerDocument.createElement('style');
 			cssMoreAbout.innerHTML = styles;
@@ -74,10 +75,12 @@ class BandasInicio extends HTMLElement {
 	}
 
 	addListeners() {
-		this.shadowRoot.querySelector('.bandComponent')?.addEventListener('click', () => {
-			console.log('holaaa');
-			dispatch(navigate('ABOUTTHEBAND'));
-		});
+		this.shadowRoot.querySelector('.bandcomponent')?.addEventListener('click', this.onButtonClicked);
+	}
+
+	onButtonClicked() {
+		console.log('holaaa');
+		dispatch(navigate('DASHBOARD'));
 	}
 }
 

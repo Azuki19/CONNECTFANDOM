@@ -28,3 +28,4 @@ export { default as ButtonProfilePicture } from './Buttons/BUTTONSINPUT/ButtonPr
 export { default as ButtonEmail } from './Buttons/BUTTONSINPUT/ButtonEmail/ButtonEmail';
 export { default as ButtonPassword } from './Buttons/BUTTONSINPUT/ButtonPassword/ButtonPassword';
 export { default as BandasInicio } from './BandasInicio/BandasInicio';
+export { default as MainMainHeader } from './MainHeader/MainMainHeader';
