@@ -1,7 +1,8 @@
 import styles from './CreatePost.css';
 import { dispatch } from '../../store';
-import { navigate } from '../../store/action';
+import { getPostsAction, navigate } from '../../store/action';
 import { addObserver } from '../../store';
+import { addPost } from '../../utils/firebase';
 
 export enum CreatePostAttribute {
 	'uid' = 'uid',
@@ -58,46 +59,89 @@ class CreatePost extends HTMLElement {
 	handleClick = () => {
 		if (!this.shadowRoot.querySelector('#popup')) {
 			const popup = document.createElement('div');
-			popup.innerHTML = `
-
-            <div id="popupContent">
-							<div id="titlee">
-                <h2 id="title-c">WRITE A POST</h2>
-							</div>
-							<div id="MCR">
-							<h3 id="MCRtext"> My Chemical Romance</h3>
-							</div>
-							<div id="downpop">
-                <input type="text" placeholder="Title" id="postTitle" /> <!-- Input para el título del post -->
-                <input type="text" placeholder="Share your thoughts on Connect Fandom!" id="postInput" />
-                <input type="text" placeholder="Image URL" id="postURL" /> <!-- Input para etiquetas -->
-                <div id="close">X</div>
-                <section id="button-container"></section>
-              </div>
-            </div>
-            <div id="overlay"></div>
-
-        `;
-
-			const buttonContainer = popup.querySelector('#button-container');
-			const sendButton = document.createElement('button');
-			sendButton.textContent = 'Send';
-			sendButton.addEventListener('click', this.onButtonClicked);
-			buttonContainer?.appendChild(sendButton);
-
 			popup.id = 'popup';
-			this.shadowRoot.appendChild(popup);
 
-			const closeButton = this.shadowRoot.querySelector('#close');
+			const popupContent = document.createElement('div');
+			popupContent.id = 'popupContent';
+
+			const titleContainer = document.createElement('div');
+			titleContainer.id = 'titlee';
+			const title = document.createElement('h2');
+			title.id = 'title-c';
+			title.textContent = 'WRITE A POST';
+			titleContainer.appendChild(title);
+
+			const mcrContainer = document.createElement('div');
+			mcrContainer.id = 'MCR';
+			const mcrText = document.createElement('h3');
+			mcrText.id = 'MCRtext';
+			mcrText.textContent = 'My Chemical Romance';
+			mcrContainer.appendChild(mcrText);
+
+			const downpop = document.createElement('div');
+			downpop.id = 'downpop';
+
+			// Crear los inputs
+			const postTitleInput = document.createElement('input');
+			postTitleInput.type = 'text';
+			postTitleInput.placeholder = 'Title';
+			postTitleInput.id = 'postTitle';
+
+			const postInput = document.createElement('input');
+			postInput.type = 'text';
+			postInput.placeholder = 'Share your thoughts on Connect Fandom!';
+			postInput.id = 'postInput';
+
+			const postURLInput = document.createElement('input');
+			postURLInput.type = 'text';
+			postURLInput.placeholder = 'Image URL';
+			postURLInput.id = 'postURL';
+
+			// Añadir los inputs al contenedor
+			downpop.appendChild(postTitleInput);
+			downpop.appendChild(postInput);
+			downpop.appendChild(postURLInput);
+
+			const closeButton = document.createElement('div');
+			closeButton.id = 'close';
+			closeButton.textContent = 'X';
 			closeButton.addEventListener('click', (event) => {
 				event.stopPropagation();
 				this.shadowRoot.removeChild(popup);
 			});
 
-			const overlay = this.shadowRoot.querySelector('#overlay');
+			const buttonContainer = document.createElement('section');
+			buttonContainer.id = 'button-container';
+
+			downpop.appendChild(closeButton);
+			downpop.appendChild(buttonContainer);
+
+			popupContent.appendChild(titleContainer);
+			popupContent.appendChild(mcrContainer);
+			popupContent.appendChild(downpop);
+
+			const overlay = document.createElement('div');
+			overlay.id = 'overlay';
 			overlay.addEventListener('click', () => {
 				this.shadowRoot.removeChild(popup);
 			});
+
+			popup.appendChild(popupContent);
+			popup.appendChild(overlay);
+
+			this.shadowRoot.appendChild(popup);
+
+			const sendButton = document.createElement('button');
+			sendButton.textContent = 'Send';
+			sendButton.addEventListener('click', () => {
+				const form = {
+					title: postTitleInput.value,
+					content: postInput.value,
+					imageUrl: postURLInput.value,
+				};
+				this.onButtonClicked(form);
+			});
+			buttonContainer.appendChild(sendButton);
 		}
 	};
 
@@ -112,7 +156,6 @@ class CreatePost extends HTMLElement {
                         padding: 20px;
                         cursor: pointer;
                     }
-
                 </style>
                 <section>
                     <div>
@@ -135,11 +178,24 @@ class CreatePost extends HTMLElement {
 		this.shadowRoot.querySelector('#button-container')?.addEventListener('click', this.onButtonClicked);
 	}
 
-	onButtonClicked() {
-		console.log('holaaa');
-		dispatch(navigate('DASHBOARD'));
-	}
-}
+	// 	onButtonClicked(form: any) {
+	// 		console.log('holaaa');
+	// 		dispatch(addPost(form));
+	// 		dispatch(navigate('DASHBOARD'));
+	// 	}
+	// }
 
+	onButtonClicked = async (form: any) => {
+		try {
+			console.log('Adding post...');
+			await addPost(form); // Espera a que se agregue el post
+			const action = await getPostsAction(); // Obtiene los posts actualizados
+			dispatch(action); // Despacha la acción para actualizar el estado con los posts
+			dispatch(navigate('DASHBOARD')); // Navega al dashboard
+		} catch (error) {
+			console.error('Error adding post:', error);
+		}
+	};
+}
 customElements.define('create-post', CreatePost);
 export default CreatePost;
