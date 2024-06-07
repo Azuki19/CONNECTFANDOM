@@ -15,174 +15,85 @@ class inputEdit extends HTMLElement {
 		this.render();
 	}
 
-	handleCreatButton() {
-		dispatch(navigate(Screens.DASHBOARD));
-	}
-
-	handlelogButton() {
-		dispatch(navigate(Screens.LOGIN));
-	}
-
 	render() {
 		if (this.shadowRoot) {
-			this.shadowRoot.innerHTML = ` `;
+			this.shadowRoot.innerHTML = `
+                <style>${styles}</style>
+                <div id="general">
+                    <div id="inputs">
+                        <section class="username-section">
+                            <section class="input-username-section">
+                                <label for="user">UserName</label>
+                                <input type="text" id="user" value="${appState.editprofile.userInput || ''}">
+                            </section>
+                            <section class="button-username">
+                                <button-username></button-username>
+                            </section>
+                        </section>
 
-			// Create the general div
-			const general = document.createElement('div');
-			general.id = 'general';
+                        <section class="name-section">
+                            <section class="input-name-section">
+                                <label for="Name">Name</label>
+                                <input type="text" id="Name" value="${appState.editprofile.NameInput || ''}">
+                            </section>
+                            <section class="button-name">
+                                <button-name></button-name>
+                            </section>
+                        </section>
 
-			// Create the inputs div
-			const inputsDiv = document.createElement('div');
-			inputsDiv.id = 'inputs';
+                        <section class="info-section">
+                            <section class="input-info-section">
+                                <label for="info">Info</label>
+                                <input type="text" id="info" value="${appState.editprofile.InfoInput || ''}">
+                            </section>
+                            <section class="button-info">
+                                <button-info></button-info>
+                            </section>
+                        </section>
 
-			const UsernameSection = document.createElement('section');
-			UsernameSection.classList.add('username-section');
+                        <section class="profile-picture-section">
+                            <section class="input-profile-picture-section">
+                                <label for="ProfilePicture">ProfilePicture</label>
+                                <input type="file" id="ProfilePicture">
+                            </section>
+                            <section class="button-profile-picture">
+                                <button-profile-picture></button-profile-picture>
+                            </section>
+                        </section>
 
-			const InputUsernameSection = document.createElement('section');
-			InputUsernameSection.classList.add('input-username-section');
+                        <section class="email-section">
+                            <section class="input-email-section">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" value="${appState.editprofile.emailInput || ''}">
+                            </section>
+                            <section class="button-email">
+                                <button-email></button-email>
+                            </section>
+                        </section>
 
-			const userLabel = document.createElement('label');
-			userLabel.textContent = 'UserName';
+                        <section class="password-section">
+                            <section class="input-password-section">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" value="${
+																	appState.editprofile.passwordInput || ''
+																}">
+                            </section>
+                            <section class="button-password">
+                                <button-password></button-password>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+            `;
 
-			const userInput = document.createElement('input');
-			userInput.type = 'text';
-			userInput.id = 'user';
-			userInput.value = appState.editprofile.userInput;
+			const userInput = this.shadowRoot.querySelector('#user') as HTMLInputElement;
+			const NameInput = this.shadowRoot.querySelector('#Name') as HTMLInputElement;
+			const InfoInput = this.shadowRoot.querySelector('#info') as HTMLInputElement;
+			const ProfilePictureInput = this.shadowRoot.querySelector('#ProfilePicture') as HTMLInputElement;
+			const emailInput = this.shadowRoot.querySelector('#email') as HTMLInputElement;
+			const passwordInput = this.shadowRoot.querySelector('#password') as HTMLInputElement;
 
-			const UsernameButton = document.createElement('section');
-			UsernameButton.classList.add('button-username');
-			UsernameButton.appendChild(new components.ButtonUsername());
-
-			const NameSection = document.createElement('section');
-			NameSection.classList.add('name-section');
-
-			const InputNameSection = document.createElement('section');
-			InputNameSection.classList.add('input-name-section');
-
-			const NameLabel = document.createElement('label');
-			NameLabel.textContent = 'Name';
-
-			const NameInput = document.createElement('input');
-			NameInput.type = 'text';
-			NameInput.id = 'Name';
-			NameInput.value = appState.editprofile.NameInput;
-
-			const NameButton = document.createElement('section');
-			NameButton.classList.add('button-name');
-			NameButton.appendChild(new components.ButtonName());
-
-			const InfoSection = document.createElement('section');
-			InfoSection.classList.add('info-section');
-
-			const InputInfoSection = document.createElement('section');
-			InputInfoSection.classList.add('input-info-section');
-
-			const InfoLabel = document.createElement('label');
-			InfoLabel.textContent = 'Info';
-
-			const InfoInput = document.createElement('input');
-			InfoInput.type = 'text';
-			InfoInput.id = 'info';
-
-			const InfoButton = document.createElement('section');
-			InfoButton.classList.add('button-info');
-			InfoButton.appendChild(new components.ButtonInfo());
-
-			const ProfilePictureSection = document.createElement('section');
-			ProfilePictureSection.classList.add('profile-picture-section');
-
-			const InputProfilePictureSection = document.createElement('section');
-			InputProfilePictureSection.classList.add('input-profile-picture-section');
-
-			const ProfilePictureLabel = document.createElement('label');
-			ProfilePictureLabel.textContent = 'ProfilePicture';
-
-			const ProfilePictureInput = document.createElement('input');
-			ProfilePictureInput.type = 'text';
-			ProfilePictureInput.id = 'ProfilePicture';
-
-			const ProfilePictureButton = document.createElement('section');
-			ProfilePictureButton.classList.add('button-info');
-			ProfilePictureButton.appendChild(new components.ButtonProfilePicture());
-
-			const emailSection = document.createElement('section');
-			emailSection.classList.add('email-section');
-
-			const InputEmailSection = document.createElement('section');
-			InputEmailSection.classList.add('input-email-section');
-
-			const emailLabel = document.createElement('label');
-			emailLabel.setAttribute('for', 'email');
-			emailLabel.textContent = 'Email address ';
-
-			const emailInput = document.createElement('input');
-			emailInput.type = 'email';
-			emailInput.classList.add('email');
-
-			const EmailButton = document.createElement('section');
-			EmailButton.classList.add('button-email');
-			EmailButton.appendChild(new components.ButtonEmail());
-
-			const passwordSection = document.createElement('section');
-			passwordSection.classList.add('password-section');
-
-			const InputPasswordSection = document.createElement('section');
-			InputPasswordSection.classList.add('input-password-section');
-
-			const passwordLabel = document.createElement('label');
-			passwordLabel.setAttribute('for', 'Password');
-			passwordLabel.textContent = 'Password';
-
-			const passwordInput = document.createElement('input');
-			passwordInput.type = 'password';
-			passwordInput.id = 'password';
-
-			const PasswordButton = document.createElement('section');
-			PasswordButton.classList.add('button-email');
-			PasswordButton.appendChild(new components.ButtonPassword());
-
-			document.body.appendChild(general);
-			this.shadowRoot.appendChild(general);
-
-			InputUsernameSection.appendChild(userLabel);
-			InputUsernameSection.appendChild(userInput);
-			UsernameSection.appendChild(InputUsernameSection);
-			UsernameSection.appendChild(UsernameButton);
-			general.appendChild(UsernameSection);
-
-			InputNameSection.appendChild(NameLabel);
-			InputNameSection.appendChild(NameInput);
-			NameSection.appendChild(InputNameSection);
-			NameSection.appendChild(NameButton);
-			general.appendChild(NameSection);
-
-			InputInfoSection.appendChild(InfoLabel);
-			InputInfoSection.appendChild(InfoInput);
-			InfoSection.appendChild(InputInfoSection);
-			InfoSection.appendChild(InfoButton);
-			general.appendChild(InfoSection);
-
-			InputEmailSection.appendChild(emailLabel);
-			InputEmailSection.appendChild(emailInput);
-			emailSection.appendChild(InputEmailSection);
-			emailSection.appendChild(EmailButton);
-			general.appendChild(emailSection);
-
-			InputProfilePictureSection.appendChild(ProfilePictureLabel);
-			InputProfilePictureSection.appendChild(ProfilePictureInput);
-			ProfilePictureSection.appendChild(InputProfilePictureSection);
-			ProfilePictureSection.appendChild(ProfilePictureButton);
-			general.appendChild(ProfilePictureSection);
-
-			InputPasswordSection.appendChild(passwordLabel);
-			InputPasswordSection.appendChild(passwordInput);
-			passwordSection.appendChild(InputPasswordSection);
-			passwordSection.appendChild(PasswordButton);
-			general.appendChild(passwordSection);
-
-			general.appendChild(inputsDiv);
-
-			userInput.addEventListener('change', () => {
+			const dispatchEditProfileInfo = () => {
 				dispatch(
 					editProfileInfo({
 						NameInput: NameInput.value,
@@ -193,77 +104,30 @@ class inputEdit extends HTMLElement {
 						InfoInput: InfoInput.value,
 					})
 				);
-			});
+			};
 
-			NameInput.addEventListener('change', () => {
-				dispatch(
-					editProfileInfo({
-						NameInput: NameInput.value,
-						userInput: userInput.value,
-						emailInput: emailInput.value,
-						ProfilePictureInput: ProfilePictureInput.value,
-						passwordInput: passwordInput.value,
-						InfoInput: InfoInput.value,
-					})
-				);
-			});
+			userInput.addEventListener('change', dispatchEditProfileInfo);
+			NameInput.addEventListener('change', dispatchEditProfileInfo);
+			InfoInput.addEventListener('change', dispatchEditProfileInfo);
+			emailInput.addEventListener('change', dispatchEditProfileInfo);
+			passwordInput.addEventListener('change', dispatchEditProfileInfo);
 
-			emailInput.addEventListener('change', () => {
-				dispatch(
-					editProfileInfo({
-						NameInput: NameInput.value,
-						userInput: userInput.value,
-						emailInput: emailInput.value,
-						ProfilePictureInput: ProfilePictureInput.value,
-						passwordInput: passwordInput.value,
-						InfoInput: InfoInput.value,
-					})
-				);
-			});
-
-			ProfilePictureInput.addEventListener('change', () => {
-				dispatch(
-					editProfileInfo({
-						NameInput: NameInput.value,
-						userInput: userInput.value,
-						emailInput: emailInput.value,
-						ProfilePictureInput: ProfilePictureInput.value,
-						passwordInput: passwordInput.value,
-						InfoInput: InfoInput.value,
-					})
-				);
-			});
-
-			passwordInput.addEventListener('change', () => {
-				dispatch(
-					editProfileInfo({
-						NameInput: NameInput.value,
-						userInput: userInput.value,
-						emailInput: emailInput.value,
-						ProfilePictureInput: ProfilePictureInput.value,
-						passwordInput: passwordInput.value,
-						InfoInput: InfoInput.value,
-					})
-				);
-			});
-
-			InfoInput.addEventListener('change', () => {
-				dispatch(
-					editProfileInfo({
-						NameInput: NameInput.value,
-						userInput: userInput.value,
-						emailInput: emailInput.value,
-						ProfilePictureInput: ProfilePictureInput.value,
-						passwordInput: passwordInput.value,
-						InfoInput: InfoInput.value,
-					})
-				);
+			ProfilePictureInput.addEventListener('change', (event) => {
+				const target = event.target as HTMLInputElement;
+				const file = target.files?.[0];
+				if (file) {
+					const reader = new FileReader();
+					reader.onload = (e) => {
+						dispatch(
+							editProfileInfo({
+								ProfilePictureInput: e.target?.result as string,
+							})
+						);
+					};
+					reader.readAsDataURL(file);
+				}
 			});
 		}
-
-		const cssProfile = this.ownerDocument.createElement('style');
-		cssProfile.innerHTML = styles;
-		this.shadowRoot?.appendChild(cssProfile);
 	}
 }
 

@@ -170,18 +170,35 @@ export const getData = async () => {
 	}
 };
 
-export const updateUserData = async (userId: string, data: Partial<userType>) => {
+export const updateUserData = async (userId: string, data: Partial<userType>, file?: File) => {
 	console.log('user data firebase :3');
 	console.log(userId, data);
 
 	const userRef = doc(db, 'users', userId);
+
 	try {
+		if (file) {
+			const imageUrl = await uploadImage(file, userId);
+			data.image = imageUrl;
+		}
+
 		await updateDoc(userRef, data);
 		console.log('User data updated successfully');
 		dispatch(await getUserDataAction(userId));
 	} catch (error) {
 		console.error('Error updating user data:', error);
 	}
+};
+
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+const storage = getStorage(app);
+
+export const uploadImage = async (file: File, userId: string): Promise<string> => {
+	const storageRef = ref(storage, `userProfileImages/${userId}/${file.name}`);
+	await uploadBytes(storageRef, file);
+	const url = await getDownloadURL(storageRef);
+	return url;
 };
 
 export const subscribeToBandDataChanges = () => {

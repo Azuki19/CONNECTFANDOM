@@ -3,6 +3,7 @@ import { appState, dispatch } from '../../store';
 import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
 import * as components from '../indexPadre';
+import { updateUserData } from '../../utils/firebase';
 
 export enum EditProfileAttribute {
 	'uid' = 'uid',
@@ -48,25 +49,44 @@ class EditProfile extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
-
-		this.onButtonClicked = this.onButtonClicked.bind(this);
 		addObserver(this);
 	}
 
+	async updateProfilePicture(file: File) {
+		const userId = appState.user.authCredentials; // Asumiendo que tienes el ID de usuario en el estado de la aplicación
+		try {
+			await updateUserData(userId, {}, file);
+			console.log('Profile picture updated successfully');
+		} catch (error) {
+			console.error('Error updating profile picture:', error);
+		}
+	}
+
+	handleImageUpload(event: Event) {
+		const input = event.target as HTMLInputElement;
+		if (input.files && input.files[0]) {
+			this.updateProfilePicture(input.files[0]);
+		}
+	}
+
 	connectedCallback() {
-		this.mount();
+		this.shadowRoot
+			?.querySelector('#profile-picture-input')
+			?.addEventListener('change', this.handleImageUpload.bind(this));
+		this.render();
 	}
 
 	mount() {
 		this.render();
 		this.addListeners();
 	}
+
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
             <section class='Cajon-Profile'>
                 <div class='Edit-profile'>
-                    <img class='imgProfile' src="${appState.user.image || ''}" alt="">
+                    <img class='imgProfile' src="${appState.editprofile.ProfilePictureInput || ''}" alt="">
                     <div class='infoProfile'>
                         <h1 class='name'>${appState.user.name || 'nofunciono'}</h1>
                         <p class='username'>@${appState.user.username || 'nofunciono'}</p>
@@ -80,27 +100,24 @@ class EditProfile extends HTMLElement {
                 <div>
                     <section id='section-button-logout' class='section-button-logout'></section>
                 </div>
+                <input type="file" id="profile-picture-input" style="display: none;">
             </section>
         `;
-
-			console.log('Rendered user data:', appState.user); // Verifica los datos del usuario al renderizar
 
 			const cssProfile = this.ownerDocument.createElement('style');
 			cssProfile.innerHTML = styles;
 			this.shadowRoot?.appendChild(cssProfile);
 
 			const sectionButtonLogout = this.shadowRoot.getElementById('section-button-logout');
-			sectionButtonLogout.appendChild(new components.ButtonLogOut());
+			sectionButtonLogout?.appendChild(new components.ButtonLogOut());
 		}
 	}
 
 	addListeners() {
-		this.shadowRoot.querySelector('.imgProfile')?.addEventListener('click', this.onButtonClicked);
-	}
-
-	onButtonClicked() {
-		console.log('holaaa');
-		dispatch(navigate('PROFILE'));
+		this.shadowRoot?.querySelector('.imgProfile')?.addEventListener('click', () => {
+			const input = this.shadowRoot?.querySelector('#profile-picture-input') as HTMLElement;
+			input?.click();
+		});
 	}
 }
 

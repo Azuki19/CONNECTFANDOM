@@ -3,7 +3,7 @@ import styles from './ButtonName.css';
 import { dispatch } from '../../../../store';
 import { navigate } from '../../../../store/action';
 import { addObserver, appState } from '../../../../store';
-import { updateUserData } from '../../../../utils/firebase'; // Asegúrate de importar esto
+import { updateUserData } from '../../../../utils/firebase'; 
 
 class ButtonName extends HTMLElement {
 	constructor() {

@@ -1,134 +1,65 @@
+/* General styles for the profile form */
 #general {
 	font-family: Arial, sans-serif;
 	padding: 20px;
 	width: 400px;
-	margin: 20px;
-	margin-left: 100%;
-	/* margin-right: 0; */
-	margin-top: -33rem;
-}
-.username-section {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: fit-content;
+	margin: 20px auto;
+	background-color: #d10a644a;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	color: white;
 }
 
-.input-username-section {
-	display: flex;
-	flex-direction: column;
-}
-
-.button-username {
-	margin-left: 15px;
-}
-
-.info-section {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: fit-content;
-}
-
-.input-info-section {
-	display: flex;
-	flex-direction: column;
-}
-
-.button-info {
-	margin-left: 15px;
-}
-
-.name-section {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: fit-content;
-}
-
-.input-name-section {
-	display: flex;
-	flex-direction: column;
-}
-
-.button-email {
-	margin-left: 15px;
-}
-
-.email-section {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: fit-content;
-}
-
-.input-email-section {
-	display: flex;
-	flex-direction: column;
-}
-
-.button-name {
-	margin-left: 15px;
-}
-
-.profile-picture-section {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: fit-content;
-}
-
-.input-profile-picture-section {
-	display: flex;
-	flex-direction: column;
-}
-
-.button-profile-picture {
-	margin-left: 15px;
-}
-
-.button-password {
-	margin-left: 15px;
-}
-
-.password-section {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: fit-content;
-}
-
-.input-password-section {
-	display: flex;
-	flex-direction: column;
-}
-
+/* Container for input sections */
 #inputs {
 	display: flex;
 	flex-direction: column;
-	width: 500px;
+	width: 100%;
 }
 
+/* Styles for each input section */
+.section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.input-section {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.button-section {
+	margin-left: 15px;
+}
+
+/* Label and input styles */
 label {
 	margin-bottom: 5px;
+	font-weight: bold;
+	color: white;
 }
 
 input[type='text'],
 input[type='email'],
-input[type='password'] {
+input[type='password'],
+input[type='file'] {
 	padding: 8px;
-	margin-bottom: 30px; /* Agregar espacio entre los inputs */
+	margin-bottom: 10px;
 	border-radius: 5px;
 	border: 1px solid #ccc;
-	width: 200px;
+	width: calc(100% - 16px); /* Full width minus padding */
+	box-sizing: border-box;
 }
 
+input[type='file'] {
+	padding: 3px;
+}
+
+/* Button styles */
 button.button {
 	padding: 10px 20px;
 	border: none;
@@ -136,73 +67,31 @@ button.button {
 	background-color: #ac084d;
 	color: #fff;
 	cursor: pointer;
-	margin-top: 10px;
 }
 
 button.button:hover {
-	background-color: #ac084d;
+	background-color: #d10a63;
 }
 
 button.button:active {
-	background-color: #ac084d;
+	background-color: #7a0336;
 }
 
-label {
-	margin-bottom: 5px;
-	color: white; /* Cambiar el color del texto a blanco */
-}
-
+/* Media query for smaller screens */
 @media (max-width: 431px) {
 	#general {
-		font-family: Arial, sans-serif;
-		padding: 105px;
-		width: 200px;
-		margin: -17px;
-		margin-left: 3rem;
-		/* margin-right: 0; */
-		margin-top: 0rem;
-		margin-bottom: 60px;
+		padding: 20px;
+		width: auto;
+		margin: 20px;
 	}
 
 	#inputs {
-		display: flex;
-		flex-direction: column;
-	}
-
-	label {
-		margin-bottom: 5px;
+		width: 100%;
 	}
 
 	input[type='text'],
 	input[type='email'],
 	input[type='password'] {
-		padding: 8px;
-		margin-bottom: 30px; /* Agregar espacio entre los inputs */
-		border-radius: 5px;
-		border: 1px solid #ccc;
-		width: calc(100% - 16px); /* Ancho del input menos los bordes */
-	}
-
-	button.button {
-		padding: 10px 20px;
-		border: none;
-		border-radius: 5px;
-		background-color: #ac084d;
-		color: #fff;
-		cursor: pointer;
-		margin-top: 10px;
-	}
-
-	button.button:hover {
-		background-color: #ac084d;
-	}
-
-	button.button:active {
-		background-color: #ac084d;
-	}
-
-	label {
-		margin-bottom: 5px;
-		color: white; /* Cambiar el color del texto a blanco */
+		width: calc(100% - 16px);
 	}
 }

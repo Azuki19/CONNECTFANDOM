@@ -1,6 +1,6 @@
 import styles from './ButtonProfilePicture.css';
-
-import { dispatch } from '../../../../store';
+import { updateUserData } from '../../../../utils/firebase';
+import { appState, dispatch } from '../../../../store';
 import { navigate } from '../../../../store/action';
 import { addObserver } from '../../../../store';
 
@@ -35,13 +35,16 @@ class ButtonProfilePicture extends HTMLElement {
 		cssLogOut.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssLogOut);
 	}
+
 	addListeners() {
 		this.shadowRoot.querySelector('.Button-Profile-Picture')?.addEventListener('click', this.onButtonClicked);
 	}
 
-	onButtonClicked() {
-		console.log('holaaa');
-		dispatch(navigate('DASHBOARD'));
+	async onButtonClicked() {
+		const userId = appState.user.authCredentials;
+		const image = appState.editprofile.ProfilePictureInput;
+		await updateUserData(userId, { image });
+		dispatch(navigate('PROFILE'));
 	}
 }
 

@@ -1,6 +1,6 @@
 import styles from './ButtonPassword.css';
-
-import { dispatch } from '../../../../store';
+import { updateUserData } from '../../../../utils/firebase';
+import { appState, dispatch } from '../../../../store';
 import { navigate } from '../../../../store/action';
 import { addObserver } from '../../../../store';
 
@@ -40,8 +40,7 @@ class ButtonPassword extends HTMLElement {
 	}
 
 	onButtonClicked() {
-		console.log('holaaa');
-		dispatch(navigate('DASHBOARD'));
+		updateUserData(appState.user.authCredentials, { password: appState.editprofile.passwordInput });
 	}
 }
 

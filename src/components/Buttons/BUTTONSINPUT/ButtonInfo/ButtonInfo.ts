@@ -1,6 +1,7 @@
 import styles from './ButtonInfo.css';
+import { updateUserData } from '../../../../utils/firebase';
 
-import { dispatch } from '../../../../store';
+import { appState, dispatch } from '../../../../store';
 import { navigate } from '../../../../store/action';
 import { addObserver } from '../../../../store';
 
@@ -40,8 +41,7 @@ class ButtonInfo extends HTMLElement {
 	}
 
 	onButtonClicked() {
-		console.log('holaaa');
-		dispatch(navigate('DASHBOARD'));
+		updateUserData(appState.user.authCredentials, { info: appState.editprofile.InfoInput });
 	}
 }
 
