@@ -50,6 +50,23 @@ class inputEdit extends HTMLElement {
 			UsernameButton.classList.add('button-username');
 			UsernameButton.appendChild(new components.ButtonUsername());
 
+			const NameSection = document.createElement('section');
+			NameSection.classList.add('name-section');
+
+			const InputNameSection = document.createElement('section');
+			InputNameSection.classList.add('input-name-section');
+
+			const NameLabel = document.createElement('label');
+			NameLabel.textContent = 'Name';
+
+			const NameInput = document.createElement('input');
+			NameInput.type = 'text';
+			NameInput.id = 'Name';
+
+			const NameButton = document.createElement('section');
+			NameButton.classList.add('button-name');
+			NameButton.appendChild(new components.ButtonName());
+
 			const InfoSection = document.createElement('section');
 			InfoSection.classList.add('info-section');
 
@@ -67,30 +84,11 @@ class inputEdit extends HTMLElement {
 			InfoButton.classList.add('button-info');
 			InfoButton.appendChild(new components.ButtonInfo());
 
-			// Create the email label and input
-			const emailLabel = document.createElement('label');
-			emailLabel.setAttribute('for', 'email');
-			emailLabel.textContent = 'Email address ';
+			const ProfilePictureSection = document.createElement('section');
+			ProfilePictureSection.classList.add('profile-picture-section');
 
-			const emailInput = document.createElement('input');
-			emailInput.type = 'email';
-			emailInput.classList.add('email');
-
-			// Create the password label, input, and button
-			const passwordLabel = document.createElement('label');
-			passwordLabel.setAttribute('for', 'Password');
-			passwordLabel.textContent = 'Password';
-
-			const passwordInput = document.createElement('input');
-			passwordInput.type = 'password';
-			passwordInput.id = 'password';
-
-			const NameLabel = document.createElement('label');
-			NameLabel.textContent = 'Name';
-
-			const NameInput = document.createElement('input');
-			NameInput.type = 'text';
-			NameInput.id = 'Name';
+			const InputProfilePictureSection = document.createElement('section');
+			InputProfilePictureSection.classList.add('input-profile-picture-section');
 
 			const ProfilePictureLabel = document.createElement('label');
 			ProfilePictureLabel.textContent = 'ProfilePicture';
@@ -99,7 +97,46 @@ class inputEdit extends HTMLElement {
 			ProfilePictureInput.type = 'text';
 			ProfilePictureInput.id = 'ProfilePicture';
 
-			// Add the general div to the document body
+			const ProfilePictureButton = document.createElement('section');
+			ProfilePictureButton.classList.add('button-info');
+			ProfilePictureButton.appendChild(new components.ButtonProfilePicture());
+
+			const emailSection = document.createElement('section');
+			emailSection.classList.add('email-section');
+
+			const InputEmailSection = document.createElement('section');
+			InputEmailSection.classList.add('input-email-section');
+
+			const emailLabel = document.createElement('label');
+			emailLabel.setAttribute('for', 'email');
+			emailLabel.textContent = 'Email address ';
+
+			const emailInput = document.createElement('input');
+			emailInput.type = 'email';
+			emailInput.classList.add('email');
+
+			const EmailButton = document.createElement('section');
+			EmailButton.classList.add('button-email');
+			EmailButton.appendChild(new components.ButtonEmail());
+
+			const passwordSection = document.createElement('section');
+			passwordSection.classList.add('password-section');
+
+			const InputPasswordSection = document.createElement('section');
+			InputPasswordSection.classList.add('input-password-section');
+
+			const passwordLabel = document.createElement('label');
+			passwordLabel.setAttribute('for', 'Password');
+			passwordLabel.textContent = 'Password';
+
+			const passwordInput = document.createElement('input');
+			passwordInput.type = 'password';
+			passwordInput.id = 'password';
+
+			const PasswordButton = document.createElement('section');
+			PasswordButton.classList.add('button-email');
+			PasswordButton.appendChild(new components.ButtonPassword());
+
 			document.body.appendChild(general);
 			this.shadowRoot.appendChild(general);
 
@@ -109,20 +146,36 @@ class inputEdit extends HTMLElement {
 			UsernameSection.appendChild(UsernameButton);
 			general.appendChild(UsernameSection);
 
+			InputNameSection.appendChild(NameLabel);
+			InputNameSection.appendChild(NameInput);
+			NameSection.appendChild(InputNameSection);
+			NameSection.appendChild(NameButton);
+			general.appendChild(NameSection);
+
 			InputInfoSection.appendChild(InfoLabel);
 			InputInfoSection.appendChild(InfoInput);
 			InfoSection.appendChild(InputInfoSection);
 			InfoSection.appendChild(InfoButton);
 			general.appendChild(InfoSection);
 
-			inputsDiv.appendChild(NameLabel);
-			inputsDiv.appendChild(NameInput);
-			inputsDiv.appendChild(ProfilePictureLabel);
-			inputsDiv.appendChild(ProfilePictureInput);
-			inputsDiv.appendChild(emailLabel);
-			inputsDiv.appendChild(emailInput);
-			inputsDiv.appendChild(passwordLabel);
-			inputsDiv.appendChild(passwordInput);
+			InputEmailSection.appendChild(emailLabel);
+			InputEmailSection.appendChild(emailInput);
+			emailSection.appendChild(InputEmailSection);
+			emailSection.appendChild(EmailButton);
+			general.appendChild(emailSection);
+
+			InputProfilePictureSection.appendChild(ProfilePictureLabel);
+			InputProfilePictureSection.appendChild(ProfilePictureInput);
+			ProfilePictureSection.appendChild(InputProfilePictureSection);
+			ProfilePictureSection.appendChild(ProfilePictureButton);
+			general.appendChild(ProfilePictureSection);
+
+			InputPasswordSection.appendChild(passwordLabel);
+			InputPasswordSection.appendChild(passwordInput);
+			passwordSection.appendChild(InputPasswordSection);
+			passwordSection.appendChild(PasswordButton);
+			general.appendChild(passwordSection);
+
 			general.appendChild(inputsDiv);
 		}
 

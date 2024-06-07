@@ -41,6 +41,74 @@
 	margin-left: 15px;
 }
 
+.name-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-name-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-email {
+	margin-left: 15px;
+}
+
+.email-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-email-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-name {
+	margin-left: 15px;
+}
+
+.profile-picture-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-profile-picture-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-profile-picture {
+	margin-left: 15px;
+}
+
+.button-password {
+	margin-left: 15px;
+}
+
+.password-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-password-section {
+	display: flex;
+	flex-direction: column;
+}
+
 #inputs {
 	display: flex;
 	flex-direction: column;
