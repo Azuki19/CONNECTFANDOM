@@ -16,8 +16,8 @@ class AppBandsMainDashboard extends HTMLElement {
 
 	async connectedCallback() {
 		if (appState.posts.length === 0) {
-			const action2 = await getBandsAction();
-			dispatch(action2);
+			const action = await getBandsAction();
+			dispatch(action);
 		}
 	}
 
@@ -27,9 +27,8 @@ class AppBandsMainDashboard extends HTMLElement {
 			console.log('BannerBand:', BannerBand); // Verifica que encuentra la banda
 
 			if (BannerBand) {
-				const BandasInicioCard = this.ownerDocument.createElement('banda-info') as BandasInicio;
+				const BandasInicioCard = this.ownerDocument.createElement('banda-inicio') as BandasInicio;
 
-				BandasInicioCard.setAttribute(BandasInicioAttribute.uid, String(BannerBand.id));
 				BandasInicioCard.setAttribute(BandasInicioAttribute.bandName, BannerBand.bandName);
 				BandasInicioCard.setAttribute(BandasInicioAttribute.bandImage, BannerBand.bandImage);
 
@@ -68,7 +67,7 @@ class AppBandsMainDashboard extends HTMLElement {
 			miniHeaderContainer.appendChild(new components.MiniHeader());
 
 			const BandasInicioSection = this.shadowRoot.getElementById('bandas-inicio-section');
-			console.log('BandaInicio:', this.BandaInicio); // Verifica que BandaInicio contiene elementos
+			console.log('BandaInicio:', this.BandaInicio);
 
 			this.BandaInicio.forEach((BandaInicio) => {
 				BandasInicioSection.appendChild(BandaInicio);
@@ -81,5 +80,5 @@ class AppBandsMainDashboard extends HTMLElement {
 	}
 }
 
-customElements.define('app-bands-main-dashboard', AppBandsMainDashboard);
+customElements.define('app-main-dashboard', AppBandsMainDashboard);
 export default AppBandsMainDashboard;
