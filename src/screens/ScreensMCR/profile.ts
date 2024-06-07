@@ -1,13 +1,13 @@
-import * as components from '../components/indexPadre';
-import UserPost, { Attribute } from '../components/UserPost/UserPost';
-import { CreatePost } from '../components/indexPadre';
-import { EditProfile } from '../components/indexPadre';
+import * as components from '../../components/indexPadre';
+import UserPost, { Attribute } from '../../components/UserPost/UserPost';
+import { CreatePost } from '../../components/indexPadre';
+import { EditProfile } from '../../components/indexPadre';
 import style from './profile.css';
 
-import { addObserver, appState, dispatch } from '../store';
-import { getPostsAction } from '../store/action';
-import { getBandsAction } from '../store/action';
-import { getUserDataAction } from '../store/action';
+import { addObserver, appState, dispatch } from '../../store';
+import { getPostsAction } from '../../store/action';
+import { getBandsAction } from '../../store/action';
+import { getUserDataAction } from '../../store/action';
 
 class ProfileDashboard extends HTMLElement {
 	userpost: UserPost[] = [];

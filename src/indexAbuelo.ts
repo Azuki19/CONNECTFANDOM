@@ -1,6 +1,6 @@
 import './screens/login';
 import './components/indexPadre';
-import './screens/indexPadreScreens';
+import './screens/indexPadreScreensMCR';
 import { addObserver, appState } from './store';
 class AppContainer extends HTMLElement {
 	constructor() {

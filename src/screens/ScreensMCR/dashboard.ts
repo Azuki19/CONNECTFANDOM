@@ -1,12 +1,12 @@
-import * as components from '../components/indexPadre';
-import UserPost, { Attribute } from '../components/UserPost/UserPost';
-import ArtistPost, { ArtistAttribute } from '../components/ArtistPost/ArtistPost';
-import MoreAbout, { MoreAboutAttribute } from '../components/MoreAbout/MoreAbout';
-import CreatePost, { CreatePostAttribute } from '../components/CreatePost/CreatePost';
+import * as components from '../../components/indexPadre';
+import UserPost, { Attribute } from '../../components/UserPost/UserPost';
+import ArtistPost, { ArtistAttribute } from '../../components/ArtistPost/ArtistPost';
+import MoreAbout, { MoreAboutAttribute } from '../../components/MoreAbout/MoreAbout';
+import CreatePost, { CreatePostAttribute } from '../../components/CreatePost/CreatePost';
 import style from './dashboard.css';
-import { addObserver, appState, dispatch } from '../store';
-import { getPostsAction } from '../store/action';
-import { getBandsAction } from '../store/action';
+import { addObserver, appState, dispatch } from '../../store';
+import { getPostsAction } from '../../store/action';
+import { getBandsAction } from '../../store/action';
 
 class AppDashboard extends HTMLElement {
 	userpost: UserPost[] = [];
