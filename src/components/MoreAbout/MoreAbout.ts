@@ -82,7 +82,7 @@ class MoreAbout extends HTMLElement {
 
 	onButtonClicked() {
 		console.log('holaaa');
-		dispatch(navigate('ABOUTTHEBAND'));
+		dispatch(navigate('DASHBOARD'));
 	}
 }
 
