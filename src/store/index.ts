@@ -60,7 +60,7 @@ const notifyObservers = () => observers.forEach((o) => o.render());
 export const dispatch = (action: any) => {
 	const clone = JSON.parse(JSON.stringify(appState));
 	const newState = reducer(action, clone);
-	console.log('New App State after dispatch:', newState); // Verifica el nuevo estado después del dispatch
+	console.log('New App State after dispatch:', newState);
 	appState = newState;
 
 	persistStore(newState);
