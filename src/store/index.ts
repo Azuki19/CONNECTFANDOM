@@ -40,6 +40,7 @@ export const emptyState: AppState = {
 		info: '',
 		image: '',
 		type: '',
+		followers: '',
 	},
 	posts: [],
 	bands: [],
@@ -59,6 +60,7 @@ const notifyObservers = () => observers.forEach((o) => o.render());
 export const dispatch = (action: any) => {
 	const clone = JSON.parse(JSON.stringify(appState));
 	const newState = reducer(action, clone);
+	console.log('New App State after dispatch:', newState); // Verifica el nuevo estado después del dispatch
 	appState = newState;
 
 	persistStore(newState);
