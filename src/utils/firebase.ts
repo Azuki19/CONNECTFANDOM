@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc, collection, doc, getDocs, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
+import { PostAdd } from '../types/postAdd';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -82,6 +83,17 @@ export const createUser = (email: string, password: string) => {
 			console.log(errorCode, errorMessage);
 		});
 };
+// Nueva función para agregar posts
+export const addPost = async (post: Omit<PostAdd, 'id'>) => {
+	try {
+		const docRef = await addDoc(collection(db, 'posts'), post);
+		console.log('Post added with ID: ', docRef.id);
+		return docRef.id;
+	} catch (e) {
+		console.error('Error adding post: ', e);
+		throw new Error('Error adding post');
+	}
+};
 
 //Funciones para agregar y obtener posts
 export const getPosts = async () => {
@@ -92,6 +104,7 @@ export const getPosts = async () => {
 	});
 	return postdata;
 };
+
 export const getBands = async () => {
 	const querySnapshot = await getDocs(collection(db, 'bandsdata'));
 	const bandsdata: Array<any> = [];
