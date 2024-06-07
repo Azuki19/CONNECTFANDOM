@@ -1,0 +1,6 @@
+#background {
+	background-image: url(https://pbs.twimg.com/media/GNB8i2NXsAArgdl?format=jpg&name=large);
+	background-attachment: fixed; /* Fondo fijo */
+	background-repeat: no-repeat; /* No repetir */
+	background-size: cover; /* Ajustar el tamaño del fondo */
+}
