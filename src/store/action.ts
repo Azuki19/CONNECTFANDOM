@@ -27,12 +27,14 @@ export const navigate = (screen: any) => {
 	};
 };
 
+
 export const editProfileInfo = (editProfileInputs: any) => {
 	return {
 		action: 'EDITPROFILE',
 		payload: editProfileInputs,
 	};
 };
+
 
 export const getBandsAction = async () => {
 	const bands = await getBands();
