@@ -1,4 +1,5 @@
 import { Screens } from '../types/navigation';
+<<<<<<< HEAD
 import { addPost, getBands, getPosts } from '../utils/firebase';
 
 export const addPostsAction = async (posts: any) => {
@@ -9,9 +10,12 @@ export const addPostsAction = async (posts: any) => {
 		payload: postData,
 	};
 };
+=======
+import { getBands, getUserByUid, getPosts } from '../utils/firebase';
+>>>>>>> b5bade23d2368c016700a4434edddba0efbdd1d6
 
 export const getPostsAction = async () => {
-	//Ir al utils de firebase y ejecutar la función getPosts
+	// Ir al utils de firebase y ejecutar la función getPosts
 	const posts = await getPosts();
 	return {
 		action: 'GETPOSTS',
@@ -31,5 +35,13 @@ export const getBandsAction = async () => {
 	return {
 		action: 'GETBANDS',
 		payload: bands,
+	};
+};
+
+export const getUserDataAction = async (id: string) => {
+	const userdata = await getUserByUid(id);
+	return {
+		action: 'GETUSERDATA',
+		payload: userdata,
 	};
 };

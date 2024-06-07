@@ -4,6 +4,7 @@ export type AppState = {
 	screen: string;
 	posts: any[];
 	bands: any[];
+	user: userType;
 };
 
 export enum ScreenActions {
@@ -12,3 +13,16 @@ export enum ScreenActions {
 }
 
 export type Actions = ScreenActions;
+
+export interface userType {
+	name: string;
+	username: string;
+	email: string;
+	password: string;
+	authCredentials: string;
+	firebaseID: string;
+	info: string;
+	image: string;
+	type: string;
+	followers: string;
+}

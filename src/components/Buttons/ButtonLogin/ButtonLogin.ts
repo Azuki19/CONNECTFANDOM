@@ -29,7 +29,7 @@ class ButtonLogin extends HTMLElement {
 			this.shadowRoot.innerHTML = `
 				<section class="Button-Log-In">
 					<button class="Log-In">LOG IN</button>
-					<p class="error-message" style="display: none; color: red;">Incorrect Email or Password</p>
+					<p class="error-message" style="display: none; color: red;"></p>
 				</section>
 			`;
 		}
@@ -44,16 +44,34 @@ class ButtonLogin extends HTMLElement {
 	}
 
 	async onButtonClicked() {
-		console.log('holaaa');
-		const respuesta = await iniciarSesion(logindata.username, logindata.password);
 		const errorMessage = this.shadowRoot?.querySelector('.error-message') as HTMLElement;
 
-		if (respuesta === true) {
-			dispatch(navigate('DASHBOARD'));
-		} else {
+		// Reset error message
+		if (errorMessage) {
+			errorMessage.style.display = 'none';
+			errorMessage.textContent = '';
+		}
+
+		if (!logindata.username || !logindata.password) {
 			if (errorMessage) {
+				errorMessage.textContent = 'Please, fill all the inputs.';
 				errorMessage.style.display = 'block';
 			}
+			return;
+		}
+
+		const userData = await iniciarSesion(logindata.username, logindata.password);
+
+		if (userData) {
+			dispatch({
+				action: 'SET_USER',
+				payload: userData,
+			});
+			dispatch(navigate('DASHBOARD'));
+		} else {
+			const errorMessage = this.shadowRoot?.querySelector('.error-message') as HTMLElement;
+			errorMessage.textContent = 'Incorrect Email or Password.';
+			errorMessage.style.display = 'block';
 		}
 	}
 }

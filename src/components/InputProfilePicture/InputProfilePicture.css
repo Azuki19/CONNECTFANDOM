@@ -1,16 +1,118 @@
 #general {
 	font-family: Arial, sans-serif;
 	padding: 20px;
-	width: 300px;
+	width: 400px;
 	margin: 20px;
-	margin-left: 51rem;
+	margin-left: 100%;
 	/* margin-right: 0; */
 	margin-top: -33rem;
+}
+.username-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-username-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-username {
+	margin-left: 15px;
+}
+
+.info-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-info-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-info {
+	margin-left: 15px;
+}
+
+.name-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-name-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-email {
+	margin-left: 15px;
+}
+
+.email-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-email-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-name {
+	margin-left: 15px;
+}
+
+.profile-picture-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-profile-picture-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-profile-picture {
+	margin-left: 15px;
+}
+
+.button-password {
+	margin-left: 15px;
+}
+
+.password-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.input-password-section {
+	display: flex;
+	flex-direction: column;
 }
 
 #inputs {
 	display: flex;
 	flex-direction: column;
+	width: 500px;
 }
 
 label {
@@ -24,7 +126,7 @@ input[type='password'] {
 	margin-bottom: 30px; /* Agregar espacio entre los inputs */
 	border-radius: 5px;
 	border: 1px solid #ccc;
-	width: calc(100% - 16px); /* Ancho del input menos los bordes */
+	width: 200px;
 }
 
 button.button {

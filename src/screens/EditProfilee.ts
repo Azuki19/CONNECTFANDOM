@@ -64,14 +64,18 @@ class AppEditProfile extends HTMLElement {
 			title.classList.add('title');
 			title.textContent = 'ACCOUNT SETTINGS';
 
+			const EditProfileContainer1 = document.createElement('label');
+			EditProfileContainer1.id = 'edit-profile-container1';
+
 			const EditProfileContainer = document.createElement('label');
 			EditProfileContainer.id = 'edit-profile-container';
 
 			this.shadowRoot.appendChild(section);
+			EditProfileContainer1.appendChild(EditProfileContainer);
 			section.appendChild(mainHeaderContainer);
 			section.appendChild(miniHeaderContainer);
 			section.appendChild(title);
-			section.appendChild(EditProfileContainer);
+			section.appendChild(EditProfileContainer1);
 
 			this.editprofile.forEach((user) => {
 				EditProfileContainer.appendChild(user);
@@ -79,14 +83,6 @@ class AppEditProfile extends HTMLElement {
 
 			const something = this.ownerDocument.createElement('input-profile');
 			EditProfileContainer.appendChild(something);
-
-			const ButtonLogOutContainer = document.createElement('div');
-			ButtonLogOutContainer.id = 'button-log-out-container';
-
-			const ButtonLogOut = document.createElement('button-logout');
-			ButtonLogOutContainer.appendChild(ButtonLogOut);
-
-			section.appendChild(ButtonLogOutContainer);
 
 			const cssAbuelo = this.ownerDocument.createElement('style');
 			cssAbuelo.innerHTML = style;

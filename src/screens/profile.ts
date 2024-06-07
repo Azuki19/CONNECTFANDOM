@@ -7,6 +7,7 @@ import style from './profile.css';
 import { addObserver, appState, dispatch } from '../store';
 import { getPostsAction } from '../store/action';
 import { getBandsAction } from '../store/action';
+import { getUserDataAction } from '../store/action';
 
 class ProfileDashboard extends HTMLElement {
 	userpost: UserPost[] = [];
@@ -20,14 +21,15 @@ class ProfileDashboard extends HTMLElement {
 		addObserver(this);
 	}
 
-	async connectedCallback() {
-		if (appState.posts.length === 0) {
-			const action = await getPostsAction();
-			dispatch(action);
-			const action2 = await getBandsAction();
-			dispatch(action2);
-		}
-	}
+	// // ERROR ???????? nose
+	// async connectedCallback() {
+	// 	if (appState.user.name === '' || Object.keys(appState.user).length === 0) {
+	// 		const action = await getUserDataAction(String(appState.user));
+	// 		dispatch(action);
+	// 	} else {
+	// 		this.render();
+	// 	}
+	// }
 
 	async initializeData() {
 		try {
@@ -43,7 +45,7 @@ class ProfileDashboard extends HTMLElement {
 				UserPostCard.setAttribute(Attribute.email, user.email);
 				UserPostCard.setAttribute(Attribute.password, user.password);
 				UserPostCard.setAttribute(Attribute.info, user.info);
-				UserPostCard.setAttribute(Attribute.followers, String(user.followers));
+				UserPostCard.setAttribute(Attribute.followers, user.followers);
 				UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
 				UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
 				UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
@@ -62,7 +64,7 @@ class ProfileDashboard extends HTMLElement {
 				EditProfileCard.setAttribute('username', user.username);
 				EditProfileCard.setAttribute('email', user.email);
 				EditProfileCard.setAttribute('info', user.info);
-				EditProfileCard.setAttribute('followers', String(user.followers));
+				EditProfileCard.setAttribute('followers', user.followers);
 
 				this.editprofile.push(EditProfileCard);
 			});
@@ -142,9 +144,6 @@ class ProfileDashboard extends HTMLElement {
 
 			const ButtonSettings = this.shadowRoot.getElementById('button-settings-section');
 			ButtonSettings.appendChild(new components.ButtonSettings());
-
-			const ButtonLogOut = this.shadowRoot.getElementById('button-logout-section');
-			ButtonLogOut.appendChild(new components.ButtonLogOut());
 
 			const secondPart = this.shadowRoot.getElementById('second-part');
 

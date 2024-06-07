@@ -1,8 +1,14 @@
 import { initializeApp } from 'firebase/app';
+<<<<<<< HEAD
 
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc, collection, doc, getDocs, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { PostAdd } from '../types/postAdd';
+=======
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { collection, getDocs, getFirestore, query, where, doc, setDoc, updateDoc } from 'firebase/firestore';
+import { userType } from '../types/store';
+>>>>>>> b5bade23d2368c016700a4434edddba0efbdd1d6
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -14,74 +20,76 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
-const songDocuments = collection(db, 'bands');
 const auth = getAuth(app);
 
 export const iniciarSesion = async (username: string, password: string) => {
-	let authUser: any = '';
-
-	const respuesta = await signInWithEmailAndPassword(auth, username, password)
-		.then((userCredential) => {
-			// Signed in
-			authUser = userCredential.user;
-			console.log(authUser);
-			return true;
-		})
-		.catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			console.log(error);
-		});
-
-	return respuesta;
+	try {
+		const userCredential = await signInWithEmailAndPassword(auth, username, password);
+		const authUser = userCredential.user;
+		const userData = await getUserByUid(authUser.uid);
+		console.log(userData);
+		return userData;
+	} catch (error) {
+		console.error('Error during sign-in:', error);
+		return false;
+	}
 };
 
-//Funciones para Registrarme y loguearme
-export const registrarUsuario = async (Name: string, Username: string, email: string, password: string) => {
-	await createUserWithEmailAndPassword(auth, email, password)
-		.then(async (userCredential) => {
-			// Signed up
-			const userCredentials = userCredential.user.uid;
+export const registrarUsuario = async (name: string, username: string, email: string, password: string) => {
+	try {
+		const respuesta = await createUserWithEmailAndPassword(auth, email, password);
+		const userCredentials = respuesta.user.uid;
 
-			console.log(userCredentials);
+		const userData = {
+			name,
+			username,
+			email,
+			password,
+			authCredentials: userCredentials,
+			info: '',
+			image: '',
+			type: '',
+		};
 
-			const docRef = await addDoc(collection(db, 'users'), {
-				Name: Name,
-				Username: Username,
-				email: email,
-				password: password,
-				authCredentials: userCredentials,
-			});
-			//console.log("Document written with ID: ", docRef.id);
-			await updateDoc(docRef, {
-				firebaseID: docRef.id,
-			});
+		const userRef = doc(db, 'users', userCredentials); // Obtener referencia del documento
+		await setDoc(userRef, userData); // Establecer datos iniciales
 
-			return docRef.id;
-		})
-		.catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			alert(errorMessage);
-			// ..
+		// Agregar firebaseID después de la creación del documento
+		await updateDoc(userRef, {
+			firebaseID: userCredentials,
 		});
+
+		console.log('User registered with data:', userData); // Verifica los datos almacenados
+		return userData;
+	} catch (error) {
+		console.error('Error during registration:', error);
+		return null;
+	}
 };
 
-//Funciones para loguearme y registrarme
+export const getUserByUid = async (uid: string) => {
+	const q = query(collection(db, 'users'), where('authCredentials', '==', uid));
+	const querySnapshot = await getDocs(q);
+	if (!querySnapshot.empty) {
+		const userData = querySnapshot.docs[0].data() as userType;
+		console.log('Fetched user data:', userData); // Verifica los datos obtenidos
+		return userData;
+	}
+	console.log('No user data found for UID:', uid);
+	return null;
+};
 
-export const createUser = (email: string, password: string) => {
-	createUserWithEmailAndPassword(auth, email, password)
-		.then((userCredential) => {
-			const user = userCredential.user;
-			console.log(user);
-		})
-		.catch((error: any) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			console.log(errorCode, errorMessage);
-		});
+export const setupAuthListener = (callback: (user: userType | null) => void) => {
+	onAuthStateChanged(auth, async (user) => {
+		if (user) {
+			const userData = await getUserByUid(user.uid);
+			console.log('User data from Firebase:', userData); // Verifica los datos obtenidos
+			callback(userData);
+		} else {
+			callback(null);
+		}
+	});
 };
 // Nueva función para agregar posts
 export const addPost = async (post: Omit<PostAdd, 'id'>) => {
@@ -95,7 +103,52 @@ export const addPost = async (post: Omit<PostAdd, 'id'>) => {
 	}
 };
 
-//Funciones para agregar y obtener posts
+export async function checkUsernameExists(username: string) {
+	// Lógica para verificar si el nombre de usuario ya existe
+	const q = query(collection(db, 'users'), where('Username', '==', username));
+	const querySnapshot = await getDocs(q);
+	return !querySnapshot.empty;
+}
+
+export async function checkEmailExists(email: string) {
+	// Lógica para verificar si el correo electrónico ya existe
+	const q = query(collection(db, 'users'), where('email', '==', email));
+	const querySnapshot = await getDocs(q);
+	return !querySnapshot.empty;
+}
+
+// export const actualizarDatosUsuarioConImagen = async (
+// 	name: string,
+// 	username: string,
+// 	email: string,
+// 	password: string,
+// 	authCredentials: string,
+// 	firebaseID: '',
+// 	info: string,
+// 	image: string,
+// 	type: string,
+// 	followers: string
+// ) => {
+// 	console.log('actualizarDatosUsuarioConImagen');
+// 	const userRef = doc(db, 'users', appState.user);
+
+// 	const imageURL = await subirImagen(img);
+
+// 	await updateDoc(userRef, {
+// 		name: name,
+// 		username: username,
+// 		email: email,
+// 		password: password,
+// 		authCredentials: authCredentials,
+// 		firebaseID: firebaseID,
+// 		info: info,
+// 		image: image,
+// 		type: type,
+// 		followers: followers,
+// 	});
+// };
+
+// Funciones para agregar y obtener posts
 export const getPosts = async () => {
 	const querySnapshot = await getDocs(collection(db, 'MyChemicalRomanceData'));
 	const postdata: Array<any> = [];
@@ -113,6 +166,16 @@ export const getBands = async () => {
 	});
 	return bandsdata;
 };
-function signInWithUsernameAndPassword(auth: any, username: string, password: string) {
-	throw new Error('Function not implemented.');
-}
+
+export const getData = async () => {
+	try {
+		const querySnapshot = await getDocs(collection(db, 'users'));
+		querySnapshot.forEach((doc) => {
+			const data = doc.data();
+			console.log('Hola');
+			console.log(data);
+		});
+	} catch (error) {
+		console.error('Error getting documents:', error);
+	}
+};
