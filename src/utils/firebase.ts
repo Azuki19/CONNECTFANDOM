@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { collection, getDocs, getFirestore, query, where, doc, setDoc, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDocs, query, where, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
+import { PostAdd } from '../types/postAdd';
 import { userType } from '../types/store';
 
 const firebaseConfig = {
@@ -83,6 +84,17 @@ export const setupAuthListener = (callback: (user: userType | null) => void) => 
 			callback(null);
 		}
 	});
+};
+// Nueva función para agregar posts
+export const addPost = async (post: Omit<PostAdd, 'id'>) => {
+	try {
+		const docRef = await addDoc(collection(db, 'posts'), post);
+		console.log('Post added with ID: ', docRef.id);
+		return docRef.id;
+	} catch (e) {
+		console.error('Error adding post: ', e);
+		throw new Error('Error adding post');
+	}
 };
 
 export async function checkUsernameExists(username: string) {
