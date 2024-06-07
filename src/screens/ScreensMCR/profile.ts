@@ -21,64 +21,41 @@ class ProfileDashboard extends HTMLElement {
 		addObserver(this);
 	}
 
-	// // ERROR ???????? nose
-	// async connectedCallback() {
-	// 	if (appState.user.name === '' || Object.keys(appState.user).length === 0) {
-	// 		const action = await getUserDataAction(String(appState.user));
-	// 		dispatch(action);
-	// 	} else {
-	// 		this.render();
-	// 	}
-	// }
-
 	async initializeData() {
 		try {
 			const UserData = appState.posts.filter((user) => user.id === 1);
-			UserData.forEach((user) => {
+			{
 				const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
 
-				UserPostCard.setAttribute(Attribute.uid, String(user.id));
-				UserPostCard.setAttribute(Attribute.type, user.type);
-				UserPostCard.setAttribute(Attribute.name, user.name);
-				UserPostCard.setAttribute(Attribute.image, user.image);
-				UserPostCard.setAttribute(Attribute.username, user.username);
-				UserPostCard.setAttribute(Attribute.email, user.email);
-				UserPostCard.setAttribute(Attribute.password, user.password);
-				UserPostCard.setAttribute(Attribute.info, user.info);
-				UserPostCard.setAttribute(Attribute.followers, user.followers);
-				UserPostCard.setAttribute(Attribute.titlePost, user.content);
-				UserPostCard.setAttribute(Attribute.titlePost, user.title);
+				UserPostCard.setAttribute(Attribute.type, appState.user.type);
+				UserPostCard.setAttribute(Attribute.name, appState.user.name);
+				UserPostCard.setAttribute(Attribute.image, appState.user.image);
+				UserPostCard.setAttribute(Attribute.username, appState.user.username);
+				UserPostCard.setAttribute(Attribute.email, appState.user.email);
+				UserPostCard.setAttribute(Attribute.info, appState.user.info);
 
 				this.userpost.push(UserPostCard);
-			});
+			}
 
 			const EditProfileData = appState.posts.filter((user) => user.id === 1);
 
-			EditProfileData.forEach((user) => {
-				const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
-				EditProfileCard.setAttribute('uid', String(user.id));
-				EditProfileCard.setAttribute('type', user.type);
-				EditProfileCard.setAttribute('name', user.name);
-				EditProfileCard.setAttribute('image', user.image);
-				EditProfileCard.setAttribute('username', user.username);
-				EditProfileCard.setAttribute('email', user.email);
-				EditProfileCard.setAttribute('info', user.info);
-				EditProfileCard.setAttribute('followers', user.followers);
+			const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
+			EditProfileCard.setAttribute('type', appState.user.type);
+			EditProfileCard.setAttribute('name', appState.user.name);
+			EditProfileCard.setAttribute('image', appState.user.image);
+			EditProfileCard.setAttribute('username', appState.user.username);
+			EditProfileCard.setAttribute('email', appState.user.email);
+			EditProfileCard.setAttribute('info', appState.user.info);
+			EditProfileCard.setAttribute('followers', appState.user.followers);
 
-				this.editprofile.push(EditProfileCard);
-			});
+			this.editprofile.push(EditProfileCard);
 
-			const BannerCreatePost = appState.posts.find((post) => post.id === 1);
+			const BannerCreatePost = appState.posts;
 
-			if (BannerCreatePost) {
-				const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
+			const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
+			CreatePostCard.setAttribute(Attribute.image, appState.user.image);
+			this.createpost.push(CreatePostCard);
 
-				CreatePostCard.setAttribute('uid', String(BannerCreatePost.id));
-				CreatePostCard.setAttribute('image', BannerCreatePost.image);
-				CreatePostCard.setAttribute('type', BannerCreatePost.type);
-
-				this.createpost.push(CreatePostCard);
-			}
 			this.render();
 		} catch (error) {
 			console.error('Error fetching data from Firebase:', error);

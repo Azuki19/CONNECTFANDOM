@@ -32,6 +32,7 @@ setupAuthListener((user) => {
 export const emptyState: AppState = {
 	screen: Screens.LOGIN,
 	user: {
+		imageUrl: '',
 		name: '',
 		username: '',
 		email: '',

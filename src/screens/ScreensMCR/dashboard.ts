@@ -46,6 +46,8 @@ class AppDashboard extends HTMLElement {
 				UserPostCard.setAttribute(Attribute.infoPost, user.content);
 				UserPostCard.setAttribute(Attribute.titlePost, user.title);
 				UserPostCard.setAttribute(Attribute.imagePost, user.imageUrl);
+				console.log(user.imageUrl);
+
 				this.userpost.push(UserPostCard);
 			});
 
@@ -60,6 +62,7 @@ class AppDashboard extends HTMLElement {
 				ArtistPostCard.setAttribute(Attribute.titlePost, artist.title);
 				ArtistPostCard.setAttribute(Attribute.imagePost, artist.imageUrl);
 				this.artistpost.push(ArtistPostCard);
+				console.log(artist.imageUrl);
 			});
 
 			const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;

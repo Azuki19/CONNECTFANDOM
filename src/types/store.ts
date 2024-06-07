@@ -23,6 +23,7 @@ export enum ScreenActions {
 export type Actions = ScreenActions;
 
 export interface userType {
+	imageUrl: string;
 	name: string;
 	username: string;
 	email: string;

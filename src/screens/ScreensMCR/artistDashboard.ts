@@ -40,32 +40,23 @@ class AppArtistDashboard extends HTMLElement {
 				UserPostCard.setAttribute(Attribute.name, user.name);
 				UserPostCard.setAttribute(Attribute.image, user.image);
 				UserPostCard.setAttribute(Attribute.username, user.username);
-				UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
-				UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
-				UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
-
-				if (user.posts.post2) {
-					UserPostCard.setAttribute(Attribute.titlePost2, user.posts.post2.titlePost2);
-					UserPostCard.setAttribute(Attribute.infoPost2, user.posts.post2.infoPost2);
-					UserPostCard.setAttribute(Attribute.imagePost2, user.posts.post2.imagePost2);
-				}
+				UserPostCard.setAttribute(Attribute.titlePost, user.title);
+				UserPostCard.setAttribute(Attribute.infoPost, user.content);
+				UserPostCard.setAttribute(Attribute.imagePost, user.imageUrl);
 
 				this.mainartistpost.push(UserPostCard);
 			});
 
-			const miniData = appState.posts.filter((mini) => mini.id === 1);
-			miniData.forEach((mini) => {
-				const miniCard = this.ownerDocument.createElement('mini-profile') as MiniProfile;
+			const miniData = appState.posts;
 
-				miniCard.setAttribute(MiniProfileAttribute.uid, String(mini.id));
-				miniCard.setAttribute(MiniProfileAttribute.username, mini.username);
-				miniCard.setAttribute(MiniProfileAttribute.name, mini.name);
-				miniCard.setAttribute(MiniProfileAttribute.image, mini.image);
-				miniCard.setAttribute(MiniProfileAttribute.followers, mini.followers);
+			const miniCard = this.ownerDocument.createElement('mini-profile') as MiniProfile;
 
-				this.miniprofile.push(miniCard);
-			});
+			miniCard.setAttribute(MiniProfileAttribute.username, appState.user.username);
+			miniCard.setAttribute(MiniProfileAttribute.name, appState.user.name);
+			miniCard.setAttribute(MiniProfileAttribute.image, appState.user.image);
+			miniCard.setAttribute(MiniProfileAttribute.followers, appState.user.followers);
 
+			this.miniprofile.push(miniCard);
 			const BannerBand = appState.bands.find((band) => band.id === 1);
 
 			if (BannerBand) {
