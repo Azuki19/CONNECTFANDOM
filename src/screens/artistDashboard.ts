@@ -61,7 +61,7 @@ class AppArtistDashboard extends HTMLElement {
 				miniCard.setAttribute(MiniProfileAttribute.username, mini.username);
 				miniCard.setAttribute(MiniProfileAttribute.name, mini.name);
 				miniCard.setAttribute(MiniProfileAttribute.image, mini.image);
-				miniCard.setAttribute(MiniProfileAttribute.followers, String(mini.followers));
+				miniCard.setAttribute(MiniProfileAttribute.followers, mini.followers);
 
 				this.miniprofile.push(miniCard);
 			});

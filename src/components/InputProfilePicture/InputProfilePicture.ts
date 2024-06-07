@@ -79,6 +79,7 @@ class inputEdit extends HTMLElement {
 			const InfoInput = document.createElement('input');
 			InfoInput.type = 'text';
 			InfoInput.id = 'info';
+			
 
 			const InfoButton = document.createElement('section');
 			InfoButton.classList.add('button-info');

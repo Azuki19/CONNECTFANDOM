@@ -7,7 +7,7 @@ export interface PostAdd {
 	email?: string;
 	password?: string;
 	info?: string;
-	followers?: number;
+	followers?: string;
 	titlepost?: string;
 	infopost?: string;
 	imagepost?: string;
