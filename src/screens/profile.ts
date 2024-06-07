@@ -45,7 +45,7 @@ class ProfileDashboard extends HTMLElement {
 				UserPostCard.setAttribute(Attribute.email, user.email);
 				UserPostCard.setAttribute(Attribute.password, user.password);
 				UserPostCard.setAttribute(Attribute.info, user.info);
-				UserPostCard.setAttribute(Attribute.followers, String(user.followers));
+				UserPostCard.setAttribute(Attribute.followers, user.followers);
 				UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
 				UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
 				UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
@@ -64,7 +64,7 @@ class ProfileDashboard extends HTMLElement {
 				EditProfileCard.setAttribute('username', user.username);
 				EditProfileCard.setAttribute('email', user.email);
 				EditProfileCard.setAttribute('info', user.info);
-				EditProfileCard.setAttribute('followers', String(user.followers));
+				EditProfileCard.setAttribute('followers', user.followers);
 
 				this.editprofile.push(EditProfileCard);
 			});
