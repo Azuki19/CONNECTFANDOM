@@ -1,6 +1,5 @@
 import style from './BandEvents.css';
-import SlideImage from '../../components/Eventss/InfoImage/SlideImage';
-import InfoEvent from '../../components/Eventss/InfoEvent/InfoEvent';
+import SlideImage from '../../components/infoImage/SlideImage';
 import * as components from '../../components/indexPadre';
 
 import { addObserver, appState, dispatch } from '../../store';
@@ -33,9 +32,13 @@ class AppBandEvents extends HTMLElement {
 				const eventList = [event1, event2, event3];
 
 				eventList.forEach((event) => {
-					if (event && event.slideImage) {
+					if (event) {
 						const slideImageElement = document.createElement('slide-image') as SlideImage;
 						slideImageElement.setAttribute('slideimage', event.slideImage);
+						slideImageElement.setAttribute('infoimage', event.infoImage);
+						slideImageElement.setAttribute('infoevents', event.infoEvents);
+						slideImageElement.setAttribute('dateevents', event.dateEvents);
+						slideImageElement.setAttribute('eventname', event.eventName);
 						this.slideImages.push(slideImageElement);
 					}
 				});
@@ -63,7 +66,6 @@ class AppBandEvents extends HTMLElement {
 	}
 
 	render() {
-		console.log('Rendering AppBandEvents...');
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = ``;
 

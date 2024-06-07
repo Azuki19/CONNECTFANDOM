@@ -11,10 +11,11 @@ import {
 	getFirestore,
 	setDoc,
 	updateDoc,
+	onSnapshot,
 } from 'firebase/firestore';
 import { PostAdd } from '../types/postAdd';
 import { userType } from '../types/store';
-import { appState } from '../store';
+import { appState, dispatch } from '../store';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -149,7 +150,7 @@ export const getPosts = async () => {
 export const getBands = async () => {
 	const querySnapshot = await getDocs(collection(db, 'bandsdata'));
 	const bandsdata: Array<any> = [];
-	querySnapshot.forEach((doc: any) => {
+	querySnapshot.forEach((doc) => {
 		bandsdata.push(doc.data());
 	});
 	return bandsdata;
@@ -176,4 +177,18 @@ export const updateUserData = async (userId: string, data: Partial<userType>) =>
 	} catch (error) {
 		console.error('Error updating user data:', error);
 	}
+};
+
+export const subscribeToBandDataChanges = () => {
+	const bandsRef = collection(db, 'bandsdata');
+	onSnapshot(bandsRef, (snapshot) => {
+		const bandsdata: Array<any> = [];
+		snapshot.forEach((doc) => {
+			bandsdata.push(doc.data());
+		});
+		dispatch({
+			action: 'SET_BANDS',
+			payload: bandsdata,
+		});
+	});
 };

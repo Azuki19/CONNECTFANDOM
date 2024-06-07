@@ -2,7 +2,7 @@ import Storage, { PersistanceKeys } from '../utils/storage';
 import { AppState, Observer } from '../types/store';
 import { reducer } from './reducer';
 import { Screens } from '../types/navigation';
-import { setupAuthListener } from '../utils/firebase';
+import { setupAuthListener, subscribeToBandDataChanges } from '../utils/firebase';
 import { navigate } from './action';
 
 setupAuthListener((user) => {
@@ -23,6 +23,7 @@ setupAuthListener((user) => {
 			payload: userData,
 		});
 		dispatch(navigate('DASHBOARD'));
+		subscribeToBandDataChanges(); // Añadir suscripción en tiempo real
 	} else {
 		dispatch(navigate('LOGIN'));
 	}
@@ -71,5 +72,4 @@ export const addObserver = (ref: Observer) => {
 	observers = [...observers, ref];
 };
 
-// Exportar dispatch para ser utilizado en otros módulos si es necesario
 export default dispatch;
