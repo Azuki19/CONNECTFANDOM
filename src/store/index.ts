@@ -40,7 +40,7 @@ export const emptyState: AppState = {
 		firebaseID: '',
 		info: '',
 		image: '',
-		type: '',
+		type: 'user',
 		followers: '',
 	},
 	posts: [],

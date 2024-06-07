@@ -6,4 +6,3 @@ export { default as ProfileDashboard } from './ScreensMCR/profile';
 export { default as Applogin } from './login';
 export { default as AppRegister } from './register';
 export { default as AppBandEvents } from './ScreensMCR/BandEvents';
-export { default as AppBandsMainDashboard } from './mainDashboard';

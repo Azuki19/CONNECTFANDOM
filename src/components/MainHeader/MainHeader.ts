@@ -49,7 +49,7 @@ class MainHeader extends HTMLElement {
 		const target = event.target.id;
 		switch (target) {
 			case 'connect-fandom':
-				dispatch(navigate('BANDASINICIO')); // Cambiar a la página de inicio, por ejemplo
+				dispatch(navigate('DASHBOARD')); // Cambiar a la página de inicio, por ejemplo
 				break;
 			case 'settings':
 				dispatch(navigate('EDITPROFILE')); // Cambiar a la página de configuraciones

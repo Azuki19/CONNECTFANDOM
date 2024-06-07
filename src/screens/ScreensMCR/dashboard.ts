@@ -22,6 +22,8 @@ class AppDashboard extends HTMLElement {
 	}
 
 	async connectedCallback() {
+		console.log('post dash', appState.posts);
+
 		if (appState.posts.length === 0) {
 			const action = await getPostsAction();
 			dispatch(action);
@@ -35,49 +37,34 @@ class AppDashboard extends HTMLElement {
 	async initializeData() {
 		try {
 			const UserData = appState.posts.filter((user) => user.type === 'User');
-			UserData.forEach((user) => {
+			appState.posts.forEach((user) => {
 				const UserPostCard = this.ownerDocument.createElement('user-post') as UserPost;
-				UserPostCard.setAttribute(Attribute.uid, String(user.id));
 				UserPostCard.setAttribute(Attribute.type, user.type);
 				UserPostCard.setAttribute(Attribute.name, user.name);
 				UserPostCard.setAttribute(Attribute.image, user.image);
 				UserPostCard.setAttribute(Attribute.username, user.username);
-				UserPostCard.setAttribute(Attribute.email, user.email);
-				UserPostCard.setAttribute(Attribute.password, user.password);
-				UserPostCard.setAttribute(Attribute.info, user.info);
-				UserPostCard.setAttribute(Attribute.followers, String(user.followers));
-				UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
-				UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
-				UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
+				UserPostCard.setAttribute(Attribute.infoPost, user.content);
+				UserPostCard.setAttribute(Attribute.titlePost, user.title);
+				UserPostCard.setAttribute(Attribute.imagePost, user.imageUrl);
 				this.userpost.push(UserPostCard);
 			});
 
 			const ArtistData = appState.posts.filter((user) => user.type === 'Artist');
 			ArtistData.forEach((artist) => {
 				const ArtistPostCard = this.ownerDocument.createElement('artist-post') as ArtistPost;
-				ArtistPostCard.setAttribute(ArtistAttribute.uid, String(artist.id));
 				ArtistPostCard.setAttribute(ArtistAttribute.type, artist.type);
 				ArtistPostCard.setAttribute(ArtistAttribute.name, artist.name);
 				ArtistPostCard.setAttribute(ArtistAttribute.image, artist.image);
 				ArtistPostCard.setAttribute(ArtistAttribute.username, artist.username);
-				ArtistPostCard.setAttribute(ArtistAttribute.email, artist.email);
-				ArtistPostCard.setAttribute(ArtistAttribute.password, artist.password);
-				ArtistPostCard.setAttribute(ArtistAttribute.info, artist.info);
-				ArtistPostCard.setAttribute(ArtistAttribute.followers, String(artist.followers));
-				ArtistPostCard.setAttribute(ArtistAttribute.titlePost, artist.posts.post1.titlePost);
-				ArtistPostCard.setAttribute(ArtistAttribute.infoPost, artist.posts.post1.infoPost);
-				ArtistPostCard.setAttribute(ArtistAttribute.imagePost, artist.posts.post1.imagePost);
+				ArtistPostCard.setAttribute(Attribute.infoPost, artist.content);
+				ArtistPostCard.setAttribute(Attribute.titlePost, artist.title);
+				ArtistPostCard.setAttribute(Attribute.imagePost, artist.imageUrl);
 				this.artistpost.push(ArtistPostCard);
 			});
 
-			const BannerCreatePost = appState.posts.find((post) => post.id === 1);
-			if (BannerCreatePost) {
-				const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
-				CreatePostCard.setAttribute(CreatePostAttribute.uid, String(BannerCreatePost.id));
-				CreatePostCard.setAttribute(CreatePostAttribute.image, BannerCreatePost.image);
-				CreatePostCard.setAttribute(CreatePostAttribute.type, BannerCreatePost.type);
-				this.createpost.push(CreatePostCard);
-			}
+			const CreatePostCard = this.ownerDocument.createElement('create-post') as CreatePost;
+			CreatePostCard.setAttribute(CreatePostAttribute.image, appState.user.image);
+			this.createpost.push(CreatePostCard);
 
 			const BannerBand = appState.bands.find((band) => band.id === 1);
 			if (BannerBand) {

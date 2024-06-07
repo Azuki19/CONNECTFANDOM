@@ -46,9 +46,8 @@ class ProfileDashboard extends HTMLElement {
 				UserPostCard.setAttribute(Attribute.password, user.password);
 				UserPostCard.setAttribute(Attribute.info, user.info);
 				UserPostCard.setAttribute(Attribute.followers, user.followers);
-				UserPostCard.setAttribute(Attribute.titlePost, user.posts.post1.titlePost);
-				UserPostCard.setAttribute(Attribute.infoPost, user.posts.post1.infoPost);
-				UserPostCard.setAttribute(Attribute.imagePost, user.posts.post1.imagePost);
+				UserPostCard.setAttribute(Attribute.titlePost, user.content);
+				UserPostCard.setAttribute(Attribute.titlePost, user.title);
 
 				this.userpost.push(UserPostCard);
 			});

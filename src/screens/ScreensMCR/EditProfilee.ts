@@ -26,27 +26,18 @@ class AppEditProfile extends HTMLElement {
 	}
 
 	async initializeData() {
-		try {
-			const EditProfileData = appState.posts.filter((user) => user.id === 1);
+		const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
+		EditProfileCard.setAttribute('type', appState.user.type);
+		EditProfileCard.setAttribute('name', appState.user.name);
+		EditProfileCard.setAttribute('image', appState.user.image);
+		EditProfileCard.setAttribute('username', appState.user.username);
+		EditProfileCard.setAttribute('email', appState.user.email);
+		EditProfileCard.setAttribute('info', appState.user.info);
+		EditProfileCard.setAttribute('followers', appState.user.followers);
 
-			EditProfileData.forEach((user) => {
-				const EditProfileCard = this.ownerDocument.createElement('edit-profile') as EditProfile;
-				EditProfileCard.setAttribute('uid', String(user.id));
-				EditProfileCard.setAttribute('type', user.type);
-				EditProfileCard.setAttribute('name', user.name);
-				EditProfileCard.setAttribute('image', user.image);
-				EditProfileCard.setAttribute('username', user.username);
-				EditProfileCard.setAttribute('email', user.email);
-				EditProfileCard.setAttribute('info', user.info);
-				EditProfileCard.setAttribute('followers', String(user.followers));
+		this.editprofile.push(EditProfileCard);
 
-				this.editprofile.push(EditProfileCard);
-			});
-
-			this.render();
-		} catch (error) {
-			console.error('Error fetching data from Firebase:', error);
-		}
+		this.render();
 	}
 
 	render() {

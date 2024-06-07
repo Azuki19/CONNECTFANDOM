@@ -140,11 +140,13 @@ export async function checkEmailExists(email: string) {
 }
 
 export const getPosts = async () => {
-	const querySnapshot = await getDocs(collection(db, 'MyChemicalRomanceData'));
+	const querySnapshot = await getDocs(collection(db, 'posts'));
 	const postdata: Array<any> = [];
 	querySnapshot.forEach((doc: any) => {
 		postdata.push(doc.data());
 	});
+	console.log('posts in firebase', postdata);
+
 	return postdata;
 };
 
