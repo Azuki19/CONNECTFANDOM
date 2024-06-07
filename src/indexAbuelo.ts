@@ -63,6 +63,11 @@ class AppContainer extends HTMLElement {
 				this.shadowRoot?.appendChild(bandasinicio);
 				break;
 
+			case 'MAINSETTINGS':
+				const mainsettings = this.ownerDocument.createElement('main-settings');
+				this.shadowRoot?.appendChild(mainsettings);
+				break;
+
 			default:
 				break;
 		}

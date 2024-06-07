@@ -1,5 +1,6 @@
 import { Screens } from '../types/navigation';
 import { addPost, getBands, getUserByUid, getPosts } from '../utils/firebase';
+import { AppState, editprofileinputs } from '../types/store';
 
 export const addPostsAction = async (posts: any) => {
 	//Ir al utils de firebase y ejecutar la función getPosts
@@ -25,6 +26,15 @@ export const navigate = (screen: any) => {
 		payload: screen,
 	};
 };
+
+
+export const editProfileInfo = (editProfileInputs: any) => {
+	return {
+		action: 'EDITPROFILE',
+		payload: editProfileInputs,
+	};
+};
+
 
 export const getBandsAction = async () => {
 	const bands = await getBands();

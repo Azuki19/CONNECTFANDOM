@@ -16,6 +16,7 @@ import {
 import { PostAdd } from '../types/postAdd';
 import { userType } from '../types/store';
 import { appState, dispatch } from '../store';
+import { getUserDataAction } from '../store/action';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -170,10 +171,14 @@ export const getData = async () => {
 };
 
 export const updateUserData = async (userId: string, data: Partial<userType>) => {
+	console.log('user data firebase :3');
+	console.log(userId, data);
+
 	const userRef = doc(db, 'users', userId);
 	try {
 		await updateDoc(userRef, data);
 		console.log('User data updated successfully');
+		dispatch(await getUserDataAction(userId));
 	} catch (error) {
 		console.error('Error updating user data:', error);
 	}

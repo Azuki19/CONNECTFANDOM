@@ -1,8 +1,9 @@
 import styles from './ButtonUsername.css';
-
+import { appState } from '../../../../store';
 import { dispatch } from '../../../../store';
 import { navigate } from '../../../../store/action';
 import { addObserver } from '../../../../store';
+import { updateUserData } from '../../../../utils/firebase';
 
 class ButtonUsername extends HTMLElement {
 	constructor() {
@@ -40,8 +41,7 @@ class ButtonUsername extends HTMLElement {
 	}
 
 	onButtonClicked() {
-		console.log('holaaa');
-		dispatch(navigate('DASHBOARD'));
+		updateUserData(appState.user.authCredentials, { username: appState.editprofile.userInput });
 	}
 }
 

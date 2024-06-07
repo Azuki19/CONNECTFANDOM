@@ -1,6 +1,6 @@
 import styles from './InputProfilePicture.css';
-import { dispatch } from '../../store';
-import { navigate } from '../../store/action';
+import { appState, dispatch } from '../../store';
+import { editProfileInfo, navigate } from '../../store/action';
 import { addObserver } from '../../store';
 import { Screens } from '../../types/navigation';
 import * as components from '../indexPadre';
@@ -47,6 +47,7 @@ class inputEdit extends HTMLElement {
 			const userInput = document.createElement('input');
 			userInput.type = 'text';
 			userInput.id = 'user';
+			userInput.value = appState.editprofile.userInput;
 
 			const UsernameButton = document.createElement('section');
 			UsernameButton.classList.add('button-username');
@@ -64,6 +65,7 @@ class inputEdit extends HTMLElement {
 			const NameInput = document.createElement('input');
 			NameInput.type = 'text';
 			NameInput.id = 'Name';
+			NameInput.value = appState.editprofile.NameInput;
 
 			const NameButton = document.createElement('section');
 			NameButton.classList.add('button-name');
@@ -179,6 +181,84 @@ class inputEdit extends HTMLElement {
 			general.appendChild(passwordSection);
 
 			general.appendChild(inputsDiv);
+
+			userInput.addEventListener('change', () => {
+				dispatch(
+					editProfileInfo({
+						NameInput: NameInput.value,
+						userInput: userInput.value,
+						emailInput: emailInput.value,
+						ProfilePictureInput: ProfilePictureInput.value,
+						passwordInput: passwordInput.value,
+						InfoInput: InfoInput.value,
+					})
+				);
+			});
+
+			NameInput.addEventListener('change', () => {
+				dispatch(
+					editProfileInfo({
+						NameInput: NameInput.value,
+						userInput: userInput.value,
+						emailInput: emailInput.value,
+						ProfilePictureInput: ProfilePictureInput.value,
+						passwordInput: passwordInput.value,
+						InfoInput: InfoInput.value,
+					})
+				);
+			});
+
+			emailInput.addEventListener('change', () => {
+				dispatch(
+					editProfileInfo({
+						NameInput: NameInput.value,
+						userInput: userInput.value,
+						emailInput: emailInput.value,
+						ProfilePictureInput: ProfilePictureInput.value,
+						passwordInput: passwordInput.value,
+						InfoInput: InfoInput.value,
+					})
+				);
+			});
+
+			ProfilePictureInput.addEventListener('change', () => {
+				dispatch(
+					editProfileInfo({
+						NameInput: NameInput.value,
+						userInput: userInput.value,
+						emailInput: emailInput.value,
+						ProfilePictureInput: ProfilePictureInput.value,
+						passwordInput: passwordInput.value,
+						InfoInput: InfoInput.value,
+					})
+				);
+			});
+
+			passwordInput.addEventListener('change', () => {
+				dispatch(
+					editProfileInfo({
+						NameInput: NameInput.value,
+						userInput: userInput.value,
+						emailInput: emailInput.value,
+						ProfilePictureInput: ProfilePictureInput.value,
+						passwordInput: passwordInput.value,
+						InfoInput: InfoInput.value,
+					})
+				);
+			});
+
+			InfoInput.addEventListener('change', () => {
+				dispatch(
+					editProfileInfo({
+						NameInput: NameInput.value,
+						userInput: userInput.value,
+						emailInput: emailInput.value,
+						ProfilePictureInput: ProfilePictureInput.value,
+						passwordInput: passwordInput.value,
+						InfoInput: InfoInput.value,
+					})
+				);
+			});
 		}
 
 		const cssProfile = this.ownerDocument.createElement('style');
