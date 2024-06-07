@@ -14,9 +14,11 @@ class inputEdit extends HTMLElement {
 	connectedCallback() {
 		this.render();
 	}
+
 	handleCreatButton() {
 		dispatch(navigate(Screens.DASHBOARD));
 	}
+
 	handlelogButton() {
 		dispatch(navigate(Screens.LOGIN));
 	}

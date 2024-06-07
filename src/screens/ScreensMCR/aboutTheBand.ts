@@ -1,12 +1,12 @@
-import * as components from '../components/indexPadre';
-import { BandGallery } from '../components/indexPadre';
-import { Members } from '../components/indexPadre';
-import { BandInfo } from '../components/indexPadre';
+import * as components from '../../components/indexPadre';
+import { BandGallery } from '../../components/indexPadre';
+import { Members } from '../../components/indexPadre';
+import { BandInfo } from '../../components/indexPadre';
 import style from './aboutTheBand.css';
 
-import { addObserver, appState, dispatch } from '../store';
-import { getPostsAction } from '../store/action';
-import { getBandsAction } from '../store/action';
+import { addObserver, appState, dispatch } from '../../store';
+import { getPostsAction } from '../../store/action';
+import { getBandsAction } from '../../store/action';
 
 class AppAboutTheBand extends HTMLElement {
 	bandgallerys: BandGallery[] = [];

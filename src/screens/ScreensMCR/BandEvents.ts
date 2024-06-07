@@ -1,10 +1,10 @@
 import style from './BandEvents.css';
-import SlideImage from '../components/Eventss/InfoImage/SlideImage';
-import InfoEvent from '../components/Eventss/InfoEvent/InfoEvent';
-import * as components from '../components/indexPadre';
+import SlideImage from '../../components/Eventss/InfoImage/SlideImage';
+import InfoEvent from '../../components/Eventss/InfoEvent/InfoEvent';
+import * as components from '../../components/indexPadre';
 
-import { addObserver, appState, dispatch } from '../store';
-import { getBandsAction } from '../store/action';
+import { addObserver, appState, dispatch } from '../../store';
+import { getBandsAction } from '../../store/action';
 
 class AppBandEvents extends HTMLElement {
 	slideImages: SlideImage[] = [];

@@ -1,5 +1,5 @@
 import styles from './miniProfile.css';
-import { dispatch } from '../../store';
+import { appState, dispatch } from '../../store';
 import { navigate } from '../../store/action';
 import { addObserver } from '../../store';
 
@@ -16,7 +16,7 @@ class MiniProfile extends HTMLElement {
 	image?: string;
 	name?: string;
 	username?: string;
-	followers?: number;
+	followers?: string;
 
 	static get observedAttributes() {
 		return Object.values(MiniProfileAttribute);
@@ -26,7 +26,6 @@ class MiniProfile extends HTMLElement {
 		if (newValue !== null) {
 			switch (propName) {
 				case MiniProfileAttribute.uid:
-				case MiniProfileAttribute.followers:
 					this[propName] = parseInt(newValue);
 					break;
 				default:
@@ -54,11 +53,11 @@ class MiniProfile extends HTMLElement {
 			this.shadowRoot.innerHTML = `
         <section class='Cajon-Profile'>
           <div class='Edit-profile'>
-            <img class='imgProfile' src="${this.image}" alt="">
+            <img class='imgProfile' src="${appState.user.image}" alt="">
             <div class='infoProfile'>
-              <h1 class='name'>${this.name}</h1>
-              <p class='username'>@${this.username}</p>
-							<p class='followers'>${this.followers} followers</p>
+              <h1 class='name'>${appState.user.name}</h1>
+              <p class='username'>@${appState.user.username}</p>
+							<p class='followers'>${appState.user.followers} followers</p>
             </div>
           </div>
 

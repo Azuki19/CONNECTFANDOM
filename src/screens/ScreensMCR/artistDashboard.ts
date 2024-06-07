@@ -1,12 +1,12 @@
-import * as components from '../components/indexPadre';
-import MainArtistPost, { Attribute } from '../components/MainArtistPost/MainArtistPost';
-import MoreAbout, { MoreAboutAttribute } from '../components/MoreAbout/MoreAbout';
+import * as components from '../../components/indexPadre';
+import MainArtistPost, { Attribute } from '../../components/MainArtistPost/MainArtistPost';
+import MoreAbout, { MoreAboutAttribute } from '../../components/MoreAbout/MoreAbout';
 import style from './artistDashboard.css';
-import MiniProfile, { MiniProfileAttribute } from '../components/miniProfile/miniProfile';
+import MiniProfile, { MiniProfileAttribute } from '../../components/miniProfile/miniProfile';
 
-import { addObserver, appState, dispatch } from '../store';
-import { getPostsAction } from '../store/action';
-import { getBandsAction } from '../store/action';
+import { addObserver, appState, dispatch } from '../../store';
+import { getPostsAction } from '../../store/action';
+import { getBandsAction } from '../../store/action';
 
 class AppArtistDashboard extends HTMLElement {
 	mainartistpost: MainArtistPost[] = [];
@@ -61,7 +61,7 @@ class AppArtistDashboard extends HTMLElement {
 				miniCard.setAttribute(MiniProfileAttribute.username, mini.username);
 				miniCard.setAttribute(MiniProfileAttribute.name, mini.name);
 				miniCard.setAttribute(MiniProfileAttribute.image, mini.image);
-				miniCard.setAttribute(MiniProfileAttribute.followers, String(mini.followers));
+				miniCard.setAttribute(MiniProfileAttribute.followers, mini.followers);
 
 				this.miniprofile.push(miniCard);
 			});

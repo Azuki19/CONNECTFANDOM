@@ -2,7 +2,8 @@ import styles from './ButtonName.css';
 
 import { dispatch } from '../../../../store';
 import { navigate } from '../../../../store/action';
-import { addObserver } from '../../../../store';
+import { addObserver, appState } from '../../../../store';
+import { updateUserData } from '../../../../utils/firebase'; // Asegúrate de importar esto
 
 class ButtonName extends HTMLElement {
 	constructor() {
@@ -35,13 +36,28 @@ class ButtonName extends HTMLElement {
 		cssLogOut.innerHTML = styles;
 		this.shadowRoot?.appendChild(cssLogOut);
 	}
+
 	addListeners() {
-		this.shadowRoot.querySelector('.Button-Name')?.addEventListener('click', this.onButtonClicked);
+		this.shadowRoot.querySelector('.Name')?.addEventListener('click', this.onButtonClicked);
 	}
 
-	onButtonClicked() {
-		console.log('holaaa');
-		dispatch(navigate('DASHBOARD'));
+	async onButtonClicked() {
+		const nameInput = document.getElementById('Name') as HTMLInputElement;
+		const newName = nameInput.value;
+
+		if (newName) {
+			try {
+				const userId = appState.user.firebaseID;
+				await updateUserData(userId, { name: newName });
+				alert('Name updated successfully!');
+				dispatch(navigate('DASHBOARD'));
+			} catch (error) {
+				console.error('Error updating name:', error);
+				alert('Failed to update name. Please try again.');
+			}
+		} else {
+			alert('Please enter a name.');
+		}
 	}
 }
 

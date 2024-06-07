@@ -14,6 +14,7 @@ import {
 } from 'firebase/firestore';
 import { PostAdd } from '../types/postAdd';
 import { userType } from '../types/store';
+import { appState } from '../store';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCd85eDHcTUkpO2r4-cnv_M3FBM-fx1b5w',
@@ -27,6 +28,30 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+
+export const addPost = async (post: Omit<PostAdd, 'id'> & { userId: string }) => {
+	try {
+		const userDoc = await getDoc(doc(db, 'users', post.userId));
+		if (!userDoc.exists()) {
+			throw new Error('User not found');
+		}
+		const user = userDoc.data() as userType;
+
+		const postWithUserId = {
+			...post,
+			name: user.name || 'nofunciono',
+			username: user.username || 'nofunciono',
+			image: user.image || '',
+		};
+
+		const docRef = await addDoc(collection(db, 'posts'), postWithUserId);
+		console.log('Post added with ID: ', docRef.id);
+		return docRef.id;
+	} catch (e) {
+		console.error('Error adding post: ', e);
+		throw new Error('Error adding post');
+	}
+};
 
 export const iniciarSesion = async (username: string, password: string) => {
 	try {
@@ -55,6 +80,7 @@ export const registrarUsuario = async (name: string, username: string, email: st
 			info: '',
 			image: '',
 			type: '',
+			followers: '',
 		};
 
 		const userRef = doc(db, 'users', userCredentials); // Obtener referencia del documento
@@ -70,26 +96,6 @@ export const registrarUsuario = async (name: string, username: string, email: st
 	} catch (error) {
 		console.error('Error during registration:', error);
 		return null;
-	}
-};
-
-export const actualizarUsuario = async (userId, updatedData) => {
-	try {
-		// Referencia al documento del usuario en Firestore
-		const userDocRef = doc(db, 'users', userId);
-
-		// Actualizar el documento del usuario con los datos proporcionados
-		await updateDoc(userDocRef, updatedData);
-
-		// Obtener el documento actualizado para verificar los cambios
-		const updatedUserDoc = await getDoc(userDocRef);
-		const updatedUserData = updatedUserDoc.data();
-
-		console.log('User data updated successfully:', updatedUserData);
-		return updatedUserData;
-	} catch (error) {
-		console.error('Error updating user:', error);
-		return false;
 	}
 };
 
@@ -116,21 +122,6 @@ export const setupAuthListener = (callback: (user: userType | null) => void) => 
 		}
 	});
 };
-// Nueva función para agregar posts
-export const addPost = async (post: Omit<PostAdd, 'id'> & { userId: string }) => {
-	try {
-		const postWithUserId = {
-			...post,
-			userId: post.userId,
-		};
-		const docRef = await addDoc(collection(db, 'posts'), postWithUserId);
-		console.log('Post added with ID: ', docRef.id);
-		return docRef.id;
-	} catch (e) {
-		console.error('Error adding post: ', e);
-		throw new Error('Error adding post');
-	}
-};
 
 export async function checkUsernameExists(username: string) {
 	// Lógica para verificar si el nombre de usuario ya existe
@@ -146,38 +137,6 @@ export async function checkEmailExists(email: string) {
 	return !querySnapshot.empty;
 }
 
-// export const actualizarDatosUsuarioConImagen = async (
-// 	name: string,
-// 	username: string,
-// 	email: string,
-// 	password: string,
-// 	authCredentials: string,
-// 	firebaseID: '',
-// 	info: string,
-// 	image: string,
-// 	type: string,
-// 	followers: string
-// ) => {
-// 	console.log('actualizarDatosUsuarioConImagen');
-// 	const userRef = doc(db, 'users', appState.user);
-
-// 	const imageURL = await subirImagen(img);
-
-// 	await updateDoc(userRef, {
-// 		name: name,
-// 		username: username,
-// 		email: email,
-// 		password: password,
-// 		authCredentials: authCredentials,
-// 		firebaseID: firebaseID,
-// 		info: info,
-// 		image: image,
-// 		type: type,
-// 		followers: followers,
-// 	});
-// };
-
-// Funciones para agregar y obtener posts
 export const getPosts = async () => {
 	const querySnapshot = await getDocs(collection(db, 'MyChemicalRomanceData'));
 	const postdata: Array<any> = [];
@@ -206,5 +165,15 @@ export const getData = async () => {
 		});
 	} catch (error) {
 		console.error('Error getting documents:', error);
+	}
+};
+
+export const updateUserData = async (userId: string, data: Partial<userType>) => {
+	const userRef = doc(db, 'users', userId);
+	try {
+		await updateDoc(userRef, data);
+		console.log('User data updated successfully');
+	} catch (error) {
+		console.error('Error updating user data:', error);
 	}
 };

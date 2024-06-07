@@ -1,10 +1,10 @@
-import * as components from '../components/indexPadre';
-import { EditProfile } from '../components/indexPadre';
+import * as components from '../../components/indexPadre';
+import { EditProfile } from '../../components/indexPadre';
 import style from './editProfilee.css';
 
-import { addObserver, appState, dispatch } from '../store';
-import { getPostsAction } from '../store/action';
-import { getBandsAction } from '../store/action';
+import { addObserver, appState, dispatch } from '../../store';
+import { getPostsAction } from '../../store/action';
+import { getBandsAction } from '../../store/action';
 
 class AppEditProfile extends HTMLElement {
 	editprofile: EditProfile[] = [];
