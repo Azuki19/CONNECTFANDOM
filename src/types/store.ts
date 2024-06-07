@@ -24,4 +24,5 @@ export interface userType {
 	info: string;
 	image: string;
 	type: string;
+	followers: string;
 }
