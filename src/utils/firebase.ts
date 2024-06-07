@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { addDoc, collection, doc, getDocs, query, where, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, query, where, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { PostAdd } from '../types/postAdd';
 import { userType } from '../types/store';
 
@@ -59,6 +59,26 @@ export const registrarUsuario = async (name: string, username: string, email: st
 	} catch (error) {
 		console.error('Error during registration:', error);
 		return null;
+	}
+};
+
+export const actualizarUsuario = async (userId, updatedData) => {
+	try {
+		// Referencia al documento del usuario en Firestore
+		const userDocRef = doc(db, 'users', userId);
+
+		// Actualizar el documento del usuario con los datos proporcionados
+		await updateDoc(userDocRef, updatedData);
+
+		// Obtener el documento actualizado para verificar los cambios
+		const updatedUserDoc = await getDoc(userDocRef);
+		const updatedUserData = updatedUserDoc.data();
+
+		console.log('User data updated successfully:', updatedUserData);
+		return updatedUserData;
+	} catch (error) {
+		console.error('Error updating user:', error);
+		return false;
 	}
 };
 
