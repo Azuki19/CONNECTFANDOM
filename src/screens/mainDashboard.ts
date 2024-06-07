@@ -54,6 +54,7 @@ class AppBandsMainDashboard extends HTMLElement {
 
         <section id='background'>
             <header id="main-header-container"></header>
+            <div id="mini-header-container"></div>
         </section>
         <section id="bandas-inicio-section">
         </section>
@@ -61,6 +62,9 @@ class AppBandsMainDashboard extends HTMLElement {
 
 			const mainHeaderContainer = this.shadowRoot.getElementById('main-header-container');
 			mainHeaderContainer.appendChild(new components.MainHeader());
+
+			const miniHeaderContainer = this.shadowRoot.getElementById('mini-header-container');
+			miniHeaderContainer.appendChild(new components.MiniHeader());
 
 			const BandasInicioSection = this.shadowRoot.getElementById('bandas-inicio-section');
 			console.log('BandaInicio:', this.BandaInicio);
