@@ -48,3 +48,56 @@
 .next {
 	right: 320px;
 }
+
+@media (max-width: 431px) {
+	.background {
+		background-image: url(https://pbs.twimg.com/media/GNHKSQgWIAAfz4V?format=jpg&name=large);
+		background-attachment: fixed; /* Fondo fijo */
+		background-repeat: no-repeat; /* No repetir */
+		background-size: cover; /* Ajustar el tamaño del fondo */
+	}
+
+	.slider-container {
+		margin-top: 30px;
+		overflow: hidden;
+		position: relative;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.slide-track {
+		display: flex;
+		transition: transform 0.5s ease;
+	}
+
+	.slide {
+		min-width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+	}
+
+	.nav-button {
+		height: 50px;
+		width: 50px;
+		font-size: 25px;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: rgba(0, 0, 0, 0.5);
+		color: white;
+		border: none;
+		padding: 10px;
+		cursor: pointer;
+		z-index: 1;
+	}
+
+	.prev {
+		left: 30px;
+	}
+
+	.next {
+		right: 30px;
+	}
+}
